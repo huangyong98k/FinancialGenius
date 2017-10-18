@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>testChart</title>
+	<script type="text/javascript" src="js/Chart.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<div width="400" height="400" style="margin: 0 auto">
+	<canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+<script>
+//环形图----------------------
+	/*// 横轴数据
+	var getNames = function() {
+		var name = ['一班','二班','三班','四班','五班'];
+		return name;
+    };
+    
+    // 纵轴数据
+    var getValues = function() {
+    	var value = ['30','35','40','50','25'];
+		return value;
+    };
+    
+ 	// 颜色数据
+    var getColors = function() {
+    	var value = ['#F7464A','#949FB1','#FDB45C','#46BFBD','#4D5360'];
+		return value;
+    };
+    
+    // 环形图参数
+    var config = {
+        type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: getValues(),
+                    backgroundColor: getColors(),
+                    label: 'Dataset 1'
+                }],
+                labels: getNames()
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: '环形图'
+                }
+            }
+        };
+	
+	$(function() {
+		// 生成环形图
+		var ctx = document.getElementById("myChart").getContext("2d");
+        window.myDoughnut = new Chart(ctx, config);
+	});*/
+
+//曲线图----------------------
+	// 横轴数据
+	/*var getNames = function() {
+		var name = ['一班', '二班', '三班', '四班', '五班'];
+		return name;
+	};
+
+	// 纵轴数据
+	var getValues = function() {
+		var value = ['30','35','40','50','25'];
+		return value;
+	};
+
+	// 曲线图数据
+	var lineChartData = {
+		labels : getNames(),
+		datasets : [ {
+			label : 'Dataset 1',
+			backgroundColor : "rgba(220,220,220,0.5)",
+			data : getValues()
+		} ]
+
+	};
+
+	$(function() {
+		// 生成曲线图
+		var ctx = document.getElementById("myChart").getContext("2d");
+		window.myBar = new Chart(ctx, {
+			type : 'line',
+			data : lineChartData,
+			options : {
+				responsive : true,
+				legend : {
+					position : 'top',
+				},
+				title : {
+					display : true,
+					text : '曲线图'
+				}
+			}
+		});
+	});
+*/
+
+//柱状图-----------------
+	// 横轴数据
+	/*var getNames = function() {
+		var name = ['一班','二班','三班','四班','五班'];
+		return name;
+	};
+
+	// 纵轴数据
+	var getValues = function() {
+		var value = ['30','35','40','50','25'];
+		return value;
+
+	};
+
+	// 柱状图参数
+	var barChartData = {
+		labels : getNames(),
+		datasets : [ {
+			label : 'Dataset 1',
+			// 默认背景颜色
+			backgroundColor : "rgba(220,220,220,0.5)",
+			data : getValues()
+		} ]
+
+	};
+
+	$(function() {
+		// 生成柱状图
+		var ctx = document.getElementById("myChart").getContext("2d");
+		window.myBar = new Chart(ctx, {
+			type : 'bar',
+			data : barChartData,
+			options : {
+				responsive : true,
+				legend : {
+					position : 'top',
+				},
+				title : {
+					display : true,
+					text : '柱状图'
+				}
+			}
+		});
+	});
+*/
+
+	// 获取横轴数据
+	var getNames = function() {
+		var name = ['一班','二班','三班','四班','五班'];
+		return name;
+	};
+
+	// 获取纵轴数据
+	var getValues = function() {
+		var value = ['30','35','40','50','25'];
+		return value;
+	};
+
+	// 获取颜色数据
+	var getColors = function() {
+		var value = ['#F7464A','#949FB1','#FDB45C','#46BFBD','#4D5360'];
+		return value;
+	};
+
+	// 饼状图参数
+	var config = {
+		type : 'pie',
+		data : {
+			datasets : [ {
+				data : getValues(),
+				backgroundColor : getColors(),
+			} ],
+			labels : getNames()
+		},
+		options : {
+		    title : {
+                display : true,
+                text : '饼状图'
+            },
+			responsive : true
+		}
+	};
+
+	$(function() {
+		// 生成饼状图
+		var ctx = document.getElementById("myChart").getContext("2d");
+		window.myPie = new Chart(ctx, config);
+	});
+
+</script>
+</body>
+</html>

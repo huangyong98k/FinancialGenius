@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dataStatistics</title>
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <script type="text/javascript" src="js/Chart.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <div id="header" class="header-new">
+    </div>
+    <div class="data_statistics">
+        <div class="data_analysis">
+            <div class="da_center">
+                <dl class="dac_dl1">
+                    <dt><span>  ￥58,521,252,246  </span></dt>
+                    <dd>交易总额</dd>
+                </dl>
+                <dl>
+                    <dt><span>  31,169,723  </span></dt>
+                    <dd>加入理财精灵的投资人</dd>
+                </dl>
+                <dl>
+                    <dt><span>  ￥2,333,718,068  </span></dt>
+                    <dd>累计赚取收益</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="analysis_chart">
+            <div class="ac_center">
+                <h2>累计投资金额</h2>
+                <div id="TTMoney" width="400px" height="400px" style="margin: 0 auto">
+                <canvas id="myChart" width="400px" height="400px" style="width: 400px height: 400px"></canvas>
+                </div><span id="TTMoneyTime"></span></div>
+        </div>
+        <div class="scattergram">
+            <div class="article_center">
+                <h2>借款数据</h2>
+                <div class="loan_data">
+                    <dl>
+                        <dt> 3,518,661 </dt>
+                        <dd>交易总笔数</dd>
+                    </dl>
+                    <dl>
+                        <dt> 2,626,871 </dt>
+                        <dd>融资人总数</dd>
+                    </dl>
+                    <dl>
+                        <dt> 14,980.35 </dt>
+                        <dd>人均累计融资金额</dd>
+                    </dl>
+                    <dl>
+                        <dt> 11,183.64 </dt>
+                        <dd>笔均融资金额</dd>
+                    </dl>
+                    <div class="bg_gray"></div>
+                </div>
+                <p id="projectDesc" class="project_desc"></p>
+                <p class="project_overdue">迄今为止有逾期项目0个，逾期金额0元，项目逾期率0%，历史项目逾期金额0元，历史项目逾期率0%，金额分级逾期率0%，项目分级逾期率0%。</p>
+                <p class="project_overdue">截止统计时点，有利网待还本金余额为144.36亿元。</p>
+                <ul class="project_list">
+                    <li class="ac_li1">
+                        <div id="projectDeadline"></div>
+                    </li>
+                    <li class="ac_li2">
+                        <div id="projectAmount"></div>
+                    </li>
+                    <li class="ac_li3">
+                        <div class="total_time">
+                            <p class="border_p"> <strong>  <em>271</em>分 <em>27</em>秒  </strong> <span>月息通每笔借款耗时</span></p>
+                            <p> <strong>   <em>17</em>分 <em>9</em>秒  </strong> <span>每笔债权转让时间</span></p>
+                        </div>
+                    </li>
+                </ul>
+                <p class="time_line">*数据截止至 <span id="projectCutoff"></span></p>
+            </div>
+        </div>
+        <div class="invest_data">
+            <div class="id_center">
+                <h2>投资数据</h2>
+                <div id="id_des" class="id_des">最大单户投资总额占比<span>0.0724%</span>&nbsp;&nbsp;&nbsp;&nbsp;最大十户投资总额占比<span>0.4835%</span></div>
+                <div class="idc_lr">
+                    <div class="idc_left">
+                        <h5>用户首次投资金额</h5>
+                        <ul>
+                            <li><span class="money">50~1000元</span><span class="scale"><i class="sc_i value1" style="width:70.54%"></i></span><span class="percentage">70.54%</span></li>
+                            <li><span class="money">1000~5000元</span><span class="scale"><i class="sc_i value2" style="width:11.97%"></i></span><span class="percentage">11.97%</span></li>
+                            <li><span class="money">5000~10000元</span><span class="scale"><i class="sc_i value3" style="width:10.79%"></i></span><span class="percentage">10.79%</span></li>
+                            <li><span class="money">10000~300000元</span><span class="scale"><i class="sc_i value4" style="width:6.7%"></i></span><span class="percentage">6.7%</span></li>
+                        </ul>
+                    </div>
+                    <div class="idc_left idc_center">
+                        <h5>投资金额 <a class="idc_span" href="/statistic/billboard/">投资风云榜></a></h5>
+                        <ul>
+                            <li><span class="money">1万以下</span><span class="scale scale_w"><i class="sc_i value4" style="width:65.1%"></i></span><span class="percentage">65.1%</span></li>
+                            <li><span class="money">1~5万</span><span class="scale scale_w"><i class="sc_i value5" style="width:15.76%"></i></span><span class="percentage">15.76%</span></li>
+                            <li><span class="money">5~20万</span><span class="scale scale_w"><i class="sc_i value6" style="width:11.21%"></i></span><span class="percentage">11.21%</span></li>
+                            <li><span class="money">20~50万</span><span class="scale scale_w"><i class="sc_i value7" style="width:4.81%"></i></span><span class="percentage">4.81%</span></li>
+                            <li><span class="money">50万以上</span><span class="scale scale_w"><i class="sc_i value8" style="width:3.12%"></i></span><span class="percentage">3.12%</span></li>
+                        </ul>
+                    </div>
+                    <div class="idc_right">
+                        <h5>投资产品</h5>
+                        <ul>
+                            <li class="ml_li1"><span class="product">196亿</span><span class="result_w result1" style="height:61.05730111641699px"></span><span class="product">无忧宝</span></li>
+                            <li class="ml_li2"><span class="product">360亿</span><span class="result_w result2"></span><span class="product">定存宝</span></li>
+                            <li class="ml_li3"><span class="product">28亿</span><span class="result_w result3" style="height:8.792042945987705px"></span><span class="product">月息通</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="idc_p">*所示比例为投资人数比例</div>
+                <div class="yield">
+                    <p class="yield_p"><span class="yp_fgx">理财精灵预期年化利率最高达<em class="yp_em">10</em>%</span>相当于CPI涨幅的5倍*</p>
+                    <div class="cpiInfo">* CPI涨幅取自国家统计局公布的2016年CPI数据</div>
+                </div>
+            </div>
+        </div>
+        <div class="investors_data">
+            <div class="investors_center idc_lr">
+                <h2>投资人数据</h2>
+                <div class="inc_left">
+                    <ul>
+                        <li><span class="money">60后</span><span class="scale inlw_scale"><i class="sc_i value_inw" style="width:10.12%"></i></span><span class="percentage inlc_color">10.12%</span></li>
+                        <li><span class="money">70后</span><span class="scale inlw_scale"><i class="sc_i value_inw" style="width:19.3%"></i></span><span class="percentage inlc_color">19.3%</span></li>
+                        <li><span class="money">80后</span><span class="scale inlw_scale"><i class="sc_i value_inw" style="width:43.32%"></i></span><span class="percentage inlc_color">43.32%</span></li>
+                        <li><span class="money">90后</span><span class="scale inlw_scale"><i class="sc_i value_inw" style="width:27.26%"></i></span><span class="percentage inlc_color">27.26%</span></li>
+                    </ul>
+                    <h5>年龄分布</h5></div>
+                <div class="inc_right">
+                    <ul>
+                        <li><span class="woman"></span><span class="scale inrw_scale"><i class="sc_i value_inrw1" style="width:38.20%"></i></span><span class="percentage inc_colorw">38.20%</span></li>
+                        <li><span class="man"></span><span class="scale inrw_scale"><i class="sc_i value_inrw2" style="width:61.80%"></i></span><span class="percentage inc_colorm">61.80%</span></li>
+                    </ul>
+                    <h5>性别分布</h5></div>
+            </div>
+            <div class="idc_p">*数据截止至 <span id="investorsCutoff"></span></div>
+        </div>
+        <div class="register_btn"><a href="http://www.yooli.com/secure/register/">注册即送50元</a></div>
+        <div class="securityExplain securityExplain-bg">以上数据取自理财精灵运营情况，仅供参考。</div>
+    </div>
+    <div id="footer">
+    </div>
+</body>
+<!-- <script>
+//柱状图-----------------
+    // 横轴数据
+    var getNames = function() {
+        var name = ['一班','二班','三班','四班','五班'];
+        return name;
+    };
+
+    // 纵轴数据
+    var getValues = function() {
+        var value = ['30','35','40','50','25'];
+        return value;
+
+    };
+
+    // 柱状图参数
+    var barChartData = {
+        labels : getNames(),
+        datasets : [ {
+            label : 'Dataset 1',
+            // 默认背景颜色
+            backgroundColor : "rgba(220,220,220,0.5)",
+            data : getValues()
+        } ]
+
+    };
+
+    $(function() {
+        // 生成柱状图
+        var ctx = document.getElementById("myChart").getContext("2d");
+        window.myBar = new Chart(ctx, {
+            type : 'bar',
+            data : barChartData,
+            options : {
+                responsive : true,
+                legend : {
+                    position : 'top',
+                },
+                title : {
+                    display : true,
+                    text : '柱状图'
+                }
+            }
+        });
+    }); -->
+
+</script>
+</html>

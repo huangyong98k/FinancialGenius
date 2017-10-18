@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <!-- 引入 jQuery 库 -->
+    <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <!-- 引入自定义公用 js 库 -->
+    <script>
+        $(document).ready(function (event) {
+        $("#registerButton").click(function (event) {
+            var dataName = $("#name").val();
+            var dataPassword = $("#password").val();
+            var dataPasswordAgain = $("#passwordAgain").val();
+            var dataEmail = $("#E-mail").val();
+            var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            var strEmail = pattern.test(dataEmail);
+            if ((dataName == "" || undefined || null)) {
+                alert("用户名称不可为空！");
+                return false;
+            }
+
+            else if (dataPassword == "" || undefined || null) {
+                alert("密码不能为空！");
+                return false;
+            }
+            else if (dataPasswordAgain == "" || undefined || null) {
+                alert("请输入重复密码！");
+                return false;
+            }
+            else if (dataEmail == "" || undefined || null) {
+                alert("请输入E-mail！");
+                return false;
+            }
+            else if (!strEmail) {
+                alert("请输入合法的E-mail！");
+                return false;
+            }
+            else if (dataPassword != dataPasswordAgain) {
+                alert("两次输入的密码不一致！");
+                return false;
+            }
+            else {
+                alert("注册成功！");
+                return true;
+            }
+        });
+        $("#name").bind('input propertychange', function () {
+            var length = $("#name").val().length;
+            if (length >= 6) {
+                $("#nameInfo").css("display", "none");
+            } else {
+                $("#nameInfo").css("display", "block");
+            }
+        });
+        $("#password").bind('input propertychange', function (event) {
+            var length = $("#password").val().length;
+            if (length >= 6) {
+                $("#passwordInfo").css("display", "none");
+            } else {
+                $("#passwordInfo").css("display", "block");
+            }
+        });
+        $("#passwordAgain").bind('input propertychange', function (event) {
+            var length1 = $("#password").val().length;
+            var length2 = $("#passwordAgain").val().length;
+            if (length2 == length1) {
+                $("#passwordAgainInfo").css("display", "none");
+            } else {
+                $("#passwordAgainInfo").css("display", "block");
+            }
+        });
+        $("#E-mail").bind('input propertychange', function (event) {
+            var email = $("#E-mail").val();
+            var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            var strEmail = pattern.test(email);
+            if (strEmail) {
+                $("#E-mailInfo").css("display", "none");
+            } else {
+                $("#E-mailInfo").css("display", "block");
+            }
+        });
+        //手机号验证
+        $("#phoneNumber").bind('input propertychange', function (event) {
+            var inputNumber = $("#phoneNumber").val();
+            var pattern=/^[1][3,4,5,7,8][0-9]{9}$/;
+            if(pattern.test(inputNumber)){
+                $("#phoneNumberInfo").css("display", "none");
+            } else {
+                $("#phoneNumberInfo").css("display", "block");
+            }
+        });
+        //身份证号码验证
+            $("#IDCard").bind('input propertychange', function (event) {
+                var inputNumber = $("#IDCard").val();
+                var pattern=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+                if(pattern.test(inputNumber)){
+                    $("#IDCardInfo").css("display", "none");
+                } else {
+                    $("#IDCardInfo").css("display", "block");
+                }
+            });
+        });
+    </script>
+    <style>
+        #user-register{
+            margin-top: 30px;
+            margin-left: 340px;
+            width: 50%;
+            height: 510px;
+            border: 1px solid seagreen;
+        }
+        #user-register header {
+            margin-top: 10px;
+            margin-left: 300px;
+            font-size: 32px;
+            color: #296CAE;
+        }
+        #user-register .uesrMessage {
+            margin-left: 90px;
+        }
+
+        #user-register input {
+            margin-bottom: 20px;
+            height: 25px;
+            width: 360px;
+        }
+
+        #user-register p {
+            margin-top: -28px;
+            margin-left: 108px;
+        }
+
+        #user-register .select-states_0 {
+            margin-top: 8px;
+            margin-left: -25px;
+            width: 30px;
+            height: 15px;
+        }
+
+        #user-register .select-states_1 {
+            width: 30px;
+            height: 15px;
+        }
+
+        #user-register .bie {
+            margin-left: 33px;
+        }
+
+        #user-register .registerButton {
+            margin-left: 80px;
+            height: 30px;
+            width: 100px;
+        }
+
+        #user-register .resetButton {
+            margin-left: 20px;
+            height: 30px;
+            width: 100px;
+        }
+
+        #user-register .backButton {
+            margin-left: 20px;
+            height: 30px;
+            width: 100px;
+        }
+
+        #user-register .hr {
+            margin-left: -50px;
+            width: 100%;
+        }
+
+        #user-register footer {
+            margin-left: 300px;
+        }
+
+        #user-register .info {
+            color: red;
+            left: 800px;
+            height: 20px;
+            width: 20px;
+        }
+
+        #user-register #nameInfo {
+            position: absolute;
+            top: 230px;
+        }
+
+        #user-register #passwordInfo {
+            position: absolute;
+            top: 280px;
+        }
+
+        #user-register #passwordAgainInfo {
+            position: absolute;
+            top: 330px;
+        }
+
+        #user-register #E-mailInfo {
+            position: absolute;
+            top: 380px;
+        }
+
+
+        #user-register #phoneNumberInfo{
+            position: absolute;
+            top: 480px;
+        }
+
+        #user-register #IDCardInfo{
+            position: absolute;
+            top: 530px;
+        }
+
+        .headTltle{
+            width: 100%;
+            height: 80px;
+            background-color: #4C99C1;
+        }
+
+        .register-logo{
+            margin-left: 40px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .rigister-name{
+            position: absolute;
+            font-size: 32px;
+            color:white;
+            left: 120px;
+            top: 30px;
+        }
+        .back-index,.login{
+            position: absolute;
+            font-size: 18px;
+            color: #EFEFEF;
+            top: 40px;
+        }
+        .back-index{
+            right: 100px;
+        }
+        .login{
+            right: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="headTitle" class="headTltle"><img class="register-logo" src="image/logo.png" alt=""> <div class="rigister-name">|     注册</div><span class="back-index" id="back-index">返回首页</span><span class="login" id="login">登录</span></div></div>
+<div id="user-register" class="user-register">
+<header>注册</header><br>
+<form class="uesrMessage" action="" method="post">
+    <span>用户名称：</span><input class="name" id="name" type="text" minlength="6" maxlength="20" placeholder="请输入您的用户名">
+    <p id="nameInfo" class="info">*</p><br>
+    <span>登录密码：</span><input class="password" id="password" type="password" minlength="6" maxlength="20" placeholder="请输入登录密码">
+    <p id="passwordInfo" class="info">*</p><br>
+    <span>重复密码：</span><input class="passwordAgain" id="passwordAgain" type="password" minlength="6" maxlength="20" placeholder="请再次输入登录密码">
+    <p id="passwordAgainInfo" class="info">*</p><br>
+    <span>电子邮箱：</span><input class="E-mail"  id="E-mail" type="email" placeholder="请输入您的电子邮箱">
+    <p id="E-mailInfo" class="info">*</p><br>
+    <span>性</span><span class="bie">别：</span>
+    <p>
+        <label>
+            <input type="radio" name="select-states" value="男" class="select-states_0" checked>
+            男</label>
+        <label>
+            <input type="radio" name="select-states" value="女" class="select-states_1">
+            女</label>
+    </p>
+    <span>电话号码：</span><input class="phoneNumber" id="phoneNumber" type="text" minlength="11" maxlength="11" placeholder="请输入手机号码">
+    <p id="phoneNumberInfo" class="info">*</p><br>
+    <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" minlength="18" maxlength="18" placeholder="请输入您的身份证号码">
+    <p id="IDCardInfo" class="info">*</p><br>
+    <hr class="hr"><br>
+    <input type="submit" class="registerButton" id="registerButton" value="注册">
+    <input type="reset" class="resetButton" value="重置">
+    <input type="button" class="backButton" id="backButton" value="返回">
+</form>
+</div>
+</body>
+</html>

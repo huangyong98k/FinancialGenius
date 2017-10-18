@@ -1,0 +1,9 @@
+.classpath
+.project
+.tomcatplugin
+.settings
+target
+work
+*.MF
+WebContent/WEB-INF/.idea
+src/main/webapp
