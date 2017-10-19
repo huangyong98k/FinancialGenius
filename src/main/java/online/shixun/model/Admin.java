@@ -16,5 +16,5 @@ public class Admin {
 	@Column(unique=true)
 	private String adminName;	
 	@Column(unique=true)
-	private String AdminPassword;
+	private String AdminPassword;   
 }
