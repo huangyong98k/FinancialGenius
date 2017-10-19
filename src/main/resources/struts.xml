@@ -10,10 +10,10 @@
 
 	<package name="default" namespace="/" extends="struts-default">
 
-		<!-- 使用通配符定义action能显著减少action定义数量 -->
-		<action name="user*" class="online.shixun.action.Register"
-			method="{1}">
-			<result name="{1}">/WEB-INF/{1}.jsp</result>
+		<!-- 刘杰生的action -->
+		<action name="userRegister*" class="online.shixun.action.RegisterAction"
+			method="register*">
+			<result name="*">/WEB-INF/{1}.jsp</result>
 		</action>
 	</package>
 

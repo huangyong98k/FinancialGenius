@@ -11,10 +11,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_product")
+@Table(name = "tb_product")
 public class Product {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long productId;
 	private String productName;
 	private double productCapital;
@@ -23,6 +23,6 @@ public class Product {
 	private String productMechanism;
 	private int productStatus;
 	@OneToMany
-	@JoinColumn(name="productId")
+	@JoinColumn(name = "productId")
 	private List<Investment> investments;
 }
