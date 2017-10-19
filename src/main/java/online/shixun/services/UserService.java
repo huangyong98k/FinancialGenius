@@ -8,6 +8,12 @@
 */
 package online.shixun.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import online.shixun.dao.UserRegisterDao;
+import online.shixun.model.User;
+
 /** 
 * @ClassName: UserService 
 * @Description: TODO(这里用一句话描述这个类的作用) 
@@ -15,6 +21,11 @@ package online.shixun.services;
 * @date 2017年10月19日 上午9:25:44 
 *  
 */
+@Service(value="userService")
 public class UserService {
-
+	@Autowired
+    private UserRegisterDao userRegisterDao;
+    public void addUser(User user){
+    	userRegisterDao.add(user);
+    }
 }
