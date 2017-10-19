@@ -1,5 +1,7 @@
 package online.shixun.action;
 
-public class UserAction {
+import org.springframework.stereotype.Component;
 
+@Component("userAction")
+public class UserAction {
 }

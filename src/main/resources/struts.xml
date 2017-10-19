@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-	"http://struts.apache.org/dtds/struts-2.3.dtd">
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="true" />
-
-	<package name="default" namespace="/" extends="struts-default">
-
-		<!-- 刘杰生的action -->
-		<action name="userRegister*" class="online.shixun.action.RegisterAction"
-			method="register*">
-			<result name="*">/WEB-INF/{1}.jsp</result>
-		</action>
-	</package>
-
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
+        <result name="{1}">register.html</result>
+        </action>
+    </package>
+    
 </struts>
