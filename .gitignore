@@ -7,3 +7,4 @@ work
 *.MF
 WebContent/WEB-INF/.idea
 src/main/webapp
+src/test/java

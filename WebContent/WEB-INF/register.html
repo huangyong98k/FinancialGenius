@@ -12,9 +12,20 @@
             var dataName = $("#name").val();
             var dataPassword = $("#password").val();
             var dataPasswordAgain = $("#passwordAgain").val();
+            
             var dataEmail = $("#E-mail").val();
-            var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-            var strEmail = pattern.test(dataEmail);
+            var patternEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            var strEmail = patternEmail.test(dataEmail);
+            
+            var dataPhoneNumber=$("phoneNumber").val;
+            var patternPhoneNumber=/^[1][3,4,5,7,8][0-9]{9}$/;
+            var strPhoneNumber=patternPhoneNumber.test(dataPhoneNumber);
+            
+            
+            var dataIDCard=$("IDCard");
+            var patternIDCard=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            var strIDCard=patternIDCard.test(dataIDCard);
+            
             if ((dataName == "" || undefined || null)) {
                 alert("用户名称不可为空！");
                 return false;
@@ -40,8 +51,23 @@
                 alert("两次输入的密码不一致！");
                 return false;
             }
+            else if(dataPhoneNumber==""||undefined||null){
+            	alert("请输入您的手机号");
+            	return false;       
+            	}
+            else if(!strPhoneNumber){
+            	alert("请输入合法的手机号");
+            	return false;     
+            }
+            else if(dataIDCard==""||undefined||null){
+            	alert("请输入您的身份证号码");
+            	return false;       
+            	}
+            else if(!strIDCard){
+            	alert("请输入合法的身份证号码");
+            	return false;     
+            }
             else {
-                alert("注册成功！");
                 return true;
             }
         });
@@ -250,13 +276,13 @@
 <div id="user-register" class="user-register">
 <header>注册</header><br>
 <form class="uesrMessage" action="" method="post">
-    <span>用户名称：</span><input class="name" id="name" type="text" minlength="6" maxlength="20" placeholder="请输入您的用户名">
+    <span>用户名称：</span><input class="name" id="name" name="user.userName" type="text" minlength="6" maxlength="20" placeholder="请输入您的用户名">
     <p id="nameInfo" class="info">*</p><br>
-    <span>登录密码：</span><input class="password" id="password" type="password" minlength="6" maxlength="20" placeholder="请输入登录密码">
+    <span>登录密码：</span><input class="password" id="password" name="user.userPassword" type="password" minlength="6" maxlength="20" placeholder="请输入登录密码">
     <p id="passwordInfo" class="info">*</p><br>
-    <span>重复密码：</span><input class="passwordAgain" id="passwordAgain" type="password" minlength="6" maxlength="20" placeholder="请再次输入登录密码">
+    <span>重复密码：</span><input class="passwordAgain" id="passwordAgain" name="user.userPasswordAgain" type="password" minlength="6" maxlength="20" placeholder="请再次输入登录密码">
     <p id="passwordAgainInfo" class="info">*</p><br>
-    <span>电子邮箱：</span><input class="E-mail"  id="E-mail" type="email" placeholder="请输入您的电子邮箱">
+    <span>电子邮箱：</span><input class="E-mail"  id="E-mail" type="email" name="user.userEmail" placeholder="请输入您的电子邮箱">
     <p id="E-mailInfo" class="info">*</p><br>
     <span>性</span><span class="bie">别：</span>
     <p>
@@ -267,9 +293,9 @@
             <input type="radio" name="select-states" value="女" class="select-states_1">
             女</label>
     </p>
-    <span>电话号码：</span><input class="phoneNumber" id="phoneNumber" type="text" minlength="11" maxlength="11" placeholder="请输入手机号码">
+    <span>电话号码：</span><input class="phoneNumber" id="phoneNumber" type="text" name="user.userPhone" minlength="11" maxlength="11" placeholder="请输入手机号码">
     <p id="phoneNumberInfo" class="info">*</p><br>
-    <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" minlength="18" maxlength="18" placeholder="请输入您的身份证号码">
+    <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" name="user.userCard" minlength="18" maxlength="18" placeholder="请输入您的身份证号码">
     <p id="IDCardInfo" class="info">*</p><br>
     <hr class="hr"><br>
     <input type="submit" class="registerButton" id="registerButton" value="注册">
