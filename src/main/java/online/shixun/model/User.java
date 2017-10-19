@@ -84,6 +84,18 @@ public class User {
 	public void setInvestments(List<Investment> investments) {
 		this.investments = investments;
 	}
+	
+	public User(String userName, String userEmail, String userCard, String userPassword, double userBanlance,
+			String userPhone, String userStatus) {
+		super();
+		this.userName = userName;
+		this.userEmail = userEmail;
+		this.userCard = userCard;
+		this.userPassword = userPassword;
+		this.userBanlance = userBanlance;
+		this.userPhone = userPhone;
+		this.userStatus = userStatus;
+	}
 	public User(long userId, String userName, String userEmail, String userCard, String userPassword,
 			double userBanlance, String userPhone, String userStatus, List<Investment> investments) {
 		super();
