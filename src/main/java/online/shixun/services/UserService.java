@@ -11,7 +11,7 @@ package online.shixun.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import online.shixun.dao.UserRegisterDao;
+import online.shixun.dao.UserDaoImpl;
 import online.shixun.model.User;
 
 /** 
@@ -24,8 +24,8 @@ import online.shixun.model.User;
 @Service(value="userService")
 public class UserService {
 	@Autowired
-    private UserRegisterDao userRegisterDao;
+    private UserDaoImpl userDaoImpl;
     public void addUser(User user){
-    	userRegisterDao.add(user);
+    	userDaoImpl.add(user);
     }
 }
