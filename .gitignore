@@ -7,3 +7,5 @@ work
 *.MF
 WebContent/WEB-INF/.idea
 src/main/webapp
+src/test/java
+src/main/resources/applicationContext-dao.xml
