@@ -6,7 +6,7 @@
 * @date 2017年10月19日 上午10:56:45 
 * @version V1.0   
 */
-package online.shixun.dao;
+package online.shixun.common;
 
 import javax.annotation.Resource;
 

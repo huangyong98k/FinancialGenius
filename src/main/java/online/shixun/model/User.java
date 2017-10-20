@@ -112,5 +112,17 @@ public class User {
 	public User() {
 		super();
 	}
+	/* (非 Javadoc) 
+	* <p>Title: toString</p> 
+	* <p>Description: </p> 
+	* @return 
+	* @see java.lang.Object#toString() 
+	*/
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userCard="
+				+ userCard + ", userPassword=" + userPassword + ", userBanlance=" + userBanlance + ", userPhone="
+				+ userPhone + ", userStatus=" + userStatus + "]";
+	}
 	
 }
