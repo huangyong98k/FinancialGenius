@@ -76,5 +76,11 @@ public class Investment {
 	public Investment() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "Investment [investmentId=" + investmentId + ", beginTime=" + beginTime + ", overTime=" + overTime
+				+ ", earning=" + earning + ", investmentStatus=" + investmentStatus + ", number=" + number
+				+ ", principal=" + principal + "]";
+	}
 	
 }

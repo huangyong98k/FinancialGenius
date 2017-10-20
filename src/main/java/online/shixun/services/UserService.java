@@ -13,7 +13,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import online.shixun.dao.impl.UserDaoImpl;
+import online.shixun.dao.UserDaoImpl;
 import online.shixun.model.User;
 
 /** 
@@ -30,11 +30,7 @@ public class UserService {
     public void addUser(User user){
     	userDaoImpl.add(user);
     }
-    public List<User> findAllUsers(){
-    	return userDaoImpl.getAll();
-    }
-    
-    public User findById(Long id){
-    	return userDaoImpl.getById(id);
+    public List<User> findUsers(){
+    	return userDaoImpl.findUsers();
     }
 }
