@@ -37,4 +37,12 @@ public class UserService {
     public User findById(Long id){
     	return userDaoImpl.getById(id);
     }
+    public int findByCard(String card){
+    	List<User> users = userDaoImpl.getByCrad(card); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+    	return 0;
+    }
 }

@@ -62,7 +62,6 @@ public class UserDaoImpl implements UserDao {
 	public List<User> getByName(String name) {
 		String queryString = "from User u where u.userName=:name";
 		String paramNames = "name";
-		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 	}
 
@@ -78,43 +77,19 @@ public class UserDaoImpl implements UserDao {
 		return 1;
 	}
 
-	/*
-	 * (非 Javadoc) <p>Title: deleteById</p> <p>Description: </p>
-	 * @param l
-	 * @return
-	 * @see online.shixun.dao.UserDao#deleteById(java.lang.Long)
-	 */
 	@Override
 	public int deleteById(Long id) {
 		User user = baseDao.getHibernateTemplate().load(User.class, id);
 		baseDao.getHibernateTemplate().delete(user);
 		return 1;
 	}
-
-	/*
-	 * (非 Javadoc) <p>Title: update</p> <p>Description: 修改</p>
-	 * 
-	 * @param user
-	 * 
-	 * @return
-	 * 
-	 * @see online.shixun.dao.UserDao#update(online.shixun.model.User)
-	 */
 	@Override
 	public int update(User user) {
 		baseDao.getHibernateTemplate().update(user);
 		return 1;
 	}
 
-	/*
-	 * (非 Javadoc) <p>Title: deleteAll</p> <p>Description: 删除所选</p>
-	 * 
-	 * @param str
-	 * 
-	 * @return
-	 * 
-	 * @see online.shixun.common.UtilDao#deleteAll(java.lang.String[])
-	 */
+
 	@Override
 	public int deleteAll(String[] lid) {
 		String[] ids = lid;
@@ -130,6 +105,32 @@ public class UserDaoImpl implements UserDao {
 			baseDao.getHibernateTemplate().deleteAll(list);
 		}
 		return 1;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getByCrad(String card) {
+		String queryString = "from User u where u.userCard=:card";
+		String paramNames = "card";
+		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, card);
+
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getByEmail(String emial) {
+		String queryString = "from User u where u.userEmail=:eamil";
+		String paramNames = "eamil";
+		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, emial);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> getByPhone(String phone) {
+		String queryString = "from User u where u.userPhone=:phone";
+		String paramNames = "phone";
+		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, phone);
 	}
 
 }
