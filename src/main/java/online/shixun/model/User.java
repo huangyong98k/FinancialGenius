@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class User {
 	@Column(unique = true)
 	private String userPhone;
 	private String userStatus;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name = "userId")
 	private List<Investment> investments;
 	public long getUserId() {
@@ -111,6 +112,12 @@ public class User {
 	}
 	public User() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userCard="
+				+ userCard + ", userPassword=" + userPassword + ", userBanlance=" + userBanlance + ", userPhone="
+				+ userPhone + ", userStatus=" + userStatus + ", investments=" + investments + "]";
 	}
 	
 }

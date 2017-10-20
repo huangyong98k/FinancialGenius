@@ -53,4 +53,9 @@ public class Admin {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", AdminPassword=" + AdminPassword + "]";
+	}
+
 }

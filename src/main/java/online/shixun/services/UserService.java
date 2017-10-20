@@ -8,6 +8,8 @@
 */
 package online.shixun.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +29,8 @@ public class UserService {
     private UserDaoImpl userDaoImpl;
     public void addUser(User user){
     	userDaoImpl.add(user);
+    }
+    public List<User> findUsers(){
+    	return userDaoImpl.findUsers();
     }
 }
