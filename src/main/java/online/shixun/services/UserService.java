@@ -35,7 +35,7 @@ public class UserService {
     	return userDaoImpl.getAll();
     }
     public void edit(User user){
-    	userDaoImpl.edit(user);
+    	userDaoImpl.update(user);
     }
 
     public User getUser(User user) {
