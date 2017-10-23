@@ -21,6 +21,11 @@ public class UserAction {
 		System.out.println("wocao"+list.toString());
 		return "list";
 	}
+	public String deleteById() {
+		userService.deleteById(user);
+		findUser();
+		return "list";
+	}
 	
 	public void registerCheck(){
 		System.out.println("userAction!registerCheck");
@@ -45,5 +50,4 @@ public class UserAction {
 	public void setList(List<User> list) {
 		this.list = list;
 	}
-	
 }
