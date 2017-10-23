@@ -83,7 +83,7 @@
                 <div class="conShow">
                     <table border="1" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td width="435px" class="tdColor">
+                            <td hidden width="435px" class="tdColor">
                                 <input type="checkbox" name="checkbox" id="btn1">
                             </td>
                             <td width="435px" class="tdColor">产品编号</td>
@@ -96,7 +96,7 @@
                         </tr>
                         <c:forEach items="${list }" var="temp" varStatus="vs">
                         <tr height="40px">
-                            <td>
+                            <td hidden>
                                 <input type="checkbox" name="checkbox" class="checkes-all">
                             </td>
                             <td>${temp.productId}</td>
@@ -105,7 +105,7 @@
                             <td>${temp.productCapital}</td>
                             <td>${temp.productMechanism}</td>
                             <td>${temp.productMoney}</td>
-                            <td><a href="modifyProduct.html"><img class="operation" src="imgs/update.png"></a><img class="operation delban" src="imgs/delete.png"></td>
+                            <td><a href="modifyProduct.html"><img class="operation" src="imgs/update.png"></a><img class="operation delban img-delete" src="imgs/delete.png"></td>
                         </tr>
                         </c:forEach>
                     </table>
@@ -124,10 +124,17 @@
             </div>
             <p class="delP1">你确定要删除此条记录吗？</p>
             <p class="delP2">
-                <a href="#" class="ok yes">确定</a><a class="ok no">取消</a>
+                <a href="#" class="ok yes a-delete">确定</a><a class="ok no">取消</a>
             </p>
         </div>
     </div>
     <!-- 删除弹出框  end-->
+    <script type="text/javascript">
+        $('.img-delete').click(function(){
+        $('.a-delete').prop('href','productAction!deleteById?product.productId='+$(this).parent().siblings().filter(":eq(1)").html())       
+
+        })
+
+    </script>
 </body>
 </html>

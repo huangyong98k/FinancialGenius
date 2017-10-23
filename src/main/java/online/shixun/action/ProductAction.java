@@ -55,6 +55,10 @@ public class ProductAction {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
+	public String deleteById() {
+		productService.deleteById(product);
+		findProduct();
+		return "list";
+	}
 	
 }

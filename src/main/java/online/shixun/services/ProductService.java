@@ -37,4 +37,7 @@ public class ProductService {
     public User getUser(Product product) {
 		return productDaoImpl.getProduct(product);
 	}
+    public void deleteById(Product product) {
+		productDaoImpl.delete(product);
+	}
 }
