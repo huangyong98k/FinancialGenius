@@ -27,7 +27,6 @@ import online.shixun.model.User;
 public class UserService {
 	@Autowired
     private UserDaoImpl userDaoImpl;
-	public void 
     public void addUser(User user){
     	userDaoImpl.add(user);
     }
@@ -37,6 +36,23 @@ public class UserService {
     
     public User findById(Long id){
     	return userDaoImpl.getById(id);
+    }
+    public int findByEmai(String Email){
+    	List<User> users = userDaoImpl.getByEmail(Email); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+		return 0;
+    	
+    }
+    public int findByPhone(String phone){
+    	List<User> users = userDaoImpl.getByPhone(phone); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+		return 0;
     }
     public int findByCard(String card){
     	List<User> users = userDaoImpl.getByCrad(card); 

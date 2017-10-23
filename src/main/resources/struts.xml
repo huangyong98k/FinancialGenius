@@ -4,13 +4,15 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="default" namespace="/" extends="struts-default,json-default">
-    <result-types>
-			<result-type name="json" class="org.apache.struts2.json.JSONResult"/>
-		</result-types>
-        <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
-        <result name="register">registerSuccess.jsp</result>
-        </action>
-    </package>
-    
+	<!-- 刘杰生 -->
+	<package name="default" namespace="/" extends="struts-default,json-default">
+		<action name="userAction!*" class="online.shixun.action.UserAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="register">registerSuccess.jsp</result>
+		</action>
+	</package>
+	<!-- 刘杰生 -->
 </struts>
