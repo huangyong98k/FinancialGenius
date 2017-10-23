@@ -35,10 +35,17 @@
                 alert("用户名称不可为空");
                 return false;
             }
-
+            else if(dataName.length<6){
+            	alert("用户名小于六位字符");
+            	return false;
+            }
             else if (dataPassword == "" || undefined || null) {
                 alert("密码不能为空");
                 return false;
+            }
+            else if(dataPassword.length<6){
+            	alert("密码小于六位字符");
+            	return false;
             }
             else if (dataPasswordAgain == "" || undefined || null) {
                 alert("请输入重复密码");
