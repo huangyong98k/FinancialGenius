@@ -34,6 +34,12 @@ public class UserService {
     public List<User> findUsers(){
     	return userDaoImpl.getAll();
     }
+    public void edit(User user){
+    	userDaoImpl.edit(user);
+    }
+    public User getUser(User user) {
+		return userDaoImpl.getUser(user);
+	}
     public int findByCard(String card){
     	List<User> users = userDaoImpl.getByCrad(card); 
     	System.out.println(users.toString());

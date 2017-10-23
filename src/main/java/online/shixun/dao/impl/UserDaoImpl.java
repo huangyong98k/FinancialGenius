@@ -47,7 +47,11 @@ public class UserDaoImpl implements UserDao {
 	public User getById(Long id) {
 		return baseDao.getHibernateTemplate().get(User.class, id);
 	}
-
+	
+	@Override
+	public User getUser(User user) {
+		return baseDao.getHibernateTemplate().get(User.class, user.getUserId());
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -74,8 +78,10 @@ public class UserDaoImpl implements UserDao {
 		baseDao.getHibernateTemplate().update(user);
 		return 1;
 	}
-
-
+	public void edit(User user) {
+		baseDao.getHibernateTemplate().saveOrUpdate(user);;
+	}
+	
 	@Override
 	public int deleteAll(String[] lid) {
 		String[] ids = lid;

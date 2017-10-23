@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,22 +90,24 @@
                             <td width="400px" class="tdColor">产品名</td>
                             <td width="630px" class="tdColor">产品利率</td>
                             <td width="435px" class="tdColor">购买金额</td>
-                            <td width="435px" class="tdColor">购买月数</td>
+                            <td width="435px" class="tdColor">发行机构</td>
                             <td width="435px" class="tdColor">收益</td>
                             <td width="230px" class="tdColor">操作</td>
                         </tr>
+                        <c:forEach items="${list }" var="temp" varStatus="vs">
                         <tr height="40px">
                             <td>
                                 <input type="checkbox" name="checkbox" class="checkes-all">
                             </td>
-                            <td>1</td>
-                            <td>product1</td>
-                            <td>0.05</td>
-                            <td>10000</td>
-                            <td>1</td>
-                            <td>10050</td>
+                            <td>${temp.productId}</td>
+                            <td>${temp.productName}</td>
+                            <td>${temp.productRate}</td>
+                            <td>${temp.productCapital}</td>
+                            <td>${temp.productMechanism}</td>
+                            <td>${temp.productMoney}</td>
                             <td><a href="modifyProduct.html"><img class="operation" src="imgs/update.png"></a><img class="operation delban" src="imgs/delete.png"></td>
                         </tr>
+                        </c:forEach>
                     </table>
                     <div class="paging">此处是分页</div>
                 </div>

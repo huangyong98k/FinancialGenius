@@ -118,12 +118,12 @@ $(function() {
                 </dt>
                 <dd>
                     <img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-                        src="imgs/coin222.png" /><a href="productList.html" target="main"d
+                        src="imgs/coin222.png" /><a href="productAction!findProduct" target="main"d
                         class="cks">产品查询</a><img class="icon5" src="imgs/coin21.png" />
                 </dd>
                 <dd>
                     <img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-                        src="imgs/coin222.png" /><a href="addProduct.html" target="main"
+                        src="imgs/coin222.png" /><a href="addProduct.jsp" target="main"
                         class="cks">产品新增</a><img class="icon5" src="imgs/coin21.png" />
                 </dd>
             </dl>

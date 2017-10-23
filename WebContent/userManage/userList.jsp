@@ -69,7 +69,7 @@
                             <td>${temp.userEmail }</td>
                             <td>${temp.userBanlance }</td>
                             <td>${temp.userPhone }</td>
-                            <td><a href="modifyUser.jsp"><img class="operation" src="imgs/update.png"></a> <img class="operation delban" src="imgs/delete.png"></td>
+                            <td><a href="userAction!to_edit?user.userId=${temp.userId }"><img class="operation" src="imgs/update.png"></a> <img class="operation delban" src="imgs/delete.png"></td>
                         </tr>
                         </c:forEach>
                     </table>
