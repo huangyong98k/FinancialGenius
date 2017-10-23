@@ -18,7 +18,7 @@
         classpath:org/springframework/aop/config/spring-aop-4.3.xsd ">
 
 	<!-- 识别注解 -->
-	<context:component-scan base-package="online.shixun" />
+	<context:component-scan base-package="online.shixun." />
 	 <!-- 属性配置 -->
     <context:annotation-config></context:annotation-config>
 	
@@ -69,7 +69,7 @@
         <aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />        
     </aop:config> 
      
-    <bean class="online.shixun.dao.BaseDao">
+    <bean class="online.shixun.common.BaseDao">
     	<property name="sessionFactory" ref="sessionFactory"/>
     </bean>    
 </beans>

@@ -24,6 +24,7 @@ public class UserDaoImpl implements UserDao {
 	 */
 	@Override
 	public int add(User user) {
+		System.out.println("111"+user);
 		baseDao.getHibernateTemplate().save(user);
 		return 1;
 	}
