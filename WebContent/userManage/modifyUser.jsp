@@ -23,6 +23,7 @@
 			  <form action="userAction!do_edit" method="get">
                     <div class="baBody">
                         <div class="bbD1 bbD">
+                        <input type="hidden" class="input3" name="user.userId" value="${user.userId }">
                              <input type="text" class="addUserInfo" value="用户名：" readonly>
                             <input type="text" class="input3" name="user.userName" value="${temp.userName }"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>

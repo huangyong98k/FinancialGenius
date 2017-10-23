@@ -21,24 +21,20 @@ public class ProductAction {
 		System.out.println("wocao"+list.toString());
 		return "list";
 	}
-//	public String to_edit(){
-//		user=userService.getUser(user);
-//		return "to_edit";
-//	}
-//	public String do_edit(){
-//		userService.edit(user);;
-//		list = userService.findUsers();
-//		return "do_edit";
-//	}
-//	public void registerCheck(){
-//		System.out.println("userAction!registerCheck");
-//		userService.addUser(user);
-//	}
-//	public String register(){
-//		System.out.println("userAction!register");
-//		userService.addUser(user);
-//		return "register";
-//	}
+	public String addProduct(){
+		productService.addProduct(product);
+		findProduct();
+		return "addProduct";
+	}
+	public String to_edit(){
+		product=productService.getProduct(product);
+		return "to_edit";
+	}
+	public String do_edit(){
+		productService.edit(product);;
+		findProduct();
+		return "do_edit";
+	}
 
 	public List<Product> getList() {
 		return list;

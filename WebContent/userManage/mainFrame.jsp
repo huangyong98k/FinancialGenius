@@ -83,7 +83,7 @@ $(function() {
 				</dd>
                 <dd>
 					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a href="addUser.html" target="main"
+						src="imgs/coin222.png" /><a href="addUser.jsp" target="main"
 						class="cks">用户新增</a><img class="icon5" src="imgs/coin21.png" />
 				</dd>
 			</dl>

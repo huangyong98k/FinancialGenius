@@ -23,11 +23,11 @@
                 <div class="baTopNo">
                     <span>添加用户</span>
                 </div>
-                <form action="" method="post">
+                <form action="userAction!addUser" method="post">
                     <div class="baBody">
                         <div class="bbD1 bbD">
                              <input type="text" class="addUserInfo" value="用户名：" readonly>
-                            <input type="text" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="text" class="input3" name="user.userName"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                              <input type="text" class="addUserInfo" value="密码：" readonly>
@@ -35,11 +35,11 @@
                         </div>
                         <div class="bbD">
                             <input type="text" class="addUserInfo" value="确认密码：" readonly>
-                            <input type="password" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="password" class="input3" name="user.userPassword"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                              <input type="text" class="addUserInfo" value="邮箱：" readonly>
-                            <input type="email" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="email" class="input3" name="user.userEmail"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                                     <input type="text" class="addUserInfo" value="性别：" readonly>
@@ -48,11 +48,11 @@
                         </div>
                         <div class="bbD">
                                  <input type="text" class="addUserInfo" value="电话号：" readonly>
-                            <input type="phone" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="phone" class="input3" name="user.userPhone"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                          <div class="bbD">
                              <input type="text" class="addUserInfo" value="身份证号：" readonly>
-                            <input type="text" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="text" class="input3" name="user.userCard"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                             <p class="bbDP">

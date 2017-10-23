@@ -16,9 +16,14 @@ public class UserAction {
 	private List<User> list;
 	private User user;
 	
+	public String addUser(){
+		userService.addUser(user);
+		findUser();
+		return "add";
+	}
+	
 	public String findUser(){
 		list=userService.findUsers();
-		System.out.println("wocao"+list.toString());
 		return "list";
 	}
 	public String deleteById() {
@@ -26,7 +31,15 @@ public class UserAction {
 		findUser();
 		return "list";
 	}
-	
+	public String to_edit(){
+		user=userService.getUser(user);
+		return "to_edit";
+	}
+	public String do_edit(){
+		userService.edit(user);
+		findUser();
+		return "list";
+	}
 	public void registerCheck(){
 		System.out.println("userAction!registerCheck");
 		userService.addUser(user);

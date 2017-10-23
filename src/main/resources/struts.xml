@@ -11,11 +11,13 @@
         <result name="list">/userManage/userList.jsp</result>
         <result name="to_edit">/userManage/modifyUser.jsp</result>
         <result name="do_edit">/userManage/userList.jsp</result>
+        <result name="add">/userManage/userList.jsp</result>
         </action>
          <action name="productAction!*" class="online.shixun.action.ProductAction" method="{1}">
         <result name="list">/userManage/productList.jsp</result>
-        <result name="to_edit">/userManage/modifyUser.jsp</result>
-        <result name="do_edit">/userManage/userList.jsp</result>
+        <result name="addProduct">/userManage/productList.jsp</result>
+        <result name="to_edit">/userManage/modifyProduct.jsp</result>
+        <result name="do_edit">/userManage/productList.jsp</result>
         </action>
     </package>
     

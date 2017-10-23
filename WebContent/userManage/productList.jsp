@@ -105,7 +105,7 @@
                             <td>${temp.productCapital}</td>
                             <td>${temp.productMechanism}</td>
                             <td>${temp.productMoney}</td>
-                            <td><a href="modifyProduct.html"><img class="operation" src="imgs/update.png"></a><img class="operation delban" src="imgs/delete.png"></td>
+                            <td><a href="productAction!to_edit?product.productId=${temp.productId }"><img class="operation" src="imgs/update.png"></a><img class="operation delban" src="imgs/delete.png"></td>
                         </tr>
                         </c:forEach>
                     </table>

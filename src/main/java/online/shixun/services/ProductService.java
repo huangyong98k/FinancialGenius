@@ -34,7 +34,10 @@ public class ProductService {
     public List<Product> findProducts(){
     	return productDaoImpl.getAll();
     }
-    public User getUser(Product product) {
+    public Product getProduct(Product product) {
 		return productDaoImpl.getProduct(product);
 	}
+    public void edit(Product product){
+    	productDaoImpl.update(product);
+    }
 }

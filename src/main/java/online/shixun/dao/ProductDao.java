@@ -27,5 +27,5 @@ import online.shixun.model.User;
 public interface ProductDao extends UtilDao<Product>{
 	List<Product> getByName(String name);//根据姓名获取产品信息
 
-	User getProduct(Product product);
+	Product getProduct(Product product);
 }

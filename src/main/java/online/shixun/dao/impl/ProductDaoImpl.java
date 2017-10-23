@@ -36,8 +36,8 @@ public class ProductDaoImpl implements ProductDao{
 		return 1;
 	}
 	@Override
-	public User getProduct(Product product) {
-		return baseDao.getHibernateTemplate().get(User.class, product.getProductId());
+	public Product getProduct(Product product) {
+		return baseDao.getHibernateTemplate().get(Product.class, product.getProductId());
 	}
 	
 	@SuppressWarnings("unchecked")
