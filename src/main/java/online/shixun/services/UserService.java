@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import online.shixun.dao.impl.UserDaoImpl;
+import online.shixun.model.Investment;
 import online.shixun.model.User;
 
 /** 
@@ -41,4 +42,8 @@ public class UserService {
     	}
     	return 0;
     }
+    
+    public List<Investment> findInvestmentsByUserId(Long userId){
+		return userDaoImpl.getInvestmentsByUserId(userId);
+	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import online.shixun.common.BaseDao;
 import online.shixun.dao.UserDao;
+import online.shixun.model.Investment;
 import online.shixun.model.User;
 
 @Repository
@@ -41,23 +42,13 @@ public class UserDaoImpl implements UserDao {
 		return (List<User>) baseDao.getHibernateTemplate().find("from User");
 	}
 
-	/*
-	 * (非 Javadoc) <p>Title: getById</p> <p>Description:根据ID获取User </p>
-	 * @param id
-	 * @return
-	 * @see online.shixun.dao.UserDao#getById(java.lang.Long)
-	 */
+	
 	@Override
 	public User getById(Long id) {
 		return baseDao.getHibernateTemplate().get(User.class, id);
 	}
 
-	/*
-	 * (非 Javadoc) <p>Title: getByName</p> <p>Description: </p>
-	 * @param name
-	 * @return
-	 * @see online.shixun.dao.UserDao#getByName(java.lang.String)
-	 */
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getByName(String name) {
@@ -66,12 +57,6 @@ public class UserDaoImpl implements UserDao {
 		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 	}
 
-	/*
-	 * (非 Javadoc) <p>Title: delete</p> <p>Description: </p>
-	 * @param user
-	 * @return
-	 * @see online.shixun.dao.UserDao#delete(online.shixun.model.User)
-	 */
 	@Override
 	public int delete(User user) {
 		baseDao.getHibernateTemplate().delete(user);
@@ -132,6 +117,15 @@ public class UserDaoImpl implements UserDao {
 		String queryString = "from User u where u.userPhone=:phone";
 		String paramNames = "phone";
 		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, phone);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Investment> getInvestmentsByUserId(Long userId) {
+		String queryString = "select u.investments from User u where u.userId=:userId";
+		String paramNames = "userId";
+		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
+		return (List<Investment>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
 	}
 
 }

@@ -28,7 +28,7 @@ public class InvestmentService {
 	@Autowired
 	private InvestmentDaoImpl investmentDaoImpl;
 	public List<Investment> getInvestmentsByUserId(Long userId){
-		return investmentDaoImpl.getInvestmentsByUserId(userId);
+		return null;
 	}
 
 }

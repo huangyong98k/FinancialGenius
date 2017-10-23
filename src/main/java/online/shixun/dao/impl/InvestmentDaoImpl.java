@@ -84,15 +84,6 @@ public class InvestmentDaoImpl implements InvestmentDao {
 		return 1;
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Investment> getInvestmentsByUserId(Long userId) {
-		String queryString = "from Investment i where i.userId=:userId";
-		String paramNames = "userId";
-		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
-		return (List<Investment>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
-	}
-
 	@Override
 	public List<Investment> getInvestmentsByProductId(Long ProductId) {
 		// TODO Auto-generated method stub
