@@ -26,6 +26,7 @@ public class User {
 	private double userBanlance;
 	@Column(unique = true)
 	private String userPhone;
+	//默认值为 正常      正常/冻结
 	private String userStatus;
 	@OneToMany
 	@JoinColumn(name = "userId")
@@ -85,6 +86,16 @@ public class User {
 		this.investments = investments;
 	}
 	
+	public User(String userName, String userEmail, String userCard, String userPassword, double userBanlance,
+			String userPhone) {
+		super();
+		this.userName = userName;
+		this.userEmail = userEmail;
+		this.userCard = userCard;
+		this.userPassword = userPassword;
+		this.userBanlance = userBanlance;
+		this.userPhone = userPhone;
+	}
 	public User(String userName, String userEmail, String userCard, String userPassword, double userBanlance,
 			String userPhone, String userStatus) {
 		super();
