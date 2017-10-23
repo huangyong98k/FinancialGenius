@@ -26,6 +26,7 @@ public class User {
 	private double userBanlance;
 	@Column(unique = true)
 	private String userPhone;
+	//默认值为 正常      正常/冻结
 	private String userStatus;
 	@OneToMany
 	@JoinColumn(name = "userId")
@@ -87,6 +88,16 @@ public class User {
 	}
 	
 	public User(String userName, String userEmail, String userCard, String userPassword, double userBanlance,
+			String userPhone) {
+		super();
+		this.userName = userName;
+		this.userEmail = userEmail;
+		this.userCard = userCard;
+		this.userPassword = userPassword;
+		this.userBanlance = userBanlance;
+		this.userPhone = userPhone;
+	}
+	public User(String userName, String userEmail, String userCard, String userPassword, double userBanlance,
 			String userPhone, String userStatus) {
 		super();
 		this.userName = userName;
@@ -112,6 +123,18 @@ public class User {
 	}
 	public User() {
 		super();
+	}
+	/* (非 Javadoc) 
+	* <p>Title: toString</p> 
+	* <p>Description: </p> 
+	* @return 
+	* @see java.lang.Object#toString() 
+	*/
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userCard="
+				+ userCard + ", userPassword=" + userPassword + ", userBanlance=" + userBanlance + ", userPhone="
+				+ userPhone + ", userStatus=" + userStatus + "]";
 	}
 
 }

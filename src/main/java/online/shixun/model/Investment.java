@@ -76,5 +76,17 @@ public class Investment {
 	public Investment() {
 		super();
 	}
+	/* (非 Javadoc) 
+	* <p>Title: toString</p> 
+	* <p>Description: </p> 
+	* @return 
+	* @see java.lang.Object#toString() 
+	*/
+	@Override
+	public String toString() {
+		return "Investment [investmentId=" + investmentId + ", beginTime=" + beginTime + ", overTime=" + overTime
+				+ ", earning=" + earning + ", investmentStatus=" + investmentStatus + ", number=" + number
+				+ ", principal=" + principal + "]";
+	}
 	
 }
