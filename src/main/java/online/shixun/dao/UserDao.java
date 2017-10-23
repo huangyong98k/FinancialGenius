@@ -23,4 +23,7 @@ import online.shixun.model.User;
 public interface UserDao extends UtilDao<User>{
 	
 	List<User> getByName(String name);//根据姓名获取用户信息
+	List<User> getByCrad(String crad);//根据身份证号查询用户
+	List<User> getByEmail(String emial);//根据邮箱查询
+	List<User> getByPhone(String phone);//根据手机号查询
 }

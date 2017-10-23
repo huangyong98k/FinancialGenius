@@ -27,10 +27,19 @@ import online.shixun.model.User;
 public class UserService {
 	@Autowired
     private UserDaoImpl userDaoImpl;
+	public void 
     public void addUser(User user){
     	userDaoImpl.add(user);
     }
     public List<User> findUsers(){
     	return userDaoImpl.findUsers();
+    }
+    public int findByCard(String card){
+    	List<User> users = userDaoImpl.getByCrad(card); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+    	return 0;
     }
 }
