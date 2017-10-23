@@ -37,9 +37,28 @@ public class UserService {
     public void edit(User user){
     	userDaoImpl.edit(user);
     }
+
     public User getUser(User user) {
 		return userDaoImpl.getUser(user);
 	}
+    public int findByEmai(String Email){
+    	List<User> users = userDaoImpl.getByEmail(Email); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+		return 0;
+    	
+    }
+    public int findByPhone(String phone){
+    	List<User> users = userDaoImpl.getByPhone(phone); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+		return 0;
+    }
+
     public int findByCard(String card){
     	List<User> users = userDaoImpl.getByCrad(card); 
     	System.out.println(users.toString());
