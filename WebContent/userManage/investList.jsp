@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
+ <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
@@ -19,42 +20,27 @@
             $(".no").click(function() {
                 $(".banDel").hide();
             })
-        $(".list tr").slice(1).each(function() {
-
+        $(".list2 tr").slice(1).each(function() {
             var p = this;
-
             $(this).children().slice(1).click(function() {
-
                 $($(p).children()[0]).children().each(function() {
-
                     if (this.type == "checkbox") {
-
                         if (!this.checked) {
-
                             this.checked = true;
-
                         } else {
-
                             this.checked = false;
-
                         }
-
                     }
-
-                });
-
-            });
-
-        });
-       
-       $('#btn1').on('click',function(){
-       if ($("#btn1").prop('checked')) {
-        $(".checkes-all").prop('checked',true)
-       }else{
-        $(".checkes-all").prop('checked',false)
-       }
-
-       })
+                })
+            })
+        })
+        $("#btn2").click(function() {
+            if ($("#btn2").prop("checked")) {
+                $(".check-all2").prop('checked', true)
+            } else {
+                $(".check-all2").prop('checked', false)
+            }
+        })
     })
     </script>
 </head>
@@ -63,7 +49,7 @@
     <div id="pageAll">
         <div class="pageTop">
             <div class="page">
-                <img src="imgs/coin02.png" /><span>首页&nbsp;-&nbsp;产品管理&nbsp;-</span>&nbsp;产品查询
+                <img src="imgs/coin02.png" /><span>首页&nbsp;-&nbsp;投资管理&nbsp;-</span>&nbsp;投资查询
             </div>
         </div>
         <div class="page">
@@ -72,37 +58,41 @@
                 <div class="conform">
                     <form>
                         <div class="cfD">
-                            <input class="addUser" type="text" placeholder="输入产品名" />
+                            <input class="addUser" type="text" placeholder="输入投资名" />
                             <button class="button">搜索</button>
                         </div>
                     </form>
                 </div>
                 <!-- 学生 表格 显示 -->
                 <div class="conShow">
-                    <table border="1" cellspacing="0" cellpadding="0">
+                    <table border="1" cellspacing="0" cellpadding="0" class="list2">
                         <tr>
                             <td width="435px" class="tdColor">
-                                <input type="checkbox" name="checkbox" id="btn1">
+                                <input type="checkbox" name="checkbox" id="btn2">
                             </td>
+                            <td width="435px" class="tdColor">投资编号</td>
+                            <td width="400px" class="tdColor">用户名</td>
+                            <td width="630px" class="tdColor">用户编号</td>
+                            <td width="435px" class="tdColor">产品名</td>
                             <td width="435px" class="tdColor">产品编号</td>
-                            <td width="400px" class="tdColor">产品名</td>
-                            <td width="630px" class="tdColor">产品利率</td>
-                            <td width="435px" class="tdColor">购买金额</td>
-                            <td width="435px" class="tdColor">购买月数</td>
-                            <td width="435px" class="tdColor">收益</td>
+                            <td width="435px" class="tdColor">起始时间</td>
+                            <td width="435px" class="tdColor">结束时间</td>
+                            <td width="435px" class="tdColor">预计收益</td>
                             <td width="230px" class="tdColor">操作</td>
                         </tr>
                         <tr height="40px">
                             <td>
-                                <input type="checkbox" name="checkbox" class="checkes-all">
+                                <input type="checkbox" name="checkbox" class="check-all2">
                             </td>
                             <td>1</td>
+                            <td>user1</td>
+                            <td>001</td>
                             <td>product1</td>
-                            <td>0.05</td>
-                            <td>10000</td>
-                            <td>1</td>
-                            <td>10050</td>
-                            <td><a href="modifyProduct.html"><img class="operation" src="imgs/update.png"></a><img class="operation delban" src="imgs/delete.png"></td>
+                            <td>001</td>
+                            <td>起始时间</td>
+                            <td>结束时间</td>
+                            <td>1000</td>
+                            <td><img class="operation delban" src="imgs/delete.png"></td>
                         </tr>
                     </table>
                     <div class="paging">此处是分页</div>
@@ -126,5 +116,4 @@
     </div>
     <!-- 删除弹出框  end-->
 </body>
-
 </html>

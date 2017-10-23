@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <title>addUser</title>
     <link rel="stylesheet" type="text/css" href="css/css.css" />
     <script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-    <!-- <script type="text/javascript" src="js/adduser.js"></script> -->
 </head>
-
 <body>
-    <div id="pageAll">
+<div id="pageAll">
         <div class="pageTop">
             <div class="page">
-                <img src="imgs/coin02.png" /><span>首页 - 产品管理> -</span> 修改产品
+                <img src="imgs/coin02.png" /><span>首页 - 产品管理> -</span> 添加产品
             </div>
         </div>
         <div class="page ">
-            <!-- 修改产品页面样式 -->
+            <!-- 添加产品页面样式 -->
             <div class="banneradd bor">
                 <div class="baTopNo">
-                    <span>修改产品</span>
+                    <span>添加产品</span>
                 </div>
                 <form action="" method="post">
                     <div class="baBody">
@@ -57,9 +56,8 @@
                     </div>
                 </form>
             </div>
-            <!-- 修改产品页面样式end -->
+            <!-- 添加产品页面样式end -->
         </div>
     </div>
 </body>
-
 </html>

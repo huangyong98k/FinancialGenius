@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <title>首页</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/public.css">
@@ -61,7 +62,7 @@ $(function() {
     <div class="container">
 
 		<div class="leftsidebar_box">
-			<a href="main.html" target="main"><div class="line">
+			<a href="main.jsp" target="main"><div class="line">
 					<img src="imgs/coin01.png" />&nbsp;&nbsp;首页
 				</div></a>
 			<!-- <dl class="system_log">
@@ -77,7 +78,7 @@ $(function() {
 				</dt>
 				<dd>
 					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a href="userList.html" target="main"d
+						src="imgs/coin222.png" /><a href="userAction!findUser" target="main"d
 						class="cks">用户查询</a><img class="icon5" src="imgs/coin21.png" />
 				</dd>
                 <dd>
@@ -134,10 +135,9 @@ $(function() {
 
     <!-- 右边主要内容 -->
     <div id="main">
-        <iframe src="main.html" frameborder="0" scrolling="no" name="main" height="100%" width="100%">
+        <iframe src="main.jsp" frameborder="0" scrolling="no" name="main" height="100%" width="100%">
         </iframe> 
     </div>
     <!-- 右边主要内容END！ -->
 </body>
-
 </html>

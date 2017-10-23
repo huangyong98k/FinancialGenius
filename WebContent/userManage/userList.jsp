@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
@@ -36,7 +38,7 @@
                 <div class="conform">
                     <form>
                         <div class="cfD">
-                            <input class="addUser" type="text" placeholder="输入用户名" />
+                            <input class="addUser" type="text" placeholder="" value=""/>
                             <button class="button">搜索</button>
                         </div>
                     </form>
@@ -48,24 +50,28 @@
                             <td width="435px" class="tdColor">
                                 <input type="checkbox" name="">
                             </td>
+                            <td hidden="hidden">id</td>
                             <td width="435px" class="tdColor">用户名</td>
                             <td width="400px" class="tdColor">身份证号码</td>
                             <td width="630px" class="tdColor">邮箱</td>
-                            <td width="435px" class="tdColor">性别</td>
+                            <td width="435px" class="tdColor">余额</td>
                             <td width="435px" class="tdColor">电话</td>
                             <td width="230px" class="tdColor">操作</td>
                         </tr>
+                        <c:forEach items="${list }" var="temp" varStatus="vs">
                         <tr height="40px">
                              <td width="435px" class="tdColor">
                                 <input type="checkbox" name="">
                             </td>
-                            <td>小咸鱼</td>
-                            <td>123456789123456789</td>
-                            <td>huangyong.nsu@qq.com</td>
-                            <td>男</td>
-                            <td>13404075637</td>
-                            <td><a href="modifyUser.html"><img class="operation" src="imgs/update.png"></a> <img class="operation delban" src="imgs/delete.png"></td>
+                            <td hidden>${temp.userId}</td>
+                            <td>${temp.userName}</td>
+                            <td>${temp.userCard }</td>
+                            <td>${temp.userEmail }</td>
+                            <td>${temp.userBanlance }</td>
+                            <td>${temp.userPhone }</td>
+                            <td><a href="modifyUser.jsp"><img class="operation" src="imgs/update.png"></a> <img class="operation delban" src="imgs/delete.png"></td>
                         </tr>
+                        </c:forEach>
                     </table>
                     <div class="paging">此处是分页</div>
                 </div>
@@ -88,5 +94,4 @@
     </div>
     <!-- 删除弹出框  end-->
 </body>
-
 </html>
