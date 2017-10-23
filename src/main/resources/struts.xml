@@ -6,13 +6,13 @@
 <struts>
 <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
     <package name="default" namespace="/" extends="struts-default">
-        <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
+        <action name="userAction!*" class="userAction" method="{1}">
         <result name="register">registerSuccess.jsp</result>
         <result name="list">/userManage/userList.jsp</result>
         <result name="to_edit">/userManage/modifyUser.jsp</result>
         <result name="do_edit">/userManage/userList.jsp</result>
         </action>
-         <action name="productAction!*" class="online.shixun.action.ProductAction" method="{1}">
+         <action name="productAction!*" class="productAction" method="{1}">
         <result name="list">/userManage/productList.jsp</result>
         <result name="to_edit">/userManage/modifyUser.jsp</result>
         <result name="do_edit">/userManage/userList.jsp</result>
