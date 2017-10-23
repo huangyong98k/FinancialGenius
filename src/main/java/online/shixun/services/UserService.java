@@ -13,7 +13,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import online.shixun.dao.UserDaoImpl;
+import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.User;
 
 /** 
@@ -27,12 +27,11 @@ import online.shixun.model.User;
 public class UserService {
 	@Autowired
     private UserDaoImpl userDaoImpl;
-	public void 
     public void addUser(User user){
     	userDaoImpl.add(user);
     }
     public List<User> findUsers(){
-    	return userDaoImpl.findUsers();
+    	return userDaoImpl.getAll();
     }
     public int findByCard(String card){
     	List<User> users = userDaoImpl.getByCrad(card); 
