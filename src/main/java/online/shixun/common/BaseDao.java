@@ -21,7 +21,6 @@ import org.springframework.stereotype.Repository;
 * @date 2017年10月19日 上午10:56:45 
 *  
 */
-@Repository
 public class BaseDao extends HibernateDaoSupport{
 	@SuppressWarnings("unused")
 	private SessionFactory sessionFactory;

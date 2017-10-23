@@ -18,7 +18,7 @@
         classpath:org/springframework/aop/config/spring-aop-4.3.xsd ">
 
 	<!-- 识别注解 -->
-	<context:component-scan base-package="online.shixun" />
+	<context:component-scan base-package="online.shixun." />
 	 <!-- 属性配置 -->
     <context:annotation-config></context:annotation-config>
 	

@@ -17,12 +17,13 @@
             var patternEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
             var strEmail = patternEmail.test(dataEmail);
             
-            var dataPhoneNumber=$("phoneNumber").val;
+            var dataPhoneNumber=$("#phoneNumber").val();
+            console.log(dataPhoneNumber);
             var patternPhoneNumber=/^[1][3,4,5,7,8][0-9]{9}$/;
             var strPhoneNumber=patternPhoneNumber.test(dataPhoneNumber);
             
             
-            var dataIDCard=$("IDCard");
+            var dataIDCard=$("#IDCard").val();
             var patternIDCard=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
             var strIDCard=patternIDCard.test(dataIDCard);
             
@@ -56,6 +57,7 @@
             	return false;       
             	}
             else if(!strPhoneNumber){
+                console.log(strPhoneNumber);
             	alert("请输入合法的手机号");
             	return false;     
             }
@@ -68,16 +70,43 @@
             	return false;     
             }
             else {
-                return true;
+            	return true;
+            	/* $.ajax({
+                    cache: true,
+                    type: "POST",
+                    url:"userAction!register.action",
+                    data:$('#userMessage'),// formID 
+                    async: false,
+                    error: function(request) {
+                        alert("Connection error");
+                    },
+                    success:function(data,textStatus,jqXHR){
+                    },
+                }); */
             }
         });
         $("#name").bind('input propertychange', function () {
+        	
             var length = $("#name").val().length;
             if (length >= 6) {
-                $("#nameInfo").css("display", "none");
+            	$.ajax({
+                    cache: true,
+                    type: "POST",
+                    url:"userAction!registerCheck.action",
+                    data:$('#name'),// 数据控件ID 
+                    async: false,
+                    error: function(request) {
+                        alert("Connection error");
+                    },
+                    success:function(data,textStatus,jqXHR){
+                    	data.
+                    	$("#nameInfo").css("display", "none");
+                    }
+                    }),
             } else {
                 $("#nameInfo").css("display", "block");
             }
+            
         });
         $("#password").bind('input propertychange', function (event) {
             var length = $("#password").val().length;
@@ -125,6 +154,8 @@
                 } else {
                     $("#IDCardInfo").css("display", "block");
                 }
+            });
+            $("userMessage").submit(function(e){
             });
         });
     </script>
@@ -272,10 +303,10 @@
     </style>
 </head>
 <body>
-<div id="headTitle" class="headTltle"><img class="register-logo" src="image/logo.png" alt=""> <div class="rigister-name">|     注册</div><span class="back-index" id="back-index">返回首页</span><span class="login" id="login">登录</span></div></div>
+<div id="headTitle" class="headTltle"><img class="register-logo" src="image/logo.png" alt=""> <div class="rigister-name">.     注册</div><a href="index.html"><span class="back-index" id="back-index">返回首页</span></a><a href="Money-Login/passport/login.html"><span class="login" id="login">登录</span></a></div></div>
 <div id="user-register" class="user-register">
 <header>注册</header><br>
-<form class="uesrMessage" action="" method="post">
+<form class="uesrMessage" id="userMessage" action="userAction!register.action" method="post">
     <span>用户名称：</span><input class="name" id="name" name="user.userName" type="text" minlength="6" maxlength="20" placeholder="请输入您的用户名">
     <p id="nameInfo" class="info">*</p><br>
     <span>登录密码：</span><input class="password" id="password" name="user.userPassword" type="password" minlength="6" maxlength="20" placeholder="请输入登录密码">
@@ -297,6 +328,7 @@
     <p id="phoneNumberInfo" class="info">*</p><br>
     <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" name="user.userCard" minlength="18" maxlength="18" placeholder="请输入您的身份证号码">
     <p id="IDCardInfo" class="info">*</p><br>
+    <input type="hidden" name="user.userStatus" value="正常"> 
     <hr class="hr"><br>
     <input type="submit" class="registerButton" id="registerButton" value="注册">
     <input type="reset" class="resetButton" value="重置">
