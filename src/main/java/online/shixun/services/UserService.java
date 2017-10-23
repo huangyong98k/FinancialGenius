@@ -27,7 +27,7 @@ import online.shixun.model.User;
 public class UserService {
 	@Autowired
     private UserDaoImpl userDaoImpl;
-	public void 
+ 
     public void addUser(User user){
     	userDaoImpl.add(user);
     }
