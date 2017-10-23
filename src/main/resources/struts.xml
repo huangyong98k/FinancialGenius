@@ -10,6 +10,11 @@
         <result name="register">registerSuccess.jsp</result>
         <result name="list">/userManage/userList.jsp</result>
         </action>
-    </package>
-    
+		<action name="productAction!*" class="online.shixun.action.ProductAction"
+			method="{1}">
+			<result name="findAllSuccess">/products/commodityList.jsp</result>
+		</action>
+	</package>
+
+
 </struts>

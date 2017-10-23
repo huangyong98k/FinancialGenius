@@ -1,4 +1,4 @@
-/**   
+﻿/**   
 * @Title: UserService.java 
 * @Package online.shixun.services 
 * @Description: TODO(用一句话描述该文件做什么) 
@@ -28,6 +28,7 @@ import online.shixun.model.User;
 public class UserService {
 	@Autowired
     private UserDaoImpl userDaoImpl;
+
     public void addUser(User user){
     	userDaoImpl.add(user);
     }
