@@ -21,6 +21,5 @@ import online.shixun.model.Investment;
 *  
 */
 public interface InvestmentDao extends UtilDao<Investment> {
-	List<Investment> getInvestmentsByUserId(Long userId);//根据用户id获取用户投资信息
 	List<Investment> getInvestmentsByProductId(Long ProductId);//根据产品id获取用户投资信息
 }
