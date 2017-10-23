@@ -17,10 +17,9 @@ public class UserAction {
 	private User user;
 	
 	public String findUser(){
-		List<User> list=userService.findUsers();
-		System.out.println(list.toString());
-		System.out.println("gshdgshgidg");
-		return "findUser";
+		list=userService.findUsers();
+		System.out.println("wocao"+list.toString());
+		return "list";
 	}
 	
 	public void registerCheck(){
@@ -38,4 +37,13 @@ public class UserAction {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public List<User> getList() {
+		return list;
+	}
+
+	public void setList(List<User> list) {
+		this.list = list;
+	}
+	
 }
