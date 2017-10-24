@@ -135,8 +135,8 @@ $(function() {
     }
 
     var pwdLogin = {
-        user: $("[name=passname]"),
-        pwd: $("[name=passwd]"),
+        user: $("[name=email]"),
+        pwd: $("[name=userPassword]"),
         vcode: $("[name=PwdVcode]"),
         remember: $("[name=remember]"),
         tip: $("#pwdLoginTip"),
@@ -172,8 +172,8 @@ $(function() {
                 _this.tip.html("请输入正确的用户名密码");
                 return false;
             }
-            data.passname = user;
-            data.passwd = pwd;
+            data.email = user;
+            data.userPassword = pwd;
             if (!_this.vcodeCon.hasClass("none")) {
                 if (comm.checkNull(vcode)) {
                     _this.tip.html("请输入验证码");

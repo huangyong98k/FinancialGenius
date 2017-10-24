@@ -32,6 +32,8 @@ public class UserAction {
 
 	private List<User> list;
 	private User user;
+	private String email;
+	private String userPassword;
 	
 	public String addUser(){
 		userService.addUser(user);
@@ -125,6 +127,20 @@ public class UserAction {
 		userService.addUser(user);
 		return "register";
 	}
+	
+	public String login(){
+		System.out.println("userAction!login");
+		System.out.println(email);
+		System.out.println(userPassword);
+		int count = userService.loginMager(
+				email, userPassword);
+		System.out.println(count);
+		if (count == 1) {
+			return "loginSuccess";
+		}
+		return "loginFaile";
+		
+	}
 
 	public User getUser() {
 		return user;
@@ -140,5 +156,21 @@ public class UserAction {
 
 	public void setList(List<User> list) {
 		this.list = list;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 }

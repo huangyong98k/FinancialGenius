@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -67,33 +68,32 @@
                 <div class="conShow">
                     <table border="1" cellspacing="0" cellpadding="0" class="list2">
                         <tr>
-                            <td width="435px" class="tdColor">
-                                <input type="checkbox" name="checkbox" id="btn2">
-                            </td>
-                            <td width="435px" class="tdColor">投资编号</td>
-                            <td width="400px" class="tdColor">用户名</td>
-                            <td width="630px" class="tdColor">用户编号</td>
-                            <td width="435px" class="tdColor">产品名</td>
-                            <td width="435px" class="tdColor">产品编号</td>
+               
+                            <td width="435px" class="tdColor">投资编号</td>    
                             <td width="435px" class="tdColor">起始时间</td>
                             <td width="435px" class="tdColor">结束时间</td>
+                            <td width="435px" class="tdColor">编号</td>
                             <td width="435px" class="tdColor">预计收益</td>
+                            <td width="435px" class="tdColor">状态</td>
+                            <td width="435px" class="tdColor">本金</td>
                             <td width="230px" class="tdColor">操作</td>
                         </tr>
+                        <c:forEach items="${list }" var="temp" varStatus="vs">
+                        
                         <tr height="40px">
+                            
+                            <td>${temp.investmentId}</td>
+                            <td>${temp.beginTime}</td>
+                            <td>${temp.overTime }</td>
+                            <td>${temp.number}</td>
+                            <td>${temp.earning }</td>
+                            <td>${temp.investmentStatus}</td>
+                            <td>${temp.principal}</td>
                             <td>
-                                <input type="checkbox" name="checkbox" class="check-all2">
-                            </td>
-                            <td>1</td>
-                            <td>user1</td>
-                            <td>001</td>
-                            <td>product1</td>
-                            <td>001</td>
-                            <td>起始时间</td>
-                            <td>结束时间</td>
-                            <td>1000</td>
-                            <td><img class="operation delban" src="imgs/delete.png"></td>
+                            <img class="operation delban img-delete" src="imgs/delete.png">
+                            </td>    
                         </tr>
+                        </c:forEach>
                     </table>
                     <div class="paging">此处是分页</div>
                 </div>
@@ -110,10 +110,17 @@
             </div>
             <p class="delP1">你确定要删除此条记录吗？</p>
             <p class="delP2">
-                <a href="#" class="ok yes">确定</a><a class="ok no">取消</a>
+                <a href="#" class="ok yes a-delete">确定</a><a class="ok no">取消</a>
             </p>
         </div>
     </div>
     <!-- 删除弹出框  end-->
+    <script type="text/javascript">
+        $('.img-delete').click(function(){
+        $('.a-delete').prop('href','InvestmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
+
+        })
+
+    </script>
 </body>
 </html>

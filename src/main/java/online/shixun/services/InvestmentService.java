@@ -27,8 +27,14 @@ import online.shixun.model.Investment;
 public class InvestmentService {
 	@Autowired
 	private InvestmentDaoImpl investmentDaoImpl;
-	public List<Investment> getInvestmentsByUserId(Long userId){
-		return null;
+public List<Investment> findInvestment() {
+		
+		return investmentDaoImpl.getAll();
 	}
+	
+	public void deleteById(Investment investment) {
+		investmentDaoImpl.delete(investment);
+	}
+
 
 }

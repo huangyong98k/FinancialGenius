@@ -1,24 +1,22 @@
-<!DOCTYPE html >
-<!--STATUS OK-->
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <html>
-
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>登录 - 理财精灵</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
     <link rel="shortcut icon" href="https://www.rong360.com/favicon.ico" />
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
-    <script src="../js/common.js" type="text/javascript"></script>
-    <script src="../js/reg.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="js/reg.js" type="text/javascript"></script>
 </head>
-
 <body>
-    <div class="main-header wrap-base wrap-clear">
+<div class="main-header wrap-base wrap-clear">
         <div class="logo wrap-left">
             <a href="/zhigou">
-    <img src="../images/logoko.png">
+    <img src="image/logoko.png">
   </a>
         </div>
         <p class="tit border-1-e5 wrap-left">登录</p>
@@ -31,17 +29,17 @@
             </ul>
             <div id="loginTabCon">
                 <div class="login-tab-con">
-                    <form action="/" method="post" id="pwdLoginForm">
+                    <form action="userAction!login" method="post" id="pwdLoginForm">
                         <div class="login-list">
                             <div id="pwdLoginTip" class="tip-error"></div>
                             <div class="item">
-                                <input type="text" name="passname" class="txt" placeholder="手机号/用户名" />
+                                <input type="text" name="email" class="txt" placeholder="手机号/用户名" />
                             </div>
                         </div>
                         <div class="login-list">
                             <div class="tip-error"></div>
                             <div class="item">
-                                <input type="password" name="passwd" class="txt" placeholder="密码" />
+                                <input type="password" name="userPassword" class="txt" placeholder="密码" />
                             </div>
                         </div>
                         <div class="login-list wrap-clear none" id="loginVcodeContain">
@@ -61,7 +59,7 @@
                             </div>
                             <div class="wrap-right"><a class="lost-pwd" href="">忘记密码？</a></div>
                         </div>
-                        <input type="button" id="pwdLoginBtn" class="btn btn-red" value="登录" />
+                        <input type="submit" id="pwdLoginBtn" class="btn btn-red" value="登录" />
                     </form>
                     <div class="login-reg">
                         <p class="p1">
@@ -181,5 +179,4 @@
         </div>
     </div>
 </body>
-
 </html>
