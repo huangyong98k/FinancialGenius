@@ -41,6 +41,10 @@ $(document).ready(function (event) {
         });
 });
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> product
 
 
 
@@ -339,3 +343,4 @@ if (!isPlaceholder()) { //不支持placeholder 用jquery来完成
         }
     });
 }
+
