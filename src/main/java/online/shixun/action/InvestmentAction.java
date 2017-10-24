@@ -1,11 +1,13 @@
 /**
  * 
  */
+
 package online.shixun.action;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import online.shixun.model.Investment;
+
 import online.shixun.services.InvestmentService;
 import online.shixun.model.User;
 
@@ -28,8 +30,6 @@ public class InvestmentAction {
 		investmentService.addInvestment(investment);
 		return "addSuccess";
 	}
-
-	
 	public List<Investment> getList() {
 		return list;
 	}
@@ -49,14 +49,16 @@ public class InvestmentAction {
 		return "list";
 	}
 
-
-
 	public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public void setInvestment(Investment investment) {
+		this.investment = investment;
 	}
 
 }

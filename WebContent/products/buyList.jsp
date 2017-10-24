@@ -15,10 +15,10 @@
 <body>
 	<div id="content">
 		<h2>已购产品</h2>
-		<hr />
-		<button class="btn1" name="array">按知名度排序 ↓</button>
-		<button class="btn2" name="array">按收益排序 ↓</button>
-		<button class="btn3" name="array">按提现金额排序 ↓</button>
+		<hr/>
+		<button class="btn1" name="array">按起购金额↓</button>
+		<button class="btn2" name="array">按资金规模 ↓</button>
+		<button class="btn3" name="array">按7日年化利率 ↓</button>
 		<table class="table" id="table">
 			<thead>
 				<tr id="trHead">

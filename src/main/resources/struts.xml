@@ -15,13 +15,15 @@
 			</result>
 			<result name="register">registerSuccess.jsp</result>
 			<!-- 刘杰生 -->
-			<result name="loginSuccess">index.jsp</result>
-			<result name="loginFaile">loginFaile.jsp</result>
 			<result name="list">/userManage/userList.jsp</result>
 			<result name="to_edit">/userManage/modifyUser.jsp</result>
 			<result name="do_edit">/userManage/userList.jsp</result>
 			<result name="add">/userManage/userList.jsp</result>
 			<!-- 刘杰生 -->
+			<result name="getSuccess">/products/buyList.jsp</result>
+			<!-- 刘杰生 -->
+			<result name="loginSuccess">index.jsp</result>
+			<result name="loginFaile">loginFaile.jsp</result>
 			<result name="list">/userManage/userList.jsp</result>
 			<result name="to_edit">/userManage/modifyUser.jsp</result>
 			<result name="do_edit">/userManage/userList.jsp</result>
@@ -37,11 +39,11 @@
 			<result name="findAllSuccess">/products/commodityList.jsp</result>
 			<result name="addInvestment">/products/addProducts.jsp</result>
 		</action>
-		<action name="InvestmentAction!*" class="online.shixun.action.InvestmentAction"
+		<action name="investmentAction!*" class="online.shixun.action.InvestmentAction"
 			method="{1}">
+			<result name="addSuccess">/products/buyList.jsp</result>
 			<result name="list">/userManage/investList.jsp</result>
 			<result name="list">/userManage/investInvalid.jsp</result>
-			<result name="addSuccess">/products/buyList.jsp</result>
 		</action>
 	</package>
 

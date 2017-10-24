@@ -45,7 +45,7 @@ public class ProductService {
 
 	}
 
-	public List<Product> getAllProducts() {
+	public List<Product> getAllProducts(){
 		return productDaoImpl.getAll();
 	}
 

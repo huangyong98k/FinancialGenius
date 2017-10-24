@@ -23,11 +23,13 @@ public class ProductAction {
 
 	private List<Product> list;
 	private Product product;
+
 	public String findAllProducts() {
 		System.out.println("productAction!findAllProducts");
 		list = productService.getAllProducts();
 		return "findAllSuccess";
 	}
+
 	public String addInvestment(){
 		return "addInvestment";
 	}
