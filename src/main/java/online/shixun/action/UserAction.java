@@ -20,7 +20,7 @@ public class UserAction {
 	private static final long serialVersionUID = 1L;
 
 	private String result;
-
+    private int intResult;
 	public String getResult() {
 		return result;
 	}
@@ -50,7 +50,24 @@ public class UserAction {
 		findUser();
 		return "add";
 	}
-
+	public String findUserByPhone(){
+		System.out.println(user.getUserPhone());
+		result=userService.findByPhone(user.getUserPhone())+"";
+		System.out.println(intResult);
+		return ActionSupport.SUCCESS;
+	}
+	public String findUserByEmail(){
+		System.out.println(user.getUserEmail());
+		result=userService.findByEmai(user.getUserEmail())+"";
+		System.out.println(intResult);
+		return ActionSupport.SUCCESS;
+	}
+	public String findUserByCard(){
+		System.out.println(user.getUserCard());
+		result=userService.findByCard(user.getUserCard())+"";
+		System.out.println(intResult);
+		return ActionSupport.SUCCESS;
+	}
 	public String findUser() {
 		list = userService.findUsers();
 		return "list";
@@ -245,4 +262,13 @@ public class UserAction {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+
+	public int getIntResult() {
+		return intResult;
+	}
+
+	public void setIntResult(int intResult) {
+		this.intResult = intResult;
+	}
+	
 }
