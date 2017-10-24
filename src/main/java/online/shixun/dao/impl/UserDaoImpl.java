@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(User user) {
 		return baseDao.getHibernateTemplate().get(User.class, user.getUserId());		
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getByName(String name) {
