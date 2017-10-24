@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
     <script src="js/common.js" type="text/javascript"></script>
     <script src="js/reg.js" type="text/javascript"></script>
 </head>
@@ -63,7 +64,7 @@
                     </form>
                     <div class="login-reg">
                         <p class="p1">
-                            <a class="btn btn-unable" href="">注册理财精灵账户</a>
+                            <a class="btn btn-unable" href="register.html">注册理财精灵账户</a>
                         </p>
                         <p class="p5">原论坛用户请先<a href="">绑定手机号</a>&nbsp;<i data-tip="原论坛用户登录后可以完成账号升级。<a href='http://bbs.rong360.com/thread-42559-1.html' target='_blank'>需求更多帮/a>" class="sprite sprite-tip pngfix"></i></p>   
                         </div>

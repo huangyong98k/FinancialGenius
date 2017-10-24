@@ -95,7 +95,12 @@
                         </tr>
                         </c:forEach>
                     </table>
-                    <div class="paging">此处是分页</div>
+                    
+                    <div class="paging">
+						<input type="submit" name="" id="prey" value="上一页"> 
+						<input type="submit" name="" id="prop" value="下一页">
+					</div>
+                    
                 </div>
                 <!-- 学生 表格 显示 end-->
             </div>
@@ -120,6 +125,34 @@
         $('.a-delete').prop('href','InvestmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
 
         })
+        
+        
+    $('tr').filter(':lt(3)').hide();
+	$('tr').filter(':gt(3)').hide();
+	var one = 1;
+	var two = 5;
+	var max = $('tr:last').index();
+	$('#prey').click(function() {
+		if (one > 1) {
+			one -= 5;
+			two -= 5;
+			$('tr').show();
+			$('tr').filter(':lt(' + one + ')').hide();
+			$('tr').filter(':gt(' + two + ')').hide();
+			$('tr').filter(':eq(0)').show();
+		}
+	})
+	$('#prop').click(function() {
+		if (two < max) {
+			one += 3;
+			two += 3;
+			$('tr').show();
+			$('tr').filter(':lt(' + one + ')').hide();
+			$('tr').filter(':gt(' + two + ')').hide();
+			$('tr').filter(':eq(0)').show();
+		}
+	})
+
 
     </script>
 </body>
