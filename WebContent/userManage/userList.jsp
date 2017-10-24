@@ -47,7 +47,7 @@
                 <div class="conShow">
                     <table border="1" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td width="435px" class="tdColor">
+                            <td hidden width="435px" class="tdColor">
                                 <input type="checkbox" name="">
                             </td>
                             <td hidden="hidden">id</td>
@@ -60,7 +60,7 @@
                         </tr>
                         <c:forEach items="${list }" var="temp" varStatus="vs">
                         <tr height="40px">
-                             <td width="435px" class="tdColor">
+                             <td hidden width="435px" class="tdColor">
                                 <input type="checkbox" name="">
                             </td>
                             <td hidden>${temp.userId}</td>
@@ -69,7 +69,7 @@
                             <td>${temp.userEmail }</td>
                             <td>${temp.userBanlance }</td>
                             <td>${temp.userPhone }</td>
-                            <td><a href="modifyUser.jsp"><img class="operation" src="imgs/update.png"></a> <img class="operation delban" src="imgs/delete.png"></td>
+                            <td><a href="userAction!to_edit?user.userId=${temp.userId }"><img class="operation" src="imgs/update.png"></a> <img class="operation delban img-delete" src="imgs/delete.png"></td>
                         </tr>
                         </c:forEach>
                     </table>
@@ -88,10 +88,17 @@
             </div>
             <p class="delP1">你确定要删除此条记录吗？</p>
             <p class="delP2">
-                <a href="#" class="ok yes">确定</a><a class="ok no">取消</a>
+                <a href="#" class="ok yes a-delete">确定</a><a class="ok no">取消</a>
             </p>
         </div>
     </div>
     <!-- 删除弹出框  end-->
+    <script type="text/javascript">
+    	$('.img-delete').click(function(){
+    	$('.a-delete').prop('href','userAction!deleteById?user.userId='+$(this).parent().siblings().filter(":hidden").filter(":eq(1)").html())		
+
+    	})
+
+    </script>
 </body>
 </html>

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import online.shixun.common.UtilDao;
 import online.shixun.model.Product;
+import online.shixun.model.User;
 /** 
 * @ClassName: ProductDao 
 * @Description: TODO(这里用一句话描述这个类的作用) 
@@ -25,4 +26,6 @@ import online.shixun.model.Product;
 @Repository
 public interface ProductDao extends UtilDao<Product>{
 	List<Product> getByName(String name);//根据姓名获取产品信息
+
+	Product getProduct(Product product);
 }

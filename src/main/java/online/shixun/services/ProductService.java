@@ -1,4 +1,4 @@
-/**   
+﻿/**   
 * @Title: ProductService.java 
 * @Package online.shixun.services 
 * @Description: TODO(用一句话描述该文件做什么) 
@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.model.Product;
 
+import online.shixun.model.User;
+
+
 /** 
 * @ClassName: ProductService 
 * @Description: TODO(这里用一句话描述这个类的作用) 
@@ -25,7 +28,23 @@ import online.shixun.model.Product;
 */
 @Service(value="productService")
 public class ProductService {
+	@Autowired
+    private ProductDaoImpl productDaoImpl;
+    public void addProduct(Product product){
+    	productDaoImpl.add(product);
+    }
+    public List<Product> findProducts(){
+    	return productDaoImpl.getAll();
+    }
+    public Product getProduct(Product product) {
+		return productDaoImpl.getProduct(product);
+	}
 
+    public void deleteById(Product product) {
+		productDaoImpl.delete(product);
+	}
+
+<<<<<<< HEAD
 	@Autowired
 	private ProductDaoImpl productDaoImpl;
 	
@@ -44,4 +63,9 @@ public class ProductService {
 	public int add(Product product){
 		return productDaoImpl.add(product);
 	}
+
+    public void edit(Product product){
+    	productDaoImpl.update(product);
+    }
+
 }

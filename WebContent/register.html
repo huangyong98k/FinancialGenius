@@ -8,48 +8,59 @@
     <!-- 引入自定义公用 js 库 -->
     <script>
         $(document).ready(function (event) {
+        	var isEmail=false;
+        	var isPhone=false;
+        	var isIDCard=false;
         $("#registerButton").click(function (event) {
-            var dataName = $("#name").val();
-            var dataPassword = $("#password").val();
-            var dataPasswordAgain = $("#passwordAgain").val();
+            var dataName = $("#name").val().trim();
+            var dataPassword = $("#password").val().trim();
+            var dataPasswordAgain = $("#passwordAgain").val().trim();
             
-            var dataEmail = $("#E-mail").val();
+            var dataEmail = $("#E-mail").val().trim();
             var patternEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
             var strEmail = patternEmail.test(dataEmail);
             
-            var dataPhoneNumber=$("#phoneNumber").val();
+            var dataPhoneNumber=$("#phoneNumber").val().trim();
             console.log(dataPhoneNumber);
             var patternPhoneNumber=/^[1][3,4,5,7,8][0-9]{9}$/;
             var strPhoneNumber=patternPhoneNumber.test(dataPhoneNumber);
             
             
-            var dataIDCard=$("#IDCard").val();
+            var dataIDCard=$("#IDCard").val().trim();
             var patternIDCard=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
             var strIDCard=patternIDCard.test(dataIDCard);
             
+            
             if ((dataName == "" || undefined || null)) {
-                alert("用户名称不可为空！");
+                alert("用户名称不可为空");
                 return false;
             }
-
+            else if(dataName.length<6){
+            	alert("用户名小于六位字符");
+            	return false;
+            }
             else if (dataPassword == "" || undefined || null) {
-                alert("密码不能为空！");
+                alert("密码不能为空");
                 return false;
+            }
+            else if(dataPassword.length<6){
+            	alert("密码小于六位字符");
+            	return false;
             }
             else if (dataPasswordAgain == "" || undefined || null) {
-                alert("请输入重复密码！");
+                alert("请输入重复密码");
                 return false;
             }
             else if (dataEmail == "" || undefined || null) {
-                alert("请输入E-mail！");
+                alert("请输入E-mail");
                 return false;
             }
             else if (!strEmail) {
-                alert("请输入合法的E-mail！");
+                alert("请输入合法的E-mail");
                 return false;
             }
             else if (dataPassword != dataPasswordAgain) {
-                alert("两次输入的密码不一致！");
+                alert("两次输入的密码不一致");
                 return false;
             }
             else if(dataPhoneNumber==""||undefined||null){
@@ -69,47 +80,34 @@
             	alert("请输入合法的身份证号码");
             	return false;     
             }
+            else if(isEmail==false){
+            	alert("此邮箱已被注册，请重新输入");
+            	return false;    
+            }
+            else if(isPhone==false){
+            	alert("此手机号已被注册，请重新输入");
+            	return false;    
+            }
+            else if(isIDCard==false){
+            	alert("此身份证号已被注册，请重新输入");
+            	return false;    
+            }
             else {
             	return true;
-            	/* $.ajax({
-                    cache: true,
-                    type: "POST",
-                    url:"userAction!register.action",
-                    data:$('#userMessage'),// formID 
-                    async: false,
-                    error: function(request) {
-                        alert("Connection error");
-                    },
-                    success:function(data,textStatus,jqXHR){
-                    },
-                }); */
             }
         });
         $("#name").bind('input propertychange', function () {
         	
-            var length = $("#name").val().length;
+            var length = $("#name").val().trim().length;
             if (length >= 6) {
-            	$.ajax({
-                    cache: true,
-                    type: "POST",
-                    url:"userAction!registerCheck.action",
-                    data:$('#name'),// 数据控件ID 
-                    async: false,
-                    error: function(request) {
-                        alert("Connection error");
-                    },
-                    success:function(data,textStatus,jqXHR){
-                    	data.
-                    	$("#nameInfo").css("display", "none");
-                    }
-                    }),
+            	 $("#nameInfo").css("display", "none");
             } else {
                 $("#nameInfo").css("display", "block");
             }
             
         });
         $("#password").bind('input propertychange', function (event) {
-            var length = $("#password").val().length;
+            var length = $("#password").val().trim().length;
             if (length >= 6) {
                 $("#passwordInfo").css("display", "none");
             } else {
@@ -117,44 +115,104 @@
             }
         });
         $("#passwordAgain").bind('input propertychange', function (event) {
-            var length1 = $("#password").val().length;
-            var length2 = $("#passwordAgain").val().length;
+            var length1 = $("#password").val().trim().length;
+            var length2 = $("#passwordAgain").val().trim().length;
             if (length2 == length1) {
                 $("#passwordAgainInfo").css("display", "none");
             } else {
                 $("#passwordAgainInfo").css("display", "block");
             }
         });
-        $("#E-mail").bind('input propertychange', function (event) {
-            var email = $("#E-mail").val();
-            var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-            var strEmail = pattern.test(email);
-            if (strEmail) {
-                $("#E-mailInfo").css("display", "none");
-            } else {
-                $("#E-mailInfo").css("display", "block");
-            }
-        });
-        //手机号验证
-        $("#phoneNumber").bind('input propertychange', function (event) {
-            var inputNumber = $("#phoneNumber").val();
-            var pattern=/^[1][3,4,5,7,8][0-9]{9}$/;
-            if(pattern.test(inputNumber)){
-                $("#phoneNumberInfo").css("display", "none");
-            } else {
-                $("#phoneNumberInfo").css("display", "block");
-            }
-        });
-        //身份证号码验证
-            $("#IDCard").bind('input propertychange', function (event) {
-                var inputNumber = $("#IDCard").val();
-                var pattern=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-                if(pattern.test(inputNumber)){
-                    $("#IDCardInfo").css("display", "none");
-                } else {
-                    $("#IDCardInfo").css("display", "block");
+          //邮箱验证
+            $("#E-mail").bind('input blur', function (event) {
+                var email = $("#E-mail").val().trim();
+                var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                var strEmail = pattern.test(email);
+                if (strEmail) {
+                	$.ajax({
+                        cache: true,
+                        type: "POST",
+                        url:"userAction!registerCheckByUserEmail.action",
+                        data:'user.userEmail='+$("#E-mail").val(),// 数据控件ID
+                        dataType:"json",
+                        async: true,
+                        success:function(data){
+                        	console.log(data);
+                        	if(data=="未注册"){
+                        		isEmail=true;
+                        		$("#E-mailInfo").css("color","green");
+                        	}
+                        	else{
+                        		isEmail=false;
+                        		$("#E-mailInfo").css("color","red");
+                        	}
+                        	 $("#E-mailInfo").html(data);
+                        },
+                        error: function(response) {
+                        	console.log(response);
+                        }
+                        });
                 }
             });
+            //手机号验证
+            $("#phoneNumber").bind('input blur', function (event) {
+                var inputNumber = $("#phoneNumber").val().trim();
+                var pattern=/^[1][3,4,5,7,8][0-9]{9}$/;
+                if(pattern.test(inputNumber)){
+                	$.ajax({
+                        cache: true,
+                        type: "POST",
+                        url:"userAction!registerCheckByphoneNumber.action",
+                        data:'user.userPhone='+$('#phoneNumber').val().trim(),// 数据控件ID 
+                        async: true,
+                        success:function(data){
+                        	console.log(data);
+                        	if(data=="未注册"){
+                        		isPhone=true;
+                        		$("#phoneNumberInfo").css("color","green");
+                        	}
+                        	else{
+                        		isPhone=false;
+                        		$("#phoneNumberInfo").css("color","red");
+                        	}
+                        	$("#phoneNumberInfo").html(data);
+                        },
+                        error: function(response) {
+                        	console.log(response);
+                        }
+                        });
+                } 
+            });
+            //身份证号码验证
+                $("#IDCard").bind('input blur', function (event) {
+                    var inputNumber = $("#IDCard").val().trim();
+                    var pattern=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+                    if(pattern.test(inputNumber)){
+                    	$.ajax({
+                            cache: true,
+                            type: "POST",
+                            url:"userAction!registerCheckByIDCard.action",
+                            data:'user.userCard='+$("#IDCard").val().trim(),// 数据控件ID 
+                            async: true,
+                            success:function(data){
+                            	console.log(data);
+                            	if(data=="未注册"){
+                            		isIDCard=true;
+                            		$("#IDCardInfo").css("color","green");
+                            	}
+                            	else{
+                            		isIDCard=false;
+                            		$("#IDCardInfo").css("color","red");
+                            	}
+                            	$("#IDCardInfo").html(data);
+                     
+                            },
+                            error: function(response) {
+                            	console.log(response);
+                            }
+                            });
+                    } 
+                });
             $("userMessage").submit(function(e){
             });
         });
@@ -164,7 +222,7 @@
             margin-top: 30px;
             margin-left: 340px;
             width: 50%;
-            height: 510px;
+            height: 480px;
             border: 1px solid seagreen;
         }
         #user-register header {
@@ -186,18 +244,6 @@
         #user-register p {
             margin-top: -28px;
             margin-left: 108px;
-        }
-
-        #user-register .select-states_0 {
-            margin-top: 8px;
-            margin-left: -25px;
-            width: 30px;
-            height: 15px;
-        }
-
-        #user-register .select-states_1 {
-            width: 30px;
-            height: 15px;
         }
 
         #user-register .bie {
@@ -235,7 +281,7 @@
             color: red;
             left: 800px;
             height: 20px;
-            width: 20px;
+            width: 60px;
         }
 
         #user-register #nameInfo {
@@ -261,12 +307,12 @@
 
         #user-register #phoneNumberInfo{
             position: absolute;
-            top: 480px;
+            top: 430px;
         }
 
         #user-register #IDCardInfo{
             position: absolute;
-            top: 530px;
+            top: 480px;
         }
 
         .headTltle{
@@ -315,15 +361,6 @@
     <p id="passwordAgainInfo" class="info">*</p><br>
     <span>电子邮箱：</span><input class="E-mail"  id="E-mail" type="email" name="user.userEmail" placeholder="请输入您的电子邮箱">
     <p id="E-mailInfo" class="info">*</p><br>
-    <span>性</span><span class="bie">别：</span>
-    <p>
-        <label>
-            <input type="radio" name="select-states" value="男" class="select-states_0" checked>
-            男</label>
-        <label>
-            <input type="radio" name="select-states" value="女" class="select-states_1">
-            女</label>
-    </p>
     <span>电话号码：</span><input class="phoneNumber" id="phoneNumber" type="text" name="user.userPhone" minlength="11" maxlength="11" placeholder="请输入手机号码">
     <p id="phoneNumberInfo" class="info">*</p><br>
     <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" name="user.userCard" minlength="18" maxlength="18" placeholder="请输入您的身份证号码">

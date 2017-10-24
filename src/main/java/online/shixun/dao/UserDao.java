@@ -28,4 +28,5 @@ public interface UserDao extends UtilDao<User>{
 	List<User> getByEmail(String email);//根据邮箱查询
 	List<User> getByPhone(String phone);//根据手机号查询
 	List<Investment> getInvestmentsByUserId(Long userId);//根据用户id获取用户投资信息
+	User getUser(User user);
 }

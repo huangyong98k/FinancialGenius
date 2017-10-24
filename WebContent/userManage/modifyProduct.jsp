@@ -24,27 +24,28 @@
                 <div class="baTopNo">
                     <span>修改产品</span>
                 </div>
-                <form action="" method="post">
+                <form action="productAction!do_edit" method="post">
                     <div class="baBody">
                         <div class="bbD1 bbD">
+                             <input type="hidden" class="addUserInfo" value="${product.productId }" name="product.productId">
                              <input type="text" class="addUserInfo" value="产品名：" readonly>
-                            <input type="text" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="text" class="input3" name="product.productName"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                              <input type="text" class="addUserInfo" value="产品利率：" readonly>
-                            <input type="text" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="text" class="input3" name="product.productRate"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                             <input type="text" class="addUserInfo" value="购买金额：" readonly>
-                            <input type="password" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="password" class="input3" name="product.productCapital"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
-                             <input type="text" class="addUserInfo" value="购买月数：" readonly>
-                            <input type="email" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                             <input type="text" class="addUserInfo" value="发行机构：" readonly>
+                            <input type="text" class="input3" name="product.productMechanism"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                                  <input type="text" class="addUserInfo" value="收益：" readonly>
-                            <input type="text" class="input3" />  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
+                            <input type="text" class="input3" name="product.productMoney"/>  <img id="img_ok" src="imgs/ok.png"><img id="img_no" src="imgs/no.png">  <span id="text_no"></span>
                         </div>
                         <div class="bbD">
                             <p class="bbDP">

@@ -3,6 +3,7 @@ package online.shixun.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Product {
 	private String productMoney;
 	private String productMechanism;
 	private int productStatus;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name = "productId")
 	private List<Investment> investments;
 	public long getProductId() {

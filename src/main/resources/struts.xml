@@ -1,20 +1,51 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+
 <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-    <package name="default" namespace="/" extends="struts-default">
+    <package name="default" namespace="/" extends="struts-default,json-default">
         <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
-        <result name="register">registerSuccess.jsp</result>
+        <!-- 刘杰生-->
+        <result type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="register">registerSuccess.jsp</result>
+		<!-- 刘杰生-->
+		
         <result name="list">/userManage/userList.jsp</result>
+        <result name="to_edit">/userManage/modifyUser.jsp</result>
+        <result name="do_edit">/userManage/userList.jsp</result>
+        <result name="add">/userManage/userList.jsp</result>
         </action>
+         <action name="productAction!*" class="online.shixun.action.ProductAction" method="{1}">
+        <result name="list">/userManage/productList.jsp</result>
+        <result name="addProduct">/userManage/productList.jsp</result>
+        <result name="to_edit">/userManage/modifyProduct.jsp</result>
+        <result name="do_edit">/userManage/productList.jsp</result>
+        </action>
+
 		<action name="productAction!*" class="online.shixun.action.ProductAction"
 			method="{1}">
 			<result name="findAllSuccess">/products/commodityList.jsp</result>
 		</action>
 	</package>
 
+    </package>
+    
+
+	<!-- 刘杰生 
+	<package name="default" namespace="/" extends="struts-default,json-default">
+		<action name="userAction!*" class="online.shixun.action.UserAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="register">registerSuccess.jsp</result>
+		</action>
+	</package>
+	刘杰生 -->
 
 </struts>

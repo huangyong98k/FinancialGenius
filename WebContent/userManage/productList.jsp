@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -82,29 +83,32 @@
                 <div class="conShow">
                     <table border="1" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td width="435px" class="tdColor">
+                            <td hidden width="435px" class="tdColor">
                                 <input type="checkbox" name="checkbox" id="btn1">
                             </td>
                             <td width="435px" class="tdColor">产品编号</td>
                             <td width="400px" class="tdColor">产品名</td>
                             <td width="630px" class="tdColor">产品利率</td>
                             <td width="435px" class="tdColor">购买金额</td>
-                            <td width="435px" class="tdColor">购买月数</td>
+                            <td width="435px" class="tdColor">发行机构</td>
                             <td width="435px" class="tdColor">收益</td>
                             <td width="230px" class="tdColor">操作</td>
                         </tr>
+                        <c:forEach items="${list }" var="temp" varStatus="vs">
                         <tr height="40px">
-                            <td>
+                            <td hidden>
                                 <input type="checkbox" name="checkbox" class="checkes-all">
                             </td>
-                            <td>1</td>
-                            <td>product1</td>
-                            <td>0.05</td>
-                            <td>10000</td>
-                            <td>1</td>
-                            <td>10050</td>
-                            <td><a href="modifyProduct.html"><img class="operation" src="imgs/update.png"></a><img class="operation delban" src="imgs/delete.png"></td>
+                            <td>${temp.productId}</td>
+                            <td>${temp.productName}</td>
+                            <td>${temp.productRate}</td>
+                            <td>${temp.productCapital}</td>
+                            <td>${temp.productMechanism}</td>
+                            <td>${temp.productMoney}</td>
+                            <td><a href="productAction!to_edit?product.productId=${temp.productId }"><img class="operation" src="imgs/update.png"></a><img class="operation delban img-delete" src="imgs/delete.png"></td>
+
                         </tr>
+                        </c:forEach>
                     </table>
                     <div class="paging">此处是分页</div>
                 </div>
@@ -121,10 +125,17 @@
             </div>
             <p class="delP1">你确定要删除此条记录吗？</p>
             <p class="delP2">
-                <a href="#" class="ok yes">确定</a><a class="ok no">取消</a>
+                <a href="#" class="ok yes a-delete">确定</a><a class="ok no">取消</a>
             </p>
         </div>
     </div>
     <!-- 删除弹出框  end-->
+    <script type="text/javascript">
+        $('.img-delete').click(function(){
+        $('.a-delete').prop('href','productAction!deleteById?product.productId='+$(this).parent().siblings().filter(":eq(1)").html())       
+
+        })
+
+    </script>
 </body>
 </html>

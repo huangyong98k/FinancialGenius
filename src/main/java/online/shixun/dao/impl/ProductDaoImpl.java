@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import online.shixun.common.BaseDao;
 import online.shixun.dao.ProductDao;
 import online.shixun.model.Product;
+import online.shixun.model.User;
 
 /** 
 * @ClassName: ProductDaoImpl 
@@ -34,7 +35,11 @@ public class ProductDaoImpl implements ProductDao{
 		baseDao.getHibernateTemplate().save(product);
 		return 1;
 	}
-
+	@Override
+	public Product getProduct(Product product) {
+		return baseDao.getHibernateTemplate().get(Product.class, product.getProductId());
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> getAll() {

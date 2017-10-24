@@ -35,6 +35,31 @@ public class UserService {
     public List<User> findUsers(){
     	return userDaoImpl.getAll();
     }
+    public void edit(User user){
+    	userDaoImpl.update(user);
+    }
+
+    public User getUser(User user) {
+		return userDaoImpl.getUser(user);
+	}
+    public int findByEmai(String Email){
+    	List<User> users = userDaoImpl.getByEmail(Email); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+		return 0;
+    	
+    }
+    public int findByPhone(String phone){
+    	List<User> users = userDaoImpl.getByPhone(phone); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		return 1;
+    	}
+		return 0;
+    }
+
     public int findByCard(String card){
     	List<User> users = userDaoImpl.getByCrad(card); 
     	System.out.println(users.toString());
@@ -46,5 +71,8 @@ public class UserService {
     
     public List<Investment> findInvestmentsByUserId(Long userId){
 		return userDaoImpl.getInvestmentsByUserId(userId);
+	}
+    public void deleteById(User user) {
+		userDaoImpl.delete(user);
 	}
 }
