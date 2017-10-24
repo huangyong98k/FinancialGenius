@@ -12,19 +12,17 @@
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/public.js"></script>
 <script type="text/javascript">
-       $(function(){
-       	$(".delban").click(function() {
-           $(".banDel").show();
-       }),
-       $(".close").click(function() {
-           $(".banDel").hide();
-       }),
-       $(".no").click(function() {
-           $(".banDel").hide();
-       })
-       
-       })
-   </script>
+	$(function() {
+		$(".delban").click(function() {
+			$(".banDel").show();
+		}), $(".close").click(function() {
+			$(".banDel").hide();
+		}), $(".no").click(function() {
+			$(".banDel").hide();
+		})
+
+	})
+</script>
 </head>
 
 <body>
@@ -75,7 +73,10 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<div class="paging">此处是分页</div>
+					<div class="paging">
+						<a href="InvestmentAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> 
+						<a href="InvestmentAction!nextPage"><input type="button" name="" id="prop" value="下一页"></a>
+					</div>
 				</div>
 				<!-- 学生 表格 显示 end-->
 			</div>
@@ -96,11 +97,42 @@
 	</div>
 	<!-- 删除弹出框  end-->
 	<script type="text/javascript">
-        $('.img-delete').click(function(){
-        $('.a-delete').prop('href','InvestmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
+		$('.img-delete').click(
+				function() {
+					$('.a-delete').prop(
+							'href',
+							'InvestmentAction!deleteById?investment.investmentId='
+									+ $(this).parent().siblings().filter(
+											":eq(0)").html())
 
-        })
-
-    </script>
+				})
+				
+				
+				$('tr').filter(':lt(0)').hide();
+	$('tr').filter(':gt(5)').hide();
+	var one = 1;
+	var two = 5;
+	var max = $('tr:last').index();
+	$('#prey').click(function() {
+		if (one > 1) {
+			one -= 5;
+			two -= 5;
+			$('tr').show();
+			$('tr').filter(':lt(' + one + ')').hide();
+			$('tr').filter(':gt(' + two + ')').hide();
+			$('tr').filter(':eq(0)').show();
+		}
+	})
+	$('#prop').click(function() {
+		if (two < max) {
+			one += 5;
+			two += 5;
+			$('tr').show();
+			$('tr').filter(':lt(' + one + ')').hide();
+			$('tr').filter(':gt(' + two + ')').hide();
+			$('tr').filter(':eq(0)').show();
+		}
+	})
+	</script>
 </body>
 </html>

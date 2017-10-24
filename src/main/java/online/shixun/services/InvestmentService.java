@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import online.shixun.dao.impl.InvestmentDaoImpl;
 import online.shixun.model.Investment;
+import online.shixun.model.User;
 
 /**
  * @ClassName: InvestmentService
@@ -44,6 +45,14 @@ public class InvestmentService {
 	
 	public void deleteById(Investment investment) {
 		investmentDaoImpl.delete(investment);
+	}
+	
+	//服务类用户前后端分页
+    public List<Investment> nextPage() {
+    	return investmentDaoImpl.nextPage();	
+	}
+    public List<Investment> prevPage() {
+    	return investmentDaoImpl.prevPage();	
 	}
 
 }

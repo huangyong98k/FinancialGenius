@@ -40,7 +40,7 @@ public class InvestmentAction {
 
 	public String findInvestment(){
 		list=investmentService.findInvestment();
-		System.out.println(list.toString());
+		
 		return "list";	
 	}
 	public String deleteById(){
@@ -48,6 +48,18 @@ public class InvestmentAction {
 		findInvestment();
 		return "list";
 	}
+	//用户前后端分页
+		public String nextPage() {
+			list=investmentService.nextPage();
+			for(Investment user:list) {
+				System.out.println(user);
+			}
+			return "list";
+		}
+		public String prevPage() {
+			list=investmentService.prevPage();
+			return "list";
+		}
 
 	public User getUser() {
 		return user;

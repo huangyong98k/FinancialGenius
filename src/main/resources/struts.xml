@@ -32,7 +32,7 @@
         
         <action name="InvestmentAction!*" class="online.shixun.action.InvestmentAction" method="{1}">
         <result name="list">/userManage/investList.jsp</result>
-        <result name="list">/userManage/investInvalid.jsp</result>
+ 		<result name="list">/userManage/investInvalid.jsp</result> 
         </action>
 	</package>
 

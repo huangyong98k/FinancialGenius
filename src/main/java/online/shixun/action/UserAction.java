@@ -210,7 +210,7 @@ public class UserAction {
 			return "loginSuccess";
 		}
 		session.put("loginError", "用户密码不正确！");
-		return "loginFaile";
+		    return "loginFaile";
 
 	}
 	//用户前后端分页

@@ -82,7 +82,6 @@
 						<c:forEach items="${list }" var="temp" varStatus="vs">
 
 							<tr height="40px">
-
 								<td>${temp.investmentId}</td>
 								<td>${temp.beginTime}</td>
 								<td>${temp.overTime }</td>
@@ -95,7 +94,9 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<div class="paging">此处是分页</div>
+					<div class="paging">
+						<a href="InvestmentAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> 
+						<a href="InvestmentAction!nextPage"><input type="button" name="" id="prop" value="下一页"></a>
 				</div>
 				<!-- 学生 表格 显示 end-->
 			</div>
@@ -120,6 +121,34 @@
         $('.a-delete').prop('href','InvestmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
 
         })
+        
+        
+        
+    $('tr').filter(':lt(0)').hide();
+	$('tr').filter(':gt(5)').hide();
+	var one = 1;
+	var two = 5;
+	var max = $('tr:last').index();
+	$('#prey').click(function() {
+		if (one > 1) {
+			one -= 5;
+			two -= 5;
+			$('tr').show();
+			$('tr').filter(':lt(' + one + ')').hide();
+			$('tr').filter(':gt(' + two + ')').hide();
+			$('tr').filter(':eq(0)').show();
+		}
+	})
+	$('#prop').click(function() {
+		if (two < max) {
+			one += 5;
+			two += 5;
+			$('tr').show();
+			$('tr').filter(':lt(' + one + ')').hide();
+			$('tr').filter(':gt(' + two + ')').hide();
+			$('tr').filter(':eq(0)').show();
+		}
+	})
 
     </script>
 </body>
