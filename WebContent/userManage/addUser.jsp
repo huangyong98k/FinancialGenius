@@ -10,6 +10,25 @@
 	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/adduser.js"></script>
+<script type="text/javascript">
+$('#input-phone').blur(function(){
+	$.ajax({
+		url:,
+			data:json,
+				type:'post',
+					async:'false',
+						dataType:"json",
+					error:functionn(){
+						alrt('号码已存在');
+					}		
+		
+		success:function(){
+			
+		}
+	
+	})
+})
+</script>
 </head>
 <body>
 	<div id="pageAll">
@@ -46,7 +65,7 @@
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="邮箱：" readonly>
-							<input type="email" class="input3" name="user.userEmail" /> <img
+							<input id="" type="email" class="input3" name="user.userEmail" /> <img
 								id="img_ok" src="imgs/ok.png"><img id="img_no"
 								src="imgs/no.png"> <span id="text_no"></span>
 						</div>
@@ -56,7 +75,7 @@
 								class="addUserCheck" type="radio" name="sex" />女
 						</div>
 						<div class="bbD">
-							<input type="text" class="addUserInfo" value="电话号：" readonly>
+							<input id="input-phone" type="text" class="addUserInfo" value="电话号：" readonly>
 							<input type="phone" class="input3" name="user.userPhone" /> <img
 								id="img_ok" src="imgs/ok.png"><img id="img_no"
 								src="imgs/no.png"> <span id="text_no"></span>
