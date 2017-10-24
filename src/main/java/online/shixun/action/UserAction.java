@@ -35,7 +35,7 @@ public class UserAction {
 	private List<Investment> investments;
 	private User user;
 	private String email;
-	private String userPassword;s
+	private String userPassword;
 	private Map<String, Object> session;
 	
 	public String addUser(){
@@ -168,6 +168,15 @@ public class UserAction {
 		session.put("loginError", "用户密码不正确！");
 		return "loginFaile";
 
+	}
+	//用户前后端分页
+	public String nextPage() {
+		list=userService.nextPage();
+		return "list";
+	}
+	public String prevPage() {
+		list=userService.prevPage();
+		return "list";
 	}
 
 	public User getUser() {

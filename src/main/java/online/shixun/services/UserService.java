@@ -47,7 +47,7 @@ public class UserService {
     	userDaoImpl.add(user);
     }
     public List<User> findUsers(){
-    	return userDaoImpl.getAll();
+    	return userDaoImpl.getAllUsePage();
     }
     public void edit(User user){
     	userDaoImpl.update(user);
@@ -89,6 +89,13 @@ public class UserService {
 
     public void deleteById(User user) {
 		userDaoImpl.delete(user);
+	}
+    //服务类用户前后端分页
+    public List<User> nextPage() {
+    	return userDaoImpl.nextPage();	
+	}
+    public List<User> prevPage() {
+    	return userDaoImpl.prevPage();	
 	}
 
 }

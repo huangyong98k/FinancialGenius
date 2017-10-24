@@ -2,6 +2,7 @@ package online.shixun.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -133,5 +134,36 @@ public class UserDaoImpl implements UserDao {
 		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
 		return (List<Investment>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
 	}
-
+	
+   //用户前后端分页
+	
+	int firstResult=0;
+	@SuppressWarnings("unchecked")
+	public List<User> getAllUsePage() {
+		DetachedCriteria criteria=DetachedCriteria.forClass(User.class);
+		List<User> list= (List<User>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);	
+		return list;
+	}
+    @SuppressWarnings("unchecked")
+	public List<User> nextPage(){
+    	List<User> list=(List<User>) baseDao.getHibernateTemplate().find("from User");
+    	DetachedCriteria criteria=DetachedCriteria.forClass(User.class);
+    	if(firstResult+5<list.size()){
+    		firstResult=firstResult+5;
+    	}
+    	
+		list= (List<User>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
+		
+    	return list; 	
+    }
+    @SuppressWarnings("unchecked")
+	public List<User> prevPage(){
+    	List<User> list=(List<User>) baseDao.getHibernateTemplate().find("from User");
+    	DetachedCriteria criteria=DetachedCriteria.forClass(User.class);
+    	if(firstResult-5>=0){
+    		firstResult=firstResult-5;
+    	}
+		list= (List<User>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
+    	return list; 	
+    }
 }
