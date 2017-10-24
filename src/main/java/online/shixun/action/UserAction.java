@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import online.shixun.model.Investment;
 import online.shixun.model.User;
 import online.shixun.services.UserService;
 
@@ -31,6 +32,7 @@ public class UserAction {
 	private UserService userService;
 
 	private List<User> list;
+	private List<Investment> investments;
 	private User user;
 	
 	public String addUser(){
@@ -43,6 +45,7 @@ public class UserAction {
 		list=userService.findUsers();
 		return "list";
 	}
+
 	public String deleteById() {
 		userService.deleteById(user);
 		findUser();
@@ -57,6 +60,12 @@ public class UserAction {
 		findUser();
 		return "list";
 	}
+
+	public String getInvestmentById(){
+		investments = userService.findInvestmentsByUserId(user.getUserId());
+		return "getSuccess";
+	}
+	
 	public void registerCheck(){
 		System.out.println("userAction!registerCheck");
 		userService.addUser(user);

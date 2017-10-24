@@ -40,3 +40,4 @@ $(document).ready(function (event) {
             $("#all").html(parseFloat(num));
         });
 });
+

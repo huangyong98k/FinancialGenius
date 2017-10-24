@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.model.Product;
 
-import online.shixun.model.User;
 
 
 /** 
@@ -44,9 +43,6 @@ public class ProductService {
 		productDaoImpl.delete(product);
 	}
 
-<<<<<<< HEAD
-	@Autowired
-	private ProductDaoImpl productDaoImpl;
 	
 	public List<Product> getAllProducts(){
 		return productDaoImpl.getAll();
@@ -54,10 +50,6 @@ public class ProductService {
 	
 	public Product findById(Long id){
 		return productDaoImpl.getById(id);
-	}
-	
-	public int delete(Product product){
-		return productDaoImpl.delete(product);
 	}
 	
 	public int add(Product product){

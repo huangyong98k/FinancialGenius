@@ -18,28 +18,21 @@ import online.shixun.services.ProductService;
 @Component("productAction")
 public class ProductAction {
 
-=======
-@Component("productAction")
-public class ProductAction {
-
 	@Autowired
 	private ProductService productService;
 
 	private List<Product> list;
-	private Product produc
+	private Product product;
+
 
 	public String findAllProducts() {
 		System.out.println("productAction!findAllProducts");
 		list = productService.getAllProducts();
 		return "findAllSuccess";
 	}
-
-	public Product getProduct() {
-		return product;
+	public String addInvestment(){
+		return "addInvestment";
 	}
-
-	public void setProduct(Product product) {
-		this.product = product;
 
 	
 	public String findProduct(){
@@ -60,7 +53,7 @@ public class ProductAction {
 		productService.edit(product);;
 		findProduct();
 		return "do_edit";
->>>>>>> 7f44045c358cf63e28d9dabeeb03c69ada7b2c9a
+
 	}
 
 	public List<Product> getList() {
