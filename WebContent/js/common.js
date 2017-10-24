@@ -104,7 +104,6 @@ $.center = function(el) {
 
 var mask = {
     isOpen: false,
-    isIe6: $.browser.msie && ($.browser.version < 7),
     zIndex: 2000,
     on: function() {
         if (mask.isOpen) {

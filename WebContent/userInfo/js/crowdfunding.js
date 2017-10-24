@@ -1,146 +1,87 @@
-/*!
- * jRaiser 2 Javascript Library
- * Yaolongfei - v1.0.0 (2015-07-28T17:30:00+0800)
- */
-
 $(document).ready(function(event) {
-    $("#registerButton").click(function(event) {
-        var dataName = $("#name").val();
-        var dataPassword = $("#password").val();
-        var dataPasswordAgain = $("#passwordAgain").val();
-
-        var dataEmail = $("#E-mail").val();
-        var patternEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-        var strEmail = patternEmail.test(dataEmail);
-
-        var dataPhoneNumber = $("#phoneNumber").val();
-        console.log(dataPhoneNumber);
-        var patternPhoneNumber = /^[1][3,4,5,7,8][0-9]{9}$/;
-        var strPhoneNumber = patternPhoneNumber.test(dataPhoneNumber);
-
-
-        var dataIDCard = $("#IDCard").val();
-        var patternIDCard = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-        var strIDCard = patternIDCard.test(dataIDCard);
-
-        if ((dataName == "" || undefined || null)) {
-            alert("用户名称不可为空！");
-            return false;
-        } else if (dataPassword == "" || undefined || null) {
-            alert("密码不能为空！");
-            return false;
-        } else if (dataPasswordAgain == "" || undefined || null) {
-            alert("请输入重复密码！");
-            return false;
-        } else if (dataEmail == "" || undefined || null) {
-            alert("请输入E-mail！");
-            return false;
-        } else if (!strEmail) {
-            alert("请输入合法的E-mail！");
-            return false;
-        } else if (dataPassword != dataPasswordAgain) {
-            alert("两次输入的密码不一致！");
-            return false;
-        } else if (dataPhoneNumber == "" || undefined || null) {
-            alert("请输入您的手机号");
-            return false;
-        } else if (!strPhoneNumber) {
-            console.log(strPhoneNumber);
-            alert("请输入合法的手机号");
-            return false;
-        } else if (dataIDCard == "" || undefined || null) {
-            alert("请输入您的身份证号码");
-            return false;
-        } else if (!strIDCard) {
-            alert("请输入合法的身份证号码");
-            return false;
-        } else {
-            return true;
-            /* $.ajax({
-                    cache: true,
-                    type: "POST",
-                    url:"userAction!register.action",
-                    data:$('#userMessage'),// formID 
-                    async: false,
-                    error: function(request) {
-                        alert("Connection error");
-                    },
-                    success:function(data,textStatus,jqXHR){
-                    },
-                }); */
-        }
-    });
-    $("#name").bind('input propertychange', function() {
-
-        var length = $("#name").val().length;
-        if (length >= 6) {
-            $.ajax({
+	var isEmail=false;
+	var isPhone=false;
+	
+$("#registerButton").click(function (event) {
+    var dataName = $("#name").val().trim();
+  
+    var dataPhoneNumber=$("#phoneNumber").val().trim();
+    var patternPhoneNumber=/^[1][3,4,5,7,8][0-9]{9}$/;
+    var strPhoneNumber=patternPhoneNumber.test(dataPhoneNumber);
+       
+    if ((dataName == "" || undefined || null)) {
+        alert("用户名称不可为空");
+        return false;
+    }
+    else if(dataName.length<6){
+    	alert("用户名小于六位字符");
+    	return false;
+    }
+    else if(dataPhoneNumber==""||undefined||null){
+    	alert("请输入您的手机号");
+    	return false;       
+    	}
+    else if(!strPhoneNumber){
+        console.log(strPhoneNumber);
+    	alert("请输入合法的手机号");
+    	return false;     
+    }
+    else if(isPhone==false){
+    	alert("此手机号已被注册，请重新输入");
+    	return false;    
+    }
+    else if(isIDCard==false){
+    	alert("此身份证号已被注册，请重新输入");
+    	return false;    
+    }
+    else {
+    	return true;
+    }
+});
+$("#name").bind('input propertychange', function () {
+	
+    var length = $("#name").val().trim().length;
+    if (length >= 6) {
+    	 $("#userNameInfo").css("display", "none");
+    } else {
+        $("#userNnameInfo").css("display", "block");
+    }
+    
+});
+    //手机号验证
+    $("#phoneNumber").bind('input blur', function (event) {
+        var inputNumber = $("#phoneNumber").val().trim();
+        var pattern=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if(pattern.test(inputNumber)){
+        	$.ajax({
                 cache: true,
                 type: "POST",
-                url: "userAction!registerCheck.action",
-                data: $('#name'), // 数据控件ID 
-                async: false,
-                error: function(request) {
-                    alert("Connection error");
+                url:"userAction!registerCheckByphoneNumber.action",
+                data:'user.userPhone='+$('#phoneNumber').val().trim(),// 数据控件ID 
+                async: true,
+                success:function(data){
+                	console.log(data);
+                	if(data=="未注册"){
+                		isPhone=true;
+                		$("#phoneNumberInfo").css("color","green");
+                	}
+                	else{
+                		isPhone=false;
+                		$("#phoneNumberInfo").css("color","red");
+                	}
+                	$("#phoneNumberInfo").html(data);
                 },
-                success: function(data, textStatus, jqXHR) {
-                    data.
-                    $("#nameInfo").css("display", "none");
+                error: function(response) {
+                	console.log(response);
                 }
-            })
-        } else {
-            $("#nameInfo").css("display", "block");
+                });
+        } 
+        else{
+        	isPhone=false;
+    		$("#phoneNumberInfo").css("color","red");
+    		$("#phoneNumberInfo").html("格式错误");
         }
     });
-    $("#password").bind('input propertychange', function(event) {
-        var length = $("#password").val().length;
-        if (length >= 6) {
-            $("#passwordInfo").css("display", "none");
-        } else {
-            $("#passwordInfo").css("display", "block");
-        }
-    });
-    $("#passwordAgain").bind('input propertychange', function(event) {
-        var length1 = $("#password").val().length;
-        var length2 = $("#passwordAgain").val().length;
-        if (length2 == length1) {
-            $("#passwordAgainInfo").css("display", "none");
-        } else {
-            $("#passwordAgainInfo").css("display", "block");
-        }
-    });
-    $("#E-mail").bind('input propertychange', function(event) {
-        var email = $("#E-mail").val();
-        var pattern = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-        var strEmail = pattern.test(email);
-        if (strEmail) {
-            $("#E-mailInfo").css("display", "none");
-        } else {
-            $("#E-mailInfo").css("display", "block");
-        }
-    });
-    //手机号验证
-    $("#phoneNumber").bind('input propertychange', function(event) {
-        var inputNumber = $("#phoneNumber").val();
-        var pattern = /^[1][3,4,5,7,8][0-9]{9}$/;
-        if (pattern.test(inputNumber)) {
-            $("#phoneNumberInfo").css("display", "none");
-        } else {
-            $("#phoneNumberInfo").css("display", "block");
-        }
-    });
-    //身份证号码验证
-    $("#IDCard").bind('input propertychange', function(event) {
-        var inputNumber = $("#IDCard").val();
-        var pattern = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-        if (pattern.test(inputNumber)) {
-            $("#IDCardInfo").css("display", "none");
-        } else {
-            $("#IDCardInfo").css("display", "block");
-        }
-    });
-    $("userMessage").submit(function(e) {});
-
     $("#modifyByEmail").click(function(event) {
         //alert("123");
         $("#modifyByEmail").addClass("modifyChecked");
@@ -156,7 +97,6 @@ $(document).ready(function(event) {
         $("#changePasswordMain2").css("display", "block");
     });
 });
-
 /**
  * 用于众筹个人中心左侧竖型菜单的动态样式切换
  * @method listClick

@@ -124,7 +124,15 @@ public class UserAction {
 		userService.addUser(user);
 		return "register";
 	}
-	
+	//查看及修改个人信息
+	public String modifyUserMessage(){
+		userService.edit(user);
+		String message;
+		message="个人信息已修改成功";
+		result=message;
+		return ActionSupport.SUCCESS;
+		
+	}
 	public String login(){
 		System.out.println("userAction!login");
 		System.out.println(email);
