@@ -1,5 +1,6 @@
 ﻿package online.shixun.action;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,9 +36,14 @@ public class UserAction {
 	private List<Investment> investments;
 	private User user;
 	private String email;
-	private String userPassword;s
-	private Map<String, Object> session;
-	
+	private String userPassword;
+	private static Map<String, Object> session;
+	//静态模块初始化session 添加 对象loginInfo 属性值为"请登录" 
+	static  
+    {  
+        session= new HashMap<String, Object>();  
+        session.put("loginInfo","请登录");
+    }  
 	public String addUser(){
 		userService.addUser(user);
 		findUser();
@@ -143,6 +149,31 @@ public class UserAction {
 		System.out.println("userAction!register");
 		userService.addUser(user);
 		return "register";
+	}
+	//通过查看session值判断是否登录  未登录返回 "请登录" 已登录返回 userName
+		public String queryUserName(){
+			System.out.println("userAction!queryUserName");
+			session.get("loginInfo");
+			result=(String) session.get("loginInfo");
+			System.out.println();
+			return ActionSupport.SUCCESS;
+			
+		}
+	//通过查看session值判断是否登录  未登录返回 "请登录" 已登录返回 userID 但userID为String类型 需要调用请在前端转为long类型
+	public String queryUserID(){
+		System.out.println("userAction!queryUserID");
+		session.get("loginInfo");
+		result=(String) session.get("loginInfo");
+		if (result.equals("请登录")) {
+			//不做改变
+		}
+		else {
+			long userID=userService.findByEmaiToID(result);
+			result=String.valueOf(userID);
+		}
+		System.out.println();
+		return ActionSupport.SUCCESS;
+		
 	}
 	//查看及修改个人信息
 	public String modifyUserMessage(){
