@@ -5,47 +5,35 @@
 
 <struts>
 
-	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
-	<package name="default" namespace="/" extends="struts-default,json-default">
-		<action name="userAction!*" class="online.shixun.action.UserAction"
-			method="{1}">
-			<!-- 刘杰生 -->
-			<result type="json">
+<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <package name="default" namespace="/" extends="struts-default,json-default">
+        <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
+        <!-- 刘杰生-->
+        <result type="json">
 				<param name="root">result</param>
 			</result>
 			<result name="register">registerSuccess.jsp</result>
-			<!-- 刘杰生 -->
-			<result name="list">/userManage/userList.jsp</result>
-			<result name="to_edit">/userManage/modifyUser.jsp</result>
-			<result name="do_edit">/userManage/userList.jsp</result>
-			<result name="add">/userManage/userList.jsp</result>
-			<!-- 刘杰生 -->
-			<result name="getSuccess">/products/buyList.jsp</result>
-			<!-- 刘杰生 -->
-			<result name="loginSuccess">index.jsp</result>
-			<result name="loginFaile">loginFaile.jsp</result>
-			<result name="list">/userManage/userList.jsp</result>
-			<result name="to_edit">/userManage/modifyUser.jsp</result>
-			<result name="do_edit">/userManage/userList.jsp</result>
-			<result name="add">/userManage/userList.jsp</result>
-			<result name="getSuccess">/products/buyList.jsp</result>
-		</action>
-		<action name="productAction!*" class="online.shixun.action.ProductAction"
-			method="{1}">
-			<result name="list">/userManage/productList.jsp</result>
-			<result name="addProduct">/userManage/productList.jsp</result>
-			<result name="to_edit">/userManage/modifyProduct.jsp</result>
-			<result name="do_edit">/userManage/productList.jsp</result>
-			<result name="findAllSuccess">/products/commodityList.jsp</result>
-			<result name="addInvestment">/products/addProducts.jsp</result>
-		</action>
-		<action name="investmentAction!*" class="online.shixun.action.InvestmentAction"
-			method="{1}">
-			<result name="addSuccess">/products/buyList.jsp</result>
-			<result name="list">/userManage/investList.jsp</result>
-			<result name="list">/userManage/investInvalid.jsp</result>
-		</action>
+			
+		<!-- 刘杰生-->
+		<result name="loginSuccess">index.html</result>
+        <result name="loginFaile">loginFaile.jsp</result>
+        <result name="list">/userManage/userList.jsp</result>
+        <result name="to_edit">/userManage/modifyUser.jsp</result>
+        <result name="do_edit">/userManage/userList.jsp</result>
+        <result name="add">/userManage/userList.jsp</result>
+        </action>
+         <action name="productAction!*" class="online.shixun.action.ProductAction" method="{1}">
+        <result name="list">/userManage/productList.jsp</result>
+        <result name="addProduct">/userManage/productList.jsp</result>
+        <result name="to_edit">/userManage/modifyProduct.jsp</result>
+        <result name="do_edit">/userManage/productList.jsp</result>
+        <result name="findAllSuccess">/products/commodityList.jsp</result>
+        </action>
+        
+        <action name="InvestmentAction!*" class="online.shixun.action.InvestmentAction" method="{1}">
+        <result name="list">/userManage/investList.jsp</result>
+        <result name="list">/userManage/investInvalid.jsp</result>
+        </action>
 	</package>
-
 
 </struts>
