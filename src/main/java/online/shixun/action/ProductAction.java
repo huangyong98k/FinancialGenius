@@ -30,11 +30,12 @@ public class ProductAction {
 		list = productService.getAllProducts();
 		return "findAllSuccess";
 	}
+
 	public String addInvestment(){
 		return "addInvestment";
 	}
 
-	
+
 	public String findProduct(){
 		list=productService.findProducts();
 		System.out.println("wocao"+list.toString());
@@ -53,7 +54,6 @@ public class ProductAction {
 		productService.edit(product);;
 		findProduct();
 		return "do_edit";
-
 	}
 
 	public List<Product> getList() {

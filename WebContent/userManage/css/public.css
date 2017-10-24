@@ -6,7 +6,11 @@
 	font-family: "Microsoft YaHei";
 	font-size: 20px;
 }
-#hides{display: none;}
+
+#hides {
+	display: none;
+}
+
 a {
 	text-decoration: none;
 }
@@ -25,7 +29,7 @@ li {
 .head {
 	width: 100%;
 	height: 100px;
-	background-color:#CCC;
+	background-color: #CCC;
 }
 
 .head .headL {
@@ -51,11 +55,12 @@ li {
 	font-size: 30px;
 	font-weight: bold;
 }
-.head .headT h1{
+
+.head .headT h1 {
 	margin: 0 auto;
 }
-}
 
+}
 .head .headR {
 	width: 30%;
 	height: 100px;
@@ -74,6 +79,7 @@ li {
 }
 
 .head .headR .p2 {
+	
 }
 
 .head .headR .p2 span {
@@ -270,7 +276,7 @@ li {
 /*left.css end*/
 
 /* mian.css */
-#main{
+#main {
 	width: 1146px;
 	overflow: hidden;
 	float: right;

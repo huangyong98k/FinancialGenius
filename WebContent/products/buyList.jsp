@@ -28,9 +28,6 @@
 					<td align="center">预计收益</td>
 					<td align="center">购买份数</td>
 					<td align="center">本金</td>
-					<td align="center">操作</td>
-				</tr>
-			</thead>
 			<tbody>
 				<c:forEach items="investments" var="temp">
 					<tr>

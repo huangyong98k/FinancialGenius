@@ -34,6 +34,8 @@ public class UserAction {
 	private List<User> list;
 	private List<Investment> investments;
 	private User user;
+	private String email;
+	private String userPassword;
 	
 	public String addUser(){
 		userService.addUser(user);
@@ -70,7 +72,9 @@ public class UserAction {
 		System.out.println("userAction!registerCheck");
 		userService.addUser(user);
 	}
+
 	@ResponseBody
+	//注册时验证Emali是否已存在
 	public String registerCheckByUserEmail() {
 		System.out.println("userAction!registerCheckByUserEmail");
 		// 获取数据
@@ -90,7 +94,7 @@ public class UserAction {
 		System.out.println(result);
 		return ActionSupport.SUCCESS;
 	}
-
+	//注册时验证手机号是否已存在
 	public String registerCheckByphoneNumber() {
 		System.out.println("userAction!registerCheckByphoneNumber");
 		int isExist = userService.findByPhone(user.getUserPhone());
@@ -109,7 +113,7 @@ public class UserAction {
 		System.out.println(result);
 		return ActionSupport.SUCCESS;
 	}
-
+    //注册时验证身份证号码是否已存在
 	public String registerCheckByIDCard() {
 		System.out.println("userAction!registerCheckByIDCard");
 		System.out.println(user.getUserCard());
@@ -128,11 +132,25 @@ public class UserAction {
 		result=message;
 		return ActionSupport.SUCCESS;
 	}
-
+    //注册方法
 	public String register() {
 		System.out.println("userAction!register");
 		userService.addUser(user);
 		return "register";
+	}
+	
+	public String login(){
+		System.out.println("userAction!login");
+		System.out.println(email);
+		System.out.println(userPassword);
+		int count = userService.loginMager(
+				email, userPassword);
+		System.out.println(count);
+		if (count == 1) {
+			return "loginSuccess";
+		}
+		return "loginFaile";
+		
 	}
 
 	public User getUser() {
@@ -149,5 +167,21 @@ public class UserAction {
 
 	public void setList(List<User> list) {
 		this.list = list;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 }

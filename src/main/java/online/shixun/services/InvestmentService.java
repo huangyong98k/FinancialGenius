@@ -8,6 +8,8 @@
 */
 package online.shixun.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,7 @@ import online.shixun.model.Investment;
 public class InvestmentService {
 	@Autowired
 	private InvestmentDaoImpl investmentDaoImpl;
+
 	
 	public int deleteById(Long id){
 		return investmentDaoImpl.deleteById(id);
@@ -33,4 +36,14 @@ public class InvestmentService {
 	public void addInvestment(Investment investment){
 		investmentDaoImpl.add(investment);
 	}
+
+public List<Investment> findInvestment() {
+		
+		return investmentDaoImpl.getAll();
+	}
+	
+	public void deleteById(Investment investment) {
+		investmentDaoImpl.delete(investment);
+	}
+
 }

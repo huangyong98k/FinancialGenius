@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 package online.shixun.action;
 
 import java.util.List;
@@ -30,19 +31,11 @@ public class InvestmentAction {
 		investmentService.addInvestment(investment);
 		return "addSuccess";
 	}
-	
+
 	public List<Investment> getList() {
 		return list;
 	}
-	public Investment getInvestment() {
-		return investment;
-	}
-	public void setList(List<Investment> list) {
-		this.list = list;
-	}
-	public void setInvestment(Investment investment) {
-		this.investment = investment;
-	}
+
 
 	public User getUser() {
 		return user;
@@ -51,4 +44,29 @@ public class InvestmentAction {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+
+	public void setList(List<Investment> list) {
+		this.list = list;
+	}
+
+	public String findInvestment(){
+		list=investmentService.findInvestment();
+		System.out.println(list.toString());
+		return "list";	
+	}
+	public String deleteById(){
+		investmentService.deleteById(investment);
+		findInvestment();
+		return "list";
+	}
+
+	public Investment getInvestment() {
+		return investment;
+	}
+
+	public void setInvestment(Investment investment) {
+		this.investment = investment;
+	}
+
 }
