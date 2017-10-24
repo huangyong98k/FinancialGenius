@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -73,7 +73,7 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<div class="paging">
+                           		<div class="paging">
 						此处是分页<input type="submit" name="" id="prey" value="上一页"> <input
 							type="submit" name="" id="prop" value="下一页">
 					</div>
@@ -104,7 +104,6 @@
 							'userAction!deleteById?user.userId='
 									+ $(this).parent().siblings().filter(
 											":hidden").filter(":eq(1)").html())
-
 				})
 				
 	$('tr').filter(':lt(0)').hide();

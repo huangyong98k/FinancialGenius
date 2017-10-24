@@ -5,11 +5,17 @@
 	<title>testChart</title>
 	<script type="text/javascript" src="js/Chart.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<style type="text/css">
+		div{
+			width: 400px;
+			height: 400px;
+		}
+	</style>
 </head>
 <body>
-<div width="400" height="400" style="margin: 0 auto">
-	<canvas id="myChart" width="400" height="400"></canvas>
-	</div>
+<div style="margin: 0 auto">
+	<canvas id="myChart" width="500" height="500"></canvas>
+</div>
 <script>
 //环形图----------------------
 	/*// 横轴数据
@@ -105,8 +111,8 @@
 
 //柱状图-----------------
 	// 横轴数据
-	/*var getNames = function() {
-		var name = ['一班','二班','三班','四班','五班'];
+	var getNames = function() {
+		var name = ['2017.6.','2017.7','2017.8','2017.9','2017.10'];
 		return name;
 	};
 
@@ -147,9 +153,9 @@
 			}
 		});
 	});
-*/
 
-	// 获取横轴数据
+
+	/*// 获取横轴数据
 	var getNames = function() {
 		var name = ['一班','二班','三班','四班','五班'];
 		return name;
@@ -191,7 +197,7 @@
 		var ctx = document.getElementById("myChart").getContext("2d");
 		window.myPie = new Chart(ctx, config);
 	});
-
+*/
 </script>
 </body>
 </html>

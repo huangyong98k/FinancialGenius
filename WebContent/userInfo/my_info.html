@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>基本信息</title>
+    <!-- 引入 jQuery 库 -->
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <!-- 引入自定义公用 js 库 -->
+    <script src="js/crowdfunding.js"></script>
+    <link href="css/crowdfunding.css" rel="stylesheet">
+       
+    <style>
+    </style>
+</head>
+<body>
+<div id="user-register" class="user-register">
+<form class="uesrMessage" id="userMessage" action="userAction!register.action" method="post">
+    <span>用户名称：</span><input class="name" id="name" name="user.userName" type="text" minlength="6" maxlength="20" ><br>
+    <span>电子邮箱：</span><input class="E-mail"  id="E-mail" type="email" name="user.userEmail" >
+    <p id="E-mailInfo" class="info">*</p><br>
+    <span>性</span><span class="bie">别：</span>
+    <p>
+        <label>
+            <input type="radio" name="select-states" value="男" class="select-states_0" checked>
+            男</label>
+        <label>
+            <input type="radio" name="select-states" value="女" class="select-states_1">
+            女</label>
+    </p>
+    <span>电话号码：</span><input class="phoneNumber" id="phoneNumber" type="text" name="user.userPhone" minlength="11" maxlength="11" >
+    <p id="phoneNumberInfo" class="info">*</p><br>
+    <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" name="user.userCard" minlength="18" maxlength="18" >
+    <p id="IDCardInfo" class="info">*</p><br>
+    <span>账号状态：正常</span>
+    <input type="hidden" name="user.userStatus" value="正常"> 
+    <hr class="hr"><br>
+    <input type="submit" class="registerButton" id="registerButton" value="保存">
+    <input type="reset" class="resetButton" value="重置">
+</form>
+</div>
+</body>
+</html>

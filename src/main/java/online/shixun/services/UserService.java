@@ -28,6 +28,20 @@ import online.shixun.model.User;
 public class UserService {
 	@Autowired
     private UserDaoImpl userDaoImpl;
+	
+	public  int loginMager(String email,String userPassword){
+		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
+		if(list.size()>0){
+			for (User user : list) {
+				if(userPassword.equals(user.getUserPassword())){
+					return 1;
+				}
+			}
+			return 2;
+
+		}
+		return 0;
+	}
 
     public void addUser(User user){
     	userDaoImpl.add(user);
