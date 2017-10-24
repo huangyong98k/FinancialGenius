@@ -17,6 +17,7 @@ import online.shixun.services.ProductService;
  */
 @Component("productAction")
 public class ProductAction {
+
 	@Autowired
 	private ProductService productService;
 
@@ -28,6 +29,11 @@ public class ProductAction {
 		list = productService.getAllProducts();
 		return "findAllSuccess";
 	}
+
+	public String addInvestment(){
+		return "addInvestment";
+	}
+
 	public String findProduct(){
 		list=productService.findProducts();
 		System.out.println("wocao"+list.toString());

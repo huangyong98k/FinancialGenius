@@ -140,7 +140,7 @@ function checknumber(phone) {
 　　　   　　} 
 　　　　} 
 　　　　return false; 
-} 
+}
 //phone判断 JS end！
 
 //表单提交submit JS
