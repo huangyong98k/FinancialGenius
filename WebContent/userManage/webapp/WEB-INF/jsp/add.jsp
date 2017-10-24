@@ -11,9 +11,9 @@
 	<br>
 	<form action="userAction!addUser" method="get">
 		年龄：<input type="text" name="userModel.age"><br> 姓名：<input
-			type="text" name="userModel.name"><br>
-		<input type="submit" value="保存">
-	</form>	
-	        <button onclick="javascript:history.go(-1)">返回</button>			
+			type="text" name="userModel.name"><br> <input
+			type="submit" value="保存">
+	</form>
+	<button onclick="javascript:history.go(-1)">返回</button>
 </body>
 </html>
