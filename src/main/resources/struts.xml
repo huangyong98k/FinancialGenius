@@ -25,27 +25,8 @@
         <result name="addProduct">/userManage/productList.jsp</result>
         <result name="to_edit">/userManage/modifyProduct.jsp</result>
         <result name="do_edit">/userManage/productList.jsp</result>
+        <result name="findAllSuccess">/products/commodityList.jsp</result>
         </action>
-
-		<action name="productAction!*" class="online.shixun.action.ProductAction"
-			method="{1}">
-			<result name="findAllSuccess">/products/commodityList.jsp</result>
-		</action>
 	</package>
-
-    </package>
-    
-
-	<!-- 刘杰生 
-	<package name="default" namespace="/" extends="struts-default,json-default">
-		<action name="userAction!*" class="online.shixun.action.UserAction"
-			method="{1}">
-			<result type="json">
-				<param name="root">result</param>
-			</result>
-			<result name="register">registerSuccess.jsp</result>
-		</action>
-	</package>
-	刘杰生 -->
 
 </struts>

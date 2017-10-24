@@ -42,12 +42,7 @@ public class ProductService {
 
     public void deleteById(Product product) {
 		productDaoImpl.delete(product);
-	}
-
-<<<<<<< HEAD
-	@Autowired
-	private ProductDaoImpl productDaoImpl;
-	
+	}	
 	public List<Product> getAllProducts(){
 		return productDaoImpl.getAll();
 	}
