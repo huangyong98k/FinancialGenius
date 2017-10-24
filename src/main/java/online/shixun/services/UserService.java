@@ -10,6 +10,7 @@ package online.shixun.services;
 
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,7 +48,7 @@ public class UserService {
     	userDaoImpl.add(user);
     }
     public List<User> findUsers(){
-    	return userDaoImpl.getAll();
+    	return userDaoImpl.getAllUsePage();
     }
     public void edit(User user){
     	userDaoImpl.update(user);
@@ -61,6 +62,18 @@ public class UserService {
     	System.out.println(users.toString());
     	if(users.size()>0){
     		return 1;
+    	}
+		return 0;
+    	
+    }
+    //通过Email查询用户ID
+    public long findByEmaiToID(String Email){
+    	List<User> users = userDaoImpl.getByEmail(Email); 
+    	System.out.println(users.toString());
+    	if(users.size()>0){
+    		for (User user : users) {
+				return  user.getUserId();
+			}
     	}
 		return 0;
     	
@@ -89,6 +102,13 @@ public class UserService {
 
     public void deleteById(User user) {
 		userDaoImpl.delete(user);
+	}
+    //服务类用户前后端分页
+    public List<User> nextPage() {
+    	return userDaoImpl.nextPage();	
+	}
+    public List<User> prevPage() {
+    	return userDaoImpl.prevPage();	
 	}
 
 }

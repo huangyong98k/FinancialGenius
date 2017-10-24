@@ -1,5 +1,6 @@
 ﻿package online.shixun.action;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,12 +25,16 @@ public class UserAction {
 	private User user;
 	private String email;
 	private String userPassword;
-
-	private Map<String, Object> session;
-	
+	private static Map<String, Object> session;
 	private String result;
+	//静态模块初始化session 添加 对象loginInfo 属性值为"请登录" 
+	static  
+    {  
+        session= new HashMap<String, Object>();  
+        session.put("loginInfo","请登录");
+    }  
+	public String addUser(){
 
-	public String addUser() {
 		userService.addUser(user);
 		findUser();
 		return "add";
@@ -67,11 +72,6 @@ public class UserAction {
 	public String getInvestmentById() {
 		investments = userService.findInvestmentsByUserId(user.getUserId());
 		return "getSuccess";
-	}
-
-	public void registerCheck() {
-		System.out.println("userAction!registerCheck");
-		userService.addUser(user);
 	}
 
 	@ResponseBody
@@ -142,6 +142,31 @@ public class UserAction {
 		userService.addUser(user);
 		return "register";
 	}
+	//通过查看session值判断是否登录  未登录返回 "请登录" 已登录返回 userName
+		public String queryUserName(){
+			System.out.println("userAction!queryUserName");
+			session.get("loginInfo");
+			result=(String) session.get("loginInfo");
+			System.out.println();
+			return ActionSupport.SUCCESS;
+			
+		}
+	//通过查看session值判断是否登录  未登录返回 "请登录" 已登录返回 userID 但userID为String类型 需要调用请在前端转为long类型
+	public String queryUserID(){
+		System.out.println("userAction!queryUserID");
+		session.get("loginInfo");
+		result=(String) session.get("loginInfo");
+		if (result.equals("请登录")) {
+			//不做改变
+		}
+		else {
+			long userID=userService.findByEmaiToID(result);
+			result=String.valueOf(userID);
+		}
+		System.out.println();
+		return ActionSupport.SUCCESS;
+		
+	}
 	//查看及修改个人信息
 	public String modifyUserMessage(){
 		userService.edit(user);
@@ -166,6 +191,15 @@ public class UserAction {
 		session.put("loginError", "用户密码不正确！");
 		return "loginFaile";
 
+	}
+	//用户前后端分页
+	public String nextPage() {
+		list=userService.nextPage();
+		return "list";
+	}
+	public String prevPage() {
+		list=userService.prevPage();
+		return "list";
 	}
 
 	public User getUser() {

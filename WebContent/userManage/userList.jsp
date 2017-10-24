@@ -74,8 +74,8 @@
 						</c:forEach>
 					</table>
                            		<div class="paging">
-						此处是分页<input type="submit" name="" id="prey" value="上一页"> <input
-							type="submit" name="" id="prop" value="下一页">
+						此处是分页<a href="userAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> <a href="userAction!nextPage"><input
+							type="button" name="" id="prop" value="下一页"></a>
 					</div>
 				</div>
 				<!--  用户 表格 显示 end-->
