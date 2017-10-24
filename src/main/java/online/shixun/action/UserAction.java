@@ -59,11 +59,8 @@ public class UserAction {
 		findUser();
 		return "list";
 	}
-	public void registerCheck(){
-		System.out.println("userAction!registerCheck");
-		userService.addUser(user);
-	}
 	@ResponseBody
+	//注册时验证Emali是否已存在
 	public String registerCheckByUserEmail() {
 		System.out.println("userAction!registerCheckByUserEmail");
 		// 获取数据
@@ -83,7 +80,7 @@ public class UserAction {
 		System.out.println(result);
 		return ActionSupport.SUCCESS;
 	}
-
+	//注册时验证手机号是否已存在
 	public String registerCheckByphoneNumber() {
 		System.out.println("userAction!registerCheckByphoneNumber");
 		int isExist = userService.findByPhone(user.getUserPhone());
@@ -102,7 +99,7 @@ public class UserAction {
 		System.out.println(result);
 		return ActionSupport.SUCCESS;
 	}
-
+    //注册时验证身份证号码是否已存在
 	public String registerCheckByIDCard() {
 		System.out.println("userAction!registerCheckByIDCard");
 		System.out.println(user.getUserCard());
@@ -121,7 +118,7 @@ public class UserAction {
 		result=message;
 		return ActionSupport.SUCCESS;
 	}
-
+    //注册方法
 	public String register() {
 		System.out.println("userAction!register");
 		userService.addUser(user);

@@ -6,8 +6,12 @@
 	font-family: "Microsoft YaHei";
 	font-size: 14px;
 }
-#hides{display: none;}
-a span{
+
+#hides {
+	display: none;
+}
+
+a span {
 	text-decoration: none;
 }
 
@@ -96,7 +100,11 @@ td {
 	margin-left: 40px;
 	font-size: 16px;
 }
-.hbHides1{display: none;}
+
+.hbHides1 {
+	display: none;
+}
+
 .banner .banShow {
 	
 }
@@ -242,6 +250,7 @@ td {
 .bbD {
 	margin-top: 20px;
 }
+
 .bbD1 {
 	margin-top: 0px;
 }
@@ -280,11 +289,12 @@ td {
 	width: 280px;
 	height: 210px;
 }
-.bbD .selCss{  
+
+.bbD .selCss {
 	width: 300px;
-    height: 40px;
-    border: 1px solid #ccc;
-    text-indent: 15px;
+	height: 40px;
+	border: 1px solid #ccc;
+	text-indent: 15px;
 }
 
 .bbD .input1 {
@@ -307,10 +317,34 @@ td {
 	text-indent: 15px;
 	margin-left: 10px;
 }
-.bbD .UPimgD{width: 155px;height: 175px;position: relative;left: 83px;top: -20px;}
-.bbD .UPimgD img.img{width: 100%;}
-.bbD .UPimgD .FileD{width: 155px;height: 175px;overflow: hidden;position: absolute;top: 0px;}
-.bbD .UPimgD .FileD .addFile{width: 100%;height: 100%;opacity: 0;filter: Alpha(Opacity=0);}
+
+.bbD .UPimgD {
+	width: 155px;
+	height: 175px;
+	position: relative;
+	left: 83px;
+	top: -20px;
+}
+
+.bbD .UPimgD img.img {
+	width: 100%;
+}
+
+.bbD .UPimgD .FileD {
+	width: 155px;
+	height: 175px;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+}
+
+.bbD .UPimgD .FileD .addFile {
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	filter: Alpha(Opacity = 0);
+}
+
 .bbD .bbDImg {
 	width: 160px;
 	height: 180px;
@@ -352,9 +386,7 @@ td {
 
 /*用户编辑页面CSS*/
 
-
 /*用户管理页面CSS*/
-
 .conShow {
 	margin-top: 30px;
 }
@@ -421,22 +453,17 @@ td {
 	margin-left: 120px;
 }
 /*用户管理页面CSS end*/
+#img_ok, #img_no, #text_no {
+	display: none;
+	color: red;
+}
 
-
-#img_ok,#img_no ,#text_no{
-			display: none;
-			color: red;
-		}
-
-.addUserInfo{
+.addUserInfo {
 	width: 100px;
 	font-size: 15px;
-	border:none;
+	border: none;
 }
 
-.addUserCheck{
+.addUserCheck {
 	margin-left: 30px
 }
-
-
-
