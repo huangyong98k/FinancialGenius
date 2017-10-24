@@ -2,6 +2,20 @@ $(document).ready(function(event) {
 	var isEmail=false;
 	var isPhone=false;
 	
+	$.ajax({
+        cache: true,
+        type: "POST",
+        url:"userAction!queryUserID.action",
+        data:"获取userID",// 数据控件ID 
+        async: true,
+        success:function(data){
+        	console.log(data);
+        	$("#userID").html(data);
+        },
+        error: function(response) {
+        	console.log(response);
+        }
+        });
 $("#registerButton").click(function (event) {
     var dataName = $("#name").val().trim();
   

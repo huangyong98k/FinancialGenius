@@ -18,6 +18,23 @@ function resizeWindow() {
     $("#right").height(contentHeight);
 }
 $(document).ready(function (event) {
+	$.ajax({
+        cache: true,
+        type: "POST",
+        url:"userAction!queryUserName.action",
+        data:"获取userID",// 数据控件ID 
+        async: true,
+        success:function(data){
+        	console.log(data);
+        	if(data=="请登录"){
+        		$("#my_info").html(data);
+        	}
+        	$("#my_info").html(data);
+        },
+        error: function(response) {
+        	console.log(response);
+        }
+        });
     $("#money").bind('input propertychange', function () {
             var money =  parseFloat($("#money").val());
             var month = $("input[name='select-states']:checked").val();
@@ -40,14 +57,6 @@ $(document).ready(function (event) {
             $("#all").html(parseFloat(num));
         });
 });
-
-<<<<<<< HEAD
-
-=======
->>>>>>> product
-
-
-
 $.cookie = function(name, value, options) {
     if (typeof value != 'undefined') { // name and value given, set cookie
         options = options || {};
