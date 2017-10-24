@@ -15,7 +15,7 @@
 			<result name="register">registerSuccess.jsp</result>
 			
 		<!-- 刘杰生-->
-		<result name="loginSuccess">index.jsp</result>
+		<result name="loginSuccess">index.html</result>
         <result name="loginFaile">loginFaile.jsp</result>
         <result name="list">/userManage/userList.jsp</result>
         <result name="to_edit">/userManage/modifyUser.jsp</result>

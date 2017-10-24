@@ -1,6 +1,7 @@
 package online.shixun.action;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,6 +35,7 @@ public class UserAction {
 	private User user;
 	private String email;
 	private String userPassword;
+	private Map<String, Object> session;
 	
 	public String addUser(){
 		userService.addUser(user);
@@ -136,8 +138,10 @@ public class UserAction {
 				email, userPassword);
 		System.out.println(count);
 		if (count == 1) {
+			session.put("loginInfo",email);
 			return "loginSuccess";
 		}
+		session.put("loginError", "用户密码不正确！");
 		return "loginFaile";
 		
 	}
@@ -172,5 +176,13 @@ public class UserAction {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 }
