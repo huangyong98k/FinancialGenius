@@ -35,7 +35,7 @@ public class UserAction {
 	private List<Investment> investments;
 	private User user;
 	private String email;
-	private String userPassword;s
+	private String userPassword;
 	private Map<String, Object> session;
 	
 	public String addUser(){
