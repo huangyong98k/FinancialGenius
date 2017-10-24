@@ -16,51 +16,49 @@ import org.springframework.stereotype.Service;
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.model.Product;
 
-import online.shixun.model.User;
-
-
-/** 
-* @ClassName: ProductService 
-* @Description: TODO(这里用一句话描述这个类的作用) 
-* @author HPEU丶小咸鱼
-* @date 2017年10月19日 上午9:26:15 
-*  
-*/
-@Service(value="productService")
+/**
+ * @ClassName: ProductService
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @author HPEU丶小咸鱼
+ * @date 2017年10月19日 上午9:26:15
+ * 
+ */
+@Service(value = "productService")
 public class ProductService {
 	@Autowired
-    private ProductDaoImpl productDaoImpl;
-    public void addProduct(Product product){
-    	productDaoImpl.add(product);
-    }
-    public List<Product> findProducts(){
-    	return productDaoImpl.getAll();
-    }
-    public Product getProduct(Product product) {
+	private ProductDaoImpl productDaoImpl;
+
+	public void addProduct(Product product) {
+		productDaoImpl.add(product);
+	}
+
+	public List<Product> findProducts() {
+		return productDaoImpl.getAll();
+	}
+
+	public Product getProduct(Product product) {
 		return productDaoImpl.getProduct(product);
 	}
 
-    public void deleteById(Product product) {
+	public void deleteById(Product product) {
 		productDaoImpl.delete(product);
-	}	
-	public List<Product> getAllProducts(){
+
+	}
+
+	public List<Product> getAllProducts() {
 		return productDaoImpl.getAll();
 	}
-	
-	public Product findById(Long id){
+
+	public Product findById(Long id) {
 		return productDaoImpl.getById(id);
 	}
-	
-	public int delete(Product product){
-		return productDaoImpl.delete(product);
-	}
-	
-	public int add(Product product){
+
+	public int add(Product product) {
 		return productDaoImpl.add(product);
 	}
 
-    public void edit(Product product){
-    	productDaoImpl.update(product);
-    }
+	public void edit(Product product) {
+		productDaoImpl.update(product);
+	}
 
 }

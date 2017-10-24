@@ -17,17 +17,21 @@ import online.shixun.services.ProductService;
  */
 @Component("productAction")
 public class ProductAction {
+
 	@Autowired
 	private ProductService productService;
 
 	private List<Product> list;
 	private Product product;
-
 	public String findAllProducts() {
 		System.out.println("productAction!findAllProducts");
 		list = productService.getAllProducts();
 		return "findAllSuccess";
 	}
+	public String addInvestment(){
+		return "addInvestment";
+	}
+
 	public String findProduct(){
 		list=productService.findProducts();
 		System.out.println("wocao"+list.toString());

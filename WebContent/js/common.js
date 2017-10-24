@@ -44,6 +44,7 @@ $(document).ready(function (event) {
 
 
 
+
 $.cookie = function(name, value, options) {
     if (typeof value != 'undefined') { // name and value given, set cookie
         options = options || {};
@@ -339,3 +340,4 @@ if (!isPlaceholder()) { //不支持placeholder 用jquery来完成
         }
     });
 }
+

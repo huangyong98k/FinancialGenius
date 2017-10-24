@@ -16,25 +16,33 @@ import org.springframework.stereotype.Service;
 import online.shixun.dao.impl.InvestmentDaoImpl;
 import online.shixun.model.Investment;
 
-/** 
-* @ClassName: InvestmentService 
-* @Description: TODO(这里用一句话描述这个类的作用) 
-* @author HPEU丶小咸鱼
-* @date 2017年10月20日 下午3:40:41 
-*  
-*/
-@Service(value="investmentService")
+/**
+ * @ClassName: InvestmentService
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @author HPEU丶小咸鱼
+ * @date 2017年10月20日 下午3:40:41
+ * 
+ */
+@Service(value = "investmentService")
 public class InvestmentService {
 	@Autowired
 	private InvestmentDaoImpl investmentDaoImpl;
-public List<Investment> findInvestment() {
-		
+
+	public List<Investment> findInvestment() {
+
 		return investmentDaoImpl.getAll();
 	}
-	
+
 	public void deleteById(Investment investment) {
 		investmentDaoImpl.delete(investment);
 	}
 
+	public int deleteById(Long id) {
+		return investmentDaoImpl.deleteById(id);
+	}
+
+	public void addInvestment(Investment investment) {
+		investmentDaoImpl.add(investment);
+	}
 
 }

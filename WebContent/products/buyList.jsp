@@ -22,18 +22,27 @@
 		<table class="table" id="table">
 			<thead>
 				<tr id="trHead">
-					<td align="center">产品号</td>
-					<td align="center">产品名称</td>
-					<td align="center">目前资金规模</td>
-					<td align="center">7日年化利率</td>
-					<td align="center">起购金额</td>
-					<td align="center">发行机构</td>
-					<td align="center">状态</td>
+					<td align="center">投资号</td>
+					<td align="center">起购时间</td>
+					<td align="center">到期时间</td>
+					<td align="center">预计收益</td>
+					<td align="center">购买份数</td>
+					<td align="center">本金</td>
 					<td align="center">操作</td>
 				</tr>
 			</thead>
 			<tbody>
-
+				<c:forEach items="investments" var="temp">
+					<tr>
+						<td align="center">${temp.investmentId }</td>
+						<td align="center">${temp.beginTime }</td>
+						<td align="center">${temp.overTime }</td>
+						<td align="center">${temp.earning }</td>
+						<td align="center">${temp.number }</td>
+						<td align="center">${temp.principal }</td>
+						<td align="center"><a href="#" class="buy">退订</a></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

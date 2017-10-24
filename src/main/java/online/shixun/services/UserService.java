@@ -86,7 +86,9 @@ public class UserService {
     public List<Investment> findInvestmentsByUserId(Long userId){
 		return userDaoImpl.getInvestmentsByUserId(userId);
 	}
+
     public void deleteById(User user) {
 		userDaoImpl.delete(user);
 	}
+
 }
