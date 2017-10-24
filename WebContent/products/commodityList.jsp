@@ -18,7 +18,7 @@
 		<hr />
 		<button class="btn1" name="array">按起购金额↓</button>
 		<button class="btn2" name="array">按资金规模 ↓</button>
-		<button class="btn3" name="array">按7日年化利率 ↓</button>
+		<button class="btn3" name="array">按月利率 ↓</button>
 		<table class="table" id="table">
 			<thead>
 				<tr id="trHead">

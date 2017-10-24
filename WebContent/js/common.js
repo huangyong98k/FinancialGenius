@@ -41,10 +41,6 @@ $(document).ready(function (event) {
         });
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> product
 
 
 

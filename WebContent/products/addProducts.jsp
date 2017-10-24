@@ -52,7 +52,7 @@
 			</h1>
 		</div>
 		<div class="container">
-			<form class="contact" action="investmentAction" method="post"
+			<form class="contact" action="investmentAction.action" method="post"
 				id="form">
 				<div class="row clearfix">
 					<input type="hidden" id="productId" name="productId" readonly

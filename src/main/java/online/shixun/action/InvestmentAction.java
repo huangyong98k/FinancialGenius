@@ -49,6 +49,11 @@ public class InvestmentAction {
 		return "list";
 	}
 
+	public String deleteInvestById(){
+		investmentService.deleteById(investment);
+		findInvestment();
+		return "deleteSuccess";
+	}
 	public User getUser() {
 		return user;
 	}

@@ -15,19 +15,7 @@ import online.shixun.services.UserService;
 
 @Component("userAction")
 public class UserAction {
-
 	private static final long serialVersionUID = 1L;
-
-	private String result;
-
-	public String getResult() {
-		return result;
-	}
-
-	public void setResult(String result) {
-		this.result = result;
-	}
-
 	@Autowired
 	private UserService userService;
 
@@ -36,9 +24,12 @@ public class UserAction {
 	private User user;
 	private String email;
 	private String userPassword;
+
 	private Map<String, Object> session;
 	
-	public String addUser(){
+	private String result;
+
+	public String addUser() {
 		userService.addUser(user);
 		findUser();
 		return "add";
@@ -64,6 +55,13 @@ public class UserAction {
 		userService.edit(user);
 		findUser();
 		return "list";
+	}
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
 	}
 
 	public String getInvestmentById() {
