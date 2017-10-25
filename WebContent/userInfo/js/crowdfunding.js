@@ -23,6 +23,8 @@ $(document).ready(function(event) {
 			$("#userBanlanceHindden").val(data[0].userBanlance);
 			$("#userPassword").val(data[0].userPassword);
 			$("#status").val(data[0].userStatus);
+			
+			
 			UserName=data[0].userName;
 			UserPhone=data[0].userPhone;
 		},

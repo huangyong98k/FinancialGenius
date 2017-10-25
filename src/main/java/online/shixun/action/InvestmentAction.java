@@ -42,7 +42,6 @@ public class InvestmentAction {
 		System.out.println("~~~~~~~~~~~" + userId + "~~~~~~~~~~~" + productId);
 		System.out.println(investment.toString());
 		investmentService.addInvestmentByUserIdAndProductId(investment, userId, productId);
-		investmentService.addInvestment(investment);
 		return "addSuccess";
 	}
 
