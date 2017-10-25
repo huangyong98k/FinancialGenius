@@ -9,16 +9,23 @@
 <meta name="viewPort" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="小胖">
 <link rel="stylesheet" href="./css/product.css">
-<script src="./js/jquery-3.2.1.min.js"></script>
-<script src="./js/common.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+	function checkDelete() {
+		if (confirm("你确定要退订吗？")) {
+			alert("退订成功！");
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 	<div id="content">
 		<h2>已购产品</h2>
-		<hr/>
-		<button class="btn1" name="array">按起购金额↓</button>
-		<button class="btn2" name="array">按资金规模 ↓</button>
-		<button class="btn3" name="array">按7日年化利率 ↓</button>
+		<hr />
 		<table class="table" id="table">
 			<thead>
 				<tr id="trHead">
@@ -27,12 +34,12 @@
 					<td align="center">到期时间</td>
 					<td align="center">预计收益</td>
 					<td align="center">购买份数</td>
-					<td align="center">本金</td>
+					<td align="center">起购金额</td>
 					<td align="center">操作</td>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="investments" var="temp">
+				<c:forEach items="${investments }" var="temp">
 					<tr>
 						<td align="center">${temp.investmentId }</td>
 						<td align="center">${temp.beginTime }</td>
@@ -40,11 +47,18 @@
 						<td align="center">${temp.earning }</td>
 						<td align="center">${temp.number }</td>
 						<td align="center">${temp.principal }</td>
-						<td align="center"><a href="#" class="buy">退订</a></td>
+						<td align="center"><a
+							href="investmentAction!deleteInvestById?investment.investmentId=${temp.investmentId }"
+							class="buy" onclick="return checkDelete()">退订</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<div class="paging">
+			<a href="investmentAction!preFrontPage"><input type="button" name=""
+				class="prey" value="上一页"></a> <a href="investmentAction!nextFrontPage"><input
+				type="button" name="" class="next" value="下一页"></a>
+		</div>
 	</div>
 </body>
 </html>

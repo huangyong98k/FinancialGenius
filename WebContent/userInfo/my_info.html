@@ -14,21 +14,23 @@
 <body>
 <div id="user-register" class="user-register">
 <form class="uesrMessage" id="userMessage" action="userAction!modifyUserMessage.action" method="post">
-    <input type="hidden" name="user.userId">
+    <input type="hidden" name="user.userId" id="userID">
+    <input type="hidden" name="user.userBanlance" id="userBanlanceHindden">
+    <input type="hidden" name="user.userPassword" id="userPassword">
     <span>用户名称：</span><input class="name" id="name" name="user.userName" type="text" minlength="6" maxlength="20" >
-    <p id="userNameInfo" class="info">格式错误</p>
+    <p id="userNameInfo" class="info"></p>
     <br>
-    <span>电子邮箱：</span><input class="E-mail"  id="E-mail" type="email" name="user.userEmail" disabled= "true ">
+    <span>电子邮箱：</span><input class="E-mail"  id="E-mail" type="email" name="user.userEmail" readonly= "true ">
     <br>
     <span>电话号码：</span><input class="phoneNumber" id="phoneNumber" type="text" name="user.userPhone" minlength="11" maxlength="11" >
-    <p id="phoneNumberInfo" class="info">电话号码</p>
+    <p id="phoneNumberInfo" class="info"></p>
     <br>
-    <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" name="user.userCard" minlength="18" maxlength="18" disabled= "true">
+    <span>身份证号：</span><input class="IDCard" id="IDCard" type="text" name="user.userCard" minlength="18" maxlength="18" readonly= "true ">
     <br>
-    <span>账号状态：</span><input id="status" class="status" type="text" name="user.userStatus" disabled= "true"> 
+    <span>账号状态：</span><input id="status" class="status" type="text" name="user.userStatus" readonly= "true "> 
     <hr class="hr"><br>
     <input type="submit" class="registerButton" id="registerButton" value="保存">
-    <input type="reset" class="resetButton" value="重置">
+    <input type="button" class="resetButton" id="resetButton" value="重置">
 </form>
 </div>
 </body>

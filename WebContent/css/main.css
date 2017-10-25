@@ -484,7 +484,7 @@ area {
 }
 
 .btn {
-	width: 100%;
+	width: 360px;
 	height: 38px;
 	display: inline-block;
 	*display: inline;
@@ -823,7 +823,7 @@ area {
 }
 
 .login-list .vcode .txt {
-	width: 177px;
+	width: 330px;
 	padding-left: 14px;
 }
 

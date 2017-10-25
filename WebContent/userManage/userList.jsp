@@ -35,10 +35,10 @@
 			<!--  用户页面样式 -->
 			<div class="connoisseur">
 				<div class="conform">
-					<form>
+					<form action="userAction!findByName" method="get">
 						<div class="cfD">
-							<input class="addUser" type="text" placeholder="" value="" />
-							<button class="button">搜索</button>
+							<input class="addUser" type="text" placeholder="请输入用户名" name="user.userName" value="" />
+							<input id="search" type="submit" class="button" value="搜索">
 						</div>
 					</form>
 				</div>
@@ -68,8 +68,8 @@
 								<td>${temp.userPhone }</td>
 								<td><a
 									href="userAction!to_edit?user.userId=${temp.userId }"><img
-										class="operation" src="imgs/update.png"></a> <img
-									class="operation delban img-delete" src="imgs/delete.png"></td>
+										class="operation" src="image/update.png"></a> <img
+									class="operation delban img-delete" src="image/delete.png"></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -105,7 +105,25 @@
 									+ $(this).parent().siblings().filter(
 											":hidden").filter(":eq(1)").html())
 				})
+				$('#search').click(function(){
+					console.log($('tr:last').index())
+					if($('tr:last').index()==0){
+						alert("用户不存在 ")
+						return false;
+					}
+				})
+				$(document).ready(function(){
+					if($('tr:last').index()==0){
+						alert("用户不存在 ")
+						window.history.back(-1); 
+					}
+				})
+		
 				
+				
+				
+	/* 
+	前端分页
 	$('tr').filter(':lt(0)').hide();
 	$('tr').filter(':gt(5)').hide();
 	var one = 1;
@@ -130,7 +148,7 @@
 			$('tr').filter(':gt(' + two + ')').hide();
 			$('tr').filter(':eq(0)').show();
 		}
-	})
+	}) */
 	</script>
 </body>
 </html>
