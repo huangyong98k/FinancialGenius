@@ -94,8 +94,8 @@
 						</c:forEach>
 					</table>
 					<div class="paging">
-						<a href="InvestmentAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> 
-						<a href="InvestmentAction!nextPage"><input type="button" name="" id="prop" value="下一页"></a>
+						<a href="investmentAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> 
+						<a href="investmentAction!nextPage"><input type="button" name="" id="prop" value="下一页"></a>
 				</div>
 				<!-- 学生 表格 显示 end-->
 			</div>
@@ -117,7 +117,7 @@
 	<!-- 删除弹出框  end-->
 	<script type="text/javascript">
         $('.img-delete').click(function(){
-        $('.a-delete').prop('href','InvestmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
+        $('.a-delete').prop('href','investmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
 
         })
         

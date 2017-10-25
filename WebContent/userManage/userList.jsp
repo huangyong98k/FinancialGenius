@@ -28,7 +28,7 @@
 	<div id="pageAll">
 		<div class="pageTop">
 			<div class="page">
-				<img src="imgs/coin02.png" /><span>首页&nbsp;-&nbsp;用户管理&nbsp;-</span>&nbsp;用户查询
+				<img src="userManage/imgs/coin02.png" /><span>首页&nbsp;-&nbsp;用户管理&nbsp;-</span>&nbsp;用户查询
 			</div>
 		</div>
 		<div class="page">
@@ -87,7 +87,7 @@
 	<div class="banDel">
 		<div class="delete">
 			<div class="close">
-				<a><img src="imgs/shanchu.png" /></a>
+				<a><img src="userManage/imgs/shanchu.png" /></a>
 			</div>
 			<p class="delP1">你确定要删除此条记录吗？</p>
 			<p class="delP2">

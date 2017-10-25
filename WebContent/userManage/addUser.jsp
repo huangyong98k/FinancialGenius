@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>addUser</title>
-<link rel="stylesheet" type="text/css" href="css/css.css" />
+<link rel="stylesheet" type="text/css" href="../css/css.css" />
 <script type="text/javascript"
 	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="js/adduser.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../userManage/js/adduser.js"></script>
 <script type="text/javascript">
 
 </script>

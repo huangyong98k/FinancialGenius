@@ -73,8 +73,8 @@
 						</c:forEach>
 					</table>
 					<div class="paging">
-						<a href="InvestmentAction!prevPage2"><input type="button" name="" id="prey2" value="上一页"></a> 
-						<a href="InvestmentAction!nextPage2"><input type="button" name="" id="prop2" value="下一页"></a>
+						<a href="investmentAction!prevPage2"><input type="button" name="" id="prey2" value="上一页"></a> 
+						<a href="investmentAction!nextPage2"><input type="button" name="" id="prop2" value="下一页"></a>
 					</div>
 				</div>
 				<!-- 学生 表格 显示 end-->
@@ -100,7 +100,7 @@
 				function() {
 					$('.a-delete').prop(
 							'href',
-							'InvestmentAction!modifyState?investment.investmentId='
+							'investmentAction!modifyState?investment.investmentId='
 									+ $(this).parent().siblings().filter(
 											":eq(0)").html())
 

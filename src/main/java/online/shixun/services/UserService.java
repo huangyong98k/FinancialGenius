@@ -34,19 +34,20 @@ public class UserService {
 	@Autowired
 	private AdminDaoImpl adminDaoImpl;
 	
-	public  long loginMager(String email,String userPassword){
+	public  int loginMager(String email,String userPassword){
 		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
 		if(list.size()>0){
 			for (User user : list) {
 				if(userPassword.equals(user.getUserPassword())){		
-					return user.getUserId();
+					return 1;
 				}
 			}
-			return -1l;
+			return 2;
 
 		}
-		return -2l;
+		return 0;
 	}
+
 	
 	public  int loginMagerAdmin(String adminName,String AdminPassword){
 		List<Admin> list =  (List<Admin>) adminDaoImpl.getByName(adminName);

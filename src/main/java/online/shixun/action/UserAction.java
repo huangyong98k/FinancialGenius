@@ -321,20 +321,21 @@ public class UserAction {
 		return ActionSupport.SUCCESS;
 	}
 	//普通用户登录
+	
 	public String login() {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		ActionContext actionContext = ActionContext.getContext();
-		Map<String, Object> session2=actionContext.getSession();
-		long userID = userService.loginMager(email, userPassword);
-		user = userService.getUserById(userID);
-		if (userId == -2l || userId==-1l) {
-			session.put("loginError", "用户密码不正确！");
-			return "loginFaile";
+		int count = userService.loginMager(email, userPassword);
+		System.out.println(count);
+		if (count == 1) {
+			session.put("loginInfo", email);
+			return "loginSuccess";
 		}
-		session2.put("userId", userID);
-		session.put("loginInfo",email);
-		return "loginSuccess";
+		session.put("loginError", "用户密码不正确！");
+		    return "loginFaile";
+
 	}
+
+
+	
 
 	//管理员登陆
 	public String adminLogin(){

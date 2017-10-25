@@ -60,8 +60,8 @@ $(function() {
 	<div class="container">
 
 		<div class="leftsidebar_box">
-			<a href="main.jsp" target="main"><div class="line">
-					<img src="imgs/coin01.png" />&nbsp;&nbsp;首页
+			<a href="userManage/main.jsp" target="main"><div class="line">
+					<img src="userManage/imgs/coin01.png" />&nbsp;&nbsp;首页
 				</div></a>
 			<!-- <dl class="system_log">
 			<dt><img class="icon1" src="../img/coin01.png" /><img class="icon2"src="../img/coin02.png" />
@@ -69,40 +69,40 @@ $(function() {
 		</dl> -->
 			<dl class="system_log">
 				<dt>
-					<img class="icon1" src="imgs/coin07.png" /><img class="icon2"
-						src="imgs/coin08.png" />用户管理<img class="icon3"
-						src="imgs/coin19.png" /><img class="icon4" src="imgs/coin20.png" />
+					<img class="icon1" src="userManage/imgs/coin07.png" /><img class="icon2"
+						src="userManage/imgs/coin08.png" />用户管理<img class="icon3"
+						src="userManage/imgs/coin19.png" /><img class="icon4" src="userManage/imgs/coin20.png" />
 				</dt>
 				<dd>
-					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a href="userAction!findUser"
+					<img class="coin11" src="userManage/imgs/coin111.png" /><img class="coin22"
+						src="userManage/imgs/coin222.png" /><a href="userAction!findUser"
 						target="main" d class="cks">用户查询</a><img class="icon5"
-						src="imgs/coin21.png" />
+						src="userManage/imgs/coin21.png" />
 				</dd>
 				<dd>
-					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a href="addUser.jsp" target="main"
-						class="cks">用户新增</a><img class="icon5" src="imgs/coin21.png" />
+					<img class="coin11" src="userManage/imgs/coin111.png" /><img class="coin22"
+						src="userManage/imgs/coin222.png" /><a href="userManage/addUser.jsp" target="main"
+						class="cks">用户新增</a><img class="icon5" src="userManage/imgs/coin21.png" />
 				</dd>
 			</dl>
 			<!-- 投资管理 -->
 			<dl class="system_log">
 				<dt>
-					<img class="icon1" src="imgs/coin07.png" /><img class="icon2"
-						src="imgs/coin08.png" />投资管理<img class="icon3"
-						src="imgs/coin19.png" /><img class="icon4" src="imgs/coin20.png" />
+					<img class="icon1" src="userManage/imgs/coin07.png" /><img class="icon2"
+						src="userManage/imgs/coin08.png" />投资管理<img class="icon3"
+						src="userManage/imgs/coin19.png" /><img class="icon4" src="userManage/imgs/coin20.png" />
 				</dt>
 				<dd>
-					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a
-						href="InvestmentAction!findInvestment" target="main" d class="cks">投资查询</a><img
-						class="icon5" src="imgs/coin21.png" />
+					<img class="coin11" src="userManage/imgs/coin111.png" /><img class="coin22"
+						src="userManage/imgs/coin222.png" /><a
+						href="investmentAction!findInvestment" target="main" d class="cks">投资查询</a><img
+						class="icon5" src="userManage/imgs/coin21.png" />
 				</dd>
 				<dd>
-					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a
-						href="InvestmentAction!findInvestment2" target="main" class="cks">投资失效</a><img
-						class="icon5" src="imgs/coin21.png" />
+					<img class="coin11" src="userManage/imgs/coin111.png" /><img class="coin22"
+						src="userManage/imgs/coin222.png" /><a
+						href="investmentAction!findInvestment2" target="main" class="cks">投资失效</a><img
+						class="icon5" src="userManage/imgs/coin21.png" />
 				</dd>
 			</dl>
 			<!-- 投资管理 -->
@@ -110,20 +110,20 @@ $(function() {
 			<!-- 产品管理 -->
 			<dl class="system_log">
 				<dt>
-					<img class="icon1" src="imgs/coin07.png" /><img class="icon2"
-						src="imgs/coin08.png" />产品管理<img class="icon3"
-						src="imgs/coin19.png" /><img class="icon4" src="imgs/coin20.png" />
+					<img class="icon1" src="userManage/imgs/coin07.png" /><img class="icon2"
+						src="userManage/imgs/coin08.png" />产品管理<img class="icon3"
+						src="userManage/imgs/coin19.png" /><img class="icon4" src="userManage/imgs/coin20.png" />
 				</dt>
 				<dd>
-					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a href="productAction!findProduct"
+					<img class="coin11" src="userManage/imgs/coin111.png" /><img class="coin22"
+						src="userManage/imgs/coin222.png" /><a href="productAction!findProduct"
 						target="main" d class="cks">产品查询</a><img class="icon5"
-						src="imgs/coin21.png" />
+						src="userManage/imgs/coin21.png" />
 				</dd>
 				<dd>
-					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
-						src="imgs/coin222.png" /><a href="addProduct.jsp" target="main"
-						class="cks">产品新增</a><img class="icon5" src="imgs/coin21.png" />
+					<img class="coin11" src="userManage/imgs/coin111.png" /><img class="coin22"
+						src="userManage/imgs/coin222.png" /><a href="userManage/addProduct.jsp" target="main"
+						class="cks">产品新增</a><img class="icon5" src="userManage/imgs/coin21.png" />
 				</dd>
 			</dl>
 			<!-- 产品管理 -->
@@ -134,7 +134,7 @@ $(function() {
 
 	<!-- 右边主要内容 -->
 	<div id="main">
-		<iframe src="main.jsp" frameborder="0" scrolling="no" name="main"
+		<iframe src="userManage/main.jsp" frameborder="0" scrolling="no" name="main"
 			height="100%" width="100%"> </iframe>
 	</div>
 	<!-- 右边主要内容END！ -->

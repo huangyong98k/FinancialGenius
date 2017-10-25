@@ -66,7 +66,7 @@
 	<div id="pageAll">
 		<div class="pageTop">
 			<div class="page">
-				<img src="imgs/coin02.png" /><span>首页&nbsp;-&nbsp;产品管理&nbsp;-</span>&nbsp;产品查询
+				<img src="userManage/imgs/coin02.png" /><span>首页&nbsp;-&nbsp;产品管理&nbsp;-</span>&nbsp;产品查询
 			</div>
 		</div>
 		<div class="page">
@@ -106,8 +106,8 @@
 								<td>${temp.productMoney}</td>
 								<td><a
 									href="productAction!to_edit?product.productId=${temp.productId }"><img
-										class="operation" src="imgs/update.png"></a><img
-									class="operation delban img-delete" src="imgs/delete.png"></td>
+										class="operation" src="image/update.png"></a><img
+									class="operation delban img-delete" src="image/delete.png"></td>
 
 							</tr>
 						</c:forEach>
@@ -126,7 +126,7 @@
 	<div class="banDel">
 		<div class="delete">
 			<div class="close">
-				<a><img src="imgs/shanchu.png" /></a>
+				<a><img src="userManage/imgs/shanchu.png" /></a>
 			</div>
 			<p class="delP1">你确定要删除此条记录吗？</p>
 			<p class="delP2">

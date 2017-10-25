@@ -76,7 +76,7 @@ public class InvestmentAction {
 		investment=investmentService.getById(investment.getInvestmentId());
 		investment.setInvestmentStatus(0);
 		investmentService.modifyStateInvestment(investment);
-		findInvestment();
+		list2=investmentService.findInvestment();
 		return "list2";
 		
 	}
