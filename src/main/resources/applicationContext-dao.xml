@@ -27,7 +27,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/test?serverTimezone=UTC" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="ROOT" />
 	</bean>
 
 	<!-- hibernate -->

@@ -89,8 +89,7 @@
 								<td>${temp.earning }</td>
 								<td>${temp.investmentStatus}</td>
 								<td>${temp.principal}</td>
-								<td><img class="operation delban img-delete"
-									src="imgs/delete.png"></td>
+								<td><img class="operation delban img-delete" src="image/delete.png"></td>
 							</tr>
 						</c:forEach>
 					</table>

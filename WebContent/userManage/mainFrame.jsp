@@ -7,8 +7,7 @@
 <title>首页</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/public.css">
-<script type="text/javascript"
-	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/public.js"></script>
 
@@ -50,7 +49,7 @@ $(function() {
 			</p>
 			<p class="p2">确定退出当前用户？</p>
 			<P class="p3">
-				<a class="ok yes" href="#">确定</a><a class="ok no" href="#">取消</a>
+				<a class="ok yes" href="#" onclick="fun()">确定</a><a class="ok no" href="#">取消</a>
 			</p>
 		</div>
 	</div>
@@ -102,7 +101,7 @@ $(function() {
 				<dd>
 					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
 						src="imgs/coin222.png" /><a
-						href="InvestmentAction!findInvestment" target="main" class="cks">投资失效</a><img
+						href="InvestmentAction!findInvestment2" target="main" class="cks">投资失效</a><img
 						class="icon5" src="imgs/coin21.png" />
 				</dd>
 			</dl>
@@ -139,5 +138,10 @@ $(function() {
 			height="100%" width="100%"> </iframe>
 	</div>
 	<!-- 右边主要内容END！ -->
+	<script>
+	function fun(){
+		self.close()
+	}
+	</script>
 </body>
 </html>
