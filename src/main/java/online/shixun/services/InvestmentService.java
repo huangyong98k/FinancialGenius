@@ -43,7 +43,7 @@ public class InvestmentService {
 		investmentDaoImpl.add(investment);
 	}
 
-
+    //投资查询所有
     public List<Investment> findInvestment() {
 		
 		return investmentDaoImpl.getAll();
@@ -54,11 +54,21 @@ public class InvestmentService {
 	}
 	
 
+
 	public void addInvestmentByUserIdAndProductId(Investment investment,Long userId,Long productId){
 		investment.setUser(userDaoImpl.getById(userId));
 		investment.setProduct(productDaoImpl.getById(productId));
 		investmentDaoImpl.add(investment);
 	}
+
+	public void modifyStateInvestment(Investment investment){
+		investmentDaoImpl.update(investment);
+	}
+	public Investment getById(long id){
+		return investmentDaoImpl.getById(id);
+	}
+	
+
 	//服务类用户前后端分页
     public List<Investment> nextPage() {
     	return investmentDaoImpl.nextPage();	
