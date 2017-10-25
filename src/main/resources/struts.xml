@@ -8,7 +8,6 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="fause" />
 	<package name="default" namespace="/" extends="json-default">
 		<!-- 刘杰生 -->
-
 		<action name="userAction!*" class="online.shixun.action.UserAction"
 			method="{1}">
 			<result name="users" type="json">
@@ -19,10 +18,9 @@
 				<param name="root">result</param>
 			</result>
 			<result name="register">registerSuccess.jsp</result>
-			<!-- 刘杰生 -->
 			<result name="getSuccess">/products/buyList.jsp</result>
-			<!-- 刘杰生 -->
 			<result name="loginSuccess">index.jsp</result>
+			<result name="adminLoginSuccess">/userManage/mainFrame.jsp</result>
 			<result name="loginFaile">loginFaile.jsp</result>
 			<result name="list">/userManage/userList.jsp</result>
 			<result name="to_edit">/userManage/modifyUser.jsp</result>
@@ -33,6 +31,9 @@
 		</action>
 		<action name="productAction!*" class="online.shixun.action.ProductAction"
 			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
 			<result name="list">/userManage/productList.jsp</result>
 			<result name="addProduct">/userManage/productList.jsp</result>
 			<result name="to_edit">/userManage/modifyProduct.jsp</result>
@@ -46,7 +47,9 @@
 			method="{1}">
 			<result name="addSuccess">/products/addSuccess.jsp</result>
 			<result name="list">/userManage/investList.jsp</result>
-			<result name="list">/userManage/investInvalid.jsp</result>
+			<result name="list2">/userManage/investInvalid.jsp</result>
+			<result name="nextSuccess">/products/buyList.jsp</result>
+			<result name="preSuccess">/products/buyList.jsp</result>
 			<result name="deleteSuccess">/products/buyList.jsp</result>
 		</action>
 		<action name="statisticsAction!*" class="online.shixun.action.StatisticsAction"
