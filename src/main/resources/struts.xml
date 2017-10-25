@@ -4,16 +4,20 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
-<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-    <package name="default" namespace="/" extends="struts-default,json-default">
-        <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
+<constant name="struts.devMode" value="true" />
+<constant name="struts.enable.DynamicMethodInvocation" value="fause"/>
+    <package name="default" namespace="/" extends="json-default">
+    <!-- 刘杰生-->
+    
+    <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
+    <result name="users" type="json">
+			 <param name="root">list</param>
+		</result>
+		<result type="json">
+			 <param name="root">result</param>
+		</result>
         <!-- 刘杰生-->
-        <result type="json">
-				<param name="root">result</param>
-			</result>
 			<result name="register">registerSuccess.jsp</result>
-			
 		<!-- 刘杰生-->
 		<result name="loginSuccess">index.html</result>
         <result name="loginFaile">loginFaile.jsp</result>
