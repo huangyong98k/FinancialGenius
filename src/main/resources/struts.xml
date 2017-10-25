@@ -9,7 +9,7 @@
     <package name="default" namespace="/" extends="struts-default,json-default">
         <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
         <!-- 刘杰生-->
-        <result type="json">
+        	<result type="json">
 				<param name="root">result</param>
 			</result>
 			<result name="register">registerSuccess.jsp</result>
@@ -33,6 +33,11 @@
         <action name="InvestmentAction!*" class="online.shixun.action.InvestmentAction" method="{1}">
         <result name="list">/userManage/investList.jsp</result>
  		<result name="list">/userManage/investInvalid.jsp</result> 
+        </action>
+        <action name="statisticsAction!*" class="online.shixun.action.StatisticsAction" method="{1}">
+        	<result type="json">
+        		<param name="root">totalInvestment</param>
+        	</result>
         </action>
 	</package>
 

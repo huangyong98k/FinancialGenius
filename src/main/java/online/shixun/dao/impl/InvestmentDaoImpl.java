@@ -9,6 +9,8 @@
 package online.shixun.dao.impl;
 
 import java.util.List;
+import java.util.Map;
+
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,5 +127,12 @@ public class InvestmentDaoImpl implements InvestmentDao {
 		list= (List<Investment>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
     	return list; 	
     }
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List getTotalInvestment(String sql) {
+		return baseDao.getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(sql).list();
+	}
 
 }
