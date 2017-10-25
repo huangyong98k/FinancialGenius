@@ -22,12 +22,25 @@ $(document).ready(function (event) {
         cache: true,
         type: "POST",
         url:"userAction!queryUserName.action",
-        data:"获取userID",// 数据控件ID 
+        data:"",// 数据控件ID 
         async: true,
         success:function(data){
-        	console.log(data);
         	if(data=="请登录"){
         		$("#my_info").html(data);
+        		$("#help").css("display","block");
+        		$("#quit").css("display","block");
+        		$("#exit").css("display","none");
+        			$("span#my_info.my_info").click(function(){
+        				  return false;
+    			 })
+        	}
+        	if(data!="请登录"){
+        		$("#my_info").click(function(){
+        				$("span#my_info.my_info").unbind("click");
+        			 })
+        		$("#help").css("display","none");
+        		$("#quit").css("display","none");
+        		$("#exit").css("display","block");
         	}
         	$("#my_info").html(data);
         },
@@ -35,6 +48,22 @@ $(document).ready(function (event) {
         	console.log(response);
         }
         });
+	$("#exit").click(function(){
+		$.ajax({
+	        cache: true,
+	        type: "POST",
+	        url:"userAction!quitSystem.action",
+	        data:"",// 数据控件ID 
+	        async: true,
+	        success:function(data){
+	        	alert(data);
+	        	console.log(data);
+	        },
+	        error: function(response) {
+	        	console.log(response);
+	        }
+	        });
+	})
     $("#money").bind('input propertychange', function () {
             var money =  parseFloat($("#money").val());
             var month = $("input[name='select-states']:checked").val();
