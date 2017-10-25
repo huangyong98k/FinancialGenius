@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import online.shixun.model.Product;
 import online.shixun.services.ProductService;
 
@@ -74,6 +76,35 @@ public class ProductAction {
 		findProduct();
 		return "list";
 	}
-	
+//添加产品 ajax 验证
+	private String result;
 
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+	public String findProductByName() {
+		result=productService.findByName(product.getProductName())+"";
+		System.out.println("running");
+		System.out.println(result);
+		return ActionSupport.SUCCESS;
+	}
+	//产品前后端分页
+		public String nextPage() {
+			list=productService.nextPage();
+			return "list";
+		}
+		public String prevPage() {
+			list=productService.prevPage();
+			return "list";
+		}
+		//通过产品名搜索
+		public String findUseName() {
+			list=productService.findUseName(product.getProductName());
+			System.out.println("2"+product.getProductName());
+			return"list" ;
+		}
 }

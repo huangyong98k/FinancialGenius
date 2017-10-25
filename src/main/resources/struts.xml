@@ -23,7 +23,12 @@
         <result name="add">/userManage/userList.jsp</result>
         <result name="userByName">/userManage/userList.jsp</result>
         </action>
+        
+        
          <action name="productAction!*" class="online.shixun.action.ProductAction" method="{1}">
+           <result type="json">
+				<param name="root">result</param>
+			</result>
         <result name="list">/userManage/productList.jsp</result>
         <result name="addProduct">/userManage/productList.jsp</result>
         <result name="to_edit">/userManage/modifyProduct.jsp</result>

@@ -75,8 +75,8 @@
 				<div class="conform">
 					<form>
 						<div class="cfD">
-							<input class="addUser" type="text" placeholder="输入产品名" />
-							<button class="button">搜索</button>
+							<input id="input-search-text" class="addUser" type="text" placeholder="输入产品名" />
+							<a id="a-search" href="productAction!findUseName?product.productName="><input id="input-search" type="button" class="button" value="搜索"></input></a>
 						</div>
 					</form>
 				</div>
@@ -112,8 +112,10 @@
 							</tr>
 						</c:forEach>
 					</table>
-					<div class="paging">此处是分页<input type="submit" name="" id="prey" value="上一页"> <input
-							type="submit" name="" id="prop" value="下一页"></div>
+					<div class="paging">此处是分页
+					<a href="productAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> <a href="productAction!nextPage"><input
+							type="button" name="" id="prop" value="下一页"></a>
+					</div>
 				</div>
 				<!-- 学生 表格 显示 end-->
 			</div>
@@ -138,31 +140,27 @@
         $('.a-delete').prop('href','productAction!deleteById?product.productId='+$(this).parent().siblings().filter(":eq(1)").html())       
 
         })
-/* $('tr').filter(':lt(0)').hide();
-	$('tr').filter(':gt(5)').hide();
-	var one = 1;
-	var two = 5;
-	var max = $('tr:last').index();
-	$('#prey').click(function() {
-		if (one > 1) {
-			one -= 5;
-			two -= 5;
-			$('tr').show();
-			$('tr').filter(':lt(' + one + ')').hide();
-			$('tr').filter(':gt(' + two + ')').hide();
-			$('tr').filter(':eq(0)').show();
-		}
-	})
-	$('#prop').click(function() {
-		if (two < max) {
-			one += 5;
-			two += 5;
-			$('tr').show();
-			$('tr').filter(':lt(' + one + ')').hide();
-			$('tr').filter(':gt(' + two + ')').hide();
-			$('tr').filter(':eq(0)').show();
-		}
-	}) */
+		$('tr:odd').css('background','#F0F0F0')
+		$('#input-search-text').focus(function(){
+			$(this).val("")
+		})
+		
+		$('#input-search-text').blur(function(){
+			$.ajax({
+				url : "/FinancialGenius/productAction!findProductByName?product.ProductName="+$(this).val().trim(),
+				success:function(data){
+						if(data=="0"){
+							$('#input-search-text').val("该产品不存在")
+						}else if(data=="1"){
+							$('#input-search-text').val("该产品存在，点击搜索查看")
+						}
+				}
+			
+			})
+			$('#a-search').prop('href','productAction!findUseName?product.productName='+$('#input-search-text').val())
+		})
+		
+		
     </script>
 </body>
 </html>
