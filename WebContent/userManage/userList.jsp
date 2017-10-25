@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@page import="org.aspectj.apache.bcel.util.ClassPath"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -6,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/css.css">
 <script type="text/javascript"
 	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/public.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$(".delban").click(function() {
@@ -68,8 +69,8 @@
 								<td>${temp.userPhone }</td>
 								<td><a
 									href="userAction!to_edit?user.userId=${temp.userId }"><img
-										class="operation" src="image/update.png"></a> <img
-									class="operation delban img-delete" src="image/delete.png"></td>
+										class="operation" src="<%=request.getContextPath() %>/image/update.png"></a> <img
+									class="operation delban img-delete" src="<%=request.getContextPath() %>/image/delete.png"></td>
 							</tr>
 						</c:forEach>
 					</table>
