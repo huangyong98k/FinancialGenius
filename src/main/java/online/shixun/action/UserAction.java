@@ -276,7 +276,7 @@ public class UserAction {
      }
 
 
-    //普通用户登录
+    
 	// 个人信息界面修改密码
 	@ResponseBody
 	public String changePassword() {
@@ -297,7 +297,7 @@ public class UserAction {
 		result = message;
 		return ActionSupport.SUCCESS;
 	}
-
+	//普通用户登录
 	public String login() {
 		System.out.println("userAction!login");
 		System.out.println(email);
