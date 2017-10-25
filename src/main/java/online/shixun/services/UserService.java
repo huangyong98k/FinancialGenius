@@ -100,6 +100,17 @@ public class UserService {
 		return "error";
     	
     }
+    //通过Email查询用户userBalance
+    public double findByEmailToBalance(String Email){
+    	List<User> users = userDaoImpl.getByEmail(Email); 
+    	if(users.size()>0){
+    		for (User user : users) {
+				return  user.getUserBanlance();
+			}
+    	}
+		return 0;
+    	
+    }
     //通过Email查询用户ID
     public long findByEmaiToID(String Email){
     	List<User> users = userDaoImpl.getByEmail(Email); 

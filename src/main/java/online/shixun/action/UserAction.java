@@ -380,6 +380,18 @@ public class UserAction {
 
 	}
 
+	@ResponseBody
+	public String queryUserBalance() {
+		session.get("loginInfo");
+		result = (String) session.get("loginInfo");
+		if (result.equals("请登录")) {
+			// 不做改变
+		} else {
+			result = String.valueOf(userService.findByEmailToBalance(result));
+		}
+		return ActionSupport.SUCCESS;
+
+	}
 	public User getUser() {
 		return user;
 	}

@@ -31,7 +31,4 @@ function earn(){
 			earning = principal*number*((year2-year1)*12+(12-month2+month1))*rate/100;
             document.getElementById("earning").value=earning;
 		}
-        if(number>1000000){
-        	alert("数量太多，无法购买！")
-        }
     }

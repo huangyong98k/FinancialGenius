@@ -12,27 +12,48 @@
 <script type="text/javascript" src="js/products.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		var userBalance;
+		var number = $("#number").val();
+		var principal = $("#principal").val();
+
 		$.ajax({
-	        cache: true,
-	        type: "POST",
-	        url:"userAction!queryUserID.action",
-	        data:"",// 数据控件ID 
-	        async: true,
-	        success:function(data){
-	        	if(data=="请登录"){
-	        	}
-	        	else{
-	        		$("#userId").val(data);       		
-	        	}
-	        },
-	        error: function(response) {
-	        	console.log(response);
-	        }
-	        });
+			cache : true,
+			type : "POST",
+			url : "userAction!queryUserID.action",
+			data : "",// 数据控件ID 
+			async : true,
+			success : function(data) {
+				if (data == "请登录") {
+				} else {
+					$("#userId").val(data);
+				}
+			},
+			error : function(response) {
+				console.log(response);
+			}
+		});
+
+		$.ajax({
+			cache : true,
+			type : "POST",
+			url : "userAction!queryUserBalance.action",
+			data : "",// 数据控件ID
+			dataType : "json",
+			async : true,
+			success : function(data) {
+				userBalance = data;
+				console.log(userBalance);
+			},
+			error : function(response) {
+				console.log(response);
+			}
+		});
+
 		$("#submit").click(function() {
 			var number = $("#number").val();
 			var beginDate = $("#beginDate").val();
 			var overDate = $("#overDate").val();
+			alert(userBalance)
 			if ((number == "" || undefined || null)) {
 				alert("数量不能为空！");
 				return false;
@@ -48,7 +69,11 @@
 			} else if (beginDate == overDate) {
 				alert("两个日期不能相同");
 				return false;
+			} else if (principal * number > userBalance) {
+				alert("你的余额不足！")
+				return false;
 			}
+
 		});
 
 		$("#number").keyup(function() {
@@ -56,6 +81,13 @@
 			if (/[^\d]/.test(c.val())) {//替换非数字字符
 				var temp_amount = c.val().replace(/[^\d]/g, '');
 				$(this).val(temp_amount);
+			}
+		});
+
+		$("#number").change(function() {
+			if (principal * number > userBalance) {
+				alert("你的余额不足！")
+				return false;
 			}
 		});
 	});
@@ -73,8 +105,8 @@
 				action="investmentAction!add?productId=${product.productId }"
 				method="post" id="form">
 				<div class="row clearfix">
-					 <input type="hidden" id="userId" name="userId"> 
-					<input type="hidden" id="status" name="investment.investmentStatus"
+					<input type="hidden" id="userId" name="userId"> <input
+						type="hidden" id="status" name="investment.investmentStatus"
 						readonly value="1" readonly>
 					<div class="lbl">
 						<label for="name"> 产品名称</label>
@@ -108,7 +140,7 @@
 					</div>
 					<div class="ctrl">
 						<input type="text" name="investment.number" id="number"
-							placeholder="请输入你要购买的份数" onchange="earn()">
+							placeholder="请输入你要购买的份数" maxlength="4" onchange="earn()">
 					</div>
 				</div>
 				<div class="row clearfix">
