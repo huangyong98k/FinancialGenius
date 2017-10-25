@@ -104,7 +104,6 @@ public class ProductAction {
 		//通过产品名搜索
 		public String findUseName() {
 			list=productService.findUseName(product.getProductName());
-			System.out.println("2"+product.getProductName());
 			return"list" ;
 		}
 }
