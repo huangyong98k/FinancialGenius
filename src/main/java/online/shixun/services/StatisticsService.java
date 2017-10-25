@@ -18,6 +18,7 @@ public class StatisticsService {
 	 * 获取某一天之前的投资额，格式'yyyy-mm-dd'
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public Double getTotalInvestment(String date){
 		String sql = "select sum(principal) as TotalInvestment from tb_investment where beginTime < '"+date+"'";
 		List list = investmentDaoImpl.getTotalInvestment(sql);
