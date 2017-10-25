@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" type="text/css" href="css/css.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/css.css">
 <script type="text/javascript"
 	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/js/public.js"></script>
 <script type="text/javascript">
     $(function() {
         $(".delban").click(function() {
@@ -106,8 +106,8 @@
 								<td>${temp.productMoney}</td>
 								<td><a
 									href="productAction!to_edit?product.productId=${temp.productId }"><img
-										class="operation" src="image/update.png"></a><img
-									class="operation delban img-delete" src="image/delete.png"></td>
+										class="operation" src="<%=request.getContextPath() %>/image/update.png"></a><img
+									class="operation delban img-delete" src="<%=request.getContextPath() %>/image/delete.png"></td>
 
 							</tr>
 						</c:forEach>
