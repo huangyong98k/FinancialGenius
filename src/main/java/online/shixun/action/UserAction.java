@@ -68,50 +68,60 @@ public class UserAction {
 		session = new HashMap<String, Object>();
 		session.put("loginInfo", "请登录");
 	}
-
+   //添加用户，传递整个user对象到数据库中
 	public String addUser() {
 		userService.addUser(user);
 		findUser();
 		return "add";
 	}
 
-	public String findUserByPhone() {
-		System.out.println(user.getUserPhone());
-		result = userService.findByPhone(user.getUserPhone()) + "";
-		System.out.println(intResult);
-		return ActionSupport.SUCCESS;
-	}
 
-	public String findUserByEmail() {
-		System.out.println(user.getUserEmail());
-		result = userService.findByEmai(user.getUserEmail()) + "";
-		System.out.println(intResult);
-		return ActionSupport.SUCCESS;
-	}
+	
 
-	public String findUserByCard() {
-		System.out.println(user.getUserCard());
-		result = userService.findByCard(user.getUserCard()) + "";
-		System.out.println(intResult);
+	//ajax传值，通过电话号码来查询用户是否存在，返回0，或者1，若为0，则不存在，为1存在
+	public String findUserByPhone(){
+		//取得返回值
+		result=userService.findByPhone(user.getUserPhone())+"";
 		return ActionSupport.SUCCESS;
 	}
+	//同上，用email来判断用户是否存在，验证注册用户是否合法
+	public String findUserByEmail(){
+		result=userService.findByEmai(user.getUserEmail())+"";
+		return ActionSupport.SUCCESS;
+	}
+	//用身份证来判断用户存在
+	public String findUserByCard(){
+		//取值
+		result=userService.findByCard(user.getUserCard())+"";
+		//返回data
+		return ActionSupport.SUCCESS;
+	}
+	/*
+	 * 查询所有用户，显示在页面上
+	 */
 
 	public String findUser() {
 		list = userService.findUsers();
 		return "list";
 	}
-
+   /*
+    * 通过传过来的用户id来删除整个用户
+    */
 	public String deleteById() {
 		userService.deleteById(user);
 		findUser();
 		return "list";
 	}
-
+    /*
+     * 获取到选中元素的id，并通过id来获取到选中的元素的属性
+     */
 	public String to_edit() {
 		user = userService.getUser(user);
 		return "to_edit";
 	}
-
+/*
+ * 对对象内的属性进行修改操作，调用update方法
+ */
 	public String do_edit() {
 		userService.edit(user);
 		findUser();
@@ -267,6 +277,7 @@ public class UserAction {
 			// 不做改变
 		} else {
 			list = userService.findUserByUserEmail(message);
+			System.out.println("list"+list);
 		}
 		return "users";
 	}
@@ -288,7 +299,7 @@ public class UserAction {
 	}
 
 
-    //普通用户登录
+    
 	// 个人信息界面修改密码
 	@ResponseBody
 	public String changePassword() {
@@ -309,7 +320,7 @@ public class UserAction {
 		result = message;
 		return ActionSupport.SUCCESS;
 	}
-
+	//普通用户登录
 	public String login() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		ActionContext actionContext = ActionContext.getContext();
