@@ -50,7 +50,7 @@ $(function() {
 			</p>
 			<p class="p2">确定退出当前用户？</p>
 			<P class="p3">
-				<a class="ok yes" href="#">确定</a><a class="ok no" href="#">取消</a>
+				<a class="ok yes" href="#" onclick="fun()">确定</a><a class="ok no" href="#">取消</a>
 			</p>
 		</div>
 	</div>
@@ -139,5 +139,10 @@ $(function() {
 			height="100%" width="100%"> </iframe>
 	</div>
 	<!-- 右边主要内容END！ -->
+	<script>
+	function fun(){
+		self.close()
+	}
+	</script>
 </body>
 </html>
