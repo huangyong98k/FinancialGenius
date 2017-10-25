@@ -33,7 +33,7 @@ public class ProductService {
 	}
 
 	public List<Product> findProducts() {
-		return productDaoImpl.getAll();
+		return productDaoImpl.getAllUsePage();
 	}
 
 	public Product getProduct(Product product) {
@@ -60,5 +60,24 @@ public class ProductService {
 	public void edit(Product product) {
 		productDaoImpl.update(product);
 	}
-
+//添加产品 产品名 ajax
+	 public int findByName(String name){
+	    	List<Product> product = productDaoImpl.getByName(name); 
+	    	if(product.size()>0){
+	    		return 1;
+	    	}
+			return 0;
+	    }
+	//服务类产品后端分页
+	    public List<Product> nextPage() {
+	    	return productDaoImpl.nextPage();	
+		}
+	    public List<Product> prevPage() {
+	    	return productDaoImpl.prevPage();	
+		}
+	    //通过产品名搜索
+	    public List<Product> findUseName(String name) {
+	    	List<Product> list=productDaoImpl.getByName(name);
+			return list;
+		}
 }
