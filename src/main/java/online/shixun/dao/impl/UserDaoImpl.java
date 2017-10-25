@@ -26,11 +26,12 @@ public class UserDaoImpl implements UserDao {
 	 */
 	@Override
 	public int add(User user) {
-		System.out.println("111"+user);
 		baseDao.getHibernateTemplate().save(user);
 		return 1;
 	}
-
+//    public User findUserById(User user){
+//    	baseDao.getHibernateTemplate().fin
+//    }
 	/**
 	 * 
 	 * @Title: getUsers
@@ -53,7 +54,7 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(User user) {
 		return baseDao.getHibernateTemplate().get(User.class, user.getUserId());		
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getByName(String name) {

@@ -17,6 +17,7 @@ import online.shixun.dao.impl.InvestmentDaoImpl;
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.Investment;
+import online.shixun.model.User;
 
 /**
  * @ClassName: InvestmentService
@@ -52,11 +53,19 @@ public class InvestmentService {
 		investmentDaoImpl.delete(investment);
 	}
 	
+
 	public void addInvestmentByUserIdAndProductId(Investment investment,Long userId,Long productId){
 		investment.setUser(userDaoImpl.getById(userId));
 		investment.setProduct(productDaoImpl.getById(productId));
 		investmentDaoImpl.add(investment);
-		
+	}
+	//服务类用户前后端分页
+    public List<Investment> nextPage() {
+    	return investmentDaoImpl.nextPage();	
+	}
+    public List<Investment> prevPage() {
+    	return investmentDaoImpl.prevPage();	
+
 	}
 
 }

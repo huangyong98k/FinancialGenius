@@ -17,11 +17,11 @@ import org.springframework.stereotype.Repository;
 import online.shixun.common.BaseDao;
 import online.shixun.dao.ProductDao;
 import online.shixun.model.Product;
-import online.shixun.model.User;
+
 
 /** 
 * @ClassName: ProductDaoImpl 
-* @Description: 实现UserDao接口 
+* @Description: 实现ProductDao接口 
 * @author HPEU丶小咸鱼
 * @date 2017年10月20日 上午10:11:23 
 *  
@@ -96,15 +96,19 @@ public class ProductDaoImpl implements ProductDao{
 		return (List<Product>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 	}
 
-	//产品分页
-	int firstResult=0;
-	@SuppressWarnings("unchecked")
-	public List<Product> getAllProductPage() {
-		DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
-		List<Product> list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);	
-		return list;
-	}
-	 @SuppressWarnings("unchecked")
+
+	//产品前后端分页
+	
+		int firstResult=0;
+		@SuppressWarnings("unchecked")
+		public List<Product> getAllProductPage() {
+			DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
+			List<Product> list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);
+			System.out.println("sdsds:"+list.toString());
+			return list;
+		}
+	    @SuppressWarnings("unchecked")
+
 		public List<Product> nextPage(){
 	    	List<Product> list=(List<Product>) baseDao.getHibernateTemplate().find("from Product");
 	    	DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);

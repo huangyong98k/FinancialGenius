@@ -4,20 +4,21 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="fause" />
+	<package name="default" namespace="/" extends="json-default">
+		<!-- 刘杰生 -->
 
-<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-    <package name="default" namespace="/" extends="struts-default,json-default">
-        <action name="userAction!*" class="online.shixun.action.UserAction" method="{1}">
-        <!-- 刘杰生-->
-        <result type="json">
+		<action name="userAction!*" class="online.shixun.action.UserAction"
+			method="{1}">
+			<result name="users" type="json">
+				<param name="root">list</param>
+			</result>
+			<!-- 刘杰生 -->
+			<result type="json">
 				<param name="root">result</param>
 			</result>
 			<result name="register">registerSuccess.jsp</result>
-			<!-- 刘杰生 -->
-			<result name="list">/userManage/userList.jsp</result>
-			<result name="to_edit">/userManage/modifyUser.jsp</result>
-			<result name="do_edit">/userManage/userList.jsp</result>
-			<result name="add">/userManage/userList.jsp</result>
 			<!-- 刘杰生 -->
 			<result name="getSuccess">/products/buyList.jsp</result>
 			<!-- 刘杰生 -->
@@ -27,6 +28,7 @@
 			<result name="to_edit">/userManage/modifyUser.jsp</result>
 			<result name="do_edit">/userManage/userList.jsp</result>
 			<result name="add">/userManage/userList.jsp</result>
+			<result name="userByName">/userManage/userList.jsp</result>
 			<result name="getSuccess">/products/buyList.jsp</result>
 		</action>
 		<action name="productAction!*" class="online.shixun.action.ProductAction"
@@ -46,6 +48,12 @@
 			<result name="list">/userManage/investList.jsp</result>
 			<result name="list">/userManage/investInvalid.jsp</result>
 			<result name="deleteSuccess">/products/buyList.jsp</result>
+		</action>
+		<action name="statisticsAction!*" class="online.shixun.action.StatisticsAction"
+			method="{1}">
+			<result type="json">
+				<param name="root">totalInvestment</param>
+			</result>
 		</action>
 	</package>
 

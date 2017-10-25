@@ -18,13 +18,32 @@ $(function(){
 
     //第一个柱状图
     $(function(){
+    	var total= [];
+    	for(var i = 1;i<7;i++){
+    		var date = "2017-0"+i+"-30";
+    		$.ajax({
+                cache: true,
+                type: "POST",
+                url:"statisticsAction!totalInvestment",
+                data:'date='+date,// 数据控件ID
+                dataType:"json",
+                async: true,
+                success:function(data){
+                	alert(data);
+                	total.push(data);
+                },
+                error: function(response) {
+                	console.log(response);
+                }
+                });
+    	}
         var data = [
-            {name : '1月',value : 0.73,color:'#bc6666'},
-            {name : '2月',value : 2.02,color:'#cbab4f'},
-            {name : '3月',value : 6.77,color:'#76a871'},
-            {name : '4月',value : 24.88,color:'#9f7961'},
-            {name : '5月',value : 29.84,color:'#2ba5a4'},
-            {name : '6月',value : 35.75,color:'#6f83a5'}
+            {name : '1月',value : +total[1],color:'#bc6666'},
+            {name : '2月',value : +total[2],color:'#cbab4f'},
+            {name : '3月',value : +total[4],color:'#76a871'},
+            {name : '4月',value : +total[5],color:'#9f7961'},
+            {name : '5月',value : +total[6],color:'#2ba5a4'},
+            {name : '6月',value : +total[7],color:'#6f83a5'}
         ];
 
         new iChart.Column3D({

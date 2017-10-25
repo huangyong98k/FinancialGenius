@@ -50,7 +50,13 @@ body {
     font-size: 20px;
     display: inline-block;
 }
-
+#userName{
+	position:absolute;
+	color:#FFF;
+	left:80px;
+	top:175px;
+	font-size:18px;
+}
 .dead_pic {
     width: 100%;
     height: 200px;
@@ -322,6 +328,15 @@ a:hover {
     left: 68px;
     top: 235px;
 }
-
+#modifyMessage{
+	position:absolute;
+	left:210px;
+	width:200px;
+	height: 100px;
+	text-align:center;
+	line-height:100px;
+	color:cadetblue;
+	
+}
 
 /* 修改密码 end*/

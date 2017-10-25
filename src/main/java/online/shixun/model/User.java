@@ -29,7 +29,7 @@ public class User {
 	private String userPhone;
 	//默认值为 正常      正常/冻结
 	private String userStatus;
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name = "userId")
 	private List<Investment> investments;
 

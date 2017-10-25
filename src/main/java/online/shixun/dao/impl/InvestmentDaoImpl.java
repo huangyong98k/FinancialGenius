@@ -9,7 +9,10 @@
 package online.shixun.dao.impl;
 
 import java.util.List;
+import java.util.Map;
 
+
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +20,7 @@ import online.shixun.common.BaseDao;
 import online.shixun.dao.InvestmentDao;
 import online.shixun.model.Admin;
 import online.shixun.model.Investment;
+import online.shixun.model.User;
 
 /** 
 * @ClassName: InvestmentDaoImpl 
@@ -88,6 +92,47 @@ public class InvestmentDaoImpl implements InvestmentDao {
 	public List<Investment> getInvestmentsByProductId(Long ProductId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public List<User> getAllUsePage() {
+		DetachedCriteria criteria=DetachedCriteria.forClass(User.class);
+		List<User> list= (List<User>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);	
+		return list;
+	}
+	
+	//用户前后端分页
+	
+	int firstResult=0;
+    @SuppressWarnings("unchecked")
+	public List<Investment> nextPage(){
+    	List<Investment> list=(List<Investment>) baseDao.getHibernateTemplate().find("from Investment");
+    	DetachedCriteria criteria=DetachedCriteria.forClass(Investment.class);
+    	if(firstResult+5<list.size()){
+    		firstResult=firstResult+5;
+    	}
+    	
+		list= (List<Investment>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
+		
+    	return list; 	
+    }
+    @SuppressWarnings("unchecked")
+	public List<Investment> prevPage(){
+    	List<Investment> list=(List<Investment>) baseDao.getHibernateTemplate().find("from Investment");
+    	DetachedCriteria criteria=DetachedCriteria.forClass(Investment.class);
+    	if(firstResult-5>=0){
+    		firstResult=firstResult-5;
+    	}
+		list= (List<Investment>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
+    	return list; 	
+    }
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List getTotalInvestment(String sql) {
+		return baseDao.getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(sql).list();
 	}
 
 }

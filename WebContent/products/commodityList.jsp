@@ -45,8 +45,8 @@
 			</tbody>
 		</table>
 		<div class="paging">
-			<a href="productAction!prevPage"><input type="button" name=""
-				class="prey" value="上一页"></a> <a href="productAction!nextPage"><input
+			<a href="productAction!prevFrontPage"><input type="button" name=""
+				class="prey" value="上一页"></a> <a href="productAction!nextFrontPage"><input
 				type="button" name="" class="next" value="下一页"></a>
 		</div>
 	</div>
