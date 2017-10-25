@@ -34,7 +34,7 @@ public class UserService {
 	@Autowired
 	private AdminDaoImpl adminDaoImpl;
 	
-	public  long loginMager(String email,String userPassword){
+	public  int loginMager(String email,String userPassword){
 		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
 		if(list.size()>0){
 			for (User user : list) {

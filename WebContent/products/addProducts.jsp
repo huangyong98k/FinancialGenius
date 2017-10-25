@@ -12,6 +12,23 @@
 <script type="text/javascript" src="js/products.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$.ajax({
+	        cache: true,
+	        type: "POST",
+	        url:"userAction!queryUserID.action",
+	        data:"",// 数据控件ID 
+	        async: true,
+	        success:function(data){
+	        	if(data=="请登录"){
+	        	}
+	        	else{
+	        		$("#userId").val(data);       		
+	        	}
+	        },
+	        error: function(response) {
+	        	console.log(response);
+	        }
+	        });
 		$("#submit").click(function() {
 			var number = $("#number").val();
 			var beginDate = $("#beginDate").val();
@@ -53,11 +70,10 @@
 		</div>
 		<div class="container">
 			<form class="contact"
-				action="investmentAction!add?userId=${userId }&productId=${product.productId }"
+				action="investmentAction!add?productId=${product.productId }"
 				method="post" id="form">
 				<div class="row clearfix">
-					<!-- <input type="hidden" id="productId" name="productId" readonly
-						value="${product.productId }">  -->
+					 <input type="hidden" id="userId" name="userId"> 
 					<input type="hidden" id="status" name="investment.investmentStatus"
 						readonly value="1" readonly>
 					<div class="lbl">
