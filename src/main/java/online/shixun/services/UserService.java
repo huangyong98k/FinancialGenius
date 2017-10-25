@@ -57,6 +57,11 @@ public class UserService {
     public User getUser(User user) {
 		return userDaoImpl.getUser(user);
 	}
+    
+    public List<User> findByName(User user){
+    	return userDaoImpl.getByName(user.getUserName());
+    }
+    
     public int findByEmai(String Email){
     	List<User> users = userDaoImpl.getByEmail(Email); 
     	System.out.println(users.toString());

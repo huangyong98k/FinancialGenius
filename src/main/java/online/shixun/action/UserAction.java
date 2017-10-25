@@ -197,7 +197,11 @@ public class UserAction {
 		return ActionSupport.SUCCESS;
 		
 	}
-
+     public String findByName(){
+    	 list=userService.findByName(user);
+    	 System.out.println("sss:"+list.toString());
+    	 return "userByName";
+     }
 
 	public String login() {
 		System.out.println("userAction!login");

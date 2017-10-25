@@ -21,6 +21,7 @@
         <result name="to_edit">/userManage/modifyUser.jsp</result>
         <result name="do_edit">/userManage/userList.jsp</result>
         <result name="add">/userManage/userList.jsp</result>
+        <result name="userByName">/userManage/userList.jsp</result>
         </action>
          <action name="productAction!*" class="online.shixun.action.ProductAction" method="{1}">
         <result name="list">/userManage/productList.jsp</result>

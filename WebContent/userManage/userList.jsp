@@ -35,10 +35,10 @@
 			<!--  用户页面样式 -->
 			<div class="connoisseur">
 				<div class="conform">
-					<form>
+					<form action="userAction!findByName" method="get">
 						<div class="cfD">
-							<input class="addUser" type="text" placeholder="" value="" />
-							<button class="button">搜索</button>
+							<input class="addUser" type="text" placeholder="请输入用户名" name="user.userName" value="" />
+							<input type="submit" class="button" value="搜索">
 						</div>
 					</form>
 				</div>
@@ -106,6 +106,8 @@
 											":hidden").filter(":eq(1)").html())
 				})
 				
+	/* 
+	前端分页
 	$('tr').filter(':lt(0)').hide();
 	$('tr').filter(':gt(5)').hide();
 	var one = 1;
@@ -130,7 +132,7 @@
 			$('tr').filter(':gt(' + two + ')').hide();
 			$('tr').filter(':eq(0)').show();
 		}
-	})
+	}) */
 	</script>
 </body>
 </html>

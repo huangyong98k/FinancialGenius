@@ -28,12 +28,12 @@
 							value="${user.userId }" > <input type="text"
 							class="addUserInfo" value="用户名：" readonly> <input
 							id="name-two" type="text" class="input3" name="user.userName"
-							placeholder="${user.userName }"/> <img id="img_ok" src="imgs/ok.png"><img
+							value="${user.userName }"/> <img id="img_ok" src="imgs/ok.png"><img
 							id="img_no" src="imgs/no.png"> <span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="密码：" readonly>
-						<input id="password-two" type="text" class="input3"  placeholder="${user.userPassword }"/> <img id="img_ok"
+						<input id="password-two" type="text" class="input3"  value="${user.userPassword }"/> <img id="img_ok"
 							src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
 						<span id="text_no"></span>
 					</div>
@@ -47,7 +47,7 @@
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="邮箱：" readonly>
 						<input id="input-phone-emailTwo" type="email" class="input3" name="user.userEmail"
-						 placeholder="${user.userEmail }"/> <span id="emailSpanTwo" style="color:red" hidden>邮箱已被注册</span>
+						 value="${user.userEmail }"/> <span id="emailSpanTwo" style="color:red" hidden>邮箱已被注册</span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="性别：" readonly>
@@ -57,12 +57,12 @@
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="电话号：" readonly>
 						<input id="input-phone-noTwo" type="phone" class="input3" name="user.userPhone"
-						placeholder="${user.userPhone }"/> <span id="phoneSpanTwo" style="color:red" hidden>电话已被注册</span>
+						value="${user.userPhone }"/> <span id="phoneSpanTwo" style="color:red" hidden>电话已被注册</span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="身份证号：" readonly>
 						<input id="input-phone-cardTwo" type="text" class="input3" name="user.userCard"
-						 placeholder="${user.userCard }"/> <span id="cardSpanTwo" style="color:red" hidden>电话已被注册</span>
+						 value="${user.userCard }"/> <span id="cardSpanTwo" style="color:red" hidden>电话已被注册</span>
 					</div>
 					<div class="bbD">
 						<p class="bbDP">
