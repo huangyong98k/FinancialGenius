@@ -5,12 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<style type="text/css">
+#E-mailInfo{
+     position: absolute;
+     left: 380px;
+}
+</style>
 <link rel="shortcut icon" href="https://www.rong360.com/favicon.ico" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/main.css" />
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="js/common.js" type="text/javascript"></script>
 <script src="js/reg.js" type="text/javascript"></script>
+<script type="text/javascript"></script>
 </head>
 <body>
 	<div class="main-header wrap-base wrap-clear">
@@ -23,8 +31,8 @@
 	<div class="login wrap-clear wrap-base" style="margin: 10px auto 80px;">
 		<div class="login-lists">
 			<ul id="loginTab" class="login-tab wrap-clear">
-				<li class="wrap-left on">普通用户</li>
-				<li class="wrap-left s2">手机验证码登录</li>
+				<li class="wrap-left on">普通用户登录</li>
+				<li class="wrap-left s2">管理员登录</li>
 			</ul>
 			<div id="loginTabCon">
 				<div class="login-tab-con">
@@ -32,8 +40,8 @@
 						<div class="login-list">
 							<div id="pwdLoginTip" class="tip-error"></div>
 							<div class="item">
-								<input type="text" name="email" class="txt"
-									placeholder="手机号/用户名" />
+								<input id="E-mails" type="text" name="email" class="txt" 
+									placeholder="邮箱帐号" />
 							</div>
 						</div>
 						<div class="login-list">
@@ -70,45 +78,30 @@
 						<p class="p1">
 							<a class="btn btn-unable" href="">注册理财精灵账户</a>
 						</p>
-						<p class="p5">
-							原论坛用户请先<a href="">绑定手机号</a>&nbsp;<i
-								data-tip="原论坛用户登录后可以完成账号升级。<a href='http://bbs.rong360.com/thread-42559-1.html' target='_blank'>需求更多帮/a>"
-								class="sprite sprite-tip pngfix"></i>
-						</p>
-					</div>
+											</div>
 				</div>
 				<div class="login-tab-con none">
-					<form action="/" method="post" id="vvcodeLoginForm">
+					<form action="userAction!adminLogin" method="post" id="vvcodeLoginForm">
 						<div class="login-list">
 							<div id="vvcodeLoginTip" class="tip-error"></div>
 							<div class="item">
-								<input type="text" name="vmobile" class="txt" placeholder="手机号" />
+								<input type="text" name="adminName" class="txt" placeholder="管理员用户名" />
 							</div>
 						</div>
 						<div class="login-list wrap-clear">
 							<div class="tip-error"></div>
 							<div class="wrap-clear vcode item">
-								<input type="text" name="vvcode" class="txt" placeholder="验证码"
-									maxlength="4" />
-								<div class="vcode-area wrap-clear">
-									<img id="vregVcodeImg" src="" /> <a id="vregFreshCode"
-										href="javascript:;"><i class="sprite pngfix sprite-fresh"></i></a>
-								</div>
+								<input type="password" name="AdminPassword" class="txt" placeholder="密码" />
 							</div>
 						</div>
 						<div class="validate-phone">
 							<div class="tip-error"></div>
 							<div class="con">
-								<div class="msg-vcode" id="vregCaptchaCon">
-									<input type="text" name="vcaptcha" class="txt"
-										placeholder="短信验证码" /> <span class="none"><i
-										class="num">59</i>秒后重新获取</span> <a class="on" id="vregCaptchaBtn"
-										href="javascript:;">获取短信验证码</a>
-								</div>
+								
 								<div id="vregCaptchaTip" class="tip-error"></div>
 							</div>
 						</div>
-						<input id="vvcodeLoginBtn" type="button" value="验证并登录"
+						<input id="vvcodeLoginBtn" type="submit" value="管理员登录"
 							class="btn btn-red" />
 					</form>
 				</div>

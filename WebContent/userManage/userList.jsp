@@ -68,8 +68,8 @@
 								<td>${temp.userPhone }</td>
 								<td><a
 									href="userAction!to_edit?user.userId=${temp.userId }"><img
-										class="operation" src="imgs/update.png"></a> <img
-									class="operation delban img-delete" src="imgs/delete.png"></td>
+										class="operation" src="image/update.png"></a> <img
+									class="operation delban img-delete" src="image/delete.png"></td>
 							</tr>
 						</c:forEach>
 					</table>

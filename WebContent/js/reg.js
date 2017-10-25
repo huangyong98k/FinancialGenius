@@ -168,10 +168,7 @@ $(function() {
             var pwd = $.trim(_this.pwd.val());
             var vcode = $.trim(_this.vcode.val());
             var data = {};
-            if (comm.checkNull(user) || comm.checkNull(pwd)) {
-                _this.tip.html("请输入正确的用户名密码");
-                return false;
-            }
+            
             data.email = user;
             data.userPassword = pwd;
             if (!_this.vcodeCon.hasClass("none")) {
@@ -205,8 +202,8 @@ $(function() {
     pwdLogin.init();
 
     var vcodeLogin = {
-        mobile: $("[name=vmobile]"),
-        vcode: $("[name=vvcode]"),
+        mobile: $("[name=adminName]"),
+        vcode: $("[name=AdminPassword]"),
         captcha: $("[name=vcaptcha]"),
         tip: $("#vvcodeLoginTip"),
         init: function() {
@@ -227,10 +224,7 @@ $(function() {
                 var mobile = $.trim(_this.mobile.val());
                 var vcode = $.trim(_this.vcode.val());
                 var captcha = $.trim(_this.captcha.val());
-                if (comm.checkNull(mobile) || mobile.length != 11 || comm.checkNull(vcode)) {
-                    _this.tip.html("请输入正确的手机号和图片验证码");
-                    return false;
-                }
+               
                 comm.getVcode({ mobile: mobile, type: 2, vcode: vcode }, "/passport/user/captcha", "#vregCaptchaCon", "#vregCaptchaTip");
             })
             this.mobile.focus(function() {
@@ -248,10 +242,7 @@ $(function() {
             var mobile = $.trim(this.mobile.val());
             var vcode = $.trim(this.vcode.val());
             var captcha = $.trim(this.captcha.val());
-            if (comm.checkNull(mobile) || comm.checkNull(vcode) || mobile.length != 11 || comm.checkNull(captcha)) {
-                this.tip.html("请输入正确的手机号和验证码");
-                return false;
-            }
+            
             $.post(window.location.href, { mobile: mobile, vcode: vcode, captcha: captcha }, function(result) {
                 if (result.code == 0) {
                     window.location.href = window.returnUrl;
@@ -295,12 +286,8 @@ $(function() {
                 $(this).parent().parent().find(".tip-error").html("");
             })
 
-            this.vcode.keyup(function() {
-                var code = $.trim(_this.vcode.val());
-                if (code.length == 4) {
-                    $(".validate-phone").removeClass("none");
-                }
-            })
+          
+           
             this.passwd.focus(function() {
                 $(this).parent().find(".tip-error").html("请设置6-16位密码，必须包含字母和数字").css("color", "#999");
             }).keyup(function() {
@@ -324,14 +311,7 @@ $(function() {
             $("#regCaptchaBtn").click(function() {
                 var mobile = $.trim(_this.mobile.val());
                 var vcode = $.trim(_this.vcode.val());
-                if (comm.checkNull(mobile) || mobile.length != 11) {
-                    _this.mobile.parent().find(".tip-error").html("请输入正确的手机号");
-                    return false;
-                }
-                if (comm.checkNull(vcode)) {
-                    _this.vcode.parent().parent().find(".tip-error").html("请输入图片验证码");
-                    return false;
-                }
+                
                 comm.getVcode({ mobile: mobile, type: 1, vcode: vcode }, "/passport/user/captcha", "#regCaptchaCon", "#regCaptchaTip");
             })
         },
@@ -398,14 +378,7 @@ $(function() {
             $("#findCaptchaBtn").click(function() {
                 var mobile = $.trim(_this.mobile.val());
                 var vcode = $.trim(_this.vcode.val());
-                if (comm.checkNull(mobile) || mobile.length != 11) {
-                    _this.mobile.parent().find(".tip-error").html("请输入正确的手机号");
-                    return false;
-                }
-                if (comm.checkNull(vcode)) {
-                    _this.vcode.parent().parent().find(".tip-error").html("请输入图片验证码");
-                    return false;
-                }
+                
                 comm.getVcode({ mobile: mobile, type: 2, vcode: vcode }, "/passport/user/captcha", "#findCaptchaCon", "#findCaptchaTip");
             })
             $("#findPwdBtn1").click(function() {
@@ -420,18 +393,7 @@ $(function() {
             var mobile = $.trim(_this.mobile.val());
             var vcode = $.trim(_this.vcode.val());
             var captcha = $.trim(_this.captcha.val());
-            if (comm.checkNull(mobile) || mobile.length != 11) {
-                _this.mobile.parent().find(".tip-error").html("请输入正确的手机号");
-                return false;
-            }
-            if (comm.checkNull(vcode)) {
-                _this.vcode.parent().parent().find(".tip-error").html("请输入图片验证码");
-                return false;
-            }
-            if (comm.checkNull(captcha)) {
-                _this.captcha.parent().parent().find(".tip-error").html("请输入短信验证码");
-                return false;
-            }
+            
             $.post(window.location.href, $("#findPwdForm1").serialize(), function(result) {
                 if (result.code == 0) {
                     window.location.href = "/passport/user/forgotPassword?step=2";

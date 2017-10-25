@@ -57,7 +57,7 @@
 							<td width="435px" class="tdColor">本金</td>
 							<td width="230px" class="tdColor">操作</td>
 						</tr>
-						<c:forEach items="${list }" var="temp" varStatus="vs">
+						<c:forEach items="${list2 }" var="temp" varStatus="vs">
 
 							<tr height="40px">
 
@@ -68,14 +68,13 @@
 								<td>${temp.earning }</td>
 								<td>${temp.investmentStatus}</td>
 								<td>${temp.principal}</td>
-								<td><img class="operation delban img-delete"
-									src="imgs/delete.png"></td>
+								<td><input type="button" value="失效" class="operation delban img-delete"></td>
 							</tr>
 						</c:forEach>
 					</table>
 					<div class="paging">
-						<a href="InvestmentAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> 
-						<a href="InvestmentAction!nextPage"><input type="button" name="" id="prop" value="下一页"></a>
+						<a href="InvestmentAction!prevPage2"><input type="button" name="" id="prey2" value="上一页"></a> 
+						<a href="InvestmentAction!nextPage2"><input type="button" name="" id="prop2" value="下一页"></a>
 					</div>
 				</div>
 				<!-- 学生 表格 显示 end-->
@@ -89,7 +88,7 @@
 			<div class="close">
 				<a><img src="imgs/shanchu.png" /></a>
 			</div>
-			<p class="delP1">你确定要删除此条记录吗？</p>
+			<p class="delP1">你确定要让此产品失效吗？</p>
 			<p class="delP2">
 				<a href="#" class="ok yes a-delete">确定</a><a class="ok no">取消</a>
 			</p>
@@ -101,7 +100,7 @@
 				function() {
 					$('.a-delete').prop(
 							'href',
-							'InvestmentAction!deleteById?investment.investmentId='
+							'InvestmentAction!modifyState?investment.investmentId='
 									+ $(this).parent().siblings().filter(
 											":eq(0)").html())
 
@@ -113,7 +112,7 @@
 	var one = 1;
 	var two = 5;
 	var max = $('tr:last').index();
-	$('#prey').click(function() {
+	$('#prey2').click(function() {
 		if (one > 1) {
 			one -= 5;
 			two -= 5;
@@ -123,7 +122,7 @@
 			$('tr').filter(':eq(0)').show();
 		}
 	})
-	$('#prop').click(function() {
+	$('#prop2').click(function() {
 		if (two < max) {
 			one += 5;
 			two += 5;

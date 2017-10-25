@@ -7,8 +7,7 @@
 <title>首页</title>
 </head>
 <link rel="stylesheet" type="text/css" href="css/public.css">
-<script type="text/javascript"
-	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/public.js"></script>
 
@@ -102,7 +101,7 @@ $(function() {
 				<dd>
 					<img class="coin11" src="imgs/coin111.png" /><img class="coin22"
 						src="imgs/coin222.png" /><a
-						href="InvestmentAction!findInvestment" target="main" class="cks">投资失效</a><img
+						href="InvestmentAction!findInvestment2" target="main" class="cks">投资失效</a><img
 						class="icon5" src="imgs/coin21.png" />
 				</dd>
 			</dl>

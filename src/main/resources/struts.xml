@@ -15,7 +15,9 @@
 			<result name="register">registerSuccess.jsp</result>
 			
 		<!-- 刘杰生-->
+
 		<result name="loginSuccess">index.html</result>
+		<result name="adminLoginSuccess">/userManage/mainFrame.jsp</result>
         <result name="loginFaile">loginFaile.jsp</result>
         <result name="list">/userManage/userList.jsp</result>
         <result name="to_edit">/userManage/modifyUser.jsp</result>
@@ -32,7 +34,7 @@
         
         <action name="InvestmentAction!*" class="online.shixun.action.InvestmentAction" method="{1}">
         <result name="list">/userManage/investList.jsp</result>
- 		<result name="list">/userManage/investInvalid.jsp</result> 
+ 		<result name="list2">/userManage/investInvalid.jsp</result> 
         </action>
 	</package>
 

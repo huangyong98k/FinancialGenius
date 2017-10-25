@@ -14,7 +14,10 @@ import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import online.shixun.dao.AdminDao;
+import online.shixun.dao.impl.AdminDaoImpl;
 import online.shixun.dao.impl.UserDaoImpl;
+import online.shixun.model.Admin;
 import online.shixun.model.Investment;
 import online.shixun.model.User;
 
@@ -29,12 +32,28 @@ import online.shixun.model.User;
 public class UserService {
 	@Autowired
     private UserDaoImpl userDaoImpl;
+	@Autowired
+	private AdminDaoImpl adminDaoImpl;
 	
 	public  int loginMager(String email,String userPassword){
 		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
 		if(list.size()>0){
 			for (User user : list) {
 				if(userPassword.equals(user.getUserPassword())){
+					return 1;
+				}
+			}
+			return 2;
+
+		}
+		return 0;
+	}
+	
+	public  int loginMagerAdmin(String adminName,String AdminPassword){
+		List<Admin> list =  (List<Admin>) adminDaoImpl.getByName(adminName);
+		if(list.size()>0){
+			for (Admin admin : list) {
+				if(AdminPassword.equals(admin.getAdminPassword())){
 					return 1;
 				}
 			}
