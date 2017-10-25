@@ -16,9 +16,6 @@
 	<div id="content">
 		<h2>产品大全</h2>
 		<hr />
-		<button class="btn1" name="array">按起购金额↓</button>
-		<button class="btn2" name="array">按资金规模 ↓</button>
-		<button class="btn3" name="array">按月利率 ↓</button>
 		<table class="table" id="table">
 			<thead>
 				<tr id="trHead">
@@ -47,6 +44,11 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<div class="paging">
+			<a href="productAction!prevPage"><input type="button" name=""
+				class="prey" value="上一页"></a> <a href="productAction!nextPage"><input
+				type="button" name="" class="next" value="下一页"></a>
+		</div>
 	</div>
 </body>
 </html>

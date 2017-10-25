@@ -31,9 +31,9 @@
 						class="menu-bar-item menu-button " title="网贷投资" id="investment"
 						href="statistics/dataStatistics.html" target="mainFrame">数据统计</a>
 					<a class="menu-bar-item menu-button" title="理财产品"
-						id="financial-product" href="products/commodityList.html"
+						id="financial-product" href="productAction!findAllProducts"
 						target="mainFrame">理财产品</a> <a class="menu-bar-item menu-button"
-						title="已购产品" id="buy-product" href="products/buyList.html"
+						title="已购产品" id="buy-product" href="userAction!getInvestmentById?userId=${user.userId }"
 						target="mainFrame">已购产品</a>
 				</div>
 			</div>

@@ -10,6 +10,7 @@ package online.shixun.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -95,4 +96,34 @@ public class ProductDaoImpl implements ProductDao{
 		return (List<Product>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 	}
 
+	//产品分页
+	int firstResult=0;
+	@SuppressWarnings("unchecked")
+	public List<Product> getAllProductPage() {
+		DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
+		List<Product> list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);	
+		return list;
+	}
+	 @SuppressWarnings("unchecked")
+		public List<Product> nextPage(){
+	    	List<Product> list=(List<Product>) baseDao.getHibernateTemplate().find("from Product");
+	    	DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
+	    	if(firstResult+5<list.size()){
+	    		firstResult=firstResult+5;
+	    	}
+	    	
+			list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
+			
+	    	return list; 	
+	    }
+	    @SuppressWarnings("unchecked")
+		public List<Product> prevPage(){
+	    	List<Product> list=(List<Product>) baseDao.getHibernateTemplate().find("from Product");
+	    	DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
+	    	if(firstResult-5>=0){
+	    		firstResult=firstResult-5;
+	    	}
+			list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
+	    	return list; 	
+	    }
 }

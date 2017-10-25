@@ -4,10 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import online.shixun.model.Investment;
@@ -27,6 +31,7 @@ public class UserAction {
 	private String userPassword;
 	private static Map<String, Object> session;
 	private String result;
+	private long userId;
 	//静态模块初始化session 添加 对象loginInfo 属性值为"请登录" 
 	static  
     {  
@@ -70,7 +75,8 @@ public class UserAction {
 	}
 
 	public String getInvestmentById() {
-		investments = userService.findInvestmentsByUserId(user.getUserId());
+		System.out.println("~~~~~~~~~~~userId为"+userId);
+		investments= userService.findInvestmentsByUserId(userId);
 		return "getSuccess";
 	}
 
@@ -89,26 +95,6 @@ public class UserAction {
 		} else {
 			message = "未注册";
 			// map.put("message", "可以使用此邮箱注册");
-		}
-		// result =map.toString();//给result赋值，传递给页面
-		result = message;
-		System.out.println(result);
-		return ActionSupport.SUCCESS;
-	}
-
-	// 注册时验证手机号是否已存在
-	public String registerCheckByphoneNumber() {
-		System.out.println("userAction!registerCheckByphoneNumber");
-		int isExist = userService.findByPhone(user.getUserPhone());
-		// 将数据存储在map里，再转换成json类型数据，也可以自己手动构造json类型数据
-		// Map<String, Object> map = new HashMap<String, Object>();
-		String message;
-		if (isExist > 0) {
-			message = "已注册";
-			// map.put("message", "此手机号已被注册");
-		} else {
-			message = "未注册";
-			// map.put("message","可以使用此手机号注册");
 		}
 		// result =map.toString();//给result赋值，传递给页面
 		result = message;
@@ -179,17 +165,24 @@ public class UserAction {
 
 
 	public String login() {
-		System.out.println("userAction!login");
-		System.out.println(email);
-		System.out.println(userPassword);
-		int count = userService.loginMager(email, userPassword);
-		System.out.println(count);
-		if (count == 1) {
-			session.put("loginInfo",email);
-			return "loginSuccess";
+//		System.out.println("userAction!login");
+//		System.out.println(email);
+//		System.out.println(userPassword);
+		HttpServletRequest request = ServletActionContext.getRequest();
+		ActionContext actionContext = ActionContext.getContext();
+		Map<String, Object> session2=actionContext.getSession();
+		long userID = userService.loginMager(email, userPassword);
+		user = userService.getUserById(userID);
+		System.out.println(user.toString());
+		System.out.println("~~~~~~~~~~~~~~~~~"+userID+"~~~~~~~~~~~~~~");
+		if (userId == -2l || userId==-1l) {
+			session.put("loginError", "用户密码不正确！");
+			return "loginFaile";
 		}
-		session.put("loginError", "用户密码不正确！");
-		return "loginFaile";
+		session2.put("userId", userID);
+		System.out.println("~~~~~~~~~~"+session2.get("userId"));
+		session.put("loginInfo",email);
+		return "loginSuccess";
 
 	}
 	//用户前后端分页
@@ -200,10 +193,6 @@ public class UserAction {
 	public String prevPage() {
 		list=userService.prevPage();
 		return "list";
-	}
-
-	public User getUser() {
-		return user;
 	}
 
 	public void setUser(User user) {
@@ -240,5 +229,25 @@ public class UserAction {
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public List<Investment> getInvestments() {
+		return investments;
+	}
+
+	public void setInvestments(List<Investment> investments) {
+		this.investments = investments;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public User getUser() {
+		return user;
 	}
 }

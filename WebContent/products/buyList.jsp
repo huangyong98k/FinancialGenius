@@ -12,23 +12,20 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/common.js"></script>
 <script type="text/javascript">
-function firm() {
-    if (confirm("你确定要退订吗？")) {
-        alert("点击了确定");
-    }
-    else {
-        alert("点击了取消");
-    }
-}
+	function checkDelete() {
+		if (confirm("你确定要退订吗？")) {
+			alert("退订成功！");
+			return true;
+		} else {
+			return false;
+		}
+	}
 </script>
 </head>
 <body>
 	<div id="content">
 		<h2>已购产品</h2>
-		<hr/>
-		<button class="btn1" name="array">按起购金额↓</button>
-		<button class="btn2" name="array">按预计收益 ↓</button>
-		<button class="btn3" name="array">按月利率 ↓</button>
+		<hr />
 		<table class="table" id="table">
 			<thead>
 				<tr id="trHead">
@@ -42,7 +39,7 @@ function firm() {
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="investments" var="temp">
+				<c:forEach items="${investments }" var="temp">
 					<tr>
 						<td align="center">${temp.investmentId }</td>
 						<td align="center">${temp.beginTime }</td>
@@ -50,7 +47,9 @@ function firm() {
 						<td align="center">${temp.earning }</td>
 						<td align="center">${temp.number }</td>
 						<td align="center">${temp.principal }</td>
-						<td align="center"><a href="investmentAction!deleteInvestById?investment.investmentId=${temp.investmentId }" class="buy" onclick="firm()">退订</a></td>
+						<td align="center"><a
+							href="investmentAction!deleteInvestById?investment.investmentId=${temp.investmentId }"
+							class="buy" onclick="return checkDelete()">退订</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

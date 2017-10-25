@@ -11,37 +11,37 @@
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/products.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-        $("#submit").click(function(){
-            var number = $("#number").val();
-            var beginDate = $("#beginDate").val();
-            var overDate = $("#overDate").val();
-            if((number == "" || undefined || null)){
-                alert("数量不能为空！");
-                return false;
-            }else if ((beginDate == "" || undefined || null)) {
-                alert("请选择日期！");
-                return false;
-            }else if ((overDate == "" || undefined || null)) {
-                alert("请选择日期！");
-                return false;
-            }else if(overDate<beginDate){
-                alert("到期日期选择有误！")
-                return false
-            }else if(beginDate==overDate){
-                alert("两个日期不能相同");
-                return false;
-            }
-        });
+	$(document).ready(function() {
+		$("#submit").click(function() {
+			var number = $("#number").val();
+			var beginDate = $("#beginDate").val();
+			var overDate = $("#overDate").val();
+			if ((number == "" || undefined || null)) {
+				alert("数量不能为空！");
+				return false;
+			} else if ((beginDate == "" || undefined || null)) {
+				alert("请选择日期！");
+				return false;
+			} else if ((overDate == "" || undefined || null)) {
+				alert("请选择日期！");
+				return false;
+			} else if (overDate < beginDate) {
+				alert("到期日期选择有误！")
+				return false
+			} else if (beginDate == overDate) {
+				alert("两个日期不能相同");
+				return false;
+			}
+		});
 
-        $("#number").keyup(function(){
-            var c=$(this);
-            if(/[^\d]/.test(c.val())){//替换非数字字符
-                var temp_amount=c.val().replace(/[^\d]/g,'');
-                $(this).val(temp_amount);
-            }
-        });
-    });
+		$("#number").keyup(function() {
+			var c = $(this);
+			if (/[^\d]/.test(c.val())) {//替换非数字字符
+				var temp_amount = c.val().replace(/[^\d]/g, '');
+				$(this).val(temp_amount);
+			}
+		});
+	});
 </script>
 </head>
 <body>
@@ -52,12 +52,14 @@
 			</h1>
 		</div>
 		<div class="container">
-			<form class="contact" action="investmentAction.action" method="post"
-				id="form">
+			<form class="contact"
+				action="investmentAction!add?userId=${userId }&productId=${product.productId }"
+				method="post" id="form">
 				<div class="row clearfix">
-					<input type="hidden" id="productId" name="productId" readonly
-						value="${product.productId }"> <input type="hidden"
-						id="status" name="investment.investmentStatus" readonly value="1">
+					<!-- <input type="hidden" id="productId" name="productId" readonly
+						value="${product.productId }">  -->
+					<input type="hidden" id="status" name="investment.investmentStatus"
+						readonly value="1" readonly>
 					<div class="lbl">
 						<label for="name"> 产品名称</label>
 					</div>
@@ -80,8 +82,8 @@
 						<label for="principal"> 起购金额</label>
 					</div>
 					<div class="ctrl">
-						<input type="text" name="investment.principal"
-							id="principal" value="${product.productMoney }" readonly>
+						<input type="text" name="investment.principal" id="principal"
+							value="${product.productMoney }" readonly>
 					</div>
 				</div>
 				<div class="row clearfix">
@@ -98,8 +100,7 @@
 						<label for="earning"> 预计收益</label>
 					</div>
 					<div class="ctrl">
-						<input type="text" name="investment.earning" id="earning" value=""
-							readonly>
+						<input type="text" name="investment.earning" id="earning" readonly>
 					</div>
 				</div>
 				<div class="row clearfix">
@@ -107,7 +108,7 @@
 						<label for="beginDate"> 起购时间</label>
 					</div>
 					<div class="ctrl">
-						<input type="month" id="beginDate" name="investment.beginDate"
+						<input type="date" id="beginDate" name="investment.beginTime"
 							onchange="earn()">
 					</div>
 				</div>
@@ -116,7 +117,7 @@
 						<label for="overDate"> 到期时间</label>
 					</div>
 					<div class="ctrl">
-						<input type="month" id="overDate" name="investment.overDate"
+						<input type="date" id="overDate" name="investment.overTime"
 							onchange="earn()">
 					</div>
 				</div>

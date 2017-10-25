@@ -23,6 +23,7 @@ public class ProductAction {
 
 	private List<Product> list;
 	private Product product;
+	private long productId;
 
 	public String findAllProducts() {
 		System.out.println("productAction!findAllProducts");
@@ -74,6 +75,14 @@ public class ProductAction {
 		findProduct();
 		return "list";
 	}
+	//产品前后端分页
+	public String nextPage() {
+		list=productService.nextPage();
+		return "nextList";
+	}
+	public String prevPage() {
+		list=productService.prevPage();
+		return "preList";
+	}
 	
-
 }

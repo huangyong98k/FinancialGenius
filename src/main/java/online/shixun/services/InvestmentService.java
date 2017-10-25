@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import online.shixun.dao.impl.InvestmentDaoImpl;
+import online.shixun.dao.impl.ProductDaoImpl;
+import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.Investment;
 
 /**
@@ -27,6 +29,10 @@ import online.shixun.model.Investment;
 public class InvestmentService {
 	@Autowired
 	private InvestmentDaoImpl investmentDaoImpl;
+	@Autowired
+	private UserDaoImpl userDaoImpl;
+	@Autowired
+	private ProductDaoImpl productDaoImpl;
 
 	public int deleteById(Long id){
 		return investmentDaoImpl.deleteById(id);
@@ -44,6 +50,13 @@ public class InvestmentService {
 	
 	public void deleteById(Investment investment) {
 		investmentDaoImpl.delete(investment);
+	}
+	
+	public void addInvestmentByUserIdAndProductId(Investment investment,Long userId,Long productId){
+		investment.setUser(userDaoImpl.getById(userId));
+		investment.setProduct(productDaoImpl.getById(productId));
+		investmentDaoImpl.add(investment);
+		
 	}
 
 }

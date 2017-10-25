@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.model.Product;
+import online.shixun.model.User;
 
 /**
  * @ClassName: ProductService
@@ -33,7 +34,7 @@ public class ProductService {
 	}
 
 	public List<Product> findProducts() {
-		return productDaoImpl.getAll();
+		return productDaoImpl.getAllProductPage();
 	}
 
 	public Product getProduct(Product product) {
@@ -61,4 +62,11 @@ public class ProductService {
 		productDaoImpl.update(product);
 	}
 
+	//服务类产品前后端分页
+    public List<Product> nextPage() {
+    	return productDaoImpl.nextPage();	
+	}
+    public List<Product> prevPage() {
+    	return productDaoImpl.prevPage();	
+	}
 }

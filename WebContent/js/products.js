@@ -16,16 +16,21 @@ function earn(){
             alert("到期日期选择错误！");
         }else if(year2==year1&&month2<month1){
             alert("到期日期选择错误！");
-        }else if(year2=year1&&month2==month1){
+        }else if(year2==year1&&month2==month1){
             document.getElementById("earning").value=0;
-        }else if(year2=year1&&month2>month1){
+        }else if(year2==year1&&month2>month1){
             earning = principal*number*(month2-month1)*rate/100;
             document.getElementById("earning").value=earning;
-        }else if(year2>year1){
-            var month=(year2-year1)*12+(month2-month1);
+        }else if(year2>year1&&month2>month1){
             earning = principal*number*((year2-year1)*12+(month2-month1))*rate/100;
             document.getElementById("earning").value=earning;
-        }
+        }else if (year2>year1&&month2==month1) {
+        	earning = principal*number*((year2-year1)*12)*rate/100;
+        	 document.getElementById("earning").value=earning;
+		}else if (year2>year1&&month2<month1) {
+			earning = principal*number*((year2-year1)*12+(12-month2+month1))*rate/100;
+            document.getElementById("earning").value=earning;
+		}
         if(number>1000000){
         	alert("数量太多，无法购买！")
         }
