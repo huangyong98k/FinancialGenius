@@ -29,17 +29,20 @@ public class InvestmentAction {
 	private UserService userService;
 
 	private List<Investment> list;
+	private List<Investment> list2;
 	private Investment investment;
 	private List<Investment> investments;
 	private Long productId;
 	private Long userId;
 	private User user;
+	private long id;
 	private Product product;
 
 	public String add() {
 		System.out.println("~~~~~~~~~~~" + userId + "~~~~~~~~~~~" + productId);
 		System.out.println(investment.toString());
 		investmentService.addInvestmentByUserIdAndProductId(investment, userId, productId);
+		investmentService.addInvestment(investment);
 		return "addSuccess";
 	}
 
@@ -51,19 +54,33 @@ public class InvestmentAction {
 		this.list = list;
 	}
 
-
-	public String findInvestment() {
-		list = investmentService.findInvestment();
+	//投资查询
+	public String findInvestment(){
+		list=investmentService.findInvestment();
 		System.out.println(list.toString());
-		return "list";
+		return "list";	
 	}
-
-	public String deleteById() {
+	//投资失效查询
+	public String findInvestment2(){
+		list2=investmentService.findInvestment();
+		return "list2";	
+	}
+	public String deleteById(){
 		investmentService.deleteById(investment);
 		findInvestment();
 		return "list";
 	}
-	//用户前后端分页
+	
+	
+	public String modifyState(){
+		investment=investmentService.getById(investment.getInvestmentId());
+		investment.setInvestmentStatus(0);
+		investmentService.modifyStateInvestment(investment);
+		findInvestment();
+		return "list2";
+		
+	}
+	//投资查询前后端分页
 		public String nextPage() {
 			list=investmentService.nextPage();
 			for(Investment user:list) {
@@ -74,6 +91,29 @@ public class InvestmentAction {
 		public String prevPage() {
 			list=investmentService.prevPage();
 			return "list";
+		}
+		
+		
+		public String nextFrontPage(){
+			list=investmentService.nextPage();
+			return "nextSuccess";
+		}
+		public String preFrontPage(){
+			list=investmentService.prevPage();
+			return "preSuccess";
+		}
+	//投资失效前后台查询
+		public String nextPage2() {
+			list2=investmentService.nextPage();
+			for(Investment user:list2) {
+				System.out.println(user);
+			}
+			return "list2";
+		}
+		
+		public String prevPage2() {
+			list2=investmentService.prevPage();
+			return "list2";
 		}
 
 	public String deleteInvestById() {
@@ -93,6 +133,18 @@ public class InvestmentAction {
 
 	public void setInvestment(Investment investment) {
 		this.investment = investment;
+	}
+	public List<Investment> getList2() {
+		return list2;
+	}
+	public void setList2(List<Investment> list2) {
+		this.list2 = list2;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public Long getProductId() {

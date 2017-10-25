@@ -32,6 +32,8 @@ public class UserAction {
 	private User user;
 	private String email;
 	private String userPassword;
+	private String adminName;
+	private String AdminPassword;
 	private static Map<String, Object> session;
 	private Map<String, Object> map = new HashMap<String, Object>();
 	private String result = null;
@@ -149,6 +151,30 @@ public class UserAction {
 		result = message;
 		return ActionSupport.SUCCESS;
 	}
+	
+	@ResponseBody
+	// 登陆时验证Emali是否正确
+	public String loginCheckByUserEmail() {
+		System.out.println("userAction!loginCheckByUserEmail");
+		// 获取数据
+		int isExists = userService.findByEmai(user.getUserEmail());
+		// 将数据存储在map里，再转换成json类型数据，也可以自己手动构造json类型数据
+		// Map<String, Object> map = new HashMap<String, Object>();
+		String message;
+		if (isExists > 0) {
+			message = "正确！";
+			// map.put("message", "此邮箱已被注册");
+		} else {
+			message = "账户不存在";
+			// map.put("message", "可以使用此邮箱注册");
+		}
+		// result =map.toString();//给result赋值，传递给页面
+		result = message;
+		System.out.println(result);
+		return ActionSupport.SUCCESS;
+	}
+	
+	
 
 	// 注册时验证手机号是否已存在
 	@ResponseBody
@@ -261,6 +287,8 @@ public class UserAction {
 		return "userByName";
 	}
 
+
+    //普通用户登录
 	// 个人信息界面修改密码
 	@ResponseBody
 	public String changePassword() {
@@ -288,19 +316,32 @@ public class UserAction {
 		Map<String, Object> session2=actionContext.getSession();
 		long userID = userService.loginMager(email, userPassword);
 		user = userService.getUserById(userID);
-		System.out.println(user.toString());
-		System.out.println("~~~~~~~~~~~~~~~~~"+userID+"~~~~~~~~~~~~~~");
 		if (userId == -2l || userId==-1l) {
 			session.put("loginError", "用户密码不正确！");
 			return "loginFaile";
 		}
 		session2.put("userId", userID);
-		System.out.println("~~~~~~~~~~"+session2.get("userId"));
 		session.put("loginInfo",email);
 		return "loginSuccess";
 	}
 
-	// 用户前后端分页
+	//管理员登陆
+	public String adminLogin(){
+		System.out.println("userAction!adminLogin");
+		System.out.println(adminName);
+		System.out.println(AdminPassword);
+		int count = userService.loginMagerAdmin(adminName, AdminPassword);
+		System.out.println(count);
+		if (count == 1) {
+			//session.put("loginInfo",email);
+			return "adminLoginSuccess";
+		}
+		    //session.put("loginError", "用户密码不正确！");
+		    return "loginFaile";
+	}
+	
+	//用户前后端分页
+
 	public String nextPage() {
 		list = userService.nextPage();
 		return "list";
@@ -376,6 +417,7 @@ public class UserAction {
 		this.intResult = intResult;
 	}
 
+
 	public List<Investment> getInvestments() {
 		return investments;
 	}
@@ -391,5 +433,22 @@ public class UserAction {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
+
+	public String getAdminName() {
+		return adminName;
+	}
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
+	}
+
+	public String getAdminPassword() {
+		return AdminPassword;
+	}
+
+	public void setAdminPassword(String adminPassword) {
+		AdminPassword = adminPassword;
+	}
+	
 
 }
