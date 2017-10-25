@@ -34,18 +34,18 @@ public class UserService {
 	@Autowired
 	private AdminDaoImpl adminDaoImpl;
 	
-	public  int loginMager(String email,String userPassword){
+	public  long loginMager(String email,String userPassword){
 		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
 		if(list.size()>0){
 			for (User user : list) {
-				if(userPassword.equals(user.getUserPassword())){
-					return 1;
+				if(userPassword.equals(user.getUserPassword())){		
+					return user.getUserId();
 				}
 			}
-			return 2;
+			return -1l;
 
 		}
-		return 0;
+		return -2l;
 	}
 	
 	public  int loginMagerAdmin(String adminName,String AdminPassword){
@@ -167,4 +167,8 @@ public class UserService {
     	return userDaoImpl.prevPage();	
 	}
 
+    //根据Id查询用户
+    public User getUserById(Long id){
+    	return userDaoImpl.getById(id);
+    }
 }

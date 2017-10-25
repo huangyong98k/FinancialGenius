@@ -3,14 +3,16 @@
  */
 
 package online.shixun.action;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import online.shixun.model.Investment;
-
+import online.shixun.model.Product;
 import online.shixun.services.InvestmentService;
+import online.shixun.services.ProductService;
+import online.shixun.services.UserService;
 import online.shixun.model.User;
-
 
 /**
  * @author 小胖
@@ -21,16 +23,29 @@ public class InvestmentAction {
 
 	@Autowired
 	private InvestmentService investmentService;
+	@Autowired
+	private ProductService productService;
+	@Autowired
+	private UserService userService;
 
 	private List<Investment> list;
-	private Investment investment;
-	private User user;
 	private List<Investment> list2;
+	private Investment investment;
+	private List<Investment> investments;
+	private Long productId;
+	private Long userId;
+	private User user;
 	private long id;
-	public String add(){
+	private Product product;
+
+	public String add() {
+		System.out.println("~~~~~~~~~~~" + userId + "~~~~~~~~~~~" + productId);
+		System.out.println(investment.toString());
+		investmentService.addInvestmentByUserIdAndProductId(investment, userId, productId);
 		investmentService.addInvestment(investment);
 		return "addSuccess";
 	}
+
 	public List<Investment> getList() {
 		return list;
 	}
@@ -38,9 +53,11 @@ public class InvestmentAction {
 	public void setList(List<Investment> list) {
 		this.list = list;
 	}
+
 	//投资查询
 	public String findInvestment(){
 		list=investmentService.findInvestment();
+		System.out.println(list.toString());
 		return "list";	
 	}
 	//投资失效查询
@@ -53,18 +70,7 @@ public class InvestmentAction {
 		findInvestment();
 		return "list";
 	}
-	//单独通过ID来查询投资
-	/*public String findInvestmentId(){
-		investmentService.getById(investment.getInvestmentId());
-		findInvestment();
-		return "list3";
-	}*/
 	
-	/*public String updateInvestment(){
-		findInvestment();
-		return "list2";
-		
-	}*/
 	
 	public String modifyState(){
 		investment=investmentService.getById(investment.getInvestmentId());
@@ -87,6 +93,15 @@ public class InvestmentAction {
 			return "list";
 		}
 		
+		
+		public String nextFrontPage(){
+			list=investmentService.nextPage();
+			return "nextSuccess";
+		}
+		public String preFrontPage(){
+			list=investmentService.prevPage();
+			return "preSuccess";
+		}
 	//投资失效前后台查询
 		public String nextPage2() {
 			list2=investmentService.nextPage();
@@ -100,6 +115,13 @@ public class InvestmentAction {
 			list2=investmentService.prevPage();
 			return "list2";
 		}
+
+	public String deleteInvestById() {
+		investmentService.deleteById(investment);
+		//findInvestment();
+		investments=userService.findInvestmentsByUserId(userId);
+		return "deleteSuccess";
+	}
 
 	public User getUser() {
 		return user;
@@ -123,6 +145,34 @@ public class InvestmentAction {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Investment getInvestment() {
+		return investment;
 	}
 
 }

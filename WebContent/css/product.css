@@ -48,7 +48,7 @@ html, body {
 	color: blueviolet;
 }
 
-.btn1, .btn2, .btn3 {
+.btn1, .btn2, .btn3, .next, .prey {
 	width: 150px;
 	height: 35px;
 	background-color: #fafafa;
@@ -91,6 +91,11 @@ h2 {
 	top: 1%;
 }
 
+.paging {
+	position: absolute;
+	left: 38%;
+	bottom: 40%;
+}
 /*#head {*/
 /*color: white;*/
 /*line-height: 65px;*/

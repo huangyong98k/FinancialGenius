@@ -25,6 +25,7 @@ public class ProductAction {
 
 	private List<Product> list;
 	private Product product;
+	private long productId;
 
 	public String findAllProducts() {
 		System.out.println("productAction!findAllProducts");
@@ -75,6 +76,17 @@ public class ProductAction {
 		findProduct();
 		return "list";
 	}
+
+	//产品前后端分页
+	public String nextFrontPage() {
+		list=productService.nextPage();
+		return "nextList";
+	}
+	public String prevFrontPage() {
+		list=productService.prevPage();
+		return "preList";
+	}
+	
 //添加产品 ajax 验证
 	private String result;
 

@@ -2,10 +2,14 @@
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +24,12 @@ public class Investment {
 	private int investmentStatus;
 	private int number;
 	private double principal;
+	@ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+	@JoinColumn(name="userId")
+	private User user;
+	@ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+	@JoinColumn(name="productId")
+	private Product product;
 	public long getInvestmentId() {
 		return investmentId;
 	}
@@ -88,6 +98,18 @@ public class Investment {
 		return "Investment [investmentId=" + investmentId + ", beginTime=" + beginTime + ", overTime=" + overTime
 				+ ", earning=" + earning + ", investmentStatus=" + investmentStatus + ", number=" + number
 				+ ", principal=" + principal + "]";
+	}
+	public User getUser() {
+		return user;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 }

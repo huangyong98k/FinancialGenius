@@ -4,10 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import online.shixun.model.Investment;
@@ -16,22 +20,12 @@ import online.shixun.services.UserService;
 
 @Component("userAction")
 public class UserAction {
-
 	private static final long serialVersionUID = 1L;
 
-    private int intResult;
 	@Autowired
 	private UserService userService;
 
-	private String result = null;
-
-	public String getResult() {
-		return result;
-	}
-
-	public void setResult(String result) {
-		this.result = result;
-	}
+	private int intResult;
 
 	private List<User> list;
 	private List<Investment> investments;
@@ -40,11 +34,15 @@ public class UserAction {
 	private String userPassword;
 	private String adminName;
 	private String AdminPassword;
-
 	private static Map<String, Object> session;
-
-	Map<String, Object> map = new HashMap<String, Object>();
-
+	private Map<String, Object> map = new HashMap<String, Object>();
+	private String result = null;
+	private long userId;
+	// 静态模块初始化session 添加 对象loginInfo 属性值为"请登录"
+	static {
+		session = new HashMap<String, Object>();
+		session.put("loginInfo", "请登录");
+	}
 	public Map<String, Object> getMap() {
 		return map;
 	}
@@ -76,6 +74,10 @@ public class UserAction {
 		findUser();
 		return "add";
 	}
+
+
+	
+
 	//ajax传值，通过电话号码来查询用户是否存在，返回0，或者1，若为0，则不存在，为1存在
 	public String findUserByPhone(){
 		//取得返回值
@@ -97,6 +99,7 @@ public class UserAction {
 	/*
 	 * 查询所有用户，显示在页面上
 	 */
+
 	public String findUser() {
 		list = userService.findUsers();
 		return "list";
@@ -125,8 +128,17 @@ public class UserAction {
 		return "list";
 	}
 
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 	public String getInvestmentById() {
-		investments = userService.findInvestmentsByUserId(user.getUserId());
+		System.out.println("~~~~~~~~~~~userId为" + userId);
+		investments = userService.findInvestmentsByUserId(userId);
 		return "getSuccess";
 	}
 
@@ -280,10 +292,11 @@ public class UserAction {
 		result = message;
 		return ActionSupport.SUCCESS;
 	}
-     public String findByName(){
-    	 list=userService.findByName(user);
-    	 return "userByName";
-     }
+
+	public String findByName() {
+		list = userService.findByName(user);
+		return "userByName";
+	}
 
 
     
@@ -309,20 +322,20 @@ public class UserAction {
 	}
 	//普通用户登录
 	public String login() {
-		System.out.println("userAction!login");
-		System.out.println(email);
-		System.out.println(userPassword);
-		int count = userService.loginMager(email, userPassword);
-		System.out.println(count);
-		if (count == 1) {
-			session.put("loginInfo", email);
-			return "loginSuccess";
+		HttpServletRequest request = ServletActionContext.getRequest();
+		ActionContext actionContext = ActionContext.getContext();
+		Map<String, Object> session2=actionContext.getSession();
+		long userID = userService.loginMager(email, userPassword);
+		user = userService.getUserById(userID);
+		if (userId == -2l || userId==-1l) {
+			session.put("loginError", "用户密码不正确！");
+			return "loginFaile";
 		}
-		session.put("loginError", "用户密码不正确！");
-		    return "loginFaile";
-
+		session2.put("userId", userID);
+		session.put("loginInfo",email);
+		return "loginSuccess";
 	}
-	
+
 	//管理员登陆
 	public String adminLogin(){
 		System.out.println("userAction!adminLogin");
@@ -339,24 +352,26 @@ public class UserAction {
 	}
 	
 	//用户前后端分页
+
 	public String nextPage() {
-		list=userService.nextPage();
-		return "list";
-	}
-	public String prevPage() {
-		list=userService.prevPage();
+		list = userService.nextPage();
 		return "list";
 	}
 
+	public String prevPage() {
+		list = userService.prevPage();
+		return "list";
+	}
 
 	@ResponseBody
-	//退出系统 清除session
-	public String quitSystem(){
+	// 退出系统 清除session
+	public String quitSystem() {
 		session.put("loginInfo", "请登录");
-		result="退出成功";
+		result = "退出成功";
 		return ActionSupport.SUCCESS;
-		
+
 	}
+
 	public User getUser() {
 		return user;
 	}
@@ -413,6 +428,23 @@ public class UserAction {
 		this.intResult = intResult;
 	}
 
+
+	public List<Investment> getInvestments() {
+		return investments;
+	}
+
+	public void setInvestments(List<Investment> investments) {
+		this.investments = investments;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
 	public String getAdminName() {
 		return adminName;
 	}
@@ -429,4 +461,5 @@ public class UserAction {
 		AdminPassword = adminPassword;
 	}
 	
+
 }

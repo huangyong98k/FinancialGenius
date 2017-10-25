@@ -86,6 +86,7 @@ $(document).ready(function (event) {
             $("#all").html(parseFloat(num));
         });
 });
+
 $.cookie = function(name, value, options) {
     if (typeof value != 'undefined') { // name and value given, set cookie
         options = options || {};

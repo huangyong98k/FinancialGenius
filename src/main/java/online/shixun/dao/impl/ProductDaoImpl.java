@@ -95,17 +95,20 @@ public class ProductDaoImpl implements ProductDao{
 		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 		return (List<Product>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 	}
+
+
 	//产品前后端分页
 	
 		int firstResult=0;
 		@SuppressWarnings("unchecked")
-		public List<Product> getAllUsePage() {
+		public List<Product> getAllProductPage() {
 			DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
 			List<Product> list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);
 			System.out.println("sdsds:"+list.toString());
 			return list;
 		}
 	    @SuppressWarnings("unchecked")
+
 		public List<Product> nextPage(){
 	    	List<Product> list=(List<Product>) baseDao.getHibernateTemplate().find("from Product");
 	    	DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
