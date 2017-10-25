@@ -144,8 +144,23 @@
 		$('#input-search-text').focus(function(){
 			$(this).val("")
 		})
+		$('#input-search-text').change(function(){
+			$.ajax({
+				url : "/FinancialGenius/productAction!findProductByName?product.ProductName="+$(this).val().trim(),
+				success:function(data){
+						if(data=="0"){
+							//$('#input-search-text').val("该产品不存在")
+							alert("该产品不存在")
+						}else if(data=="1"){
+							//$('#input-search-text').val("该产品存在，点击搜索查看")
+							$('#a-search').prop('href','productAction!findUseName?product.productName='+$('#input-search-text').val())
+						}
+				}
+			
+			})
+		})
 		
-		$('#input-search-text').blur(function(){
+		/* $('#input-search-text').blur(function(){
 			$.ajax({
 				url : "/FinancialGenius/productAction!findProductByName?product.ProductName="+$(this).val().trim(),
 				success:function(data){
@@ -158,7 +173,7 @@
 			
 			})
 			$('#a-search').prop('href','productAction!findUseName?product.productName='+$('#input-search-text').val())
-		})
+		}) */
 		
 		
     </script>

@@ -57,7 +57,18 @@ html, body {
 	font-size: 15px;
 	color: white;
 }
-
+.exit{
+	position: absolute;
+	right: 90px;
+	width: 40px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	top: 30px;
+	font-size: 16px;
+	color: white;
+	dispaly:none;
+}
 #help:hover {
 	cursor: pointer;
 	color: red;
