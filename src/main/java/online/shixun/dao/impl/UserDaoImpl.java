@@ -44,17 +44,19 @@ public class UserDaoImpl implements UserDao {
 		return (List<User>) baseDao.getHibernateTemplate().find("from User");
 	}
 
-	
+	/**
+	 * 用id获取用户
+	 */
 	@Override
 	public User getById(Long id) {
 		return baseDao.getHibernateTemplate().get(User.class, id);
 	}
-	
 	@Override
 	public User getUser(User user) {
 		return baseDao.getHibernateTemplate().get(User.class, user.getUserId());		
 	}
 	
+	//通过用户名来查询，返回对象集合
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getByName(String name) {
@@ -62,19 +64,20 @@ public class UserDaoImpl implements UserDao {
 		String paramNames = "name";
 		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, name);
 	}
-
+     //删除user
 	@Override
 	public int delete(User user) {
 		baseDao.getHibernateTemplate().delete(user);
 		return 1;
 	}
-
+    //通过id删除user
 	@Override
 	public int deleteById(Long id) {
 		User user = baseDao.getHibernateTemplate().load(User.class, id);
 		baseDao.getHibernateTemplate().delete(user);
 		return 1;
 	}
+	//修改用户属性
 	@Override
 	public int update(User user) {
 		baseDao.getHibernateTemplate().update(user);
@@ -100,7 +103,7 @@ public class UserDaoImpl implements UserDao {
 		}
 		return 1;
 	}
-
+     //通过id来查找用户
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getByCrad(String card) {
@@ -110,7 +113,7 @@ public class UserDaoImpl implements UserDao {
 
 	}
 
-
+    //邮箱来查找用户，返回一个集合
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getByEmail(String emial) {
@@ -118,7 +121,7 @@ public class UserDaoImpl implements UserDao {
 		String paramNames = "eamil";
 		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, emial);
 	}
-
+   //返回通过电话号查到用户的集合
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getByPhone(String phone) {
