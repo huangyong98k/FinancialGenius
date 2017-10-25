@@ -23,7 +23,7 @@ public class Product {
 	private String productMoney;
 	private String productMechanism;
 	private int productStatus;
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name = "productId")
 	private List<Investment> investments;
 	public long getProductId() {

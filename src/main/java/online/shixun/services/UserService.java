@@ -10,7 +10,6 @@ package online.shixun.services;
 
 import java.util.List;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,19 +75,33 @@ public class UserService {
     public User getUser(User user) {
 		return userDaoImpl.getUser(user);
 	}
+    
+    public List<User> findByName(User user){
+    	return userDaoImpl.getByName(user.getUserName());
+    }
+    
     public int findByEmai(String Email){
     	List<User> users = userDaoImpl.getByEmail(Email); 
-    	System.out.println(users.toString());
     	if(users.size()>0){
     		return 1;
     	}
 		return 0;
     	
     }
+  //通过Email查询用户userName
+    public String findByEmaiTouserName(String Email){
+    	List<User> users = userDaoImpl.getByEmail(Email); 
+    	if(users.size()>0){
+    		for (User user : users) {
+				return  user.getUserName();
+			}
+    	}
+		return "error";
+    	
+    }
     //通过Email查询用户ID
     public long findByEmaiToID(String Email){
     	List<User> users = userDaoImpl.getByEmail(Email); 
-    	System.out.println(users.toString());
     	if(users.size()>0){
     		for (User user : users) {
 				return  user.getUserId();
@@ -97,24 +110,47 @@ public class UserService {
 		return 0;
     	
     }
+    //通过userID查询用户密码
+    public String findByUserIDToUser(Long userID){
+    	User user = userDaoImpl.getById(userID);
+    	return user.getUserPassword();
+    	
+    }
+  //通过userID查询用户
+    public User findByUserIDToUserMessage(Long userID){
+    	User user = userDaoImpl.getById(userID);
+    	return user;
+    	
+    }
     public int findByPhone(String phone){
     	List<User> users = userDaoImpl.getByPhone(phone); 
-    	System.out.println(users.toString());
     	if(users.size()>0){
     		return 1;
     	}
 		return 0;
     }
+    /**
+     * 修改密码
+     * @param newPassword
+     * @param userId
+     * @return
+     */
+    public void modifyUserPassword(User user){
+    	userDaoImpl.update(user);
+    }
 
     public int findByCard(String card){
     	List<User> users = userDaoImpl.getByCrad(card); 
-    	System.out.println(users.toString());
     	if(users.size()>0){
     		return 1;
     	}
     	return 0;
     }
     
+    public List<User> findUserByUserEmail(String email){
+		return userDaoImpl.getByEmail(email);
+    	
+    }
     public List<Investment> findInvestmentsByUserId(Long userId){
 		return userDaoImpl.getInvestmentsByUserId(userId);
 	}

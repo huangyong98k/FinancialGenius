@@ -25,30 +25,29 @@
 				<div class="baBody">
 					<div class="bbD1 bbD">
 						<input type="hidden" class="input3" name="user.userId"
-							value="${user.userId }"> <input type="text"
+							value="${user.userId }" > <input type="text"
 							class="addUserInfo" value="用户名：" readonly> <input
-							type="text" class="input3" name="user.userName"
-							value="${temp.userName }" /> <img id="img_ok" src="imgs/ok.png"><img
+							id="name-two" type="text" class="input3" name="user.userName"
+							value="${user.userName }"/> <img id="img_ok" src="imgs/ok.png"><img
 							id="img_no" src="imgs/no.png"> <span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="密码：" readonly>
-						<input type="text" class="input3" /> <img id="img_ok"
+						<input id="password-two" type="text" class="input3"  value="${user.userPassword }"/> <img id="img_ok"
 							src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
 						<span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="确认密码：" readonly>
-						<input type="password" class="input3" name="user.userPassword"
-							value="${temp.userPassword }" /> <img id="img_ok"
+						<input id="passwordAgain-two" type="password" class="input3" name="user.userPassword"
+				/> <img id="img_ok"
 							src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
 						<span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="邮箱：" readonly>
-						<input type="email" class="input3" name="user.userEmail"
-							value="${temp.userEmail }" /> <img id="img_ok" src="imgs/ok.png"><img
-							id="img_no" src="imgs/no.png"> <span id="text_no"></span>
+						<input id="input-phone-emailTwo" type="email" class="input3" name="user.userEmail"
+						 value="${user.userEmail }"/> <span id="emailSpanTwo" style="color:red" hidden>邮箱已被注册</span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="性别：" readonly>
@@ -57,25 +56,23 @@
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="电话号：" readonly>
-						<input type="phone" class="input3" name="user.userPhone"
-							value="${temp.userPhone }" /> <img id="img_ok" src="imgs/ok.png"><img
-							id="img_no" src="imgs/no.png"> <span id="text_no"></span>
+						<input id="input-phone-noTwo" type="phone" class="input3" name="user.userPhone"
+						value="${user.userPhone }"/> <span id="phoneSpanTwo" style="color:red" hidden>电话已被注册</span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="身份证号：" readonly>
-						<input type="text" class="input3" name="user.userCard"
-							value="${temp.userCard }" /> <img id="img_ok" src="imgs/ok.png"><img
-							id="img_no" src="imgs/no.png"> <span id="text_no"></span>
+						<input id="input-phone-cardTwo" type="text" class="input3" name="user.userCard"
+						 value="${user.userCard }"/> <span id="cardSpanTwo" style="color:red" hidden>电话已被注册</span>
 					</div>
 					<div class="bbD">
 						<p class="bbDP">
-							<input type="hidden" name="student.studentId"
-								value="${student.studentId }" /> <input class="input3"
+							<input type="hidden" name="student.studentId"/> <input id="updateSub" class="input3"
 								type="submit" name="Submit" value="提交"
-								style="width: 153px; color: Black; background-color: Aqua" /> <a
-								href="student!list.action"> <input class="input3"
-								type="submit" name="Submit" value="取消" style="width: 153px;" />
-							</a>
+								style="width: 153px; color: Black; background-color: Aqua" /> 
+	
+							<a href="userAction!findUser">
+							<input class="input3"
+								type="button" name="Submit" value="取消" style="width: 153px;" /></a>
 						</p>
 					</div>
 				</div>
@@ -84,5 +81,142 @@
 			<!-- 修改用户页面样式end -->
 		</div>
 	</div>
+	<script type="text/javascript">
+	$(document).ready(function (event) {
+		var isEmail=false;
+		var isPhone=false;
+		var isIDCard=false;
+	$("#updateSub").click(function (event) {
+	    var dataName = $("#name-two").val().trim();
+	    var dataPassword = $("#password-two").val().trim();
+	    var dataPasswordAgain = $("#passwordAgain-two").val().trim();
+	    
+	    var dataEmail = $("#input-phone-emailTwo").val().trim();
+	    var patternEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+	    var strEmail = patternEmail.test(dataEmail);
+	    
+	    var dataPhoneNumber=$("#input-phone-noTwo").val().trim();
+	    console.log(dataPhoneNumber);
+	    var patternPhoneNumber=/^[1][3,4,5,7,8][0-9]{9}$/;
+	    var strPhoneNumber=patternPhoneNumber.test(dataPhoneNumber);
+	    
+	    
+	    var dataIDCard=$("#input-phone-cardTwo").val().trim();
+	    var patternIDCard=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+	    var strIDCard=patternIDCard.test(dataIDCard);
+	    
+	    
+	    if ((dataName == "" || undefined || null)) {
+	        alert("用户名称不可为空");
+	        return false;
+	    }
+	    else if(dataName.length<6){
+	    	alert("用户名小于六位字符");
+	    	return false;
+	    }
+	    else if (dataPassword == "" || undefined || null) {
+	        alert("密码不能为空");
+	        return false;
+	    }
+	    else if(dataPassword.length<6){
+	    	alert("密码小于六位字符");
+	    	return false;
+	    }
+	    else if (dataPasswordAgain == "" || undefined || null) {
+	        alert("请输入重复密码");
+	        return false;
+	    }
+	    else if (dataEmail == "" || undefined || null) {
+	        alert("请输入E-mail");
+	        return false;
+	    }
+	    else if (!strEmail) {
+	        alert("请输入合法的E-mail");
+	        return false;
+	    }
+	    else if (dataPassword != dataPasswordAgain) {
+	        alert("两次输入的密码不一致");
+	        return false;
+	    }
+	    else if(dataPhoneNumber==""||undefined||null){
+	    	alert("请输入您的手机号");
+	    	return false;       
+	    	}
+	    else if(!strPhoneNumber){
+	        console.log(strPhoneNumber);
+	    	alert("请输入合法的手机号");
+	    	return false;     
+	    }
+	    else if(dataIDCard==""||undefined||null){
+	    	alert("请输入您的身份证号码");
+	    	return false;       
+	    	}
+	    else if(!strIDCard){
+	    	alert("请输入合法的身份证号码");
+	    	return false;     
+	    }
+	    else if(isEmail==false){
+	    	alert("此邮箱已被注册，请重新输入");
+	    	return false;    
+	    }
+	    else if(isPhone==false){
+	    	alert("此手机号已被注册，请重新输入");
+	    	return false;    
+	    }
+	    else if(isIDCard==false){
+	    	alert("此身份证号已被注册，请重新输入");
+	    	return false;    
+	    }
+	    else {
+	    	return true;
+	    }
+	});
+		$("#input-phone-noTwo").blur(function() {
+			 $.ajax({
+				url : "/FinancialGenius/userAction!findUserByPhone?user.userPhone="+$(this).val(),
+               success:function(data){
+            	   if(data=="0"){
+            		   $("#phoneSpanTwo").hide()
+            		   isIDCard=true;
+            	   }
+            	   else{
+              		   $("#phoneSpanTwo").show()
+              		  isIDCard=false;
+            	   }
+               }
+			})
+		})
+		$("#input-phone-emailTwo").blur(function() {
+			 $.ajax({
+				url : "/FinancialGenius/userAction!findUserByEmail?user.userEmail="+$(this).val(),
+               success:function(data){
+            	   if(data=="0"){
+            		   $("#emailSpanTwo").hide()
+            		   isEmail=true;
+            	   }
+            	   else{
+              		   $("#emailSpanTwo").show()
+              		   isEmail=false;
+            	   }
+               }
+			})
+		})
+		$("#input-phone-cardTwo").blur(function() {
+			 $.ajax({
+				url : "/FinancialGenius/userAction!findUserByCard?user.userCard="+$(this).val(),
+               success:function(data){
+            	   if(data=="0"){
+            		   $("#cardSpanTwo").hide()
+            		    isPhone=true;
+            	   }
+            	   else{
+              		   $("#cardSpanTwo").show()
+              		  isPhone=false;
+            	   }
+               }
+			})
+		})
+               })
+	</script>
 </body>
 </html>
