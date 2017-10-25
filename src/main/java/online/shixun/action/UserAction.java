@@ -136,11 +136,7 @@ public class UserAction {
 		this.result = result;
 	}
 
-	public String getInvestmentById() {
-		System.out.println("~~~~~~~~~~~userId为" + userId);
-		investments = userService.findInvestmentsByUserId(userId);
-		return "getSuccess";
-	}
+	
 
 	@ResponseBody
 	// 注册时验证Emali是否已存在
@@ -189,7 +185,6 @@ public class UserAction {
 	// 注册时验证手机号是否已存在
 	@ResponseBody
 	public String registerCheckByphoneNumber() {
-		System.out.println("userAction!registerCheckByphoneNumber");
 		int isExist = userService.findByPhone(user.getUserPhone());
 		// 将数据存储在map里，再转换成json类型数据，也可以自己手动构造json类型数据
 		// Map<String, Object> map = new HashMap<String, Object>();
@@ -209,8 +204,6 @@ public class UserAction {
 	// 注册时验证身份证号码是否已存在
 	@ResponseBody
 	public String registerCheckByIDCard() {
-		System.out.println("userAction!registerCheckByIDCard");
-		System.out.println(user.getUserCard());
 		int isExist = userService.findByCard(user.getUserCard());
 		// 将数据存储在map里，再转换成json类型数据，也可以自己手动构造json类型数据
 		// Map<String, Object> map = new HashMap<String, Object>();
@@ -280,6 +273,20 @@ public class UserAction {
 			System.out.println("list"+list);
 		}
 		return "users";
+	}
+	
+	public String getInvestmentById() {
+		session.get("loginInfo");
+		String message;
+		message = (String) session.get("loginInfo");
+		if (message.equals("请登录")) {
+			// 不做改变
+		} else {
+			userId = userService.findByEmaiToID(message);
+			
+		}
+		investments = userService.findInvestmentsByUserId(userId);
+		return "getSuccess";
 	}
 
 	// 修改个人信息
