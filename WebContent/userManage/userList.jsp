@@ -38,7 +38,7 @@
 					<form action="userAction!findByName" method="get">
 						<div class="cfD">
 							<input class="addUser" type="text" placeholder="请输入用户名" name="user.userName" value="" />
-							<input type="submit" class="button" value="搜索">
+							<input id="search" type="submit" class="button" value="搜索">
 						</div>
 					</form>
 				</div>
@@ -105,6 +105,22 @@
 									+ $(this).parent().siblings().filter(
 											":hidden").filter(":eq(1)").html())
 				})
+				$('#search').click(function(){
+					console.log($('tr:last').index())
+					if($('tr:last').index()==0){
+						alert("用户不存在 ")
+						return false;
+					}
+				})
+				$(document).ready(function(){
+					if($('tr:last').index()==0){
+						alert("用户不存在 ")
+						window.history.back(-1); 
+					}
+				})
+		
+				
+				
 				
 	/* 
 	前端分页

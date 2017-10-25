@@ -198,8 +198,8 @@ public class UserAction {
 		
 	}
      public String findByName(){
+    	 System.out.println("sss:"+user.toString());
     	 list=userService.findByName(user);
-    	 System.out.println("sss:"+list.toString());
     	 return "userByName";
      }
 
