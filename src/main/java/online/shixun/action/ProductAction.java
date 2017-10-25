@@ -38,7 +38,6 @@ public class ProductAction {
 
 	public String findProduct(){
 		list=productService.findProducts();
-		System.out.println("wocao"+list.toString());
 		return "list";
 	}
 	public String addProduct(){

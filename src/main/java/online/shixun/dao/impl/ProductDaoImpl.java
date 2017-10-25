@@ -101,7 +101,8 @@ public class ProductDaoImpl implements ProductDao{
 		@SuppressWarnings("unchecked")
 		public List<Product> getAllUsePage() {
 			DetachedCriteria criteria=DetachedCriteria.forClass(Product.class);
-			List<Product> list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);	
+			List<Product> list= (List<Product>) baseDao.getHibernateTemplate().findByCriteria(criteria, 0, 5);
+			System.out.println("sdsds:"+list.toString());
 			return list;
 		}
 	    @SuppressWarnings("unchecked")
