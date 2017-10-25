@@ -12,7 +12,7 @@
     <script src='./js/data.js'></script>
 </head>
 <body>
-    <!统计图-->
+    <!--  统计图-->
     <div class="header">
         <!-- ç»è®¡å¾-->
         <div id="total">
@@ -23,7 +23,7 @@
             <div id="aside"></div>
         </div>
 
-    <!数据报表-->
+    <!--  数据报表-->
     <div class="main-flow">
         <div class="map">
             <div class="map-l fl" id="map-l">
