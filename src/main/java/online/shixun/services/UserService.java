@@ -129,6 +129,7 @@ public class UserService {
     }
     
     public List<User> findUserByUserEmail(String email){
+    	System.out.println(userDaoImpl.getByEmail(email));
 		return userDaoImpl.getByEmail(email);
     	
     }
