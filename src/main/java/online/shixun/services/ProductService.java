@@ -48,7 +48,7 @@ public class ProductService {
 	}
 
 	public List<Product> getAllProducts() {
-		return productDaoImpl.getAll();
+		return productDaoImpl.getAllProductPage();
 	}
 
 	public Product findById(Long id) {

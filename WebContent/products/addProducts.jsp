@@ -53,7 +53,6 @@
 			var number = $("#number").val();
 			var beginDate = $("#beginDate").val();
 			var overDate = $("#overDate").val();
-			alert(userBalance)
 			if ((number == "" || undefined || null)) {
 				alert("数量不能为空！");
 				return false;
