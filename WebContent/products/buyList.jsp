@@ -54,11 +54,6 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div class="paging">
-			<a href="investmentAction!preFrontPage"><input type="button" name=""
-				class="prey" value="上一页"></a> <a href="investmentAction!nextFrontPage"><input
-				type="button" name="" class="next" value="下一页"></a>
-		</div>
 	</div>
 </body>
 </html>
