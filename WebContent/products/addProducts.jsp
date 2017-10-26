@@ -53,8 +53,8 @@
 			var number = $("#number").val();
 			var beginDate = $("#beginDate").val();
 			var overDate = $("#overDate").val();
-			if ((number == "" || undefined || null)) {
-				alert("数量不能为空！");
+			if ((number == "" ||number == undefined ||number == null||number <=0)) {
+				alert("数量有误！");
 				return false;
 			} else if ((beginDate == "" || undefined || null)) {
 				alert("请选择日期！");

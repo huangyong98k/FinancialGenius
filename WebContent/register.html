@@ -56,6 +56,7 @@
                 return false;
             }
             else if (!strEmail) {
+            	$("#E-mailInfo").html("不合法");
                 alert("请输入合法的E-mail");
                 return false;
             }
@@ -68,7 +69,7 @@
             	return false;       
             	}
             else if(!strPhoneNumber){
-                console.log(strPhoneNumber);
+            	$("#phoneNumberInfo").html("不合法");
             	alert("请输入合法的手机号");
             	return false;     
             }
@@ -77,6 +78,7 @@
             	return false;       
             	}
             else if(!strIDCard){
+            	$("#IDCardInfo").html("不合法");
             	alert("请输入合法的身份证号码");
             	return false;     
             }
@@ -153,6 +155,11 @@
                         }
                         });
                 }
+                else{
+                	isPhone=false;
+            		$("#E-mailInfo").css("color","red");
+            		$("#E-mailInfo").html("不合法");
+                }
             });
             //手机号验证
             $("#phoneNumber").bind('input blur', function (event) {
@@ -181,7 +188,12 @@
                         	console.log(response);
                         }
                         });
-                } 
+                }
+                else{
+                	isPhone=false;
+            		$("#phoneNumberInfo").css("color","red");
+            		$("#phoneNumberInfo").html("不合法");
+                }
             });
             //身份证号码验证
                 $("#IDCard").bind('input blur', function (event) {
@@ -212,6 +224,11 @@
                             }
                             });
                     } 
+                    else{
+                    	isPhone=false;
+                		$("#IDCardInfo").css("color","red");
+                		$("#IDCardInfo").html("不合法");
+                    }
                 });
             $("userMessage").submit(function(e){
             });
