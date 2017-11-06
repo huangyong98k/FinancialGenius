@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import com.opensymphony.xwork2.ActionSupport;
 
 import online.shixun.model.Product;
-import online.shixun.services.ProductService;
+import online.shixun.services.impl.ProductService;
 
 /**
  * @author 小胖

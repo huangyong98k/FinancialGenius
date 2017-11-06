@@ -16,12 +16,13 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long productId;
-	private String productName;
-	private double productCapital;
-	private double productRate;
-	private String productMoney;
-	private String productMechanism;
+	private long productId;//产品表ID
+	private String productName;//产品名称
+	private double productCapital;//产品总额
+	private double productRate;//产品利率
+	private double productMoney;//产品每份金额
+	private String productMechanism;//产品发行机构
+	private String productType;//产品类型
 	private int productStatus;
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name = "productId")
@@ -50,10 +51,10 @@ public class Product {
 	public void setProductRate(double productRate) {
 		this.productRate = productRate;
 	}
-	public String getProductMoney() {
+	public double getProductMoney() {
 		return productMoney;
 	}
-	public void setProductMoney(String productMoney) {
+	public void setProductMoney(double productMoney) {
 		this.productMoney = productMoney;
 	}
 	public String getProductMechanism() {
@@ -74,8 +75,20 @@ public class Product {
 	public void setInvestments(List<Investment> investments) {
 		this.investments = investments;
 	}
-	public Product(long productId, String productName, double productCapital, double productRate, String productMoney,
-			String productMechanism, int productStatus, List<Investment> investments) {
+	/**
+	 * @return the productType
+	 */
+	public String getProductType() {
+		return productType;
+	}
+	/**
+	 * @param productType the productType to set
+	 */
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+	public Product(long productId, String productName, double productCapital, double productRate, double productMoney,
+			String productMechanism, int productStatus) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -84,7 +97,6 @@ public class Product {
 		this.productMoney = productMoney;
 		this.productMechanism = productMechanism;
 		this.productStatus = productStatus;
-		this.investments = investments;
 	}
 	public Product() {
 		super();
@@ -93,7 +105,7 @@ public class Product {
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", productCapital=" + productCapital
 				+ ", productRate=" + productRate + ", productMoney=" + productMoney + ", productMechanism="
-				+ productMechanism + ", productStatus=" + productStatus + ", investments=" + investments + "]";
+				+ productMechanism + ", productStatus=" + productStatus + "]";
 	}
 	
 }
