@@ -83,37 +83,27 @@ document.addEventListener('DOMContentLoaded', function () {
         // Set the href attribute of the download button to the snap url.
         download_photo_btn.href = snap;
         
-        alert("image"+snap);
+        //alert("image"+snap);
         // Pause video playback of stream.
         video.pause();
         
         if(confirm("是否设为头像")){
         	 window.parent.document.getElementById("mysnap").src=snap;
+        	 //alert(snap);
+//        	 var pos = snap.indexOf("4")+2;
+//        	 snap=snap.substring(pos, snap.length - pos);//去掉Base64:开头的标识字符
+        	 var blob=dataURLtoBlob(snap);
+        	 var fd = new FormData();
+        	 fd.append("image", blob, "image.png");
         	 $.ajax({
         	        cache: true,
         	        type: "POST",
-        	        url:"userAction!queryUserName.action",
-        	        data:"",// 数据控件ID 
+        	        url:"portraitAction!saveImage.action",
+        	        data:fd,
+        	        dataType:"text",
         	        async: true,
         	        success:function(data){
-        	        	if(data=="请登录"){
-        	        		$("#my_info").html(data);
-        	        		$("#help").css("display","block");
-        	        		$("#quit").css("display","block");
-        	        		$("#exit").css("display","none");
-        	        			$("span#my_info.my_info").click(function(){
-        	        				  return false;
-        	    			 })
-        	        	}
-        	        	if(data!="请登录"){
-        	        		$("#my_info").click(function(){
-        	        				$("span#my_info.my_info").unbind("click");
-        	        			 })
-        	        		$("#help").css("display","none");
-        	        		$("#quit").css("display","none");
-        	        		$("#exit").css("display","block");
-        	        	}
-        	        	$("#my_info").html(data);
+        	        	console.log(data);
         	        },
         	        error: function(response) {
         	        	console.log(response);
@@ -122,7 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     });
-
+    function dataURLtoBlob(dataurl) { 
+    	var arr = dataurl.split(","), mime = arr[0].match(/:(.*?);/)[1], 
+    	bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n); 
+    	while(n){ 
+    	u8arr[n] = bstr.charCodeAt(n); 
+    	} 
+    	return new Blob([u8arr], {type:mime}); 
+    	} 
 
     delete_photo_btn.addEventListener("click", function(e){
 
