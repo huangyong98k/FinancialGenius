@@ -265,4 +265,15 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "menu_list_on");
 	}
+	if (value == 5) {
+		$("#crowdfunding_iframe").attr("src",
+				"head-portrait.html");
+		$("#crowdfunding_iframe").attr("height", "520");
+		$("#vertical_navigation").css("height", "520px");
+
+		$("#listClick1").attr("class", "");
+		$("#listClick2").attr("class", "");
+		$("#listClick3").attr("class", "");
+		$("#listClick4").attr("class", "menu_list_on");
+	}
 }

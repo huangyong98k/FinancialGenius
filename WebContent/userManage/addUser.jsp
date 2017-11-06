@@ -31,25 +31,27 @@
 					<div class="baBody">
 						<div class="bbD1 bbD">
 							<input type="text" class="addUserInfo" value="用户名：" readonly>
-							<input id="name-one" type="text" class="input3" name="user.userName" /> <img
+							<input id="name-one" type="text" class="input3"
+								name="user.userName" /> <img id="img_ok" src="imgs/ok.png"><img
+								id="img_no" src="imgs/no.png"> <span id="text_no"></span>
+						</div>
+						<div class="bbD">
+							<input type="text" class="addUserInfo" value="密码：" readonly>
+							<input id="password-one" type="text" class="input3" /> <img
 								id="img_ok" src="imgs/ok.png"><img id="img_no"
 								src="imgs/no.png"> <span id="text_no"></span>
 						</div>
 						<div class="bbD">
-							<input type="text" class="addUserInfo" value="密码：" readonly>
-							<input id="password-one" type="text" class="input3" /> <img id="img_ok"
-								src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
-							<span id="text_no"></span>
-						</div>
-						<div class="bbD">
 							<input type="text" class="addUserInfo" value="确认密码：" readonly>
-							<input id="passwordAgain-one" type="password" class="input3" name="user.userPassword" />
-							<img id="img_ok" src="imgs/ok.png"><img id="img_no"
-								src="imgs/no.png"> <span id="text_no"></span>
+							<input id="passwordAgain-one" type="password" class="input3"
+								name="user.userPassword" /> <img id="img_ok" src="imgs/ok.png"><img
+								id="img_no" src="imgs/no.png"> <span id="text_no"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="邮箱：" readonly>
-							<input id="input-phone-email" type="email" class="input3" name="user.userEmail" value=""/><span hidden style="color:red" id="emailSpan">邮箱重复<span>
+							<input id="input-phone-email" type="email" class="input3"
+								name="user.userEmail" value="" /><span hidden style="color: red"
+								id="emailSpan">邮箱重复<span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="性别：" readonly>
@@ -59,17 +61,20 @@
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="电话号：" readonly>
 							<input id="input-phone-no" type="phone" class="input3"
-								name="user.userPhone" value="" /><span hidden style="color:red" id="phoneSpan">电话号码重复<span>
+								name="user.userPhone" value="" /><span hidden
+								style="color: red" id="phoneSpan">电话号码重复<span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="身份证号：" readonly>
-							<input id="input-phone-card" type="text" class="input3" name="user.userCard" value=""/><span hidden style="color:red" id="cardSpan">身份证号码重复<span>
+							<input id="input-phone-card" type="text" class="input3"
+								name="user.userCard" value="" /><span hidden style="color: red"
+								id="cardSpan">身份证号码重复<span>
 						</div>
 						<div class="bbD">
 							<p class="bbDP">
 								<input type="hidden" name="student.studentId"
-									value="${student.studentId }" /> <input id="inputSub" class="input3"
-									type="submit" name="Submit" value="提交"
+									value="${student.studentId }" /> <input id="inputSub"
+									class="input3" type="submit" name="Submit" value="提交"
 									style="width: 153px; color: Black; background-color: Aqua" />
 								<a href="student!list.action"> <input class="input3"
 									type="submit" name="Submit" value="取消" style="width: 153px;" />

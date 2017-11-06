@@ -34,7 +34,7 @@
 						<div class="login-list">
 							<div id="pwdLoginTip" class="tip-error"></div>
 							<div class="item">
-								<input id="E-mails" type="text" name="email" class="txt" 
+								<input id="E-mails" type="text" name="email" class="txt"
 									placeholder="邮箱帐号" />
 							</div>
 						</div>
@@ -72,26 +72,29 @@
 						<p class="p1">
 							<a class="btn btn-unable" href="">注册理财精灵账户</a>
 						</p>
-											</div>
+					</div>
 				</div>
 				<div class="login-tab-con none">
-					<form action="userAction!adminLogin" method="post" id="vvcodeLoginForm">
+					<form action="userAction!adminLogin" method="post"
+						id="vvcodeLoginForm">
 						<div class="login-list">
 							<div id="vvcodeLoginTip" class="tip-error"></div>
 							<div class="item">
-								<input type="text" name="adminName" class="txt" placeholder="管理员用户名" />
+								<input type="text" name="adminName" class="txt"
+									placeholder="管理员用户名" />
 							</div>
 						</div>
 						<div class="login-list wrap-clear">
 							<div class="tip-error"></div>
 							<div class="wrap-clear vcode item">
-								<input type="password" name="AdminPassword" class="txt" placeholder="密码" />
+								<input type="password" name="AdminPassword" class="txt"
+									placeholder="密码" />
 							</div>
 						</div>
 						<div class="validate-phone">
 							<div class="tip-error"></div>
 							<div class="con">
-								
+
 								<div id="vregCaptchaTip" class="tip-error"></div>
 							</div>
 						</div>

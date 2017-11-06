@@ -25,48 +25,55 @@
 				<div class="baTopNo">
 					<span>修改产品</span>
 				</div>
-				<form action="productAction!do_edit" method="post" onsubmit="return fun()")>
+				<form action="productAction!do_edit" method="post"
+					onsubmit="return fun()")>
 					<div class="baBody">
 						<div class="bbD1 bbD">
-						<input type="hidden" class="input3" 
-							value="${product.productId }" name="product.productId">
-							<input type="text" class="addUserInfo" value="产品名：" readonly>
-							<input id="input-name" type="text" class="input3" name="product.productName" value="${product.productName }" /> <img
+							<input type="hidden" class="input3" value="${product.productId }"
+								name="product.productId"> <input type="text"
+								class="addUserInfo" value="产品名：" readonly> <input
+								id="input-name" type="text" class="input3"
+								name="product.productName" value="${product.productName }" /> <img
 								id="img_ok" src="imgs/ok.png"><img id="img_no"
 								src="imgs/no.png"> <span id="span-name"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="产品利率：" readonly>
-							<input id="input-rate" type="text" class="input3" name="product.productRate" value="${product.productRate }"/> <img
+							<input id="input-rate" type="text" class="input3"
+								name="product.productRate" value="${product.productRate }" /> <img
 								id="img_ok" src="imgs/ok.png"><img id="img_no"
 								src="imgs/no.png"> <span id="span-rate"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="购买金额：" readonly>
 							<input id="input-capital" type="text" class="input3"
-								name="product.productCapital" value="${product.productCapital }"/> <img id="img_ok"
-								src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
-							<span id="span-capital"></span>
+								name="product.productCapital" value="${product.productCapital }" />
+							<img id="img_ok" src="imgs/ok.png"><img id="img_no"
+								src="imgs/no.png"> <span id="span-capital"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="发行机构：" readonly>
-							<input id="input-org" type="text" class="input3" name="product.productMechanism" value="${product.productMechanism }"/>
-							<img id="img_ok" src="imgs/ok.png"><img id="img_no"
-								src="imgs/no.png"> <span id="span-org"></span>
+							<input id="input-org" type="text" class="input3"
+								name="product.productMechanism"
+								value="${product.productMechanism }" /> <img id="img_ok"
+								src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
+							<span id="span-org"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="收益：" readonly>
-							<input id="input-money" readonly type="text" class="input3" name="product.productMoney" value="${product.productMoney }"/>
+							<input id="input-money" readonly type="text" class="input3"
+								name="product.productMoney" value="${product.productMoney }" />
 							<img id="img_ok" src="imgs/ok.png"><img id="img_no"
 								src="imgs/no.png"> <span id="span-money"></span>
 						</div>
 						<div class="bbD">
 							<p class="bbDP">
-								 <input id="input-submit" class="input3"
-									type="submit" name="Submit" value="提交"
+								<input id="input-submit" class="input3" type="submit"
+									name="Submit" value="提交"
 									style="width: 153px; color: Black; background-color: Aqua" />
-								<a id="a-cancel" href="productAction!findProduct"> <input id="cancel" class="input3"
-									type="button" name="Submit" value="取消" style="width: 153px;" />
+								<a id="a-cancel" href="productAction!findProduct"> <input
+									id="cancel" class="input3" type="button" name="Submit"
+									value="取消" style="width: 153px;" />
 								</a>
 							</p>
 						</div>

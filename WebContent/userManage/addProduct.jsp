@@ -23,19 +23,22 @@
 				<div class="baTopNo">
 					<span>添加产品</span>
 				</div>
-				<form action="productAction!addProduct" method="post" onsubmit="return fun()">
+				<form action="productAction!addProduct" method="post"
+					onsubmit="return fun()">
 					<div class="baBody">
 						<div class="bbD1 bbD">
 							<input type="text" class="addUserInfo" value="产品名：" readonly>
-							<input id="input-name" type="text" class="input3" name="product.productName" /> <img
-								id="img_ok" src="imgs/ok.png"><img id="img_no"
-								src="imgs/no.png"> <span id="span-name"></span>
+							<input id="input-name" type="text" class="input3"
+								name="product.productName" /> <img id="img_ok"
+								src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
+							<span id="span-name"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="产品利率：" readonly>
-							<input id="input-rate" type="text" class="input3" name="product.productRate" /> <img
-								id="img_ok" src="imgs/ok.png"><img id="img_no"
-								src="imgs/no.png"> <span id="span-rate"></span>
+							<input id="input-rate" type="text" class="input3"
+								name="product.productRate" /> <img id="img_ok"
+								src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
+							<span id="span-rate"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="购买金额：" readonly>
@@ -46,23 +49,26 @@
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="发行机构：" readonly>
-							<input id="input-org" type="text" class="input3" name="product.productMechanism" />
-							<img id="img_ok" src="imgs/ok.png"><img id="img_no"
-								src="imgs/no.png"> <span id="span-org"></span>
+							<input id="input-org" type="text" class="input3"
+								name="product.productMechanism" /> <img id="img_ok"
+								src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
+							<span id="span-org"></span>
 						</div>
 						<div class="bbD">
 							<input type="text" class="addUserInfo" value="收益：" readonly>
-							<input id="input-money" readonly type="text" class="input3" name="product.productMoney" />
-							<img id="img_ok" src="imgs/ok.png"><img id="img_no"
-								src="imgs/no.png"> <span id="span-money"></span>
+							<input id="input-money" readonly type="text" class="input3"
+								name="product.productMoney" /> <img id="img_ok"
+								src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
+							<span id="span-money"></span>
 						</div>
 						<div class="bbD">
 							<p class="bbDP">
-								 <input id="input-submit" class="input3"
-									type="submit" name="Submit" value="提交"
+								<input id="input-submit" class="input3" type="submit"
+									name="Submit" value="提交"
 									style="width: 153px; color: Black; background-color: Aqua" />
-								<a id="a-cancel" href="productAction!findProduct"> <input id="cancel" class="input3"
-									type="button" name="Submit" value="取消" style="width: 153px;" />
+								<a id="a-cancel" href="productAction!findProduct"> <input
+									id="cancel" class="input3" type="button" name="Submit"
+									value="取消" style="width: 153px;" />
 								</a>
 							</p>
 						</div>

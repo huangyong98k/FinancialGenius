@@ -23,11 +23,30 @@ audio, progress, video {
 	baseline
 }
 
-audio: not ([controls] ) {
-	display: none;
-	height: 0
-}
+audio
+:
+ 
+not
+ 
+(
+[
+controls
+]
+ 
+)
+{
+display
+:
+ 
+none
+;
 
+	
+height
+:
+ 
+0
+}
 [hidden], template {
 	display: none
 }
@@ -82,10 +101,21 @@ img {
 	vertical-align: middle
 }
 
-svg:not (:root ) {
-	overflow: hidden
-}
+svg
+:not
+ 
+(
+:root
+ 
+)
+{
+overflow
+:
+ 
+hidden
 
+
+}
 hr {
 	box-sizing: content-box;
 	height: 0
@@ -900,16 +930,18 @@ button, input, optgroup, select, textarea {
 	background: #f0f4f7
 }
 
-#TTMoney{
+#TTMoney {
 	width: 1000px;
 	height: 500px;
 	margin: 0 auto;
 }
-#myChart_1{
-	width: 1000px ! important; 
-	height: 400px ! important 
+
+#myChart_1 {
+	width: 1000px ! important;
+	height: 400px ! important
 }
-#myChart_2{
-	width: 360px ! important; 
-	height: 400px ! important 
+
+#myChart_2 {
+	width: 360px ! important;
+	height: 400px ! important
 }
