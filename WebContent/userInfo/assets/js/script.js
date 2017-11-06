@@ -89,6 +89,36 @@ document.addEventListener('DOMContentLoaded', function () {
         
         if(confirm("是否设为头像")){
         	 window.parent.document.getElementById("mysnap").src=snap;
+        	 $.ajax({
+        	        cache: true,
+        	        type: "POST",
+        	        url:"userAction!queryUserName.action",
+        	        data:"",// 数据控件ID 
+        	        async: true,
+        	        success:function(data){
+        	        	if(data=="请登录"){
+        	        		$("#my_info").html(data);
+        	        		$("#help").css("display","block");
+        	        		$("#quit").css("display","block");
+        	        		$("#exit").css("display","none");
+        	        			$("span#my_info.my_info").click(function(){
+        	        				  return false;
+        	    			 })
+        	        	}
+        	        	if(data!="请登录"){
+        	        		$("#my_info").click(function(){
+        	        				$("span#my_info.my_info").unbind("click");
+        	        			 })
+        	        		$("#help").css("display","none");
+        	        		$("#quit").css("display","none");
+        	        		$("#exit").css("display","block");
+        	        	}
+        	        	$("#my_info").html(data);
+        	        },
+        	        error: function(response) {
+        	        	console.log(response);
+        	        }
+        	        });
         }
 
     });

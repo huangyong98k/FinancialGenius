@@ -38,11 +38,6 @@ public class User {
 	private String userStatus;//用户状态，默认值为 正常      正常/冻结
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name = "userId")
-<<<<<<< HEAD
-	@JsonIgnore
-	private List<Investment> investments;
-
-=======
 	private List<EarningsRecord> earningsRecord;//用户充值记录
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name = "userId")
@@ -53,7 +48,6 @@ public class User {
 	/**
 	 * @return the userId
 	 */
->>>>>>> 276ea08b09342645bd7698e4ec6a3fbbc6ca6b59
 	public long getUserId() {
 		return userId;
 	}
@@ -304,13 +298,6 @@ public class User {
 				+ ", headPortrait=" + headPortrait + ", userPhone=" + userPhone + ", userStatus=" + userStatus + ","
 				+ ", rechargeRecord=" +rechargeRecord+"]";
 	}
-<<<<<<< HEAD
-	public String toStringOne() {
-		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userCard="
-				+ userCard + ", userPassword=" + userPassword + ", userBanlance=" + userBanlance + ", userPhone="
-				+ userPhone + ", userStatus=" + userStatus + "]";
-	}
-=======
 	
 	public String toStringAndInvestments() {
 		return "User [userId=" + userId + ", userName=" + userName + ", nickName=" + nickName + ", userEmail="
@@ -320,8 +307,4 @@ public class User {
 				+ ", investments=" +investments+"]";
 	}
 
-
-
-
->>>>>>> 276ea08b09342645bd7698e4ec6a3fbbc6ca6b59
 }

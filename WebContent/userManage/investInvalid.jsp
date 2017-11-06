@@ -68,13 +68,16 @@
 								<td>${temp.earning }</td>
 								<td>${temp.investmentStatus}</td>
 								<td>${temp.principal}</td>
-								<td><input type="button" value="失效" class="operation delban img-delete"></td>
+								<td><input type="button" value="失效"
+									class="operation delban img-delete"></td>
 							</tr>
 						</c:forEach>
 					</table>
 					<div class="paging">
-						<a href="investmentAction!prevPage2"><input type="button" name="" id="prey2" value="上一页"></a> 
-						<a href="investmentAction!nextPage2"><input type="button" name="" id="prop2" value="下一页"></a>
+						<a href="investmentAction!prevPage2"><input type="button"
+							name="" id="prey2" value="上一页"></a> <a
+							href="investmentAction!nextPage2"><input type="button"
+							name="" id="prop2" value="下一页"></a>
 					</div>
 				</div>
 				<!-- 学生 表格 显示 end-->

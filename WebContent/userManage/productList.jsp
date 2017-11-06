@@ -6,11 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/css.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath() %>/css/css.css">
 <script type="text/javascript"
 	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/js/public.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath() %>/js/jquery-3.2.1.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath() %>/js/public.js"></script>
 <script type="text/javascript">
     $(function() {
         $(".delban").click(function() {
@@ -75,8 +78,10 @@
 				<div class="conform">
 					<form>
 						<div class="cfD">
-							<input id="input-search-text" class="addUser" type="text" placeholder="输入产品名" />
-							<a id="a-search" href="productAction!findUseName?product.productName="><input id="input-search" type="button" class="button" value="搜索"></input></a>
+							<input id="input-search-text" class="addUser" type="text"
+								placeholder="输入产品名" /> <a id="a-search"
+								href="productAction!findUseName?product.productName="><input
+								id="input-search" type="button" class="button" value="搜索"></input></a>
 						</div>
 					</form>
 				</div>
@@ -106,15 +111,19 @@
 								<td>${temp.productMoney}</td>
 								<td><a
 									href="productAction!to_edit?product.productId=${temp.productId }"><img
-										class="operation" src="<%=request.getContextPath() %>/image/update.png"></a><img
-									class="operation delban img-delete" src="<%=request.getContextPath() %>/image/delete.png"></td>
+										class="operation"
+										src="<%=request.getContextPath() %>/image/update.png"></a><img
+									class="operation delban img-delete"
+									src="<%=request.getContextPath() %>/image/delete.png"></td>
 
 							</tr>
 						</c:forEach>
 					</table>
-					<div class="paging">此处是分页
-					<a href="productAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> <a href="productAction!nextPage"><input
-							type="button" name="" id="prop" value="下一页"></a>
+					<div class="paging">
+						此处是分页 <a href="productAction!prevPage"><input type="button"
+							name="" id="prey" value="上一页"></a> <a
+							href="productAction!nextPage"><input type="button" name=""
+							id="prop" value="下一页"></a>
 					</div>
 				</div>
 				<!-- 学生 表格 显示 end-->

@@ -8,7 +8,7 @@
 </head>
 <body>
 <body>
-<div align="center" id="errorMessage" value=""></div>
+	<div align="center" id="errorMessage" value=""></div>
 	<br>
 	<h4 align="center">
 		<a href="http://localhost:8080/FinancialGenius/index.html">立即返回</a>

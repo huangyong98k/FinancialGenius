@@ -57,7 +57,8 @@ html, body {
 	font-size: 15px;
 	color: white;
 }
-.exit{
+
+.exit {
 	position: absolute;
 	right: 90px;
 	width: 40px;
@@ -67,41 +68,46 @@ html, body {
 	top: 30px;
 	font-size: 16px;
 	color: white;
-	dispaly:none;
+	dispaly: none;
 }
+
 #help:hover {
 	cursor: pointer;
 	color: red;
 }
+
 .my_info {
-    position: absolute;
-    right: 140px;
-    width: 80px;
-    height: 34px;
-    text-align: center;
-    line-height: 34px;
-    top: 30px;
-    font-size: 15px;
-    color: white;
+	position: absolute;
+	right: 140px;
+	width: 80px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	top: 30px;
+	font-size: 15px;
+	color: white;
 }
+
 #my_info:hover {
-    cursor: pointer;
-    color: red;
+	cursor: pointer;
+	color: red;
 }
+
 .my_info {
-    position: absolute;
-    right: 140px;
-    width: 80px;
-    height: 34px;
-    text-align: center;
-    line-height: 34px;
-    top: 30px;
-    font-size: 15px;
-    color: white;
+	position: absolute;
+	right: 140px;
+	width: 80px;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	top: 30px;
+	font-size: 15px;
+	color: white;
 }
+
 #my_info:hover {
-    cursor: pointer;
-    color: red;
+	cursor: pointer;
+	color: red;
 }
 
 #quit:hover {
