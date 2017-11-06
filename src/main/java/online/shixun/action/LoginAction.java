@@ -8,6 +8,8 @@
 */
 package online.shixun.action;
 
+import org.springframework.stereotype.Component;
+
 /** 
 * @ClassName: LoginAction 
 * @Description: 登录模块的Action 
@@ -15,6 +17,7 @@ package online.shixun.action;
 * @date 2017年11月2日 上午9:50:25 
 *  
 */
+@Component("loginAction")
 public class LoginAction {
 
 }

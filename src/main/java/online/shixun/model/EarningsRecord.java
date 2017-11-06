@@ -19,8 +19,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 /** 
 * @ClassName: EarningsRecord 
@@ -35,7 +34,7 @@ public class EarningsRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long earningsRecordId;//收益记录ID
-	@Temporal(TemporalType.DATE)
+	
 	private Date earningsTime;//时间
 	private double earningsMoney;//金额
 	@ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)

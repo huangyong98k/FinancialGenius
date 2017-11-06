@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import online.shixun.model.Investment;
 import online.shixun.model.User;
-import online.shixun.services.UserService;
+import online.shixun.services.impl.UserService;
 
 @Component("userAction")
 public class UserAction {

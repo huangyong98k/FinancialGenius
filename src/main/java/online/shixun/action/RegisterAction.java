@@ -8,6 +8,8 @@
 */
 package online.shixun.action;
 
+import org.springframework.stereotype.Component;
+
 /** 
 * @ClassName: RegisterAction 
 * @Description: 注册模块的Action 
@@ -15,6 +17,7 @@ package online.shixun.action;
 * @date 2017年11月2日 上午9:51:05 
 *  
 */
+@Component("registerAction")
 public class RegisterAction {
 
 }

@@ -8,6 +8,8 @@
 */
 package online.shixun.action;
 
+import org.springframework.stereotype.Component;
+
 /** 
 * @ClassName: PersonalAction 
 * @Description: 个人信息的Action 
@@ -15,6 +17,7 @@ package online.shixun.action;
 * @date 2017年11月2日 上午9:52:53 
 *  
 */
+@Component("personalAction")
 public class PersonalAction {
 
 }

@@ -19,8 +19,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 /** 
 * @ClassName: RechargeRecord 
@@ -35,7 +34,7 @@ public class RechargeRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long rechargeRecordId;//充值记录ID
-	@Temporal(TemporalType.DATE)
+	
 	private Date rechargeTime;//时间
 	private double money;//金额
 	private String rechargeType;//类型（充值/提现）

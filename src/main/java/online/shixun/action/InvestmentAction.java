@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import online.shixun.model.Investment;
 import online.shixun.model.Product;
-import online.shixun.services.InvestmentService;
-import online.shixun.services.ProductService;
-import online.shixun.services.UserService;
+import online.shixun.services.impl.InvestmentService;
+import online.shixun.services.impl.ProductService;
+import online.shixun.services.impl.UserService;
 import online.shixun.model.User;
 
 /**
