@@ -33,22 +33,15 @@
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="密码：" readonly>
-						<input id="password-two" type="text" class="input3"
-							value="${user.userPassword }" /> <img id="img_ok"
-							src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
-						<span id="text_no"></span>
-					</div>
-					<div class="bbD">
-						<input type="text" class="addUserInfo" value="确认密码：" readonly>
 						<input id="passwordAgain-two" type="password" class="input3"
-							name="user.userPassword" /> <img id="img_ok"
+							name="user.userPassword" value="${user.userPassword }"/> <img id="img_ok"
 							src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
 						<span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="邮箱：" readonly>
 						<input id="input-phone-emailTwo" type="email" class="input3"
-							name="user.userEmail" value="${user.userEmail }" readonly/> <span
+							name="user.userEmail" value="${user.userEmail }"/> <span
 							id="emailSpanTwo" style="color: red" hidden>邮箱已被注册</span>
 					</div>
 					<div class="bbD">
@@ -66,7 +59,33 @@
 						<input type="text" class="addUserInfo" value="身份证号：" readonly>
 						<input id="input-phone-cardTwo" type="text" class="input3"
 							name="user.userCard" value="${user.userCard }" /> <span
-							id="cardSpanTwo" style="color: red" hidden>电话已被注册</span>
+							id="cardSpanTwo" style="color: red" hidden>身份证已被注册</span>
+					</div>
+					<div class="bbD">
+						<input type="text" class="addUserInfo" value="余额：" readonly>
+						<input id="password-two" type="text" class="input3"
+							value="${user.userBanlance }" name="user.userBanlance" readonly/> 
+					</div>
+					<div class="bbD">
+						<input type="text" class="addUserInfo" value="用户昵称：" >
+						<input id="password-two" type="text" class="input3"
+							value="${user.nickName }" name="user.nickName"/> 
+					</div>
+					<div class="bbD">
+						<input id="password-two" type="hidden" class="input3"
+							value="${user.householdRegister }" name="user.householdRegister"/> 
+					</div>
+					<div class="bbD">
+						<input id="password-two" type="hidden" class="input3"
+							value="${user.headPortrait }" name="user.headPortrait"/> 
+					</div>
+					<div class="bbD">
+						<input id="password-two" type="hidden" class="input3"
+							value="${user.payPassword }" name="user.payPassword"/> 
+					</div>
+					<div class="bbD">
+						<input id="password-two" type="hidden" class="input3"
+							value="${user.userStatus }" name="user.userStatus"/> 
 					</div>
 					<div class="bbD">
 						<p class="bbDP">
@@ -137,10 +156,6 @@
 	        alert("请输入合法的E-mail");
 	        return false;
 	    }
-	    else if (dataPassword != dataPasswordAgain) {
-	        alert("两次输入的密码不一致");
-	        return false;
-	    }
 	    else if(dataPhoneNumber==""||undefined||null){
 	    	alert("请输入您的手机号");
 	    	return false;       
@@ -174,32 +189,33 @@
 	    	return true;
 	    }
 	});
-	var phoneOldVale=${user.userPhone };
-	var emailOldVale=${user.userEmail };
-	var cardOldVale=${user.userCard };
+	var phoneOldVale="${user.userPhone }";
+	var emailOldVale="${user.userEmail }";
+	var cardOldVale="${user.userCard }"; 
 		$("#input-phone-noTwo").blur(function() {
-			if($("#input-phone-noTwo").val()!=phoneOldVale){
+ 			if($("#input-phone-noTwo").val()!=phoneOldVale){ 
+				
 			 $.ajax({
 				url : "/FinancialGenius/userAction!findUserByPhone?user.userPhone="+$(this).val(),
                success:function(data){
             	   if(data=="0"){
             		   $("#phoneSpanTwo").hide()
-            		   isIDCard=true;
+            		   isPhone=true;
             	   }
             	   else{
               		   $("#phoneSpanTwo").show()
-              		  isIDCard=false;
+              		  isPhone=false;
             	   }
                }
-			})
-			}
+			});
+			 } 
 			else{
 				 $("#phoneSpanTwo").hide()
-      		   isIDCard=true;
-			}
-		})
+      		     isPhone=true;
+			}  
+		});
 		$("#input-phone-emailTwo").blur(function() {
-			if($("#input-phone-noTwo").val()!=emailOldVale){
+			if($("#input-phone-emailTwo").val()!=emailOldVale){
 			 $.ajax({
 				url : "/FinancialGenius/userAction!findUserByEmail?user.userEmail="+$(this).val(),
                success:function(data){
@@ -214,31 +230,31 @@
                }
 			})
 			}
-			else{
-			   $("#emailSpanTwo").hide()
-     		   isEmail=true;
-			}
+			 else{
+        		   $("#emailSpanTwo").hide()
+        		  isEmail=true;
+      	   }
 		})
 		$("#input-phone-cardTwo").blur(function() {
-			if($("#input-phone-noTwo").val()!=cardOldVale){
+			if($("#input-phone-cardTwo").val()!=cardOldVale){
 			 $.ajax({
 				url : "/FinancialGenius/userAction!findUserByCard?user.userCard="+$(this).val(),
                success:function(data){
             	   if(data=="0"){
             		   $("#cardSpanTwo").hide()
-            		    isPhone=true;
+            		    isIDCard=true;
             	   }
             	   else{
               		   $("#cardSpanTwo").show()
-              		  isPhone=false;
+              		  isIDCard=false;
             	   }
                }
 			})
 			}
 			else{
-				$("#cardSpanTwo").hide()
-    		    isPhone=true;
-			}
+     		   $("#cardSpanTwo").hide()
+     		  isIDCard=true;
+   	   }
 		})
                })
 	</script>
