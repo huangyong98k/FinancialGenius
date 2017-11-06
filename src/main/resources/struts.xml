@@ -75,6 +75,15 @@
 				<param name="root">totalInvestment</param>
 			</result>
 		</action>
+		<action name="bankCardAction!*" class="online.shixun.action.BankCardAction"
+			method="{1}">
+			<result name="success">/userInfo/addSuccess.jsp</result>
+         </action>
+		<action name="loginAction!*" class="online.shixun.action.LoginAction"
+			method="{1}">
+			<result name="loginSuccess">index.jsp</result>
+			<result name="loginFaile">loginFaile.jsp</result>
+		</action>
 	</package>
 
 </struts>
