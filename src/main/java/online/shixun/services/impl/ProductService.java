@@ -13,6 +13,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
+
+
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.model.Product;
 import online.shixun.model.User;

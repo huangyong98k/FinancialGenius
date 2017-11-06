@@ -45,4 +45,27 @@
 
 	</div>
 </body>
+<script type="text/javascript">
+$(document).ready(function (event) {
+	var $userId = '<%=session.getAttribute("userId")%>';
+	console.log($userId);
+	if($userId==0){
+		$("#my_info").html(data);
+		$("#help").css("display","block");
+		$("#quit").css("display","block");
+		$("#exit").css("display","none");
+			$("span#my_info.my_info").click(function(){
+				  return false;
+		 })
+	}else {
+		$("#my_info").click(function(){
+				$("span#my_info.my_info").unbind("click");
+			 })
+		$("#help").css("display","none");
+		$("#quit").css("display","none");
+		$("#exit").css("display","block");
+	}
+	//$("#my_info").html(data);
+})
+</script>
 </html>

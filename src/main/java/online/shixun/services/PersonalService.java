@@ -16,5 +16,4 @@ package online.shixun.services;
 *  
 */
 public interface PersonalService {
-
 }

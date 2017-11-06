@@ -20,13 +20,13 @@ import online.shixun.services.impl.UserService;
 
 @Component("userAction")
 public class UserAction {
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private UserService userService;
 
 	private int intResult;
-
 	private List<User> list;
 	private List<Investment> investments;
 	private User user;
@@ -380,6 +380,7 @@ public class UserAction {
 
 	}
 
+	//查询当前登录用户的余额
 	@ResponseBody
 	public String queryUserBalance() {
 		session.get("loginInfo");
@@ -392,6 +393,20 @@ public class UserAction {
 		return ActionSupport.SUCCESS;
 
 	}
+	
+	//查询当前登录用户的电话
+	@ResponseBody
+	public String queryUserPhone(){
+		session.get("loginInfo");
+		result = (String) session.get("loginInfo");
+		if (result.equals("请登录")) {
+			// 不做改变
+		} else {
+			result = String.valueOf(userService.findByEmailToPhone(result));
+		}
+		return ActionSupport.SUCCESS;
+	}
+	
 	public User getUser() {
 		return user;
 	}

@@ -12,8 +12,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import online.shixun.dao.AdminDao;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import online.shixun.dao.impl.AdminDaoImpl;
 import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.Admin;
@@ -27,6 +35,7 @@ import online.shixun.model.User;
 * @date 2017年10月19日 上午9:25:44 
 *  
 */
+
 @Service(value="userService")
 public class UserService {
 	@Autowired
@@ -38,7 +47,12 @@ public class UserService {
 		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
 		if(list.size()>0){
 			for (User user : list) {
-				if(userPassword.equals(user.getUserPassword())){		
+				if(userPassword.equals(user.getUserPassword())){	
+					HttpServletRequest request=ServletActionContext.getRequest();//获得session
+			        HttpSession session=request.getSession();          
+			        session.setAttribute("userId", (int)user.getUserId());
+			        session.setAttribute("nickName", user.getNickName());
+
 					return 1;
 				}
 			}
@@ -122,6 +136,18 @@ public class UserService {
 		return 0;
     	
     }
+
+    //通过Email查询用户电话
+    public String findByEmailToPhone(String Email){
+    	List<User> users = userDaoImpl.getByEmail(Email); 
+    	if(users.size()>0){
+    		for (User user : users) {
+				return user.getUserPhone();
+			}
+    	}
+    	return "0";
+    }
+
     //通过userID查询用户密码
     public String findByUserIDToUser(Long userID){
     	User user = userDaoImpl.getById(userID);
@@ -183,4 +209,13 @@ public class UserService {
     public User getUserById(Long id){
     	return userDaoImpl.getById(id);
     }
+
+    //余额修改
+    public void modifyUserBanlance(Long id,double spend){
+    	User user=userDaoImpl.getById(id);
+    	double balance = user.getUserBanlance();
+    	user.setUserBanlance(balance-spend);
+    	userDaoImpl.add(user);
+    }
+
 }

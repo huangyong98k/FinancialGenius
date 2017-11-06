@@ -9,13 +9,9 @@
 package online.shixun.dao.impl;
 
 import java.util.List;
-import java.util.Map;
-
-
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import online.shixun.common.BaseDao;
 import online.shixun.dao.InvestmentDao;
 import online.shixun.model.Admin;
@@ -129,7 +125,7 @@ public class InvestmentDaoImpl implements InvestmentDao {
     }
 
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List getTotalInvestment(String sql) {
 		return baseDao.getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(sql).list();

@@ -36,7 +36,7 @@
 			</ul>
 			<div id="loginTabCon">
 				<div class="login-tab-con">
-					<form action="userAction!login" method="post" id="pwdLoginForm">
+					<form action="loginAction!login" method="post" id="pwdLoginForm">
 						<div class="login-list">
 							<div id="pwdLoginTip" class="tip-error"></div>
 							<div class="item">
