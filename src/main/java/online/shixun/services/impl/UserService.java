@@ -10,10 +10,12 @@ package online.shixun.services.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import online.shixun.dao.AdminDao;
 import online.shixun.dao.impl.AdminDaoImpl;
 import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.Admin;
@@ -38,7 +40,11 @@ public class UserService {
 		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
 		if(list.size()>0){
 			for (User user : list) {
-				if(userPassword.equals(user.getUserPassword())){		
+				if(userPassword.equals(user.getUserPassword())){	
+					HttpServletRequest request=ServletActionContext.getRequest();//获得session
+			        HttpSession session=request.getSession();          
+			        session.setAttribute("userId", (int)user.getUserId());
+			        session.setAttribute("nickName", user.getNickName());
 					return 1;
 				}
 			}

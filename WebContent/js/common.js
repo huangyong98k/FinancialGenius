@@ -18,7 +18,7 @@ function resizeWindow() {
     $("#right").height(contentHeight);
 }
 $(document).ready(function (event) {
-	$.ajax({
+	/*$.ajax({
         cache: true,
         type: "POST",
         url:"userAction!queryUserName.action",
@@ -47,7 +47,7 @@ $(document).ready(function (event) {
         error: function(response) {
         	console.log(response);
         }
-        });
+        });*/
 	
 	$("#exit").click(function(){
 		$.ajax({

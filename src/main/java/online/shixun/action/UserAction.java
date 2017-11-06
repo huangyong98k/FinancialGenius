@@ -20,13 +20,13 @@ import online.shixun.services.impl.UserService;
 
 @Component("userAction")
 public class UserAction {
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private UserService userService;
 
 	private int intResult;
-
 	private List<User> list;
 	private List<Investment> investments;
 	private User user;

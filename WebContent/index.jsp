@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -39,13 +41,15 @@
 <script type="text/javascript">
 $(document).ready(function (event) {
 	var $userId = '<%=session.getAttribute("userId")%>';
+	var $nickName = '<%=session.getAttribute("nickName")%>';
 	console.log($userId);
-	if($userId==0){
-		$("#my_info").html(data);
+	console.log($nickName);
+	if($userId==1){
+		$("#my_info").html($nickName);
 		$("#help").css("display","block");
 		$("#quit").css("display","block");
 		$("#exit").css("display","none");
-			$("span#my_info.my_info").click(function(){
+		$("span#my_info.my_info").click(function(){
 				  return false;
 		 })
 	}else {
@@ -56,7 +60,7 @@ $(document).ready(function (event) {
 		$("#quit").css("display","none");
 		$("#exit").css("display","block");
 	}
-	//$("#my_info").html(data);
+	//$("#my_info").html($nickName);
 })
 </script>
 </html>
