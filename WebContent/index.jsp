@@ -16,9 +16,9 @@
     <div id="head"><img class="headlogo" src="image/logo.png" alt="">
         <div class="name">理财精灵</div>
         <div class="signature">-您的专属理财管家</div>
-        <a href="login.jsp" target="top"><span class="help" id="help">登录</span></a><a href="register.html" target="top"><span class="quit" id="quit">注册</span></a>
-        <a href="index.html"><span class="exit" id="exit">退出</span></a>
-        <a href="userInfo/member_center.html" target="mainFrame"><span class="my_info" id="my_info">个人中心</span></a>
+        <a href="login.jsp" target="top"><span class="help" id="help">帮助</span></a>
+        <a href="index.html" target="top"><span class="quit" id="quit">退出</span></a>
+        <a href="<%=request.getContextPath() %>/userInfo/member_center.html" target="mainFrame"><span class="my_info" id="my_info">个人中心</span></a>
       </div>
     <div class="menu-card-2 topnav" id="topnav" style="position: relative;">
         <div style="overflow:auto;">
@@ -44,7 +44,7 @@ $(document).ready(function (event) {
 	var $nickName = '<%=session.getAttribute("nickName")%>';
 	console.log($userId);
 	console.log($nickName);
-	if($userId==1){
+	if($userId>=0){
 		$("#my_info").html($nickName);
 		$("#help").css("display","block");
 		$("#quit").css("display","block");

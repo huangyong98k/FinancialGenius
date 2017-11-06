@@ -13,13 +13,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import online.shixun.dao.impl.InvestmentDaoImpl;
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.Investment;
-import online.shixun.model.User;
+
 
 /**
  * @ClassName: InvestmentService

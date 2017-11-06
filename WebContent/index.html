@@ -19,7 +19,7 @@
 				href="register.html" target="top"><span class="quit" id="quit">注册</span></a>
 			<a href="index.html"><span class="exit" id="exit">退出</span></a> <a
 				href="userInfo/member_center.html" target="mainFrame"><span
-				class="my_info" id="my_info">个人中心</span></a>
+				class="my_info" id="my_info" style="display: none">个人中心</span></a>
 		</div>
 		<div class="menu-card-2 topnav" id="topnav"
 			style="position: relative;">
@@ -45,16 +45,16 @@
 
 	</div>
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function (event) {
 	var $userId = '<%=session.getAttribute("userId")%>';
 	console.log($userId);
-	if($userId==0){
+	if($userId==-1){
 		$("#my_info").html(data);
 		$("#help").css("display","block");
 		$("#quit").css("display","block");
 		$("#exit").css("display","none");
-			$("span#my_info.my_info").click(function(){
+		$("span#my_info.my_info").click(function(){
 				  return false;
 		 })
 	}else {
@@ -67,5 +67,5 @@ $(document).ready(function (event) {
 	}
 	//$("#my_info").html(data);
 })
-</script>
+</script> -->
 </html>
