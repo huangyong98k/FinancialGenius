@@ -53,8 +53,8 @@
 			var number = $("#number").val();
 			var beginDate = $("#beginDate").val();
 			var overDate = $("#overDate").val();
-			if ((number == "" || undefined || null)) {
-				alert("数量不能为空！");
+			if ((number == "" ||number == undefined || number == null ||number<=0)) {
+				alert("数量有误！");
 				return false;
 			} else if ((beginDate == "" || undefined || null)) {
 				alert("请选择日期！");
@@ -152,19 +152,10 @@
 				</div>
 				<div class="row clearfix">
 					<div class="lbl">
-						<label for="beginDate"> 起购时间</label>
+						<label for="buyDate"> 投资期限/月</label>
 					</div>
 					<div class="ctrl">
-						<input type="date" id="beginDate" name="investment.beginTime"
-							onchange="earn()">
-					</div>
-				</div>
-				<div class="row clearfix">
-					<div class="lbl">
-						<label for="overDate"> 到期时间</label>
-					</div>
-					<div class="ctrl">
-						<input type="date" id="overDate" name="investment.overTime"
+						<input type="text" id="buyDate" name="investment.beginTime"
 							onchange="earn()">
 					</div>
 				</div>
