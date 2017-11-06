@@ -77,6 +77,10 @@ body {
     /** 添加的阴影区域**/
 }
 
+#mysnap:hover{
+	box-shadow: 0px 5px 10px 10px #408080;
+    /** 添加的阴影区域**/
+}
 
 
 /**

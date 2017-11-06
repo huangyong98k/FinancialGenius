@@ -12,6 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+
 @Entity
 @Table(name = "tb_users")
 public class User {
@@ -31,6 +35,7 @@ public class User {
 	private String userStatus;
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name = "userId")
+	@JsonIgnore
 	private List<Investment> investments;
 
 	public long getUserId() {
@@ -131,5 +136,9 @@ public class User {
 				+ userCard + ", userPassword=" + userPassword + ", userBanlance=" + userBanlance + ", userPhone="
 				+ userPhone + ", userStatus=" + userStatus + ", investments=" + investments + "]";
 	}
-
+	public String toStringOne() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userCard="
+				+ userCard + ", userPassword=" + userPassword + ", userBanlance=" + userBanlance + ", userPhone="
+				+ userPhone + ", userStatus=" + userStatus + "]";
+	}
 }
