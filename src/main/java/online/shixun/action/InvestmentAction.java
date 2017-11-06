@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import online.shixun.model.Investment;
 import online.shixun.model.Product;
-import online.shixun.services.InvestmentService;
-import online.shixun.services.ProductService;
-import online.shixun.services.UserService;
+import online.shixun.services.impl.InvestmentService;
+import online.shixun.services.impl.ProductService;
+import online.shixun.services.impl.UserService;
 import online.shixun.model.User;
 
 /**
@@ -37,11 +37,13 @@ public class InvestmentAction {
 	private User user;
 	private long id;
 	private Product product;
+	private double spend;
 
 	public String add() {
 		System.out.println("~~~~~~~~~~~" + userId + "~~~~~~~~~~~" + productId);
-		System.out.println(investment.toString());
+		System.out.println("~~~~~~~~~~~~"+spend);
 		investmentService.addInvestmentByUserIdAndProductId(investment, userId, productId);
+		userService.modifyUserBanlance(userId, spend);
 		return "addSuccess";
 	}
 
@@ -172,6 +174,14 @@ public class InvestmentAction {
 
 	public Investment getInvestment() {
 		return investment;
+	}
+
+	public double getSpend() {
+		return spend;
+	}
+
+	public void setSpend(double spend) {
+		this.spend = spend;
 	}
 
 }

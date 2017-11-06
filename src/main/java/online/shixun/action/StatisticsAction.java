@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.Action;
 
-import online.shixun.services.StatisticsService;
+import online.shixun.services.impl.StatisticsService;
 
 @Component("statisticsAction")
 public class StatisticsAction {

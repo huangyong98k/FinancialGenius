@@ -25,29 +25,31 @@
 				<div class="baBody">
 					<div class="bbD1 bbD">
 						<input type="hidden" class="input3" name="user.userId"
-							value="${user.userId }" > <input type="text"
+							value="${user.userId }"> <input type="text"
 							class="addUserInfo" value="用户名：" readonly> <input
 							id="name-two" type="text" class="input3" name="user.userName"
-							value="${user.userName }"/> <img id="img_ok" src="imgs/ok.png"><img
+							value="${user.userName }" /> <img id="img_ok" src="imgs/ok.png"><img
 							id="img_no" src="imgs/no.png"> <span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="密码：" readonly>
-						<input id="password-two" type="text" class="input3"  value="${user.userPassword }"/> <img id="img_ok"
+						<input id="password-two" type="text" class="input3"
+							value="${user.userPassword }" /> <img id="img_ok"
 							src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
 						<span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="确认密码：" readonly>
-						<input id="passwordAgain-two" type="password" class="input3" name="user.userPassword"
-				/> <img id="img_ok"
+						<input id="passwordAgain-two" type="password" class="input3"
+							name="user.userPassword" /> <img id="img_ok"
 							src="imgs/ok.png"><img id="img_no" src="imgs/no.png">
 						<span id="text_no"></span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="邮箱：" readonly>
-						<input id="input-phone-emailTwo" type="email" class="input3" name="user.userEmail"
-						 value="${user.userEmail }"/> <span id="emailSpanTwo" style="color:red" hidden>邮箱已被注册</span>
+						<input id="input-phone-emailTwo" type="email" class="input3"
+							name="user.userEmail" value="${user.userEmail }" /> <span
+							id="emailSpanTwo" style="color: red" hidden>邮箱已被注册</span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="性别：" readonly>
@@ -56,22 +58,23 @@
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="电话号：" readonly>
-						<input id="input-phone-noTwo" type="phone" class="input3" name="user.userPhone"
-						value="${user.userPhone }"/> <span id="phoneSpanTwo" style="color:red" hidden>电话已被注册</span>
+						<input id="input-phone-noTwo" type="phone" class="input3"
+							name="user.userPhone" value="${user.userPhone }" /> <span
+							id="phoneSpanTwo" style="color: red" hidden>电话已被注册</span>
 					</div>
 					<div class="bbD">
 						<input type="text" class="addUserInfo" value="身份证号：" readonly>
-						<input id="input-phone-cardTwo" type="text" class="input3" name="user.userCard"
-						 value="${user.userCard }"/> <span id="cardSpanTwo" style="color:red" hidden>电话已被注册</span>
+						<input id="input-phone-cardTwo" type="text" class="input3"
+							name="user.userCard" value="${user.userCard }" /> <span
+							id="cardSpanTwo" style="color: red" hidden>电话已被注册</span>
 					</div>
 					<div class="bbD">
 						<p class="bbDP">
-							<input type="hidden" name="student.studentId"/> <input id="updateSub" class="input3"
-								type="submit" name="Submit" value="提交"
-								style="width: 153px; color: Black; background-color: Aqua" /> 
-	
-							<a href="userAction!findUser">
-							<input class="input3"
+							<input type="hidden" name="student.studentId" /> <input
+								id="updateSub" class="input3" type="submit" name="Submit"
+								value="提交"
+								style="width: 153px; color: Black; background-color: Aqua" /> <a
+								href="userAction!findUser"> <input class="input3"
 								type="button" name="Submit" value="取消" style="width: 153px;" /></a>
 						</p>
 					</div>

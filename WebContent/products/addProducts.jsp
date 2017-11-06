@@ -51,8 +51,8 @@
 
 		$("#submit").click(function() {
 			var number = $("#number").val();
-			var beginDate = $("#beginDate").val();
-			var overDate = $("#overDate").val();
+			var beginDate = $("#beginTime").val();
+			var overDate = $("#overTime").val();
 			if ((number == "" ||number == undefined || number == null ||number<=0)) {
 				alert("数量有误！");
 				return false;
@@ -66,7 +66,7 @@
 				alert("到期日期选择有误！")
 				return false
 			} else if (beginDate == overDate) {
-				alert("两个日期不能相同");
+				alert("投资日期不足1个月！");
 				return false;
 			} else if (principal * number > userBalance) {
 				alert("你的余额不足！")
@@ -104,9 +104,10 @@
 				action="investmentAction!add?productId=${product.productId }"
 				method="post" id="form">
 				<div class="row clearfix">
-					<input type="hidden" id="userId" name="userId"> <input
+					<input type="hidden" id="userId" name="userId" > <input
 						type="hidden" id="status" name="investment.investmentStatus"
-						readonly value="1" readonly>
+						readonly value="0" >
+						<input type="hidden" id="spend" name="spend" >
 					<div class="lbl">
 						<label for="name"> 产品名称</label>
 					</div>
@@ -152,10 +153,19 @@
 				</div>
 				<div class="row clearfix">
 					<div class="lbl">
-						<label for="buyDate"> 投资期限/月</label>
+						<label for="beginTime"> 起购日期</label>
 					</div>
 					<div class="ctrl">
-						<input type="text" id="buyDate" name="investment.beginTime"
+						<input type="date" id="beginTime" name="investment.beginTime"
+							onchange="earn()">
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="lbl">
+						<label for="overTime"> 结算日期</label>
+					</div>
+					<div class="ctrl">
+						<input type="date" id="overTime" name="investment.overTime"
 							onchange="earn()">
 					</div>
 				</div>

@@ -25,6 +25,7 @@
 					<td align="center">月利率</td>
 					<td align="center">起购金额</td>
 					<td align="center">发行机构</td>
+					<td align="center">产品类型</td>
 					<td align="center">操作</td>
 				</tr>
 			</thead>
@@ -37,6 +38,7 @@
 						<td align="center">${temp.productRate }</td>
 						<td align="center">${temp.productMoney }</td>
 						<td align="center">${temp.productMechanism }</td>
+						<td align="center">${temp.productType }</td>
 						<td align="center"><a target="mainFrame"
 							href="productAction!addInvestment?product.productId=${temp.productId }&product.productMoney=${temp.productMoney }&product.productName=${temp.productName }&product.productRate=${temp.productRate }"
 							class="buy">购买</a></td>
@@ -45,9 +47,10 @@
 			</tbody>
 		</table>
 		<div class="paging">
-			<a href="productAction!prevFrontPage"><input type="button" name=""
-				class="prey" value="上一页"></a> <a href="productAction!nextFrontPage"><input
-				type="button" name="" class="next" value="下一页"></a>
+			<a href="productAction!prevFrontPage"><input type="button"
+				name="" class="prey" value="上一页"></a> <a
+				href="productAction!nextFrontPage"><input type="button" name=""
+				class="next" value="下一页"></a>
 		</div>
 	</div>
 </body>

@@ -58,6 +58,10 @@
 				<param name="root">totalInvestment</param>
 			</result>
 		</action>
+		<action name="bankCardAction!*" class="online.shixun.action.BankCardAction"
+			method="{1}">
+			<result name="success">/userInfo/addSuccess.jsp</result>
+		</action>
 	</package>
 
 </struts>
