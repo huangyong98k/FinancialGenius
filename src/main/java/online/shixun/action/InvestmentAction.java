@@ -27,7 +27,6 @@ public class InvestmentAction {
 	private ProductService productService;
 	@Autowired
 	private UserService userService;
-
 	private List<Investment> list;
 	private List<Investment> list2;
 	private Investment investment;
