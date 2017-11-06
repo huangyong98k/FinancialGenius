@@ -171,7 +171,11 @@
 	    	return true;
 	    }
 	});
+	var phoneOldVale=${user.userPhone };
+	var emailOldVale=${user.userEmail };
+	var cardOldVale=${user.userCard };
 		$("#input-phone-noTwo").blur(function() {
+			if($("#input-phone-noTwo").val()!=phoneOldVale){
 			 $.ajax({
 				url : "/FinancialGenius/userAction!findUserByPhone?user.userPhone="+$(this).val(),
                success:function(data){
@@ -185,8 +189,14 @@
             	   }
                }
 			})
+			}
+			else{
+				 $("#phoneSpanTwo").hide()
+      		   isIDCard=true;
+			}
 		})
 		$("#input-phone-emailTwo").blur(function() {
+			if($("#input-phone-noTwo").val()!=emailOldVale){
 			 $.ajax({
 				url : "/FinancialGenius/userAction!findUserByEmail?user.userEmail="+$(this).val(),
                success:function(data){
@@ -200,8 +210,14 @@
             	   }
                }
 			})
+			}
+			else{
+			   $("#emailSpanTwo").hide()
+     		   isEmail=true;
+			}
 		})
 		$("#input-phone-cardTwo").blur(function() {
+			if($("#input-phone-noTwo").val()!=cardOldVale){
 			 $.ajax({
 				url : "/FinancialGenius/userAction!findUserByCard?user.userCard="+$(this).val(),
                success:function(data){
@@ -215,6 +231,11 @@
             	   }
                }
 			})
+			}
+			else{
+				$("#cardSpanTwo").hide()
+    		    isPhone=true;
+			}
 		})
                })
 	</script>
