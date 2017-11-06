@@ -12,11 +12,11 @@ import javax.persistence.Table;
 public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long adminId;
+	private Long adminId;//管理员ID
 	@Column(unique = true)
-	private String adminName;
+	private String adminName;//管理员登录名
 
-	private String AdminPassword;
+	private String AdminPassword;//管理员密码
 
 	public Long getAdminId() {
 		return adminId;

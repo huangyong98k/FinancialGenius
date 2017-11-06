@@ -11,25 +11,29 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "tb_investment")
 public class Investment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long investmentId;
-	private Date beginTime;
-	private Date overTime;
-	private double earning;
-	private int investmentStatus;
-	private int number;
-	private double principal;
+	private long investmentId;//投资表ID
+	@Temporal(TemporalType.DATE)
+	private Date beginTime;//投资起始时间
+	@Temporal(TemporalType.DATE)
+	private Date overTime;//投资结束时间
+	private double earning;//预计收益金额
+	private int investmentStatus;//投资状态(进行中/已完成/失效)
+	private int number;//投资数量（购买产品份数）
+	private double principal;//投资金额
 	@ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	@JoinColumn(name="userId")
-	private User user;
+	private User user;//所属用户
 	@ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	@JoinColumn(name="productId")
-	private Product product;
+	private Product product;//投资产品
 	public long getInvestmentId() {
 		return investmentId;
 	}
