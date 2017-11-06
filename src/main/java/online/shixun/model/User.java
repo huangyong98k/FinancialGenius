@@ -12,6 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+
 @Entity
 @Table(name = "tb_users")
 public class User {
@@ -302,8 +306,5 @@ public class User {
 				+ ", headPortrait=" + headPortrait + ", userPhone=" + userPhone + ", userStatus=" + userStatus + ","
 				+ ", investments=" +investments+"]";
 	}
-
-
-
 
 }

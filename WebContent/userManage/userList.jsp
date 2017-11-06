@@ -7,11 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/css.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath() %>/css/css.css">
 <script type="text/javascript"
 	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/public.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath() %>/jquery-3.2.1.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath() %>/public.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$(".delban").click(function() {
@@ -38,8 +41,9 @@
 				<div class="conform">
 					<form action="userAction!findByName" method="get">
 						<div class="cfD">
-							<input class="addUser" type="text" placeholder="请输入用户名" name="user.userName" value="" />
-							<input id="search" type="submit" class="button" value="搜索">
+							<input class="addUser" type="text" placeholder="请输入用户名"
+								name="user.userName" value="" /> <input id="search"
+								type="submit" class="button" value="搜索">
 						</div>
 					</form>
 				</div>
@@ -69,14 +73,18 @@
 								<td>${temp.userPhone }</td>
 								<td><a
 									href="userAction!to_edit?user.userId=${temp.userId }"><img
-										class="operation" src="<%=request.getContextPath() %>/image/update.png"></a> <img
-									class="operation delban img-delete" src="<%=request.getContextPath() %>/image/delete.png"></td>
+										class="operation"
+										src="<%=request.getContextPath() %>/image/update.png"></a> <img
+									class="operation delban img-delete"
+									src="<%=request.getContextPath() %>/image/delete.png"></td>
 							</tr>
 						</c:forEach>
 					</table>
-                           		<div class="paging">
-						此处是分页<a href="userAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> <a href="userAction!nextPage"><input
-							type="button" name="" id="prop" value="下一页"></a>
+					<div class="paging">
+						此处是分页<a href="userAction!prevPage"><input type="button"
+							name="" id="prey" value="上一页"></a> <a
+							href="userAction!nextPage"><input type="button" name=""
+							id="prop" value="下一页"></a>
 					</div>
 				</div>
 				<!--  用户 表格 显示 end-->

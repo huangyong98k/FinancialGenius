@@ -89,33 +89,36 @@
 								<td>${temp.earning }</td>
 								<td>${temp.investmentStatus}</td>
 								<td>${temp.principal}</td>
-								<td><img class="operation delban img-delete" src="image/delete.png"></td>
+								<td><img class="operation delban img-delete"
+									src="image/delete.png"></td>
 							</tr>
 						</c:forEach>
 					</table>
 					<div class="paging">
-						<a href="investmentAction!prevPage"><input type="button" name="" id="prey" value="上一页"></a> 
-						<a href="investmentAction!nextPage"><input type="button" name="" id="prop" value="下一页"></a>
+						<a href="investmentAction!prevPage"><input type="button"
+							name="" id="prey" value="上一页"></a> <a
+							href="investmentAction!nextPage"><input type="button" name=""
+							id="prop" value="下一页"></a>
+					</div>
+					<!-- 学生 表格 显示 end-->
 				</div>
-				<!-- 学生 表格 显示 end-->
+				<!-- 学生页面样式end -->
 			</div>
-			<!-- 学生页面样式end -->
 		</div>
-	</div>
-	<!-- 删除弹出框 -->
-	<div class="banDel">
-		<div class="delete">
-			<div class="close">
-				<a><img src="imgs/shanchu.png" /></a>
+		<!-- 删除弹出框 -->
+		<div class="banDel">
+			<div class="delete">
+				<div class="close">
+					<a><img src="imgs/shanchu.png" /></a>
+				</div>
+				<p class="delP1">你确定要删除此条记录吗？</p>
+				<p class="delP2">
+					<a href="#" class="ok yes a-delete">确定</a><a class="ok no">取消</a>
+				</p>
 			</div>
-			<p class="delP1">你确定要删除此条记录吗？</p>
-			<p class="delP2">
-				<a href="#" class="ok yes a-delete">确定</a><a class="ok no">取消</a>
-			</p>
 		</div>
-	</div>
-	<!-- 删除弹出框  end-->
-	<script type="text/javascript">
+		<!-- 删除弹出框  end-->
+		<script type="text/javascript">
         $('.img-delete').click(function(){
         $('.a-delete').prop('href','investmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
 
