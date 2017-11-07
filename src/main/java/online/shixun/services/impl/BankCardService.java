@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package online.shixun.services.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import online.shixun.dao.impl.BankCardDaoImpl;
+import online.shixun.dao.impl.UserDaoImpl;
+import online.shixun.model.BankCard;
+
+/**
+ * @author 小胖 银行卡业务
+ */
+@Service(value = "bankCardService")
+public class BankCardService {
+
+	@Autowired
+	private BankCardDaoImpl bankCardDaoImpl;
+	@Autowired
+	private UserDaoImpl userDaoImpl;
+
+	// 添加银行卡
+	public void addBankCardByUserId(BankCard bankCard, Long userId) {
+		bankCard.setUser(userDaoImpl.getById(userId));
+		bankCardDaoImpl.add(bankCard);
+	}
+}

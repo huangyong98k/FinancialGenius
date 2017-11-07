@@ -27,7 +27,6 @@ public class InvestmentAction {
 	private ProductService productService;
 	@Autowired
 	private UserService userService;
-
 	private List<Investment> list;
 	private List<Investment> list2;
 	private Investment investment;
@@ -37,11 +36,13 @@ public class InvestmentAction {
 	private User user;
 	private long id;
 	private Product product;
+	private double spend;
 
 	public String add() {
 		System.out.println("~~~~~~~~~~~" + userId + "~~~~~~~~~~~" + productId);
-		System.out.println(investment.toString());
+		System.out.println("~~~~~~~~~~~~"+spend);
 		investmentService.addInvestmentByUserIdAndProductId(investment, userId, productId);
+		userService.modifyUserBanlance(userId, spend);
 		return "addSuccess";
 	}
 	
@@ -182,6 +183,14 @@ public class InvestmentAction {
 
 	public Investment getInvestment() {
 		return investment;
+	}
+
+	public double getSpend() {
+		return spend;
+	}
+
+	public void setSpend(double spend) {
+		this.spend = spend;
 	}
 
 }

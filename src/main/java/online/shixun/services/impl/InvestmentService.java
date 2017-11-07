@@ -17,7 +17,7 @@ import online.shixun.dao.impl.InvestmentDaoImpl;
 import online.shixun.dao.impl.ProductDaoImpl;
 import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.Investment;
-import online.shixun.model.User;
+
 
 /**
  * @ClassName: InvestmentService

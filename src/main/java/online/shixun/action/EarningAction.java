@@ -8,6 +8,10 @@
 */
 package online.shixun.action;
 
+
+import org.springframework.stereotype.Component;
+
+
 /** 
 * @ClassName: EarningAction 
 * @Description: 收益记录的Action 
@@ -15,6 +19,8 @@ package online.shixun.action;
 * @date 2017年11月2日 上午9:59:16 
 *  
 */
+
+@Component("earningAction")
 public class EarningAction {
 
 }

@@ -1,0 +1,117 @@
+html,body{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 auto;
+ background-color: #f0f4f7;
+}
+#home{
+  background-color: #f0f4f7;
+  width: 100%;
+  height: 100%;
+}
+#bg{
+	width: 300px;
+	height: 90px;
+
+}
+.zscf_partner {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+}
+.mt30 {
+    margin-top: 30px;
+}
+.block3_tit {
+  padding: 0px 20px;
+  border-bottom: 1px solid #e2e2e2;
+  height: 47px;
+  position: relative;
+}
+.block3_tit span {
+  display: inline-block;
+  color: #959595;
+  font-size: 18px;
+  width: 125px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  float: left;
+}
+.block3_tit em {
+  display: inline-block;
+  padding: 12px 20px;
+  float: left;
+}
+.block3_tit .block3_curspan {
+  color: #000;
+  border-bottom: 2px solid #14b2e2;
+}
+.block3_tit a {
+  color: #97a0a6;
+  font-size: 12px;
+  float: right;
+  line-height: 50px;
+}
+.partner_con {
+    padding: 19px;
+}
+#demo {
+    background: #FFF;
+    overflow: hidden;
+    width: 960px;
+}
+#indemo {
+    float: left;
+    width: 800%;
+}
+#demo1 {
+    float: left;
+}
+#demo img {
+    width: 151px;
+    height: 42px;
+}
+
+img {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+}
+a, a:hover {
+    color: #017bff;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.2s;
+    color: #555555;
+}
+#demo2 {
+    float: left;
+}
+.px1000 {
+    width: 80%;
+    margin: 0 auto;
+}
+/*----------------------------------------
+    页脚
+    ------------------------------------*/
+footer {
+    background: #475058;
+    color: #eee;
+    font-size: 11px;
+    padding: 20px;
+}
+ul.unstyled {
+    list-style: none;
+    padding: 0;
+}
+footer h6 {
+    color: white;
+} 
+#myFrame{
+  height: 1050px;
+} 

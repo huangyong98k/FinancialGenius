@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import online.shixun.common.UtilDao;
 import online.shixun.model.Product;
-import online.shixun.model.User;
+
 /** 
 * @ClassName: ProductDao 
 * @Description: TODO(这里用一句话描述这个类的作用) 
