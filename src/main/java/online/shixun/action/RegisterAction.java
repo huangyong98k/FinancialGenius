@@ -81,17 +81,13 @@ public class RegisterAction {
 	@ResponseBody
 	public String registerCheckByphoneNumber() {
 		int isExist = userService.findByPhone(user.getUserPhone());
-		// 将数据存储在map里，再转换成json类型数据，也可以自己手动构造json类型数据
-		// Map<String, Object> map = new HashMap<String, Object>();
+		System.out.println(isExist);
 		String message;
 		if (isExist > 0) {
 			message = "已注册";
-			// map.put("message", "此手机号已被注册");
 		} else {
 			message = "未注册";
-			// map.put("message","可以使用此手机号注册");
 		}
-		// result =map.toString();//给result赋值，传递给页面
 		result = message;
 		return ActionSupport.SUCCESS;
 	}
@@ -118,6 +114,8 @@ public class RegisterAction {
 	// 注册方法
 	public String register() {
 		System.out.println("userAction!register");
+		user.setNickName("贾博雅11o8");
+		user.setUserBanlance(10d);
 		userService.addUser(user);
 		return "register";
 	}
