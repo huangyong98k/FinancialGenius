@@ -80,7 +80,7 @@
 		<action name="loginAction!*" class="online.shixun.action.LoginAction"
 			method="{1}">
 			<result name="loginSuccess">index.jsp</result>
-			<result name="loginFaile">loginFaile.jsp</result>
+			<result name="loginFaile">login.jsp</result>
 		</action>
 		<action name="personalAction!*" class="online.shixun.action.PersonalAction"
 			method="{1}">
