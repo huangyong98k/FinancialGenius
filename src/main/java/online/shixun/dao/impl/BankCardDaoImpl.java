@@ -11,6 +11,7 @@ package online.shixun.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import online.shixun.common.BaseDao;
 import online.shixun.dao.BankCardDao;
@@ -23,6 +24,7 @@ import online.shixun.model.BankCard;
 * @date 2017年11月6日 下午2:21:51 
 *  
 */
+@Repository
 public class BankCardDaoImpl implements BankCardDao {
 	@Autowired
 	private BaseDao baseDao;

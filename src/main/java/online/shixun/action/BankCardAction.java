@@ -20,9 +20,28 @@ public class BankCardAction {
 	@Autowired
 	private BankCardService bankCardService;
 	
+	private BankCard bankCard;
+	private Long userId;
+	
 	//绑定银行卡
 	public String addBankCard(){
-		
+		bankCardService.addBankCardByUserId(bankCard, userId);
 		return "success";
+	}
+
+	public BankCard getBankCard() {
+		return bankCard;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setBankCard(BankCard bankCard) {
+		this.bankCard = bankCard;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 }

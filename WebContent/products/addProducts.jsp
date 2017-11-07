@@ -51,15 +51,11 @@
 
 		$("#submit").click(function() {
 			var number = $("#number").val();
-<<<<<<< HEAD
 			var beginDate = $("#beginTime").val();
 			var overDate = $("#overTime").val();
-			if ((number == "" ||number == undefined || number == null ||number<=0)) {
-=======
 			var beginDate = $("#beginDate").val();
 			var overDate = $("#overDate").val();
 			if ((number == "" ||number == undefined ||number == null||number <=0)) {
->>>>>>> a0db49887b98ad0efd606b1ae6cee73d023c7214
 				alert("数量有误！");
 				return false;
 			} else if ((beginDate == "" || undefined || null)) {

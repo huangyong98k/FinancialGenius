@@ -4,49 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>绑定银行卡</title>
+    <title>提现</title>
     <link href="./css/demo.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-        	var userPhone;
-        	
-        	$.ajax({
-    			cache : true,
-    			type : "POST",
-    			url : "userAction!queryUserID.action",
-    			data : "",// 数据控件ID 
-    			async : true,
-    			success : function(data) {
-    				if (data == "请登录") {
-    				} else {
-    					$("#userId").val(data);
-    					
-    				}
-    			},
-    			error : function(response) {
-    				console.log(response);
-    			}
-    		});
-        	alert($("#userId").val())
-        	$.ajax({
-    			cache : true,
-    			type : "POST",
-    			url : "userAction!queryUserPhone.action",
-    			data : "",// 数据控件ID
-    			dataType : "json",
-    			async : true,
-    			success : function(data) {
-    				userPhone = data;
-    				console.log(userPhone);
-    			},
-    			error : function(response) {
-    				console.log(response);
-    			}
-    		});
-        	alert(userPhone)
-        	
             //验证码
             var code;
             function createCode(){
@@ -78,102 +41,88 @@
                 }
             })
 
-            $("#phone").change(function() {
+            $("#payPassword").change(function() {
                 var c = $(this);
-                var dataPhoneNumber = $("#phone").val().trim();
-                var patternPhoneNumber = /^[1][3,4,5,7,8][0-9]{9}$/;
-                var strPhoneNumber = patternPhoneNumber.test(dataPhoneNumber);
+                var password = $("#payPassword").val().trim();
+                var patternPassword = /^\d{6}$/;
                 if (/[^\d]/.test(c.val())) {//替换非数字字符
                     var temp_amount = c.val().replace(/[^\d]/g, '');
                     $(this).val(temp_amount);
-                }else if(dataPhoneNumber==""||undefined||null){
-                    alert("请输入你的手机号！");
+                }else if(password==""||undefined||null){
+                    alert("请输入您的支付密码！");
                     return false
-                }else if(!strPhoneNumber){
-                    alert("请输入合法的手机号！")
-                    return false
-                }else if (dataPhoneNumber!=userPhone) {
-					alert("手机号码错误，请重新输入！")
-					return false
-				}
-            })
-
-            $("#bankCardName").change(function(){
-                var c = $(this);
-                var bankNumber = $("#bankCardName").val().trim();
-                var patternBankNumber =  /^\d{19}$/g;
-                if(/[^\d]/.test(c.val())){
-                    var temp_amount = c.val().replace(/[^\d]/g, '');
-                    $(this).val(temp_amount);
-                }else if(bankNumber==""||undefined||null){
-                    alert("请输入您要绑定的银行卡号！")
-                    return false
-                }else if(!patternBankNumber.test(bankNumber)){
-                    alert("请输入合法的银行卡号！")
+                }else if(!patternPassword.test(password)){
+                    alert("请输入合法的支付密码！")
                     return false
                 }
             })
-            
-            $("#submit").click(function(){
-            	var dataPhoneNumber = $("#phone").val().trim();
-                var bankNumber = $("#bankCardName").val().trim();
+
+            $("#withdraw").change(function(){
+                var c = $(this);
+                var withdraw = $("#withdraw").val().trim();
+                var patternWithdraw = /^[1-9]\d*$/;
+                if(/[^\d]/.test(c.val())){
+                    var temp_amount = c.val().replace(/[^\d]/g, '');
+                    $(this).val(temp_amount);
+                }else if(withdraw==""||undefined||null){
+                    alert("请输入您要提现的金额！")
+                    return false
+                }else if(!patternWithdraw.test(withdraw)){
+                    alert("请输入合法的金额！")
+                    return false
+                }
+            })
+
+            $("#submit").click(function() {
+                var withdraw = $("#withdraw").val().trim();
+                var password = $("#payPassword").val().trim();
+                var patternPassword = /^\d{6}$/;
                 var check = $("#checkNumber").val().toUpperCase();
-                var patternBankNumber =  /^\d{19}$/g;
-                var patternPhoneNumber = /^[1][3,4,5,7,8][0-9]{9}$/;
-                if(bankNumber==""||undefined||null){
-                    alert("请输入您要绑定的银行卡号！")
+                if (withdraw == "" || undefined || null) {
+                    alert("请输入您要提现的金额！")
+                    return false;
+                } else if (password == "" || undefined || null) {
+                    alert("请输入您的支付密码！")
                     return false
-                }else if(!patternBankNumber.test(bankNumber)){
-                	alert("请输入合法的银行卡号！")
+                } else if (!patternPassword.test(password)) {
+                    alert("请输入合法的支付密码！")
                     return false
-                }else if(dataPhoneNumber==""||undefined||null){
-                    alert("请输入你的手机号！");
+                }else if(check==""){
+                    alert("请输入验证码！")
                     return false
-                }else if(!patternPhoneNumber.test(dataPhoneNumber)){
-                	alert("请输入合法的手机号！")
-                    return false
-                }else if (dataPhoneNumber!=userPhone) {
-					alert("手机号码错误，请重新输入！")
-					return false
-				}else if(check==""){
-                	alert("请输入验证码！")
-                	return false
                 }else if(check!=code){
                     alert("验证码错误，请重新输入！")
                     return false
                 }
-                
             })
         })
     </script>
 </head>
 <body>
 <section id="getintouch" class="fadeIn animated">
-     <div class="container" style="border-bottom: 0;">
+    <div class="container" style="border-bottom: 0;">
         <h1>
-            <span>绑定银行卡</span>
+            <span>提现</span>
         </h1>
     </div>
     <div class="container">
         <form class="contact" action="#" method="post" id="form">
-        <input type="hidden" id="userId" name="userId" >
-        <input type="hidden" id="bankBalance" name="bankCard.bankBalance">
             <div class="row clearfix">
                 <div class="lbl">
-                    <label for="bankCardName">
-                        银行卡号：</label>
+                    <label for="withdraw">
+                        提现金额：</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="bankCardName" name="bankCard.bankCardId"  placeholder="请输入您的银行卡号！">
+                    <input type="text" id="withdraw" name="#" maxlength="8" placeholder="请输入您要提现的金额！">
                 </div>
             </div>
             <div class="row clearfix">
                 <div class="lbl">
-                    <label for="phone">
-                        手机号：</label>
+                    <label for="payPassword">
+                        支付密码：</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="phone" name="phone"  placeholder="请输入您的手机号！">
+                    <input type="text" id="payPassword" name="#" maxlength="6"  placeholder="请输入您的支付密码！">
                 </div>
             </div>
             <div class="row clearfix">
@@ -182,7 +131,7 @@
                         验证码：<span id="code"></span></label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="checkNumber" name="checkNumber"  placeholder="请输入验证码！" style="width: 30%">
+                    <input type="text" id="checkNumber" name="#"  placeholder="请输入验证码！" style="width: 30%">
                     <label id="isCheck"></label>
                 </div>
             </div>
