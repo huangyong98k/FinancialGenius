@@ -80,12 +80,14 @@
 		<action name="loginAction!*" class="online.shixun.action.LoginAction"
 			method="{1}">
 			<result name="loginSuccess">index.jsp</result>
-			<result name="loginFaile">loginFaile.jsp</result>
+			<result name="loginFaile">login.jsp</result>
 		</action>
 		<action name="personalAction!*" class="online.shixun.action.PersonalAction"
 			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
 			<result name="userInfo">my_info.jsp</result>
-			<result name="modifyUserPassword">addSuccess.jsp</result>
 		</action>
 	</package>
 

@@ -53,15 +53,6 @@ public class UserAction {
 
 	private List<User> users;
 
-	private String newUserPassword;
-
-	public String getNewUserPassword() {
-		return newUserPassword;
-	}
-
-	public void setNewUserPassword(String newUserPassword) {
-		this.newUserPassword = newUserPassword;
-	}
 
 	// 静态模块初始化session 添加 对象loginInfo 属性值为"请登录"
 	static {
@@ -217,26 +208,6 @@ public class UserAction {
 
 
     
-	// 个人信息界面修改密码
-	@ResponseBody
-	public String changePassword() {
-		String message;
-		String dataBasePassword = userService.findByUserIDToUser(user.getUserId());
-
-		if (dataBasePassword.equals(newUserPassword)) {
-			message = "新密码不可以和原密码相同";
-		} else if (dataBasePassword.equals(user.getUserPassword())) {
-			user = userService.findByUserIDToUserMessage(user.getUserId());
-			user.setUserPassword(newUserPassword);
-			userService.modifyUserPassword(user);
-			message = "密码已修改成功";
-		} else {
-
-			message = "原密码错误";
-		}
-		result = message;
-		return ActionSupport.SUCCESS;
-	}
 	//普通用户登录
 	
 	public String login() {
