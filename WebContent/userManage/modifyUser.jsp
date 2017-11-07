@@ -104,7 +104,6 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	alert($('*').length)
 	$(document).ready(function (event) {
 		var isEmail=false;
 		var isPhone=false;

@@ -74,7 +74,7 @@
 						type="hidden" id="status" name="investment.investmentStatus"
 						readonly value="0" >
 						<input type="hidden" id="spend" name="spend" >
-						<input type="hidden" id="userBalance" name="userBalance" value="${userBalance }">
+						<input type="hidden" id="userBalance" name="userBalance" value="${userBanlance }">
 					<div class="lbl">
 						<label for="name"> 产品名称</label>
 					</div>

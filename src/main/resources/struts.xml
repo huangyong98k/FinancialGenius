@@ -44,6 +44,7 @@
 			<result name="userByName">/userManage/userList.jsp</result>
 			<result name="getSuccess">/products/buyList.jsp</result>
 			<result name="bankCard">/userInfo/recharge.jsp</result>
+			<result name="loginFaile">login.jsp</result>
 		</action>
 		<action name="productAction!*" class="online.shixun.action.ProductAction"
 			method="{1}">
