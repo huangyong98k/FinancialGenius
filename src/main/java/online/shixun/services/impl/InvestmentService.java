@@ -42,7 +42,13 @@ public class InvestmentService {
 	public void addInvestment(Investment investment) {
 		investmentDaoImpl.add(investment);
 	}
-
+//    public List<Investment> findInvestmentId(Long id){
+//    	List<Investment> list= investmentDaoImpl.getById(id);
+//		return list;
+//    	
+//    }
+	
+	
     //投资查询所有
     public List<Investment> findInvestment() {
 		
@@ -64,6 +70,7 @@ public class InvestmentService {
 	public void modifyStateInvestment(Investment investment){
 		investmentDaoImpl.update(investment);
 	}
+	
 	public Investment getById(long id){
 		return investmentDaoImpl.getById(id);
 	}

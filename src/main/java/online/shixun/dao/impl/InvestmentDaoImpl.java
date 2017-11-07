@@ -89,9 +89,9 @@ public class InvestmentDaoImpl implements InvestmentDao {
 	}
 
 	@Override
-	public List<Investment> getInvestmentsByProductId(Long ProductId) {
-		// TODO Auto-generated method stub
+	public List<Investment> getInvestmentsByProductId(Long investmentId) {
 		return null;
+		
 	}
 
 
