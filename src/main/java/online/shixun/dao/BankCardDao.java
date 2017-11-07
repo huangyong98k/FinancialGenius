@@ -8,6 +8,8 @@
 */
 package online.shixun.dao;
 
+import java.util.List;
+
 import online.shixun.common.UtilDao;
 import online.shixun.model.BankCard;
 
@@ -19,5 +21,5 @@ import online.shixun.model.BankCard;
 *  
 */
 public interface BankCardDao extends UtilDao<BankCard> {
-
+	List<BankCard> getBankCardsByUserId(Long userId);
 }

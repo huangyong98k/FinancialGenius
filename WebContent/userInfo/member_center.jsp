@@ -65,9 +65,9 @@
 
 	<!-- 结束 -->
 	<!-- JS公共部分 开始 -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="<%=request.getContextPath() %>/userInfo/js/jquery-3.2.1.min.js"></script>
+	<script src="<%=request.getContextPath() %>/userInfo/js/bootstrap.min.js"></script>
 	<!-- JS公共部分 结束 -->
-	<script src="js/crowdfunding.js"></script>
+	<script src="<%=request.getContextPath() %>/userInfo/js/crowdfunding.js"></script>
 </body>
 </html>

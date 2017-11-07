@@ -246,7 +246,7 @@ function listClick(value) {
 		$("#listClick6").attr("class", "");
 	}
 	if (value == 3) {
-		$("#crowdfunding_iframe").attr("src","bankCard.jsp");
+		$("#crowdfunding_iframe").attr("src","userInfo/bankCard.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -257,7 +257,7 @@ function listClick(value) {
 		$("#listClick6").attr("class", "");
 	}
 	if (value == 4) {
-		$("#crowdfunding_iframe").attr("src","");
+		$("#crowdfunding_iframe").attr("src","userAction!findBankCard");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -280,7 +280,7 @@ function listClick(value) {
 		$("#listClick6").attr("class", "");
 	}
 	if (value == 6) {
-		$("#crowdfunding_iframe").attr("src","");
+		$("#crowdfunding_iframe").attr("src","userInfo/withdraw.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -289,16 +289,5 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "menu_list_on");
-	}
-	if (value == 5) {
-		$("#crowdfunding_iframe").attr("src",
-				"head-portrait.html");
-		$("#crowdfunding_iframe").attr("height", "520");
-		$("#vertical_navigation").css("height", "520px");
-
-		$("#listClick1").attr("class", "");
-		$("#listClick2").attr("class", "");
-		$("#listClick3").attr("class", "");
-		$("#listClick4").attr("class", "menu_list_on");
 	}
 }

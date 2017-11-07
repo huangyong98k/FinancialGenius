@@ -23,6 +23,7 @@ import online.shixun.model.Investment;
 */
 public interface InvestmentDao extends UtilDao<Investment> {
 	List<Investment> getInvestmentsByProductId(Long ProductId);//根据产品id获取用户投资信息
+	List<Investment> getInvestmentsByUserId(Long userId);
 	@SuppressWarnings("rawtypes")
 	List<Map> getTotalInvestment(String sql);//根据sql查询出投资的总额
 }

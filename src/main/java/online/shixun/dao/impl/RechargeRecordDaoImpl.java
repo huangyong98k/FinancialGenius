@@ -11,6 +11,7 @@ package online.shixun.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import online.shixun.common.BaseDao;
 import online.shixun.dao.RechargeRecordDao;
@@ -23,6 +24,7 @@ import online.shixun.model.RechargeRecord;
 * @date 2017年11月6日 下午2:20:19 
 *  
 */
+@Repository
 public class RechargeRecordDaoImpl implements RechargeRecordDao {
 	@Autowired
 	private BaseDao baseDao;
