@@ -8,6 +8,10 @@
 */
 package online.shixun.action;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,29 +28,46 @@ import online.shixun.services.impl.UserService;
 @Component("personalAction")
 public class PersonalAction {
 	@SuppressWarnings("unused")
-	private static final long serialVersionUID = 1L;
+	private static long serialVersionUID = 1L;
 	@Autowired
 	private UserService userService; 
 	
-	private int userId;
+	private Long userId;
 	private User user;
+	private String oldPassword;
+	private String newPassword;
 	
+	//获取个人信息
 	public String getUserInfo(){
-		user = userService.getUserById((long)userId);
+		HttpServletRequest request=ServletActionContext.getRequest();//获得session
+        HttpSession session=request.getSession();
+        userId = (Long) session.getAttribute("userId");
+		user = userService.getUserById(userId);
 		return "userInfo";	
 	}
-
+	
+	//通过老密码修改密码
+	public String modifyUserPassword(){
+		System.out.println(user.toString());
+		System.out.println(oldPassword);
+		System.out.println(newPassword);
+		
+		return "modifyUserPassword";
+		
+	}
+	
+ 
 	/**
 	 * @return the userId
 	 */
-	public int getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
@@ -62,6 +83,34 @@ public class PersonalAction {
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	/**
+	 * @return the oldPassword
+	 */
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	/**
+	 * @param oldPassword the oldPassword to set
+	 */
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
+
+	/**
+	 * @return the newPassword
+	 */
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	/**
+	 * @param newPassword the newPassword to set
+	 */
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 
 }

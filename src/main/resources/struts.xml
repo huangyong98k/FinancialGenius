@@ -84,7 +84,8 @@
 		</action>
 		<action name="personalAction!*" class="online.shixun.action.PersonalAction"
 			method="{1}">
-			<result name="userInfo">userInfo/member_center.jsp</result>
+			<result name="userInfo">my_info.jsp</result>
+			<result name="modifyUserPassword">addSuccess.jsp</result>
 		</action>
 	</package>
 
