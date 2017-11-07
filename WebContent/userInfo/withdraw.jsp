@@ -13,6 +13,7 @@
 			.ready(
 					function() {
 						var password = $("#password").val().trim();
+						var userBanlance = $("#userBanlance").val().trim();
 						//验证码
 						var code;
 						function createCode() {
@@ -100,6 +101,9 @@
 													.test(withdraw)) {
 												alert("请输入合法的金额！")
 												return false
+											} else if (userBanlance < withdraw) {
+												alert("您的账户余额已不足！")
+												return false
 											}
 										})
 
@@ -114,6 +118,9 @@
 									if (withdraw == "" || undefined || null) {
 										alert("请输入您要提现的金额！")
 										return false;
+									} else if (userBanlance < withdraw) {
+										alert("您的账户余额已不足！")
+										return false
 									} else if (payPassword == "" || undefined
 											|| null) {
 										alert("请输入您的支付密码！")
@@ -159,9 +166,9 @@
 											+ day + " " + hour + ":" + minute
 											+ ":" + second
 									$("#rechargeTime").val(rechargeTime)
-									alert($("#rechargeTime").val())
+							
 									//金额
-
+									$("#recharge").val(withdraw)
 								})
 
 					})
@@ -181,7 +188,10 @@
 					value="${payPassword }"> <input type="hidden"
 					id="rechargeTime" name="rechargeRecord.rechargeTime"><input
 					type="hidden" id="type" name="rechargeRecord.rechargeType"
-					value="提现">
+					value="提现"> <input type="hidden" id="userBanlance"
+					name="userBanlance" value="${userBanlance }">
+					<input type="hidden" id="recharge" name="recharge">
+					<input type="hidden" id="flag" name="flag" value="1">
 				<div class="row clearfix">
 					<div class="lbl">
 						<label for="withdraw"> 提现金额：</label>

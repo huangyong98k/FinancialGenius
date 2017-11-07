@@ -123,7 +123,7 @@
         <form class="contact" action="bankCardAction!addBankCard" method="post" id="form">
         <input type="hidden" id="userId" name="userId" value="${userId }">
         <input type="hidden" id="userPhone" name="userPhone" value="${userPhone }">
-        <input type="hidden" id="bankBalance" name="bankCard.bankBalance" value="10000">
+        <input type="hidden" id="bankBalance" name="bankCard.bankBalance" value="100000">
             <div class="row clearfix">
                 <div class="lbl">
                     <label for="bankCardName">

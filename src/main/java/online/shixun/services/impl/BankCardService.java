@@ -33,13 +33,5 @@ public class BankCardService {
 		bankCard.setUser(userDaoImpl.getById(userId));
 		bankCardDaoImpl.add(bankCard);
 	}
-	//修改银行卡余额
-//	public void updateBankBalance(BankCard bankCard){
-//		HttpServletRequest request=ServletActionContext.getRequest();//获得session
-//        HttpSession session=request.getSession(); 
-//        long userId = (long) session.getAttribute("userId");
-//        System.out.println("++++++++++++++++"+userId);
-//		bankCard.setUser(userDaoImpl.getById(userId));
-//		bankCardDaoImpl.update(bankCard);
-//	}
+
 }
