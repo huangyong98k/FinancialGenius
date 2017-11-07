@@ -103,47 +103,67 @@
 											}
 										})
 
-						$("#submit").click(function() {
-							var recharge = $("#recharge").val().trim();
-							var payPassword = $("#payPassword").val().trim();
-							var check = $("#checkNumber").val().toUpperCase();
-							var patternPassword = /^\d{6}$/;
-							if (recharge == "" || undefined || null) {
-								alert("请输入您要充值的金额！")
-								return false;
-							} else if (payPassword == "" || undefined || null) {
-								alert("请输入您的支付密码！")
-								return false
-							} else if (!patternPassword.test(payPassword)) {
-								alert("请输入合法的支付密码！")
-								return false
-							} else if (password != payPassword) {
-								alert("密码错误，请重新输入！")
-								return false
-							} else if (check == "") {
-								alert("请输入验证码！")
-								return false
-							} else if (check != code) {
-								alert("验证码错误，请重新输入！")
-								return false
-							}
-							//日期
-							var date = new Date();
-							var year = date.getFullYear(); //获取当前年份
-							var month = date.getMonth() + 1; //获取当前月份
-							var day = date.getDate(); //获取当前日
-							if (date.getMonth() < 10) {
-								month = "0" + month
-							}
-							if (date.getDate() < 10) {
-								day = "0" + day
-							}
-							var rechargeTime = year + "-" + month + "-" + day
-							$("#rechargeTime").val(rechargeTime)
+						$("#submit").click(
+								function() {
+									var withdraw = $("#withdraw").val().trim();
+									var payPassword = $("#payPassword").val()
+											.trim();
+									var check = $("#checkNumber").val()
+											.toUpperCase();
+									var patternPassword = /^\d{6}$/;
+									if (withdraw == "" || undefined || null) {
+										alert("请输入您要提现的金额！")
+										return false;
+									} else if (payPassword == "" || undefined
+											|| null) {
+										alert("请输入您的支付密码！")
+										return false
+									} else if (!patternPassword
+											.test(payPassword)) {
+										alert("请输入合法的支付密码！")
+										return false
+									} else if (password != payPassword) {
+										alert("密码错误，请重新输入！")
+										return false
+									} else if (check == "") {
+										alert("请输入验证码！")
+										return false
+									} else if (check != code) {
+										alert("验证码错误，请重新输入！")
+										return false
+									}
+									//日期
+									var date = new Date();
+									var year = date.getFullYear(); //获取当前年份
+									var month = date.getMonth() + 1; //获取当前月份
+									var day = date.getDate(); //获取当前日
+									var hour = date.getHours();//获取当前时
+									var minute = date.getMinutes();//当前分
+									var second = date.getSeconds();//当前秒
+									if (date.getMonth() < 10) {
+										month = "0" + month
+									}
+									if (date.getDate() < 10) {
+										day = "0" + day
+									}
+									if (date.getHours() < 10) {
+										hour = "0" + hour
+									}
+									if (date.getMinutes() < 10) {
+										minute = "0" + minute
+									}
+									if (date.getSeconds() < 10) {
+										second = "0" + second
+									}
+									var rechargeTime = year + "-" + month + "-"
+											+ day + " " + hour + ":" + minute
+											+ ":" + second
+									$("#rechargeTime").val(rechargeTime)
+									alert($("#rechargeTime").val())
+									//金额
 
-							//金额
+								})
 
-						})
 					})
 </script>
 </head>
@@ -167,8 +187,8 @@
 						<label for="withdraw"> 提现金额：</label>
 					</div>
 					<div class="ctrl">
-						<input type="text" id="withdraw" name="rechargeRecord.money" maxlength="8"
-							placeholder="请输入您要提现的金额！">
+						<input type="text" id="withdraw" name="rechargeRecord.money"
+							maxlength="8" placeholder="请输入您要提现的金额！">
 					</div>
 				</div>
 				<div class="row clearfix">
@@ -185,8 +205,9 @@
 						<label for="checkNumber"> 验证码：<span id="code"></span></label>
 					</div>
 					<div class="ctrl">
-						<input type="text" id="checkNumber" name="#" placeholder="请输入验证码！"
-							style="width: 30%"> <label id="isCheck"></label>
+						<input type="text" id="checkNumber" name="checkNumber"
+							placeholder="请输入验证码！" style="width: 30%"> <label
+							id="isCheck"></label>
 					</div>
 				</div>
 				<div class="row  clearfix">

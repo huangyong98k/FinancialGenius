@@ -8,8 +8,11 @@
 */
 package online.shixun.dao;
 
+import java.util.List;
+
 import online.shixun.common.UtilDao;
 import online.shixun.model.RechargeRecord;
+import online.shixun.model.RechargeRecordDemo;
 
 /** 
 * @ClassName: RechargeRecordDao 
@@ -19,5 +22,5 @@ import online.shixun.model.RechargeRecord;
 *  
 */
 public interface RechargeRecordDao extends UtilDao<RechargeRecord> {
-
+	List<RechargeRecord> getRechargeRecordByUserId(String sql);//根据用户Id查找充值记录
 }

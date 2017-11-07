@@ -127,21 +127,33 @@
 								alert("验证码错误，请重新输入！")
 								return false
 							}
-							//日期
 							var date = new Date();
 							var year = date.getFullYear(); //获取当前年份
 							var month = date.getMonth() + 1; //获取当前月份
 							var day = date.getDate(); //获取当前日
+							var hour = date.getHours();//获取当前时
+							var minute = date.getMinutes();//当前分
+							var second = date.getSeconds();//当前秒
 							if (date.getMonth() < 10) {
 								month = "0" + month
 							}
 							if (date.getDate() < 10) {
 								day = "0" + day
 							}
-							var rechargeTime = year + "-" + month + "-" + day
+							if (date.getHours() < 10) {
+								hour = "0" + hour
+							}
+							if (date.getMinutes() < 10) {
+								minute = "0" + minute
+							}
+							if (date.getSeconds() < 10) {
+								second = "0" + second
+							}
+							var rechargeTime = year + "-" + month + "-"
+									+ day + " " + hour + ":" + minute
+									+ ":" + second
 							$("#rechargeTime").val(rechargeTime)
-
-							//金额
+							alert($("#rechargeTime").val())
 
 						})
 

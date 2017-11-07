@@ -8,11 +8,15 @@
 */
 package online.shixun.action;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import online.shixun.model.BankCard;
 import online.shixun.model.RechargeRecord;
+import online.shixun.model.RechargeRecordDemo;
 import online.shixun.services.impl.UserService;
 import online.shixun.services.impl.BankCardService;
 import online.shixun.services.impl.RechargeService;
@@ -40,6 +44,7 @@ public class RechargeAction {
 	private long userId;
 	private BankCard bankCard;
 	private RechargeRecord rechargeRecord;
+	private List<RechargeRecord> list;
 
 	public String addRechargeRecode(){
 		rechargeService.addRechargeRecord(rechargeRecord);
@@ -47,6 +52,14 @@ public class RechargeAction {
 		return "success";
 	}
 
+	public String findAllRechargeRecode(){
+		list=rechargeService.getRechargeByUserId();
+		for (RechargeRecord rechargeRecord : list) {
+			System.out.println(rechargeRecord.getRechargeRecordId()+"##########");
+		}
+		return "list";
+	}
+	
 	public String getBankCardId() {
 		return bankCardId;
 	}
@@ -93,6 +106,14 @@ public class RechargeAction {
 
 	public void setBankCard(BankCard bankCard) {
 		this.bankCard = bankCard;
+	}
+
+	public List<RechargeRecord> getList() {
+		return list;
+	}
+
+	public void setList(List<RechargeRecord> list) {
+		this.list = list;
 	}
 	
 	

@@ -34,10 +34,10 @@ public class RechargeRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long rechargeRecordId;//充值记录ID
-	
 	private Date rechargeTime;//时间
 	private double money;//金额
 	private String rechargeType;//类型（充值/提现）
+	
 	@ManyToOne(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	@JoinColumn(name="userId")
 	private User user;//所属用户

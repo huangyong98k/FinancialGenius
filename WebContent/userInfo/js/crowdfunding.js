@@ -239,6 +239,7 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 2) {
 
@@ -251,6 +252,7 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 3) {
 		$("#crowdfunding_iframe").attr("src","userInfo/bankCard.jsp");
@@ -262,9 +264,10 @@ function listClick(value) {
 		$("#listClick3").attr("class", "menu_list_on");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 4) {
-		$("#crowdfunding_iframe").attr("src","userAction!findBankCard");
+		$("#crowdfunding_iframe").attr("src","recharge.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -273,6 +276,7 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "menu_list_on");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 5) {
 		$("#crowdfunding_iframe").attr("src",
@@ -285,9 +289,10 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "menu_list_on");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 6) {
-		$("#crowdfunding_iframe").attr("src","userInfo/withdraw.jsp");
+		$("#crowdfunding_iframe").attr("src","withdraw.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -296,5 +301,18 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "menu_list_on");
+		$("#listClick7").attr("class", "");
+	}
+	if (value == 7) {
+		$("#crowdfunding_iframe").attr("src","rechargeAction!findAllRechargeRecode");
+		$("#crowdfunding_iframe").attr("height", "520");
+		$("#vertical_navigation").css("height", "550px");
+
+		$("#listClick1").attr("class", "");
+		$("#listClick2").attr("class", "");
+		$("#listClick3").attr("class", "");
+		$("#listClick4").attr("class", "");
+		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "menu_list_on");
 	}
 }

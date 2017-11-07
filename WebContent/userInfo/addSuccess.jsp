@@ -17,7 +17,7 @@
 			</h1>
 		</div>
 		<div class="container">
-			<a href="javascript:history.go(-1)">点击返回!</a>
+			<a href="rechargeAction!findAllRechargeRecode">查看交易记录</a>
 		</div>
 	</section>
 </body>

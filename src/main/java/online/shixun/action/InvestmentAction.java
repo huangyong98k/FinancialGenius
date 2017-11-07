@@ -192,4 +192,12 @@ public class InvestmentAction {
 		this.spend = spend;
 	}
 
+	public List<Investment> getInvestments() {
+		return investments;
+	}
+
+	public void setInvestments(List<Investment> investments) {
+		this.investments = investments;
+	}
+
 }
