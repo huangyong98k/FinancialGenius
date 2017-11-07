@@ -11,9 +11,17 @@ package online.shixun.action;
 
 import org.springframework.stereotype.Component;
 
+import com.opensymphony.xwork2.ActionContext;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +36,7 @@ import online.shixun.services.impl.UserService;
 *  
 */
 @Component("loginAction")
-public class LoginAction {
+public class LoginAction{
 
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
@@ -50,15 +58,21 @@ public class LoginAction {
 		* @Description:  普通用户登录验证！
 		 */
 		public String login() {
+			HttpSession session = ServletActionContext.getRequest().getSession();
 			int count = userService.loginMager(email, userPassword);
-			System.out.println(count);
-			if (count == 1) {
-				session.put("loginInfo", email);
-				return "loginSuccess";
+			if(email.equals("")||userPassword.equals("")){
+				
+				session.setAttribute("email", 1);
+				return "loginFaile";
+			}else {
+				if (count == 1) {
+					session.setAttribute("email", 1);
+					return "loginSuccess";
+				}else {
+					session.setAttribute("email", 2);
+					return "loginFaile";
+				}
 			}
-			session.put("loginError", "用户密码不正确！");
-			    return "loginFaile";
-
 		}
 		/**
 		 * @return the email

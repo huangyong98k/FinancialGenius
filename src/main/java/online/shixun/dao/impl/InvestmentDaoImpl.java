@@ -131,4 +131,15 @@ public class InvestmentDaoImpl implements InvestmentDao {
 		return baseDao.getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(sql).list();
 	}
 
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Investment> getInvestmentsByUserId(Long userId) {
+		String queryString = "from Investment i LEFT OUTER JOIN fetch i.user where i.user.userId=:userId";
+		String paramNames = "userId";
+		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
+		System.out.println(userId+"~~~~~~~~~~~~~~~");
+		return (List<Investment>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
+	}
+
 }

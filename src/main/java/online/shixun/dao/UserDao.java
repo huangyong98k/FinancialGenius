@@ -11,6 +11,7 @@ package online.shixun.dao;
 import java.util.List;
 
 import online.shixun.common.UtilDao;
+import online.shixun.model.BankCard;
 import online.shixun.model.Investment;
 import online.shixun.model.User;
 
@@ -28,5 +29,6 @@ public interface UserDao extends UtilDao<User>{
 	List<User> getByEmail(String email);//根据邮箱查询
 	List<User> getByPhone(String phone);//根据手机号查询
 	List<Investment> getInvestmentsByUserId(Long userId);//根据用户id获取用户投资信息
+	List<BankCard> getBankCardsByUserId(Long userId);//根据用户id获取用户银行卡信息
 	User getUser(User user);
 }

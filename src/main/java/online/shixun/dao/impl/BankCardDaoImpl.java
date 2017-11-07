@@ -17,18 +17,18 @@ import online.shixun.common.BaseDao;
 import online.shixun.dao.BankCardDao;
 import online.shixun.model.BankCard;
 
-/** 
-* @ClassName: BankCardDaoImpl 
-* @Description: TODO(这里用一句话描述这个类的作用) 
-* @author HPEU丶小咸鱼
-* @date 2017年11月6日 下午2:21:51 
-*  
-*/
+/**
+ * @ClassName: BankCardDaoImpl
+ * @Description: TODO(这里用一句话描述这个类的作用)
+ * @author HPEU丶小咸鱼
+ * @date 2017年11月6日 下午2:21:51
+ * 
+ */
 @Repository
 public class BankCardDaoImpl implements BankCardDao {
 	@Autowired
 	private BaseDao baseDao;
-	
+
 	@Override
 	public int add(BankCard bc) {
 		baseDao.getHibernateTemplate().save(bc);
@@ -39,6 +39,16 @@ public class BankCardDaoImpl implements BankCardDao {
 	@Override
 	public List<BankCard> getAll() {
 		return (List<BankCard>) baseDao.getHibernateTemplate().find("from BankCard");
+	}
+
+	// 根据用户id获取用户银行卡信息
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<BankCard> getBankCardsByUserId(Long userId) {
+		String queryString = "from BankCard b LEFT OUTER JOIN fetch b.user where b.user.userId=:userId";
+		String paramNames = "userId";
+		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
+		return (List<BankCard>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
 	}
 
 	@Override

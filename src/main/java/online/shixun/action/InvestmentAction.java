@@ -128,8 +128,7 @@ public class InvestmentAction {
 
 	public String deleteInvestById() {
 		investmentService.deleteById(investment);
-		//findInvestment();
-		investments=userService.findInvestmentsByUserId(userId);
+		investments=userService.findInvestmentsByUserId();
 		return "deleteSuccess";
 	}
 
