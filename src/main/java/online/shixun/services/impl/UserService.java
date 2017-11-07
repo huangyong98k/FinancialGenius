@@ -63,7 +63,6 @@ public class UserService {
 		}
 		return 0;
 	}
-
 	
 	public  int loginMagerAdmin(String adminName,String AdminPassword){
 		List<Admin> list =  (List<Admin>) adminDaoImpl.getByName(adminName);

@@ -516,18 +516,18 @@ area {
 }
 
 .btn-red {
-	background: #e6472e;
+	background: #0080ff;
 	color: #fff;
-	border: solid 1px #e6472e;
+	border: solid 1px #0080ff;
 }
 
 .btn-red:hover {
 	color: #fff;
-	background: #f9583e;
+	background: #0072e3;
 }
 
 .btn-red:active {
-	background: #cc0000;
+	background: #0080ff;
 }
 
 .btn-unable {
@@ -658,7 +658,7 @@ area {
 }
 
 .reg-lists .agreement .tip-error {
-	color: #ff3333;
+	color: #0080ff;
 	margin-left: 5px;
 }
 
@@ -687,7 +687,7 @@ area {
 
 .reg-list .tip-error {
 	clear: both;
-	color: #ff3333;
+	color: #0080ff;
 	padding: 10px 0 10px 5px;
 }
 
@@ -699,7 +699,7 @@ area {
 .reg-lists .agreement a:hover, .reg-lists .reg-login a:hover, .reg-list .tip-error a:hover
 	{
 	text-decoration: none;
-	color: #e5472e;
+	color: #0080ff;
 }
 
 .reg-list .tip-ok {
@@ -734,7 +734,7 @@ area {
 }
 
 .reg-complete .p2 span {
-	color: #e6472e;
+	color: #0080ff;
 }
 
 .reg-complete .btn {
@@ -752,7 +752,7 @@ area {
 
 .reg-complete .p3 a:hover {
 	text-decoration: none;
-	color: #e5472e;
+	color: #0080ff;
 }
 
 .login {
@@ -776,7 +776,7 @@ area {
 }
 
 .login-list .tip-error {
-	color: #ff3333;
+	color: #0080ff;
 	padding: 15px 0 5px;
 }
 
@@ -844,7 +844,7 @@ area {
 
 .login-lists .remeber-me .lost-pwd:hover {
 	text-decoration: none;
-	color: #e5472e;
+	color: #0080ff;
 }
 
 .login-lists .btn {
@@ -876,7 +876,7 @@ area {
 
 .login-tab li.on {
 	background: #fff;
-	border-top: solid 2px #ff3300;
+	border-top: solid 2px #0080ff;
 	border-bottom: none;
 	line-height: 36px;
 }
@@ -900,7 +900,7 @@ area {
 
 .login-reg .p5 a:hover {
 	text-decoration: none;
-	color: #e5472e;
+	color: #0080ff;
 }
 
 .login-reg .p5 i {
@@ -913,7 +913,7 @@ area {
 
 .login-reg .p1 a:hover {
 	text-decoration: none;
-	color: #e5472e;
+	color: #0080ff;
 }
 
 .login-reg .p2 {
@@ -1043,7 +1043,7 @@ area {
 .validate-phone .tip-error {
 	padding: 10px 0;
 	clear: both;
-	color: #ff3333;
+	color: #0080ff;
 }
 
 .validate-phone .tip-error a {
@@ -1051,7 +1051,7 @@ area {
 }
 
 .validate-phone .tip-error a:hover {
-	color: #e5472e;
+	color: #0080ff;
 	text-decoration: none;
 }
 
@@ -1115,12 +1115,12 @@ area {
 }
 
 .licai .btn-blue {
-	background: #e6472e;
-	border: solid 1px #e6472e;
+	background: #0080ff;
+	border: solid 1px #0080ff;
 }
 
 .licai .btn-blue:hover {
-	background: #e6472e;
+	background: #0080ff;
 	color: #fff;
 }
 
@@ -1136,7 +1136,7 @@ area {
 }
 
 .data-tip a:hover {
-	color: #e5472e;
+	color: #0080ff;
 	text-decoration: none;
 }
 
