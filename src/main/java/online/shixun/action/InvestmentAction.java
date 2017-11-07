@@ -45,7 +45,7 @@ public class InvestmentAction {
 		userService.modifyUserBanlance(userId, spend);
 		return "addSuccess";
 	}
-
+	
 	public List<Investment> getList() {
 		return list;
 	}
@@ -60,6 +60,16 @@ public class InvestmentAction {
 		System.out.println(list.toString());
 		return "list";	
 	}
+	//通过产品编号查询
+	public String findInvestmentId(){
+//		list = investmentService.findInvestmentId(investment.getInvestmentId());
+//		return "list";
+		investment= investmentService.getById(investment.getInvestmentId());
+		
+		
+		return "list";
+	}
+	
 	//投资失效查询
 	public String findInvestment2(){
 		list2=investmentService.findInvestment();

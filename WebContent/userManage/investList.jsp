@@ -58,10 +58,11 @@
 			<!-- 学生页面样式 -->
 			<div class="connoisseur">
 				<div class="conform">
-					<form>
+					<form action="investmentAction!findInvestmentId" method="get">
 						<div class="cfD">
-							<input class="addUser" type="text" placeholder="输入投资名" />
-							<button class="button">搜索</button>
+							<input class="addUser" type="text" placeholder="输入投资名" 
+							name="investment.investmentId"/>
+							<input type="submit" class="button" id="search2lol33" value="搜索">
 						</div>
 					</form>
 				</div>
@@ -73,7 +74,7 @@
 							<td width="435px" class="tdColor">投资编号</td>
 							<td width="435px" class="tdColor">起始时间</td>
 							<td width="435px" class="tdColor">结束时间</td>
-							<td width="435px" class="tdColor">编号</td>
+							<td width="435px" class="tdColor">数量</td>
 							<td width="435px" class="tdColor">预计收益</td>
 							<td width="435px" class="tdColor">状态</td>
 							<td width="435px" class="tdColor">本金</td>
@@ -93,6 +94,17 @@
 									src="image/delete.png"></td>
 							</tr>
 						</c:forEach>
+						<tr id="one-data" height="40px">
+								<td>${investment.investmentId}</td>
+								<td>${investment.beginTime}</td>
+								<td>${investment.overTime }</td>
+								<td>${investment.number}</td>
+								<td>${investment.earning }</td>
+								<td>${investment.investmentStatus}</td>
+								<td>${investment.principal}</td>
+								<td><img class="operation delban img-delete"
+									src="image/delete.png"></td>
+									<tr>
 					</table>
 					<div class="paging">
 						<a href="investmentAction!prevPage"><input type="button"
@@ -119,11 +131,34 @@
 		</div>
 		<!-- 删除弹出框  end-->
 		<script type="text/javascript">
+		var lol="${list}";
+		console.log(lol.length)
+		if(lol!=null&&lol.length!=0){
+			$('#one-data').hide()
+		}
+		/* else if(lol.length==0){
+			$('#one-data').show()
+		} */
         $('.img-delete').click(function(){
         $('.a-delete').prop('href','investmentAction!deleteById?investment.investmentId='+$(this).parent().siblings().filter(":eq(0)").html())       
 
         })
         
+        $('#search2lol').click(function(){
+        	
+					 console.log($('tr:last').index())
+					if($('tr:last').index()!==0){
+						alert("投资项目不存在 ")
+						return false;
+					} 
+				})
+				
+				$(document).ready(function(){
+					if($('tr:last').index()==0){
+						alert("投资项目不存在 ")
+						window.history.back(-1); 
+					}
+				})
         
         
     $('tr').filter(':lt(0)').hide();

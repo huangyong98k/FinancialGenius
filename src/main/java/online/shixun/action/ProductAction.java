@@ -19,6 +19,8 @@ import online.shixun.services.impl.ProductService;
  */
 @Component("productAction")
 public class ProductAction {
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private ProductService productService;
@@ -115,6 +117,7 @@ public class ProductAction {
 		//通过产品名搜索
 		public String findUseName() {
 			list=productService.findUseName(product.getProductName());
+			System.out.println(list.toString());
 			return"list" ;
 		}
 }

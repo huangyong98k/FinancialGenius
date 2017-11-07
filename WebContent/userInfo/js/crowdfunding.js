@@ -222,8 +222,15 @@ $(document).ready(function(event) {
  * @return {null} 无
  */
 function listClick(value) {
+//	var localObj = window.location;
+//
+//	var contextPath = localObj.pathname.split("/")[1];
+//	console.log(contextPath);
+//
+//	var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
+//	console.log(basePath);
 	if (value == 1) {
-		$("#crowdfunding_iframe").attr("src", "my_info.html");
+		$("#crowdfunding_iframe").attr("src", "personalAction!getUserInfo");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -235,7 +242,7 @@ function listClick(value) {
 	}
 	if (value == 2) {
 
-		$("#crowdfunding_iframe").attr("src", "modifyPassword.html");
+		$("#crowdfunding_iframe").attr("src","modifyPassword.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 

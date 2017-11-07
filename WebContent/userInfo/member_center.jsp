@@ -28,7 +28,7 @@
 			</div>
 			<span id="userName"></span>
 			<div class="usertype">
-				用户类型： 普通用户<br> 账户余额： <span id="userBanlance">${user.userBanlance}</span>
+				用户类型： 普通用户<br> 账户余额： <span id="userBanlance">${userBanlance}</span>
 			</div>
 			<div class="menu">
 				<div class="menu_title">我的信息</div>
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div class="col-lg-9">
-			<iframe name="left" id="crowdfunding_iframe" src="<%=request.getContextPath() %>/userInfo/my_info.jsp"
+			<iframe name="left" id="crowdfunding_iframe" src="personalAction!getUserInfo"
 				frameborder="false" scrolling="no" style="border: none;"
 				width="100%" height="520" allowtransparency="true"></iframe>
 		</div>

@@ -60,8 +60,9 @@ public class UserService {
 			        session.setAttribute("userId", user.getUserId());
 			        session.setAttribute("nickName", user.getNickName());
 			        session.setAttribute("userPhone", user.getUserPhone());
-			        session.setAttribute("userBalance", user.getUserBanlance());
 			        session.setAttribute("payPassword", user.getPayPassword());
+			        session.setAttribute("userEmail", user.getUserEmail());
+			        session.setAttribute("userBanlance", user.getUserBanlance());
 					return 1;
 				}
 			}
@@ -70,7 +71,6 @@ public class UserService {
 		}
 		return 0;
 	}
-
 	
 	public  int loginMagerAdmin(String adminName,String AdminPassword){
 		List<Admin> list =  (List<Admin>) adminDaoImpl.getByName(adminName);
