@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>首页</title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/public.css">
+<link rel="stylesheet" type="text/css" href="css/backPublic.css">
 <script type="text/javascript"
 	src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
