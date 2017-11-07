@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         	 $.ajax({
         	        cache: true,
         	        type: "POST",
-        	        url:"portraitAction!saveImage.action",
+        	        //url:"portraitAction!saveImage.action",
         	        data:fd,
         	        dataType:"text",
         	        async: true,
