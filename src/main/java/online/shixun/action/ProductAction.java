@@ -19,6 +19,8 @@ import online.shixun.services.impl.ProductService;
  */
 @Component("productAction")
 public class ProductAction {
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = 1L;
 
 	@Autowired
 	private ProductService productService;

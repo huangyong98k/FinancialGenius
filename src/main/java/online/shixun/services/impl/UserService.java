@@ -50,8 +50,10 @@ public class UserService {
 				if(userPassword.equals(user.getUserPassword())){	
 					HttpServletRequest request=ServletActionContext.getRequest();//获得session
 			        HttpSession session=request.getSession();          
-			        session.setAttribute("userId", (int)user.getUserId());
+			        session.setAttribute("userId", user.getUserId());
 			        session.setAttribute("nickName", user.getNickName());
+			        session.setAttribute("userEmail", user.getUserEmail());
+			        session.setAttribute("userBanlance", user.getUserBanlance());
 
 					return 1;
 				}

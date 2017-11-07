@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -29,14 +31,17 @@
 					type="submit" value="Submit" class="btn-submit" id="submintByEmail">
 			</div>
 			<div id="changePasswordMain2">
+				<form action="personalAction!modifyUserPassword" method="post">
 				<input type="password" class="form-control" id="oldPassword"
-					name="user.userPassword" placeholder="Your old password"> <input
+					name="user.userPassword" placeholder="Your old password"> 
+				<input
 					type="password" class="form-control" id="Password"
-					name="user.userPassword" placeholder="Your new password"> <input
-					type="password" class="form-control" id="Password2"
-					name="newUserPassword" placeholder="Your new password again">
+					name="oldPassword" placeholder="Your new password"> 
+				<input type="password" class="form-control" id="Password2"
+					name="newPassword" placeholder="Your new password again">
 				<input type="submit" value="Submit" class="btn-submit"
 					id="submintByPassword">
+				</form>
 			</div>
 			<div id="modifyMessage"></div>
 		</div>
