@@ -23,8 +23,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import online.shixun.dao.impl.AdminDaoImpl;
+import online.shixun.dao.impl.BankCardDaoImpl;
+import online.shixun.dao.impl.InvestmentDaoImpl;
 import online.shixun.dao.impl.UserDaoImpl;
 import online.shixun.model.Admin;
+import online.shixun.model.BankCard;
 import online.shixun.model.Investment;
 import online.shixun.model.User;
 
@@ -42,6 +45,10 @@ public class UserService {
     private UserDaoImpl userDaoImpl;
 	@Autowired
 	private AdminDaoImpl adminDaoImpl;
+	@Autowired
+	private InvestmentDaoImpl investmentDaoImpl;
+	@Autowired
+	private BankCardDaoImpl bankCardDaoImpl;
 	
 	public  int loginMager(String email,String userPassword){
 		List<User> list =  (List<User>) userDaoImpl.getByEmail(email);
@@ -52,9 +59,10 @@ public class UserService {
 			        HttpSession session=request.getSession();          
 			        session.setAttribute("userId", user.getUserId());
 			        session.setAttribute("nickName", user.getNickName());
+			        session.setAttribute("userPhone", user.getUserPhone());
+			        session.setAttribute("payPassword", user.getPayPassword());
 			        session.setAttribute("userEmail", user.getUserEmail());
 			        session.setAttribute("userBanlance", user.getUserBanlance());
-
 					return 1;
 				}
 			}
@@ -191,10 +199,32 @@ public class UserService {
 		return userDaoImpl.getByEmail(email);
     	
     }
-    public List<Investment> findInvestmentsByUserId(Long userId){
-		return userDaoImpl.getInvestmentsByUserId(userId);
+    //查询已购产品
+    public List<Investment> findInvestmentsByUserId(){
+    	HttpServletRequest request=ServletActionContext.getRequest();//获得session
+        HttpSession session=request.getSession();
+        long userId=(long) session.getAttribute("userId");
+    	System.out.println("~~~~~~~~~~~"+userId);
+		return investmentDaoImpl.getInvestmentsByUserId(userId);
 	}
 
+    //session存储用户银行卡信息
+    public int findBankCardsByUserId(){
+    	HttpServletRequest request=ServletActionContext.getRequest();//获得session
+        HttpSession session=request.getSession();
+        long userId=(long) session.getAttribute("userId");
+        List<BankCard> list = bankCardDaoImpl.getBankCardsByUserId(userId);
+        if(list.size()>0){
+        	for (BankCard bankCard : list) {
+        		System.out.println("！！！！！！！！！！"+bankCard.getBankBalance()+"~~~~~~");
+				session.setAttribute("bankBalance", bankCard.getBankBalance());
+				session.setAttribute("bankCardId", bankCard.getBankCardId());
+				return 1;
+			}
+        }
+        return 0;
+    }
+    
     public void deleteById(User user) {
 		userDaoImpl.delete(user);
 	}

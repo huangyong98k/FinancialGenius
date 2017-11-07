@@ -12,42 +12,9 @@
 <script type="text/javascript" src="js/products.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		var userBalance;
 		var number = $("#number").val();
 		var principal = $("#principal").val();
-
-		$.ajax({
-			cache : true,
-			type : "POST",
-			url : "userAction!queryUserID.action",
-			data : "",// 数据控件ID 
-			async : true,
-			success : function(data) {
-				if (data == "请登录") {
-				} else {
-					$("#userId").val(data);
-				}
-			},
-			error : function(response) {
-				console.log(response);
-			}
-		});
-
-		$.ajax({
-			cache : true,
-			type : "POST",
-			url : "userAction!queryUserBalance.action",
-			data : "",// 数据控件ID
-			dataType : "json",
-			async : true,
-			success : function(data) {
-				userBalance = data;
-				console.log(userBalance);
-			},
-			error : function(response) {
-				console.log(response);
-			}
-		});
+		var userBalance = $("#userBalance").val();
 
 		$("#submit").click(function() {
 			var number = $("#number").val();
@@ -67,9 +34,6 @@
 			} else if (overDate < beginDate) {
 				alert("到期日期选择有误！")
 				return false
-			} else if (beginDate == overDate) {
-				alert("投资日期不足1个月！");
-				return false;
 			} else if (principal * number > userBalance) {
 				alert("你的余额不足！")
 				return false;
@@ -86,7 +50,7 @@
 		});
 
 		$("#number").change(function() {
-			if (principal * number > userBalance) {
+			if ((principal * number) > userBalance) {
 				alert("你的余额不足！")
 				return false;
 			}
@@ -106,10 +70,11 @@
 				action="investmentAction!add?productId=${product.productId }"
 				method="post" id="form">
 				<div class="row clearfix">
-					<input type="hidden" id="userId" name="userId" > <input
+					<input type="hidden" id="userId" name="userId" value="${userId }"> <input
 						type="hidden" id="status" name="investment.investmentStatus"
 						readonly value="0" >
 						<input type="hidden" id="spend" name="spend" >
+						<input type="hidden" id="userBalance" name="userBalance" value="${userBalance }">
 					<div class="lbl">
 						<label for="name"> 产品名称</label>
 					</div>
