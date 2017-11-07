@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import online.shixun.common.BaseDao;
 import online.shixun.dao.RechargeRecordDao;
 import online.shixun.model.RechargeRecord;
+import online.shixun.model.RechargeRecordDemo;
 
 /** 
 * @ClassName: RechargeRecordDaoImpl 
@@ -71,6 +72,12 @@ public class RechargeRecordDaoImpl implements RechargeRecordDao {
 	public int update(RechargeRecord rr) {
 		baseDao.getHibernateTemplate().update(rr);
 		return 1;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RechargeRecord> getRechargeRecordByUserId(String sql) {
+		return baseDao.getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(sql).addEntity(RechargeRecord.class).list();
 	}
 
 }

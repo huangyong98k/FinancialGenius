@@ -51,6 +51,8 @@
 							src="img/member_center/left_icon_8.png"> 充值</li>
 						<li id="listClick6" class="" onClick="listClick(6)"><img
 							src="img/member_center/left_icon_8.png"> 提现</li>
+						<li id="listClick7" class="" onClick="listClick(7)"><img
+							src="img/member_center/left_icon_9.png"> 交易账单</li>
 					</ul>
 				</div>
 			</div>
