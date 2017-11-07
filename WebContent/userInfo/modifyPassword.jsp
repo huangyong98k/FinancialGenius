@@ -31,7 +31,7 @@
 					type="submit" value="Submit" class="btn-submit" id="submintByEmail">
 			</div>
 			<div id="changePasswordMain2">
-				<form action="personalAction!modifyUserPassword" method="post">
+			<input type="hidden" name="user.userId" id="userIDM" value="${userId}">
 				<input type="password" class="form-control" id="oldPassword"
 					name="user.userPassword" placeholder="Your old password"> 
 				<input
@@ -41,7 +41,6 @@
 					name="newPassword" placeholder="Your new password again">
 				<input type="submit" value="Submit" class="btn-submit"
 					id="submintByPassword">
-				</form>
 			</div>
 			<div id="modifyMessage"></div>
 		</div>

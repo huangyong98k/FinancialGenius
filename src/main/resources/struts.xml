@@ -85,8 +85,10 @@
 		</action>
 		<action name="personalAction!*" class="online.shixun.action.PersonalAction"
 			method="{1}">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
 			<result name="userInfo">my_info.jsp</result>
-			<result name="modifyUserPassword">addSuccess.jsp</result>
 		</action>
 		<action name="rechargeAction!*" class="online.shixun.action.RechargeAction" method="{1}">
 		<result name="success">/userInfo/addSuccess.jsp</result>
