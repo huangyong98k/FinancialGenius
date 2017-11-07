@@ -10,7 +10,7 @@
 	<!-- 刘杰生 -->
      	<action name="registerAction!*" class="online.shixun.action.RegisterAction"
      	method="{1}">
-     	<result name="users" type="json">
+     		<result name="users" type="json">
 				<param name="root">list</param>
 			</result>
 			<result type="json">
@@ -36,9 +36,7 @@
 			</result>
 			<result name="register">registerSuccess.jsp</result>
 			<result name="getSuccess">/products/buyList.jsp</result>
-			<result name="loginSuccess">index.html</result>
 			<result name="adminLoginSuccess">/userManage/mainFrame.jsp</result>
-			<result name="loginFaile">loginFaile.jsp</result>
 			<result name="list">/userManage/userList.jsp</result>
 			<result name="to_edit">/userManage/modifyUser.jsp</result>
 			<result name="do_edit">/userManage/userList.jsp</result>
@@ -83,6 +81,10 @@
 			method="{1}">
 			<result name="loginSuccess">index.jsp</result>
 			<result name="loginFaile">loginFaile.jsp</result>
+		</action>
+		<action name="personalAction!*" class="online.shixun.action.PersonalAction"
+			method="{1}">
+			<result name="userInfo">userInfo/member_center.jsp</result>
 		</action>
 	</package>
 

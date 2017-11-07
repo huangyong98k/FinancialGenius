@@ -1,0 +1,388 @@
+/*!* Home page @author WangPing @Date:2014-08/18 10:26:48*/
+#footer .t { background: #15456f }
+#footer .navsub, #footer .cabout, #footer .hotl, #footer .hotl .online, #footer .navsub a, #footer .navsub a:visited { color: #fff }
+#footer .navsub a:hover { text-decoration: underline }
+#footer .cabout a { background-color: #143f64; background-color: transparent\9; background-position: -50px -209px\9 }
+#footer .cabout a:hover { background-color: #2e597f; background-color: transparent\9; background-position: 0 -209px\9 }
+#footer .cabout a:after { box-shadow: 0 0 0 2px #2e597f }
+#footer .hotl .online .icons { background-position: -205px -242px }
+.yol-top, .switch-index, .gain-items, .switch-updown, .slider li a { width: 1000px }
+a, a:visited { color: #15456f }
+a:hover { color: #15456f }
+.yol-top { height: inherit; position: relative; overflow: hidden }
+.index-new {position: absolute; display: block; width: 100%;}
+.index-new img {display: block; margin: 0 auto; margin-left: 530px;position: fixed;left:50%;bottom: 70px;z-index: 1001}
+.feat-area { height: 330px; position: relative; overflow: hidden; min-width: 1000px }
+.slider-index, .gain-items, .slider-updown, .slider li a { min-width: 1000px; width: 1000px; margin: 0 auto; position: relative }
+.slider-items { width: 100%; height: 330px; overflow: hidden; position: relative }
+.slider { width: 100%; min-width: 1000px; height: 330px; position: absolute; left: 0; top: 0; overflow: hidden; display: none }
+.slider li { width: 100%; height: 330px; overflow: hidden; position: absolute; left: 0; top: 0; display: none }
+.slider li a { display: block; text-indent: -9999em; overflow: hidden; height: 330px }
+.slider-index .items { height: 20px; position: absolute; left: 0; bottom: 10px }
+.slider-index li { float: left; display: inline; margin-right: 7px; width: 20px; height: 20px; line-height: 20px; text-align: center; cursor: pointer; background: #ecf2f7; border-radius: 20px }
+.slider-index li.current { background: #15456f; color: #fff }
+.slider-updown .button { width: 30px; height: 30px; background: #900; position: absolute; top: -90px }
+.slider-updown .prev { left: 0 }
+.slider-updown .next { left: 100px }
+.gain { width: 320px; height: 270px; overflow: hidden; position: absolute; right: 0; top: -600px }
+.gain .opacity { width: 320px; height: 270px; position: absolute; left: 0; top: 0; z-index: 1; background: #000; opacity: 0.5 }
+.gain-cont a, .gain-cont a:visited { color: #fff; text-decoration: underline }
+.gain-cont a:hover { text-decoration: none }
+.gain-cont { position: relative; z-index: 5; color: #fff; padding: 0 35px }
+.gain-cont .light-fc { color: #fc8026; font-family: Tahoma, Geneva, sans-serif }
+.gain-cont em { color: #fc8026; font-size: 20px; font-family: Tahoma, Geneva, sans-serif }
+.gain-cont h2 { font-size: 18px; padding-top: 15px; font-weight: normal }
+.gain-cont .f { color: #fc8026; font-size: 34px; height: 50px; line-height: 50px; overflow: hidden; font-family: Tahoma, Geneva, sans-serif }
+.gain-cont .f em { font-size: 40px }
+.gain-cont .reg { height: 46px; padding: 10px 0 5px }
+.gain-cont .reg a { height: 46px; line-height: 46px; display: block; text-align: center; font-size: 16px; background: #fc8026; text-decoration: none }
+.gain-cont .regbtn a{ height: 63px; line-height: 85px; background: url(../../../local/img/register/regbtn.png) no-repeat ; }
+.gain-cont .tar { text-align: right; padding-bottom: 25px; margin-top: 22px }
+.usered h2 { padding-top: 40px }
+.usered .name { height: 40px; line-height: 40px; overflow: hidden; padding: 10px 0 }
+.yol-info { overflow: hidden; zoom: 1; padding: 30px 0 20px; position: relative }
+.yol-info .more { position: absolute; right: 0; top: 38px; height: 20px; padding-left: 20px }
+.yol-info .more .icons { width: 16px; height: 16px; background-position: -389px -65px; position: absolute; left: 0; top: 2px }
+.yol-info .intro { overflow: hidden; zoom: 1; width: 45%; float: left; display: inline }
+.yol-info .intro h2 { font-size: 24px; font-weight: normal; line-height: normal; padding-bottom: 4px; color: #475058 }
+.yol-info .intro p { line-height: 31px }
+.stat-sum { position: absolute; right: 0; top: 60px; height: 100px; float: right; text-align: right }
+.stat-sum dl { float: left; height: inherit; text-align: right; padding-left: 20px }
+.stat-sum dt { color: #366792; font-size: 36px; line-height: normal; font-weight: normal; padding-bottom: 5px; font-family: Tahoma, Geneva, sans-serif }
+.stat-sum dt em { font-size: 24px; font-style: normal; font-weight: normal; font-family: Microsoft YaHei }
+.yol-safe { height: 280px; padding-top: 50px; border-top: 1px solid #ccd0d3 }
+.yol-safe dl { float: left; display: inline; width: 225px; height: 280px }
+.yol-safe dl dt { height: 151px; width: 151px; position: relative; overflow: hidden; background: url(../../../local/img/common/safe.png) no-repeat 0 -350px }
+.yol-safe dl dt a { display: block; width: 151px; height: 151px; text-indent: -9999em; overflow: hidden; position: absolute; left: 0; top: 0 }
+.yol-safe dl dd { width: 90%; height: 130px; position: relative }
+.yol-safe dl dd p { height: 28px; line-height: normal }
+.yol-safe dl h2 { font-size: 18px; color: #475058; padding: 15px 0 5px }
+.yol-safe dl em { font-size: 24px; font-family: Tahoma, Geneva, sans-serif; color: #475058 }
+.yol-safe dl b { font-weight: normal; font-size: 18px }
+.yol-safe dl .more { height: auto; color: #15456f; position: absolute; left: 0; bottom: 0 }
+.yol-safe dl .more a, .yol-safe dl .more a:visited { color: #15456f }
+.yol-safe dl .more a:hover { color: #349cd8 }
+.yol-safe dl.low dt a { background: url(../image/001.gif) no-repeat 0 0 }
+.yol-safe dl.safe { width: 250px }
+.yol-safe dl.safe dt { margin-left: 20px }
+.yol-safe dl.safe dt a { background: url(../image/002.gif) no-repeat 0 0 }
+.yol-safe dl.safe dd { padding-left: 20px; width: 80% }
+.yol-safe dl.safe .more { left: 20px }
+.yol-safe dl.any dt a { background: url(../image/003.gif) no-repeat 0 0 }
+.yol-safe dl.low dd { background: url(../image/text_1.png) no-repeat 0 17px }
+.yol-safe dl.safe dd { background: url(../image/text_2.png) no-repeat 17px 17px }
+.yol-safe dl.any dd { background: url(../image/text_3.png) no-repeat 0 17px }
+.help-minute { background: #7c7c7c; width: 280px; height: 280px; overflow: hidden; position: relative; float: right; overflow: hidden; }
+.help-minute img { margin: 0 auto; display: block }
+.help-minute .play { width: 54px; height: 54px; position: absolute; left: 50%; top: 50%; margin: -40px 0 0 -27px; background-position: -389px -87px }
+.help-minute .title { text-align: center; height: 41px; color: #fff; line-height: 42px; } 
+/*.help-minute { background: #525252; width: 280px; height: 280px; overflow: hidden; position: relative; float: right; overflow: hidden }
+.help-minute img { margin: 10px auto 0; display: block }
+.help-minute .play { width: 54px; height: 54px; position: absolute; left: 50%; top: 50%; margin: -40px 0 0 -27px; background-position: -389px -87px }
+.help-minute .title { text-align: center; padding-top: 12px; color: #fff }*/
+.yol-entry { padding-top: 50px; overflow: hidden; zoom: 1; min-width: 1000px }
+.yol-entry .main { float: left; display: inline; width: 700px }
+.yol-entry .sidebar { width: 280px; float: right; padding-left: 20px }
+.yol-entry .sidebar .title-items { border: 0 }
+.yol-entry .main, .yol-entry .sidebar { margin-bottom: -10000px; padding-bottom: 10000px; overflow: hidden }
+.yol-entry .head { position: relative; height: 64px; line-height: 64px; overflow: hidden; color: #224e73; padding: 0 20px; border-bottom: 1px solid #e7eaec }
+.yol-entry .head h2 { font-size: 18px; color: #224e73; float: left; display: inline; position: relative; padding-left: 40px }
+.yol-entry .head h2 em { color: #8a949c; font-size: 16px; border-left: 1px solid #dee1e4; padding-left: 10px; margin-left: 10px; display: inline-block; height: 20px; line-height: 20px }
+.yol-entry .head h2 .icons { width: 30px; height: 30px; position: absolute; left: 0; top: 18px }
+.yol-entry .head .more { font-size: 13px; color: #15456f; float: right }
+.yol-entry .head .more:visited { color: #15456f }
+.plans { background: #fff; border: 1px solid #e7eaec; margin-bottom: 20px; overflow: hidden; zoom: 1; padding-bottom: 20px; width: 100% }
+.plans .head h2 .icons { background-position: -425px -142px }
+.top-desc { padding: 21px 0 20px 20px; height: 70px; line-height: 1.8; position: relative }
+.top-desc .desc { height: 70px; width: 48%; float: left; display: inline }
+.top-desc .desc em { color: #fc8026; font-family: Tahoma, Geneva, sans-serif }
+.top-desc .stat { position: absolute; right: 0; top: 22px; float: right; overflow: hidden; zoom: 1 }
+.top-desc .stat dl { float: left; height: inherit; text-align: right; padding-right: 20px }
+.top-desc .stat dt { color: #224e73; font-family: Tahoma; font-size: 24px; font-weight: normal; padding-top: 3px }
+.top-desc .stat dt em { font-size: 16px; font-family: Microsoft YaHei }
+.plans-items { height: 292px; overflow: hidden; padding-left: 18px }
+.plans-items em { font-family: Tahoma }
+.plans-items ul { width: 104%; height: 292px }
+.plans-items li { height: 290px; width: 210px; float: left; display: inline; margin-right: 16px; color: #8a949c }
+.plans-items .ite { height: 288px; border: 1px solid #d9dee2; position: relative }
+.plans-items .hot-green80 { position: absolute; right: -2px; top: -1px }
+.plans-items h2 { background: #f0f5f7; height: 44px; line-height: 44px; font-size: 14px; text-align: center; border-bottom: 1px solid #d9dee2; color: #475058 }
+.plans-items h2 em { font-family: Tahoma }
+.plans-items h2 a, .plans-items h2 a:visited { color: #475058 }
+.plans-items .tar { text-align: center; padding-top: 10px; font-family: Tahoma }
+.time-limit { height: 80px; width: 100%; padding-top: 5px }
+.time-limit .per { height: 80px; float: left; text-align: right; width: 50%; font-size: 18px; position: relative; font-family: Tahoma }
+.time-limit .time { height: 55px; float: left; width: 49.33%; text-align: left; font-size: 18px; padding-top: 25px; position: relative; font-weight: normal }
+.time-limit b { font-weight: normal; display: block; font-size: 12px; position: absolute; left: 23px; top: 55px }
+.time-limit .per b { left: auto; right: 10px; font-weight: normal }
+.time-limit .light-blue { color: #15456f; display: block; height: 60px; overflow: hidden; font-weight: bold; padding-right: 10px; font-family: Microsoft YaHei }
+.time-limit .light-blue em { font-size: 40px }
+.time-limit .x { padding-right: 10px }
+.plans-items .rate { position: absolute; left: 0; width: 100%; bottom: 105px; font-size: 12px; height: 20px; line-height: normal; vertical-align: top; text-align: center }
+.plans-items .rate b { padding-left: 15px; font-weight: normal }
+.plans-items .rate .icons { margin-right: 3px; position: absolute; left: auto; left: 30px\9; *left:auto
+}
+.plans-items .button { background: #f0f5f7; height: 99px; text-align: center; font-size: 12px; border-top: 1px solid #d9dee2; position: absolute; left: 0; bottom: 0; _bottom: -1px; width: 100% }
+.plans-items .button a { width: 60px; height: 24px; line-height: 24px; font-size: 14px; margin-top: 7px }
+.progre { height: 20px; padding: 7px 15px 5px; position: relative }
+.progre .per { height: 10px; width: 38%; font-size: 0; line-height: 0; overflow: hidden; float: left; display: inline; background: #fff; position: absolute; left: 70px; top: 12px; border-radius: 15px }
+.progre .per div { background: #18b160; height: 10px; float: left; width: 0%; border-radius: 15px }
+.plans-items .sur { padding-left: 15px; text-align: left }
+.plans-items4 li { width: 24.33% }
+.plans-items4 .ite { width: 92% }
+.loans { background: #fff; border: 1px solid #e7eaec; overflow: hidden; zoom: 1; width: 100%; margin-bottom: 20px }
+.loans .head h2 .icons { background-position: -390px -142px }
+.loans-items { overflow: hidden; zoom: 1; border-top: 1px solid #e7eaec; font-size: 12px; padding: 0 20px }
+.loans-items .items { height: 65px; border-top: 1px solid #e7eaec; margin-top: -1px }
+.loans-items li { float: left; display: inline; width: 20%; height: 65px; line-height: 65px; position: relative }
+.loans-items li.col-1 { width: 22%; color: #15456f }
+.loans-items li.col-1 a { float: left; display: inline; height: 20px; line-height: 20px; overflow: hidden; margin-top: 22px }
+.loans-items li.col-1 .icons { float: left; display: inline; margin-left: 1px; height: 16px; width: 16px; line-height: normal; margin: 24px 0 0 2px }
+.loans-items li.col-2 { color: #fc8026; width: 24% }
+.loans-items li.col-3 { width: 22% }
+.loans-items li.col-4 { width: 18% }
+.loans-items li.col-4 .icons { position: absolute; left: -22px; top: 25px }
+.loans-items li.col-5 { width: 13%; }
+.loans-items li.col-4 a, .loans-items li.col-4 a:visited { color: #475058 }
+.loans-items li.col-4 a:hover { color: #349cd8 }
+.loans-items li.col-5 .gbtn { width: 60px; height: 24px; line-height: 24px; font-size: 14px; text-align: center; float: right; margin: 14px -7px 0 0 }
+.loans-items li.col-5 .time { position: absolute; right: -7px; bottom: 3px; width: 130px; line-height: normal; text-align: right }
+.title-items { position: relative; height: 50px; overflow: hidden; padding: 0 15px; border-bottom: 1px solid #e7eaec }
+.title-items .line { display: none; height: 1px; font-size: 0; line-height: 0; overflow: hidden; float: left; background: #e7ecee; width: 100%; position: absolute; left: 0; top: 25px }
+.title-items h2, .title-items .more { font-size: 18px; height: 30px; line-height: 30px; position: absolute; left: 0; top: 10px; z-index: 3; padding-right: 15px; background: #fff }
+.title-items .more { font-size: 13px; left: auto; right: 0; padding: 0; padding-left: 15px }
+.bulletin { background: #fff; overflow: hidden; zoom: 1; margin-bottom: 20px; border: 1px solid #e7eaec; height: 248px; padding: 0 20px }
+.bulletin li { height: 30px; line-height: 30px; overflow: hidden; width: 100%; float: left; padding-left: 10px; position: relative }
+.bulletin li b { width: 3px; height: 3px; overflow: hidden; line-height: none; font-size: 0; text-indent: -9999em; background: #15456f; position: absolute; left: 0; top: 50%; margin-top: -2px }
+.ad60 { height: 60px; overflow: hidden; margin-bottom: 20px }
+.ad60 img { display: block }
+.ad-top { overflow: hidden; zoom: 1; margin-bottom: 20px }
+.ad-top img { display: block }
+.rfs { background: #fff; border: 1px solid #e7eaec; margin-bottom: 20px; padding: 0 20px; overflow: hidden; zoom: 1 }
+.rfs li { height: 63px; line-height: 63px; overflow: hidden; border-top: 1px dashed #e7eaec; margin-top: -1px; position: relative; width: 100%; float: left }
+.rfs li .r { float: right; color: #8a949c }
+.rfs li a { font-size: 16px; float: left; padding-left: 30px; height: 24px; overflow: hidden; line-height: 24px; position: absolute; left: 0; top: 15px; color: #475058 }
+.rfs li a:visited { color: #475058 }
+.rfs li .icons { position: absolute; left: 0; top: 4px; width: 20px; height: 20px }
+.rfs li.raiders .icons { background-position: -413px -180px }
+.rfs li.faq .icons { background-position: -534px -180px }
+.rfs li.sns .icons { width: 21px; background-position: -389px -180px }
+.ranking-top { background: #fff; border: 1px solid #e7eaec; height: 230px; margin-bottom: 20px }
+.ranking-top .title-items h2 { left: 20px }
+.ranking-top .title-items .more { right: 20px }
+.ranking-items { overflow: hidden; zoom: 1 }
+.ranking-items li { height: 30px; line-height: 30px; overflow: hidden; padding: 0 20px }
+.ranking-items span { float: left; display: inline }
+.ranking-items .rank { width: 40px }
+.ranking-items .name { width: 50px }
+.ranking-items .money { width: 98px; text-align: center; color: #fc822b }
+.ranking-items .vary { width: 55px; text-align: right; float: right }
+.ranking-items .vary .icons { margin-left: 3px }
+.ranking-items .rank b { width: 16px; height: 16px; line-height: 16px; margin: 6px 0 0 3px; color: #fff; display: block; font-size: 12px; overflow: hidden; font-weight: normal; text-align: center; background: #a1acb4 }
+.ranking-items .ago b { width: 21px; height: 17px; line-height: 22px; margin: 5px 0 0 0; background: url(../../../local/img/common/sprites.png) no-repeat -246px -221px }
+.ranking-items li.title { height: 25px; line-height: 25px; margin-bottom: 3px; color: #8A949D }
+.ranking-items li.title .money { color: #8A949D }
+.toolbox { background: #fff; border: 1px solid #e7eaec; overflow: hidden; zoom: 1; padding: 0 20px }
+.toolbox li { height: 50px; line-height: 50px; overflow: hidden; border-top: 1px dashed #e7eaec; position: relative; width: 100%; float: left; margin-top: -1px }
+.toolbox li .r { float: right; color: #a1acb4 }
+.toolbox li a { font-size: 16px; float: left; padding-left: 30px; height: 24px; overflow: hidden; line-height: 24px; position: absolute; left: 0; top: 13px; color: #475058 }
+.toolbox li a:visited { color: #475058 }
+.toolbox li .icons { position: absolute; left: 0; top: 2px; width: 20px; height: 20px }
+.toolbox li.plan .icons { background-position: -473px -180px }
+.toolbox li.wages .icons { background-position: -449px -180px }
+.toolbox li.gage .icons { background-position: -476px -180px }
+.toolbox li.sy .icons { background-position: -437px -180px }
+.toolbox li.zd .icons { background-position: -461px -180px }
+.toolbox li.cpi .icons { background-position: -485px -180px }
+.toolbox li.sj .icons { width: 23px; background-position: -508px -180px }
+.toolbox li.db .icons { width: 22px; background-position: -557px -180px }
+.safe-items { height: 50px; width: 1000px; overflow: hidden; padding: 20px 0 }
+.safe-items ul { width: 1080px; overflow: hidden }
+.safe-items li { float: left; display: inline; margin-right: 38px; height: 50px; line-height: 50px; color: #adb7be; font-size: 18px }
+.safe-items li span { float: left; display: inline; margin-right: 8px; width: 50px; height: 50px; position: relative; background: url(../../../local/img/common/sprites.png) no-repeat -150px -207px }
+.safe-items li span .icons { position: absolute; left: 50%; top: 52% }
+.safe-items .csat { width: 25px; height: 25px; margin: -13px 0 0 -13px; background-position: -508px -154px }
+.safe-items .lead { width: 40px; height: 20px; margin: -10px 0 0 -20px; background-position: -542px -159px }
+.safe-items .prin { width: 26px; height: 27px; margin: -13px 0 0 -14px; background-position: -268px -183px }
+.safe-items .any { width: 36px; height: 31px; margin: -16px 0 0 -20px; background-position: -268px -116px }
+.safe-items .audit { width: 40px; height: 13px; margin: -7px 0 0 -20px; background-position: -542px -143px }
+.novice { background: #fff; border: 1px solid #e7eaec; overflow: hidden; zoom: 1 }
+.novice .head h2 .icons { background-position: -504px -206px }
+.novice .desc { height: 20px; padding: 20px; line-height: 1.8; position: relative }
+.novice-items { overflow: hidden; zoom: 1; border-top: 1px solid #e7eaec; font-size: 12px; padding: 0 20px }
+.novice-items .items { height: 65px; border-top: 1px solid #e7eaec; margin-top: -1px }
+.novice-items li { float: left; display: inline; width: 20%; height: 65px; line-height: 65px; position: relative }
+.novice-items li.col-1 { width: 22%; color: #15456f }
+.novice-items li.col-1 a { float: left; display: inline; height: 20px; line-height: 20px; overflow: hidden; margin-top: 22px }
+.novice-items li.col-1 .icons { float: left; display: inline; margin-left: 1px; height: 16px; width: 16px; line-height: normal; margin: 24px 0 0 2px }
+.novice-items li.col-2 { color: #fc8026; width: 24% }
+.novice-items li.col-3 { width: 22% }
+.novice-items li.col-4 { width: 18% }
+.novice-items li.col-4 .icons { position: absolute; left: -22px; top: 25px }
+.novice-items li.col-5 { width: 13%; }
+.novice-items li.col-4 a, .loans-items li.col-4 a:visited { color: #475058 }
+.novice-items li.col-4 a:hover { color: #349cd8 }
+.novice-items li.col-5 .gbtn { width: 60px; height: 24px; line-height: 24px; font-size: 14px; text-align: center; float: right; margin: 14px -7px 0 0 }
+.novice-items li.col-5 .time { position: absolute; right: -7px; bottom: 3px; width: 130px; line-height: normal; text-align: right }
+.novice-no { height: 70px; line-height: 70px; color: #989896; text-align: center }
+.ywebapp { position: fixed; _position: absolute; top: 300px; right: 20px; width: 115px; height: 183px; background: url(../../img/common/appfd-code.png) no-repeat 0 0; z-index: 1100 }
+.ywebapp .close { position: absolute; display: block; bottom: 0; right: 7px; width: 17px; height: 17px; cursor: pointer; z-index: 1200 }
+.plans-v { width: 660px; height: 412px; overflow: hidden; padding-left: 18px }
+.plans-v em { font-family: Tahoma }
+.plans-v ul { height: 430px }
+.plans-v li { height: 90px; margin-bottom: 16px; color: #475058 }
+.plans-v .ite { width: 658px; height: 90px; border: 1px solid #d9dee2; position: relative }
+.plans-v .sur { padding-top: 20px }
+.plans-v .hot-green50 { position: absolute; left: -1px; top: -1px }
+.plans-v .tit { position: relative; float: left; width: 170px; height: 90px; border-right: 1px solid #d9dee2; text-align: center; background: #f0f5f7; color: #475058 }
+.plans-v h2 { margin-top: 17px; line-height: 30px; font-size: 18px }
+.plans-v h2 em { font-family: Tahoma }
+.plans-v h2 a, .plans-v h2 a:visited { color: #475058 }
+.time-v { float: left; height: 70px; width: 316px; padding-top: 18px }
+.time-v .per, .time-v .time, .time-v .sum { float: left; width: 156px; line-height: 30px; text-align: center; font-size: 18px; position: relative }
+.time-v .per { border-right: 1px solid #d9dee2 }
+.time-v em { font-size: 30px }
+.time-v b { font-weight: normal; display: block; line-height: 20px; font-size: 14px }
+.time-v .per b { font-weight: normal }
+.time-v .sum b { padding-left: 5px }
+.time-v .light-blue, .time-v .light-orange { color: #15456f }
+.time-v .light-blue em { font-size: 30px }
+.time-v .light-orange { color: #fc8026 }
+.plans-v .rate { position: relative; left: 0; top: 5px; width: 100%; font-size: 12px; height: 20px; line-height: normal; vertical-align: top; text-align: center }
+.plans-v .rate b { padding-left: 15px }
+.plans-v .rate .icons { margin-right: 3px; position: absolute; left: auto; left: 30px\9; *left:auto
+}
+.plans-v .button { background: #f0f5f7; float: left; width: 170px; height: 90px; text-align: center; font-size: 14px; border-left: 1px solid #d9dee2 }
+.plans-v .button a { width: 60px; height: 24px; line-height: 24px; font-size: 14px; margin-top: 7px }
+.plans-v .button em { font-weight: bold; color: #15456f }
+.plans-v .button b { color: #15456f }
+.transfer { background: #fff; border: 1px solid #e7eaec; overflow: hidden; zoom: 1; width: 100%; margin-top: 20px; padding-bottom: 10px }
+.transfer .head h2 .icons { background-position: -557px -206px }
+.transfer .desc { height: 20px; padding: 20px; line-height: 1.8; position: relative }
+.transfer .loans-items li.col-1 { width: 28% }
+.transfer .loans-items li.col-2 { width: 18% }
+.transfer .loans-items li.col-3 { width: 18% }
+.transfer .loans-items li.col-4 { width: 22% }
+.transfer .loans-items li.col-5 { width: 13% }/*首页改版*/
+.icon-novice { background-position: -605px 0 }
+.icon-plans { background-position: -605px -20px }
+.icon-loans { background-position: -605px -40px }
+.icon-transfer { background-position: -605px -60px }
+.icon-cur { background: url(../../../local/img/common/icon_cur.png) 0 0 no-repeat}
+.wealth { width: 100%; background: #fff; border: 1px solid #e7eaec; margin-bottom: 20px; overflow: hidden; zoom: 1; padding-bottom: 15px; position: relative }
+.wealth:last-child { margin-bottom: 0 }
+.wealth .title { height: 50px; line-height: 50px; color: #475058; padding: 0 25px; border-bottom: 1px solid #e7eaec; position: relative }
+.wealth .title h2 { font-size: 20px; font-weight: normal; padding-left: 25px; float: left; display: inline; position: relative }
+.wealth .title h2 .icons { width: 20px; height: 20px; position: absolute; left: 0; top: 15px; }
+.wealths .title h2 .icons { width: 20px; height: 20px; position: absolute; left: 0; top: 16px; }
+.wealth .state { font-size: 13px; color: #a1acb4; float: right; padding-top: 15px }
+.countdown { height: 25px; line-height: 25px; overflow: hidden; position: relative; padding-left: 25px }
+.countdown strong { float: left; font-family: 'Microsoft YaHei' }
+.countdown .icons-time { position: absolute; left: 0; top: 50%; width: 20px; height: 20px; margin-top: -9px; background-position: -605px -81px }
+.countdown .date { float: left; height: 25px }
+.countdown .txt { width: 20px; font-size: 13px; color: #a1acb4; position: relative; float: left; font-family: 'Microsoft YaHei' }
+.countdown .dash { width: 25px; height: 25px; position: relative; float: left }
+.countdown .digit { font-family: Tahoma; font-weight: normal; font-size: 18px; color: #69737b; float: left; display: inline; width: 12px; overflow: hidden; text-align: left; position: relative }
+.countdown .t { text-align: right }
+.countdown .b { text-align: left }
+.wealth .refresh { height: 25px; line-height: 25px; overflow: hidden; position: relative; padding-left: 25px }
+.wealth .refresh .icons-refresh { background-position: -605px -100px; width: 20px; height: 20px; position: absolute; left: 0; top: 50%; margin-top: -10px }
+.wealth .refresh a { margin: 0 3px; color: #349cd8 }
+.wealth .refresh a:hover, .wealth .refresh a:visited { color: #349cd8 }
+.wealth .desc { height: 35px; line-height: 35px; padding-left: 25px; color: #a1acb4; border-bottom: 1px solid #e7eaec; background: #fff }
+.wealth .desc em { font-size: 18px; color: #fc8936; font-family: 'Tahoma' }
+.wealth .items { height: 90px; border-top: 1px solid #e7eaec; color: #5d666d; margin: -1px 25px 0 }
+.wealth .items li { width: 25%; height: 90px; float: left; display: inline; position: relative }
+.wealth h3, .wealth h4 { padding-top: 20px; height: 23px; line-height: 23px; font-weight: normal; overflow: hidden }
+.wealth h3 a, .wealth h4 a { float: left; margin-right: 3px }
+.wealth h3 .icons, .wealth h4 .icons { margin: 4px 3px 0 0; vertical-align: middle; float: left }
+.wealth .assure { height: 25px; line-height: 25px; padding-left: 20px; overflow: hidden; position: relative }
+.wealth .assure .icons { position: absolute; left: 0; top: 5px }
+.wealth h4 { padding-top: 15px; height: 30px; line-height: 30px; font-size: 16px }
+.wealth h4 .icons { margin-top:-2px; float:none; }
+.wealth .safe { height: 25px; line-height: 25px; padding-left: 20px; overflow: hidden; position: relative }
+.wealth .safe .icons { width: 18px; height: 18px; position: absolute; left: 0px; top: 4px; }
+.wealth li.col-1 { width: 22% }
+.wealth li.col-2 { width: 44%; text-align: left; font-size: 14px; line-height: 90px }
+.wealth li.col-3 { width: 13%; text-align: right; font-size: 14px; line-height: 90px }
+.wealth li.col-4 { width: 20%; text-align: right; position: relative; }
+.wealth li.col-2 em { color: #fc8936 }
+.wealth li.col-2 em, .wealth li.col-3 em { font-size: 30px; margin: 0 3px; font-family: 'Tahoma' }
+.wealth li.col-2 i{ font-style: normal; color: #fc8936; font-family: 'Tahoma'; font-size: 18px;}
+.wealth li.col-2 span{font-size: 12px;}
+.wealth li.col-4 p { height: 30px; line-height: 30px; overflow: hidden; position: absolute; top: 15px; right: 0 }
+.wealth li.col-4 .gbtn { width: 60px; height: 24px; line-height: 24px; font-size: 14px; text-align: center; margin-top: -12px; position: absolute; top: 50%; right: 0 }
+.wealth li.txt .gbtn { top: 55px }
+.wealth .more { position: absolute; right: 30px; bottom: 8px }
+.wealth .more a, .wealth .more a:hover, .wealth .more a:visited { color: #8a949c }
+/* 首页定存宝列表追加样式 */
+
+.wealth.dcb-index-list li.txt .gbtn{top: 42px;}
+.wealth.dcb-index-list .ToolTipCol{line-height: 90px;vertical-align: middle;}
+.wealth.dcb-index-list .ToolTipCol.reward-tag,
+.wealth.dcb-index-list .ToolTipCol.xin-tag-red{position: relative; top: -3px;}
+
+
+/*新产品添加*/
+.w-icon{width:47px; height:47px;  position:absolute; left:0; top:0; display:block; background:url(../../img/common/ylh.png) no-repeat}
+.xlan{ width:54px; height:54px; background-position:0 0; z-index:99}
+.attime{top:30px; background-position:0 -59px}
+.nianha{top:30px; background-position:0 -111px}
+.wealths .state { font-size: 13px; color: #a1acb4; float: right; padding-top: 15px }
+.wealths { width:696px; background: #fff; border: 2px solid #f68b17; margin-bottom: 20px; overflow: hidden; zoom: 1; position: relative }
+.wealths .title { height: 50px; line-height: 50px; color: #475058; padding: 0 25px; border-bottom: 1px solid #e7eaec; position: relative; overflow:hidden}
+.wealths .title h2 { font-size: 20px; font-weight: normal; padding-left: 25px; float: left; display: inline; position: relative }
+.wealths .items { height: 100px; color: #5d666d;  }
+.wealths .items li { height: 90px; float: left; display: inline; position: relative; line-height:100px; padding:10px 0 0 50px;}
+.wealths li.col-1{ margin-left:30px; font-size:18px}
+.wealths li.col-2{  margin-left:55px; font-size:18px}
+.wealths li.amend-col-2{margin-left:30px;}
+.wealths li.col-3{ width:28%; padding:10px 0 0 0; margin-left:37px}
+.wealths li.amend-col-3{margin-left:6px;}
+
+.wealths li.col-1 em{ font-size: 28px; color:#f68b17; margin: 0 3px; }
+.wealths li.col-2 em { font-size: 32px; color:#f68b17; margin: 0 2px; font-family: 'Tahoma' }
+.wealths li.col-3 p { height: 30px; line-height: 30px; overflow: hidden; text-align:center}
+.wealths li.col-3 .gbtn { width: 155px; height: 35px; margin:0 auto; display:block; line-height: 35px; font-size: 18px; text-align: center }
+.wealths .ft14{ margin-left:10px; font-size:14px}
+.wealths .visibility{ visibility: hidden;}
+
+/*end/新产品添加*/
+/*时光机*/
+.home_time{ width: 164px; height: 48px; position: absolute; left: 74px; bottom: 13px; z-index: 999;}
+
+/* 安全保障添加说明 */
+.securityExplain{width: 1000px; font-size: 12px; margin-bottom: 20px; color: #a1acb4;margin: 0 auto 20px auto;}
+.pl-0{padding-left: 0}
+.securityExplain a{color: #a1acb4}
+
+/* 首页添加合规文案 */
+.yol-info .compliance-text{position: absolute;width: 100%;text-align: right;top: 144px;color: #a1acb4; font-size: 12px}
+
+/* 首页添加任务完成弹窗 */
+.task-complete , .make-task{width:476px;  text-align: center; padding-top: 86px;}
+.task-complete .task-text{color: #fff; font-size: 18px; text-align: center; margin-top: 10px;}
+.make-task .task-text{color: #fff; font-size: 18px; text-align: center; margin: 10px auto 0 auto; width: 300px; line-height: 38px;}
+.task-complete .get-text , .make-task .get-text{font-size: 24px; margin-left: 5px;}
+.task-complete .task-btn , .make-task .task-btn{display:inline-block; background-color: #fff; font-size: 20px; border-radius: 20px; line-height: 45px; padding:0 42px;margin-top: 26px; }
+.task-complete .task-close , .make-task .task-close{color: #fff; font-size:46px; line-height: 46px; position: absolute; top:-42px; right: -60px;font-family: sans-serif;}
+.task-complete a:hover , .make-task a:hover{text-decoration: none;}
+
+.task-complete{height: 234px;background:url(../../img/home/task-complete.png) no-repeat}
+.task-complete .task-btn{color: #ff8950;font-weight: bold;}
+.make-task{height: 270px;background:url(../../img/home/make-task.png) no-repeat}
+.make-task .get-text{font-size: 22px;}
+.make-task .task-btn{color: #07437b;font-weight: bold; }
+/* 新手专享动画 */
+.newUser-tag{-webkit-animation: shakeSign 3.5s infinite;animation: shakeSign 3.5s infinite;-webkit-transform-origin: 0 100% 0;transform-origin: 0 100% 0;}
+@keyframes shakeSign{
+    0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+    45%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+    47.5%{-webkit-transform:rotate(-4deg);transform:rotate(-4deg)}
+    55%{-webkit-transform:rotate(4deg);transform:rotate(4deg)}
+    57.5%{-webkit-transform:rotate(-4deg);transform:rotate(-4deg)}
+    60%{-webkit-transform:rotate(4deg);transform:rotate(4deg)}
+    62.5%{-webkit-transform:rotate(-4deg);transform:rotate(-4deg)}
+    65%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+    100%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+}

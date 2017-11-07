@@ -8,7 +8,11 @@
 */
 package online.shixun.action;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import online.shixun.model.User;
+import online.shixun.services.impl.UserService;
 
 /** 
 * @ClassName: PersonalAction 
@@ -19,5 +23,45 @@ import org.springframework.stereotype.Component;
 */
 @Component("personalAction")
 public class PersonalAction {
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = 1L;
+	@Autowired
+	private UserService userService; 
+	
+	private int userId;
+	private User user;
+	
+	public String getUserInfo(){
+		user = userService.getUserById((long)userId);
+		return "userInfo";	
+	}
+
+	/**
+	 * @return the userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }

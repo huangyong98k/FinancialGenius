@@ -134,7 +134,7 @@
                 	$.ajax({
                         cache: true,
                         type: "POST",
-                        url:"userAction!registerCheckByUserEmail.action",
+                        url:"registerAction!registerCheckByUserEmail.action",
                         data:'user.userEmail='+$("#E-mail").val(),// 数据控件ID
                         dataType:"json",
                         async: true,
@@ -168,7 +168,7 @@
                 	$.ajax({
                         cache: true,
                         type: "POST",
-                        url:"userAction!registerCheckByphoneNumber.action",
+                        url:"registerAction!registerCheckByphoneNumber.action",
                         data:'user.userPhone='+$('#phoneNumber').val().trim(),// 数据控件ID 
                         async: true,
                         success:function(data){
@@ -201,7 +201,7 @@
                     	$.ajax({
                             cache: true,
                             type: "POST",
-                            url:"userAction!registerCheckByIDCard.action",
+                            url:"registerAction!registerCheckByIDCard.action",
                             data:'user.userCard='+$("#IDCard").val().trim(),// 数据控件ID 
                             async: true,
                             success:function(data){
@@ -379,7 +379,7 @@
 		<header>注册</header>
 		<br>
 		<form class="uesrMessage" id="userMessage"
-			action="userAction!register.action" method="post">
+			action="registerAction!register.action" method="post">
 			<span>用户名称：</span><input class="name" id="name" name="user.userName"
 				type="text" minlength="6" maxlength="20" placeholder="请输入您的用户名">
 			<p id="nameInfo" class="info">*</p>

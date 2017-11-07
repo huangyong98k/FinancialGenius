@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,9 +11,9 @@
 <title>个人中心</title>
 
 <!-- CSS公共部分 开始 -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/userInfo/css/bootstrap.min.css" rel="stylesheet">
 <!-- CSS公共部分 结束 -->
-<link href="css/crowdfunding.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/userInfo/css/crowdfunding.css" rel="stylesheet">
 
 </head>
 <body>
@@ -20,13 +22,13 @@
 		<div id="vertical_navigation"
 			class="col-lg-3 background831312 nopadding">
 			<div class="dead_pic">
-				<img id="mysnap" src="img/investor_page/mxtzr_1.png"
+				<img id="mysnap" src="<%=request.getContextPath() %>/userInfo/img/investor_page/mxtzr_1.png"
 					onClick="listClick(5)" title="点击更换头像"><br> <span
 					class="username">用户名</span>
 			</div>
 			<span id="userName"></span>
 			<div class="usertype">
-				用户类型： 普通用户<br> 账户余额： <span id="userBanlance"></span>
+				用户类型： 普通用户<br> 账户余额： <span id="userBanlance">${user.userBanlance}</span>
 			</div>
 			<div class="menu">
 				<div class="menu_title">我的信息</div>
@@ -54,7 +56,7 @@
 			</div>
 		</div>
 		<div class="col-lg-9">
-			<iframe name="left" id="crowdfunding_iframe" src="my_info.html"
+			<iframe name="left" id="crowdfunding_iframe" src="<%=request.getContextPath() %>/userInfo/my_info.jsp"
 				frameborder="false" scrolling="no" style="border: none;"
 				width="100%" height="520" allowtransparency="true"></iframe>
 		</div>
