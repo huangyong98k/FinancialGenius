@@ -203,8 +203,8 @@
 						<label for="payPassword"> 支付密码：</label>
 					</div>
 					<div class="ctrl">
-						<input type="text" id="payPassword" name="payPassword"
-							maxlength="6" placeholder="请输入您的支付密码！">
+						<input type="password" id="payPassword" name="payPassword"
+							maxlength="6" placeholder="请输入您的支付密码！" style="width: 99% ;height: 30px;border-radius: 4px">
 					</div>
 				</div>
 				<div class="row clearfix">

@@ -21,7 +21,7 @@
 				<tr id="trHead">
 					<td align="center">产品号</td>
 					<td align="center">产品名称</td>
-					<td align="center">目前资金规模</td>
+					<td align="center">目前资金规模/万元</td>
 					<td align="center">月利率</td>
 					<td align="center">起购金额</td>
 					<td align="center">发行机构</td>
