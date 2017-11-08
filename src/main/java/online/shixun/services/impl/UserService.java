@@ -59,10 +59,13 @@ public class UserService {
 			        HttpSession session=request.getSession();          
 			        session.setAttribute("userId", user.getUserId());
 			        session.setAttribute("nickName", user.getNickName());
-			        session.setAttribute("userPhone", user.getUserPhone());
-			        session.setAttribute("payPassword", user.getPayPassword());
+			        session.setAttribute("userName", user.getUserName());
 			        session.setAttribute("userEmail", user.getUserEmail());
 			        session.setAttribute("userBanlance", user.getUserBanlance());
+			        session.setAttribute("headPortrait", user.getHeadPortrait());
+
+			        session.setAttribute("userPhone", user.getUserPhone());
+			        session.setAttribute("payPassword", user.getPayPassword());
 					return 1;
 				}
 			}
@@ -224,6 +227,26 @@ public class UserService {
         }
         return 0;
     }
+    
+    //修改用户账户余额
+    public void updateUserBanlance(double recharge,int flag){
+    	HttpServletRequest request=ServletActionContext.getRequest();//获得session
+        HttpSession session=request.getSession();
+        long userId=(long) session.getAttribute("userId");
+        User user=userDaoImpl.getById(userId);
+        double userBanlance=user.getUserBanlance();
+        if(flag==0){
+        	user.setUserBanlance(userBanlance+recharge);
+        	userDaoImpl.update(user);
+        	session.setAttribute("userBanlance", user.getUserBanlance());
+        }else if (flag==1) {
+			user.setUserBanlance(userBanlance-recharge);
+			userDaoImpl.update(user);
+			session.setAttribute("userBanlance", user.getUserBanlance());
+		}
+        
+    }
+    
     
     public void deleteById(User user) {
 		userDaoImpl.delete(user);

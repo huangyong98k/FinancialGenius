@@ -100,62 +100,74 @@
 													.test(recharge)) {
 												alert("请输入合法的金额！")
 												return false
+											} else if (recharge > 100000) {
+												alert("您的银行卡余额已不足！")
+												return false
 											}
 										})
 
-						$("#submit").click(function() {
-							var recharge = $("#recharge").val().trim();
-							var payPassword = $("#payPassword").val().trim();
-							var check = $("#checkNumber").val().toUpperCase();
-							var patternPassword = /^\d{6}$/;
-							if (recharge == "" || undefined || null) {
-								alert("请输入您要充值的金额！")
-								return false;
-							} else if (payPassword == "" || undefined || null) {
-								alert("请输入您的支付密码！")
-								return false
-							} else if (!patternPassword.test(payPassword)) {
-								alert("请输入合法的支付密码！")
-								return false
-							} else if (password != payPassword) {
-								alert("密码错误，请重新输入！")
-								return false
-							} else if (check == "") {
-								alert("请输入验证码！")
-								return false
-							} else if (check != code) {
-								alert("验证码错误，请重新输入！")
-								return false
-							}
-							var date = new Date();
-							var year = date.getFullYear(); //获取当前年份
-							var month = date.getMonth() + 1; //获取当前月份
-							var day = date.getDate(); //获取当前日
-							var hour = date.getHours();//获取当前时
-							var minute = date.getMinutes();//当前分
-							var second = date.getSeconds();//当前秒
-							if (date.getMonth() < 10) {
-								month = "0" + month
-							}
-							if (date.getDate() < 10) {
-								day = "0" + day
-							}
-							if (date.getHours() < 10) {
-								hour = "0" + hour
-							}
-							if (date.getMinutes() < 10) {
-								minute = "0" + minute
-							}
-							if (date.getSeconds() < 10) {
-								second = "0" + second
-							}
-							var rechargeTime = year + "-" + month + "-"
-									+ day + " " + hour + ":" + minute
-									+ ":" + second
-							$("#rechargeTime").val(rechargeTime)
-							alert($("#rechargeTime").val())
-
-						})
+						$("#submit").click(
+								function() {
+									var recharge = $("#recharge").val().trim();
+									var payPassword = $("#payPassword").val()
+											.trim();
+									var check = $("#checkNumber").val()
+											.toUpperCase();
+									var patternPassword = /^\d{6}$/;
+									if (recharge == "" || undefined || null) {
+										alert("请输入您要充值的金额！")
+										return false;
+									} else if (recharge > 100000) {
+										alert("您的银行卡余额已不足！")
+										return false
+									} else if (payPassword == "" || undefined
+											|| null) {
+										alert("请输入您的支付密码！")
+										return false
+									} else if (!patternPassword
+											.test(payPassword)) {
+										alert("请输入合法的支付密码！")
+										return false
+									} else if (password != payPassword) {
+										alert("密码错误，请重新输入！")
+										return false
+									} else if (check == "") {
+										alert("请输入验证码！")
+										return false
+									} else if (check != code) {
+										alert("验证码错误，请重新输入！")
+										return false
+									}
+									var date = new Date();
+									var year = date.getFullYear(); //获取当前年份
+									var month = date.getMonth() + 1; //获取当前月份
+									var day = date.getDate(); //获取当前日
+									var hour = date.getHours();//获取当前时
+									var minute = date.getMinutes();//当前分
+									var second = date.getSeconds();//当前秒
+									if (date.getMonth() < 10) {
+										month = "0" + month
+									}
+									if (date.getDate() < 10) {
+										day = "0" + day
+									}
+									if (date.getHours() < 10) {
+										hour = "0" + hour
+									}
+									if (date.getMinutes() < 10) {
+										minute = "0" + minute
+									}
+									if (date.getSeconds() < 10) {
+										second = "0" + second
+									}
+									var rechargeTime = year + "-" + month + "-"
+											+ day + " " + hour + ":" + minute
+											+ ":" + second
+									$("#rechargeTime").val(rechargeTime)
+									
+									//金额
+									$("#recharges").val(recharge)
+								})
 
 					})
 </script>
@@ -175,6 +187,8 @@
 					id="rechargeTime" name="rechargeRecord.rechargeTime"> <input
 					type="hidden" id="type" name="rechargeRecord.rechargeType"
 					value="充值">
+					<input type="hidden" id="recharges" name="recharge">
+					<input type="hidden" id="flag" name="flag" value="0">
 				<div class="row clearfix">
 					<div class="lbl">
 						<label for="recharge"> 充值金额：</label>

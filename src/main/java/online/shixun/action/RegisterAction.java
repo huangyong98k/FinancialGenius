@@ -116,6 +116,7 @@ public class RegisterAction {
 		System.out.println("userAction!register");
 		user.setNickName("贾博雅11o8");
 		user.setUserBanlance(10d);
+		user.setHeadPortrait("mxtzr_4.png");
 		userService.addUser(user);
 		return "register";
 	}

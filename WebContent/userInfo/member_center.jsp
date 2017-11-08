@@ -22,9 +22,10 @@
 		<div id="vertical_navigation"
 			class="col-lg-3 background831312 nopadding">
 			<div class="dead_pic">
-				<img id="mysnap" src="<%=request.getContextPath() %>/userInfo/img/investor_page/mxtzr_1.png"
+			<input type="hidden" id="userHeadPortrait" value="<%=request.getContextPath() %>/userInfo/img/investor_page/${headPortrait}">
+				<img id="mysnap" src="<%=request.getContextPath() %>/userInfo/img/investor_page/${headPortrait}"
 					onClick="listClick(5)" title="点击更换头像"><br> <span
-					class="username">用户名</span>
+					class="username">用户名:${userName}</span>
 			</div>
 			<span id="userName"></span>
 			<div class="usertype">

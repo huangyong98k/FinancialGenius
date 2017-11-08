@@ -38,42 +38,21 @@ public class RechargeAction {
 	@Autowired
 	private RechargeService rechargeService;
 
-	private double regMoney;
-	private double witMoney;
-	private String bankCardId;
-	private long userId;
 	private BankCard bankCard;
 	private RechargeRecord rechargeRecord;
 	private List<RechargeRecord> list;
+	private double recharge;
+	private int flag;
 
-	public String addRechargeRecode(){
+	public String addRechargeRecode() {
 		rechargeService.addRechargeRecord(rechargeRecord);
-//		bankCardService.updateBankBalance(bankCard,bankCardId);
+		userService.updateUserBanlance(recharge, flag);
 		return "success";
 	}
 
-	public String findAllRechargeRecode(){
-		list=rechargeService.getRechargeByUserId();
-		for (RechargeRecord rechargeRecord : list) {
-			System.out.println(rechargeRecord.getRechargeRecordId()+"##########");
-		}
+	public String findAllRechargeRecode() {
+		list = rechargeService.getRechargeByUserId();
 		return "list";
-	}
-	
-	public String getBankCardId() {
-		return bankCardId;
-	}
-
-	public void setBankCardId(String bankCardId) {
-		this.bankCardId = bankCardId;
-	}
-
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
 	}
 
 	public RechargeRecord getRechargeRecord() {
@@ -82,22 +61,6 @@ public class RechargeAction {
 
 	public void setRechargeRecord(RechargeRecord rechargeRecord) {
 		this.rechargeRecord = rechargeRecord;
-	}
-
-	public double getRegMoney() {
-		return regMoney;
-	}
-
-	public double getWitMoney() {
-		return witMoney;
-	}
-
-	public void setRegMoney(double regMoney) {
-		this.regMoney = regMoney;
-	}
-
-	public void setWitMoney(double witMoney) {
-		this.witMoney = witMoney;
 	}
 
 	public BankCard getBankCard() {
@@ -115,6 +78,21 @@ public class RechargeAction {
 	public void setList(List<RechargeRecord> list) {
 		this.list = list;
 	}
-	
-	
+
+	public double getRecharge() {
+		return recharge;
+	}
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setRecharge(double recharge) {
+		this.recharge = recharge;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
+
 }
