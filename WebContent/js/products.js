@@ -40,7 +40,7 @@ function earn(){
 			document.getElementById("spend").value=spend;
 			return false
         }else{
-			earning=((principal*number*(days/30)*rate)/100).toFixed(2)
+			earning=(principal*number*(days/30)*rate).toFixed(2)
         	document.getElementById("earning").value=earning;
 			document.getElementById("spend").value=spend;
 			return true
