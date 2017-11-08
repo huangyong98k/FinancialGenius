@@ -17,7 +17,7 @@
 			</h1>
 		</div>
 		<div class="container">
-			<a href="userAction!getInvestmentById">查看我的投资</a>
+			<a href="javascript:history.go(-2)">点击返回商品页面</a>
 		</div>
 	</section>
 </body>

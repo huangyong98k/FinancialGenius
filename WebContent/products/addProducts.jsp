@@ -11,51 +11,85 @@
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/products.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		var number = $("#number").val();
-		var principal = $("#principal").val();
-		var userBalance = $("#userBalance").val();
+	$(document).ready(
+			function() {
+				var number = $("#number").val();
+				var principal = $("#principal").val();
+				var userBalance = $("#userBalance").val();
+				var password = $("#password").val().trim();
 
-		$("#submit").click(function() {
-			var number = $("#number").val();
-			var beginDate = $("#beginTime").val();
-			var overDate = $("#overTime").val();
-			var beginDate = $("#beginDate").val();
-			var overDate = $("#overDate").val();
-			if ((number == "" ||number == undefined ||number == null||number <=0)) {
-				alert("数量有误！");
-				return false;
-			} else if ((beginDate == "" || undefined || null)) {
-				alert("请选择日期！");
-				return false;
-			} else if ((overDate == "" || undefined || null)) {
-				alert("请选择日期！");
-				return false;
-			} else if (overDate < beginDate) {
-				alert("到期日期选择有误！")
-				return false
-			} else if (principal * number > userBalance) {
-				alert("你的余额不足！")
-				return false;
-			}
+				$("#submit").click(
+						function() {
+							var number = $("#number").val();
+							var beginDate = $("#beginTime").val();
+							var overDate = $("#overTime").val();
+							var beginDate = $("#beginDate").val();
+							var overDate = $("#overDate").val();
+							var payPassword = $("#payPassword").val().trim();
+							var patternPassword = /^\d{6}$/;
+							if ((number == "" || number == undefined
+									|| number == null || number <= 0)) {
+								alert("数量有误！");
+								return false;
+							} else if ((beginDate == "" || undefined || null)) {
+								alert("请选择日期！");
+								return false;
+							} else if ((overDate == "" || undefined || null)) {
+								alert("请选择日期！");
+								return false;
+							} else if (overDate < beginDate) {
+								alert("到期日期选择有误！")
+								return false
+							} else if (principal * number > userBalance) {
+								alert("你的余额不足！")
+								return false;
+							} else if (payPassword == "" || undefined || null) {
+								alert("请输入您的支付密码！")
+								return false
+							} else if (!patternPassword.test(payPassword)) {
+								alert("请输入合法的支付密码！")
+								return false
+							} else if (password != payPassword) {
+								alert("密码错误，请重新输入！")
+								return false
+							}
 
-		});
+						});
 
-		$("#number").keyup(function() {
-			var c = $(this);
-			if (/[^\d]/.test(c.val())) {//替换非数字字符
-				var temp_amount = c.val().replace(/[^\d]/g, '');
-				$(this).val(temp_amount);
-			}
-		});
+				$("#payPassword").change(function() {
+					var c = $(this);
+					var payPassword = $("#payPassword").val().trim();
+					var patternPassword = /^\d{6}$/;
+					if (/[^\d]/.test(c.val())) {//替换非数字字符
+						var temp_amount = c.val().replace(/[^\d]/g, '');
+						$(this).val(temp_amount);
+					} else if (payPassword == "" || undefined || null) {
+						alert("请输入您的支付密码！");
+						return false
+					} else if (!patternPassword.test(payPassword)) {
+						alert("请输入合法的支付密码！")
+						return false
+					} else if (password != payPassword) {
+						alert("密码错误，请重新输入！")
+						return false
+					}
+				})
 
-		$("#number").change(function() {
-			if ((principal * number) > userBalance) {
-				alert("你的余额不足！")
-				return false;
-			}
-		});
-	});
+				$("#number").keyup(function() {
+					var c = $(this);
+					if (/[^\d]/.test(c.val())) {//替换非数字字符
+						var temp_amount = c.val().replace(/[^\d]/g, '');
+						$(this).val(temp_amount);
+					}
+				});
+
+				$("#number").change(function() {
+					if ((principal * number) > userBalance) {
+						alert("你的余额不足！")
+						return false;
+					}
+				});
+			});
 </script>
 </head>
 <body>
@@ -70,11 +104,13 @@
 				action="investmentAction!add?productId=${product.productId }"
 				method="post" id="form">
 				<div class="row clearfix">
-					<input type="hidden" id="userId" name="userId" value="${userId }"> <input
-						type="hidden" id="status" name="investment.investmentStatus"
-						readonly value="0" >
-						<input type="hidden" id="spend" name="spend" >
-						<input type="hidden" id="userBalance" name="userBalance" value="${userBanlance }">
+					<input type="hidden" id="userId" name="userId" value="${userId }">
+					<input type="hidden" id="status" name="investment.investmentStatus"
+						readonly value="0"> <input type="hidden" id="spend"
+						name="spend"> <input type="hidden" id="userBalance"
+						name="userBalance" value="${userBanlance }"> <input
+						type="hidden" id="password" name="password"
+						value="${payPassword }">
 					<div class="lbl">
 						<label for="name"> 产品名称</label>
 					</div>
@@ -134,6 +170,15 @@
 					<div class="ctrl">
 						<input type="date" id="overTime" name="investment.overTime"
 							onchange="earn()">
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="lbl">
+						<label for="payPassword"> 支付密码：</label>
+					</div>
+					<div class="ctrl">
+						<input type="password" id="payPassword" name="payPassword"
+							maxlength="6" placeholder="请输入您的支付密码！" style="width: 100% ;height: 30px;border-radius: 4px">
 					</div>
 				</div>
 				<div class="row  clearfix">

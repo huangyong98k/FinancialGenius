@@ -60,7 +60,7 @@
 		<div class="col-lg-9">
 			<iframe name="left" id="crowdfunding_iframe" src="personalAction!getUserInfo"
 				frameborder="false" scrolling="no" style="border: none;"
-				width="100%" height="520" allowtransparency="true"></iframe>
+				width="100%" height="600" allowtransparency="true"></iframe>
 		</div>
 	</div>
 	<!-- 核心 结束 -->

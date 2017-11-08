@@ -9,7 +9,7 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
-		parent.location.reload();
+	parent.location.reload();
 </script>
 </head>
 <body>
@@ -18,6 +18,9 @@
 			<h1>
 				<span>操作成功！</span>
 			</h1>
+		</div>
+		<div class="container">
+			<a href="rechargeAction!findAllRechargeRecode">查看我的交易记录</a>
 		</div>
 	</section>
 </body>
