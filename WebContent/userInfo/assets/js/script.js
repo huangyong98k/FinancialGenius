@@ -88,13 +88,24 @@ document.addEventListener('DOMContentLoaded', function () {
         video.pause();
         
         if(confirm("是否设为头像")){
-        	 window.parent.document.getElementById("mysnap").src=snap;
-        	 
-//        	 var pos = snap.indexOf("4")+2;
-//        	 snap=snap.substring(pos, snap.length - pos);//去掉Base64:开头的标识字符
-        	 
-        }
-
+       	 window.parent.document.getElementById("mysnap").src=snap;
+       	 var pos = snap.indexOf("4")+2;
+      	 snap=snap.substring(pos, snap.length - pos);//去掉Base64:开头的标识字符
+       	 $.ajax({
+       	        cache: true,
+       	        type: "POST",
+       	        url:"portraitAction!saveImage.action",
+       	        data:{"userPortaitCode":snap},
+       	        dataType:"text",
+       	        async: true,
+       	        success:function(data){
+       	        	console.log(data);
+       	        },
+       	        error: function(response) {
+       	        	console.log(response);
+       	        }
+       	        });
+       }
     });
 
     delete_photo_btn.addEventListener("click", function(e){

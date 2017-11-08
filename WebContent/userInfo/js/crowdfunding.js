@@ -211,6 +211,8 @@ function listClick(value) {
 		$("#listClick7").attr("class", "");
 	}
 	if (value == 5) {
+		var headPortrait = $("#userHeadPortrait").val();
+		$("#mysnap").prop('src',headPortrait);
 		$("#crowdfunding_iframe").attr("src", "head-portrait.html");
 		$("#crowdfunding_iframe").attr("height", "600");
 		$("#vertical_navigation").css("height", "600px");
@@ -235,6 +237,7 @@ function listClick(value) {
 		$("#listClick6").attr("class", "menu_list_on");
 		$("#listClick7").attr("class", "");
 	}
+
 	if (value == 7) {
 		$("#crowdfunding_iframe").attr("src","rechargeAction!findAllRechargeRecode");
 		$("#crowdfunding_iframe").attr("height", "600");

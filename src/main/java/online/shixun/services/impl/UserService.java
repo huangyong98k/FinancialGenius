@@ -59,10 +59,13 @@ public class UserService {
 			        HttpSession session=request.getSession();          
 			        session.setAttribute("userId", user.getUserId());
 			        session.setAttribute("nickName", user.getNickName());
-			        session.setAttribute("userPhone", user.getUserPhone());
-			        session.setAttribute("payPassword", user.getPayPassword());
+			        session.setAttribute("userName", user.getUserName());
 			        session.setAttribute("userEmail", user.getUserEmail());
 			        session.setAttribute("userBanlance", user.getUserBanlance());
+			        session.setAttribute("headPortrait", user.getHeadPortrait());
+
+			        session.setAttribute("userPhone", user.getUserPhone());
+			        session.setAttribute("payPassword", user.getPayPassword());
 					return 1;
 				}
 			}
