@@ -76,7 +76,7 @@
 					</form>
 					<div class="login-reg">
 						<p class="p1">
-							<a class="btn btn-unable" href="">注册理财精灵账户</a>
+							<a class="btn btn-unable" href="register.html">注册理财精灵账户</a>
 						</p>
 					</div>
 				</div>

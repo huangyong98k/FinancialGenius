@@ -12,7 +12,5 @@ public class PortraitService{
 public void saveUserPortrait(String PortraitCode){
 	System.out.println("test");
 	user.setHeadPortrait("PortraitCode");
-	//System.out.println(PortraitCode.length());
-	//userDaoImpl.update(user);
 }
 }

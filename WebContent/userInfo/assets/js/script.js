@@ -88,38 +88,26 @@ document.addEventListener('DOMContentLoaded', function () {
         video.pause();
         
         if(confirm("是否设为头像")){
-        	 window.parent.document.getElementById("mysnap").src=snap;
-        	 //alert(snap);
-//        	 var pos = snap.indexOf("4")+2;
-//        	 snap=snap.substring(pos, snap.length - pos);//去掉Base64:开头的标识字符
-        	 var blob=dataURLtoBlob(snap);
-        	 var fd = new FormData();
-        	 fd.append("image", blob, "image.png");
-        	 $.ajax({
-        	        cache: true,
-        	        type: "POST",
-        	        //url:"portraitAction!saveImage.action",
-        	        data:fd,
-        	        dataType:"text",
-        	        async: true,
-        	        success:function(data){
-        	        	console.log(data);
-        	        },
-        	        error: function(response) {
-        	        	console.log(response);
-        	        }
-        	        });
-        }
+       	 window.parent.document.getElementById("mysnap").src=snap;
+       	 var pos = snap.indexOf("4")+2;
+      	 snap=snap.substring(pos, snap.length - pos);//去掉Base64:开头的标识字符
+       	 $.ajax({
+       	        cache: true,
+       	        type: "POST",
+       	        url:"portraitAction!saveImage.action",
+       	        data:{"userPortaitCode":snap},
+       	        dataType:"text",
+       	        async: true,
+       	        success:function(data){
+       	        	console.log(data);
+       	        },
+       	        error: function(response) {
+       	        	console.log(response);
+       	        }
+       	        });
+       }
 
     });
-    function dataURLtoBlob(dataurl) { 
-    	var arr = dataurl.split(","), mime = arr[0].match(/:(.*?);/)[1], 
-    	bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n); 
-    	while(n){ 
-    	u8arr[n] = bstr.charCodeAt(n); 
-    	} 
-    	return new Blob([u8arr], {type:mime}); 
-    	} 
 
     delete_photo_btn.addEventListener("click", function(e){
 

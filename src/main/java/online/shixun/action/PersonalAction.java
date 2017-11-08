@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 import online.shixun.model.User;
 import online.shixun.services.impl.UserService;
@@ -34,8 +37,16 @@ public class PersonalAction {
 	
 	private Long userId;
 	private User user;
-	private String oldPassword;
-	private String newPassword;
+	private String result = null;
+	private String newUserPassword;
+
+	public String getNewUserPassword() {
+		return newUserPassword;
+	}
+
+	public void setNewUserPassword(String newUserPassword) {
+		this.newUserPassword = newUserPassword;
+	}
 	
 	//获取个人信息
 	public String getUserInfo(){
@@ -45,16 +56,26 @@ public class PersonalAction {
 		user = userService.getUserById(userId);
 		return "userInfo";	
 	}
-	
-	//通过老密码修改密码
-	public String modifyUserPassword(){
-		System.out.println(user.toString());
-		System.out.println(oldPassword);
-		System.out.println(newPassword);
-		
-		return "modifyUserPassword";
-		
-	}
+	// 个人信息界面修改密码
+		@ResponseBody
+		public String changePassword() {
+			String message;
+			String dataBasePassword = userService.findByUserIDToUser(user.getUserId());
+	        
+			if (dataBasePassword.equals(newUserPassword)) {
+				message = "新密码不可以和原密码相同";
+			} else if (dataBasePassword.equals(user.getUserPassword())) {
+				user = userService.findByUserIDToUserMessage(user.getUserId());
+				user.setUserPassword(newUserPassword);
+				userService.modifyUserPassword(user);
+				message = "密码已修改成功";
+			} else {
+
+				message = "原密码错误";
+			}
+			setResult(message);
+			return ActionSupport.SUCCESS;
+		}
 	
  
 	/**
@@ -85,32 +106,11 @@ public class PersonalAction {
 		this.user = user;
 	}
 
-	/**
-	 * @return the oldPassword
-	 */
-	public String getOldPassword() {
-		return oldPassword;
+	public String getResult() {
+		return result;
 	}
-
-	/**
-	 * @param oldPassword the oldPassword to set
-	 */
-	public void setOldPassword(String oldPassword) {
-		this.oldPassword = oldPassword;
-	}
-
-	/**
-	 * @return the newPassword
-	 */
-	public String getNewPassword() {
-		return newPassword;
-	}
-
-	/**
-	 * @param newPassword the newPassword to set
-	 */
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
+	public void setResult(String result) {
+		this.result = result;
 	}
 
 }

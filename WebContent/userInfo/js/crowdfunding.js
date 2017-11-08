@@ -2,68 +2,20 @@ $(document).ready(function(event) {
 	var isEmail = false;
 	var isPhone = true;
 	var userID = null;
-	
-	var UserName ;
-	var UserPhone ;
-	$.ajax({
-		cache : true,
-		type : "POST",
-		url : "userAction!queryUserMessage.action",
-		data : "",// 数据控件ID
-		dataType : "json",
-		async : true,
-		success : function(data) {
-			$("#userName").html(data[0].userName);
-			$("#userID").val(data[0].userId);
-			$("#name").val(data[0].userName);
-			$("#E-mail").val(data[0].userEmail);
-			$("#phoneNumber").val(data[0].userPhone);
-			$("#IDCard").val(data[0].userCard);
-			$("#userBanlance").html(data[0].userBanlance);
-			$("#userBanlanceHindden").val(data[0].userBanlance);
-			$("#userPassword").val(data[0].userPassword);
-			$("#status").val(data[0].userStatus);
-			
-			
-			UserName=data[0].userName;
-			UserPhone=data[0].userPhone;
-		},
-		error : function(response) {
-			console.log(response);
-		}
-	});
-	$("#resetButton").click(function(event) {
-		$.ajax({
-			cache : true,
-			type : "POST",
-			url : "userAction!queryUserMessage.action",
-			data : "",// 数据控件ID
-			dataType : "json",
-			async : true,
-			success : function(data) {
-				$("#userName").html(data[0].userName);
-				$("#userID").val(data[0].userId);
-				$("#name").val(data[0].userName);
-				$("#E-mail").val(data[0].userEmail);
-				$("#phoneNumber").val(data[0].userPhone);
-				$("#IDCard").val(data[0].userCard);
-				$("#userBanlance").html(data[0].userBanlance);
-				$("#userBanlanceHindden").val(data[0].userBanlance);
-				$("#userPassword").val(data[0].userPassword);
-				$("#status").val(data[0].userStatus);
-			},
-			error : function(response) {
-				console.log(response);
-			}
-		});
-	})
+	userID = $("#userID").val();
+	if (userID == "" || undefined || null) {
+		$("#modifyMessage").html("请先登录");
+	}
+	var UserName = $("#name").val();
+	var UserPhone = $("#phoneNumber").val();
+
 	$("#registerButton").click(function(event) {
 		var dataName = $("#name").val().trim();
 
 		var dataPhoneNumber = $("#phoneNumber").val().trim();
 		var patternPhoneNumber = /^[1][3,4,5,7,8][0-9]{9}$/;
 		var strPhoneNumber = patternPhoneNumber.test(dataPhoneNumber);
-		
+
 		if ((dataName == "" || undefined || null)) {
 			alert("用户名称不可为空");
 			return false;
@@ -76,11 +28,10 @@ $(document).ready(function(event) {
 		} else if (!strPhoneNumber) {
 			alert("请输入合法的手机号");
 			return false;
-		} else if(UserName==dataName && UserPhone==dataPhoneNumber){
+		} else if (UserName == dataName && UserPhone == dataPhoneNumber) {
 			alert("您的信息未做更改");
 			return false;
-		}
-		else if (isPhone == false) {
+		} else if (isPhone == false) {
 			alert("此手机号已被注册，请重新输入");
 			return false;
 		} else {
@@ -105,7 +56,7 @@ $(document).ready(function(event) {
 			$.ajax({
 				cache : true,
 				type : "POST",
-				url : "userAction!registerCheckByphoneNumber.action",
+				url : "registerAction!registerCheckByphoneNumber.action",
 				data : 'user.userPhone=' + $('#phoneNumber').val().trim(),// 数据控件ID
 				async : true,
 				success : function(data) {
@@ -136,34 +87,15 @@ $(document).ready(function(event) {
 		$("#changePasswordMain1").css("display", "block");
 	});
 	$("#modifyByOlderPassword").click(function(event) {
-		// alert("456");
+
 		$("#modifyByOlderPassword").addClass("modifyChecked");
 		$("#modifyByEmail").removeClass("modifyChecked");
 		$("#changePasswordMain1").css("display", "none");
 		$("#changePasswordMain2").css("display", "block");
 	});
-
-	$.ajax({
-		cache : true,
-		type : "POST",
-		url : "userAction!queryUserID.action",
-		data : "",// 数据控件ID
-		dataType : "json",
-		async : true,
-		success : function(data) {
-			if (data == "请登录") {
-				$("#modifyMessage").html("请登录");
-			} else {
-				userID = data;
-			}
-		},
-		error : function(response) {
-			console.log(response);
-		}
-	});
-
 	// 点击修改密码提交按钮
 	$("#submintByPassword").click(function(event) {
+		userID = $("#userIDM").val();
 		var oldPassword = $("#oldPassword").val().trim();
 		var Password = $("#Password").val().trim();
 		var Password2 = $("#Password2").val().trim();
@@ -183,7 +115,7 @@ $(document).ready(function(event) {
 		} else if (Password.length < 6) {
 			alert("新密码长度必须为六位");
 			return false;
-		}  else if (Password != Password2) {
+		} else if (Password != Password2) {
 			alert("两次输入的密码不一致");
 			return false;
 		} else if (userID == "" || undefined || null) {
@@ -193,7 +125,7 @@ $(document).ready(function(event) {
 			$.ajax({
 				cache : true,
 				type : "POST",
-				url : "userAction!changePassword.action",
+				url : "personalAction!changePassword.action",
 				data : {
 					"user.userId" : userID,
 					"user.userPassword" : oldPassword,
@@ -222,13 +154,13 @@ $(document).ready(function(event) {
  * @return {null} 无
  */
 function listClick(value) {
-//	var localObj = window.location;
-//
-//	var contextPath = localObj.pathname.split("/")[1];
-//	console.log(contextPath);
-//
-//	var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
-//	console.log(basePath);
+	// var localObj = window.location;
+	//
+	// var contextPath = localObj.pathname.split("/")[1];
+	// console.log(contextPath);
+	//
+	// var basePath = localObj.protocol+"//"+localObj.host+"/"+contextPath;
+	// console.log(basePath);
 	if (value == 1) {
 		$("#crowdfunding_iframe").attr("src", "personalAction!getUserInfo");
 		$("#crowdfunding_iframe").attr("height", "520");
@@ -242,7 +174,7 @@ function listClick(value) {
 	}
 	if (value == 2) {
 
-		$("#crowdfunding_iframe").attr("src","modifyPassword.jsp");
+		$("#crowdfunding_iframe").attr("src", "modifyPassword.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -253,7 +185,7 @@ function listClick(value) {
 		$("#listClick6").attr("class", "");
 	}
 	if (value == 3) {
-		$("#crowdfunding_iframe").attr("src","bankCard.jsp");
+		$("#crowdfunding_iframe").attr("src", "bankCard.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -264,7 +196,7 @@ function listClick(value) {
 		$("#listClick6").attr("class", "");
 	}
 	if (value == 4) {
-		$("#crowdfunding_iframe").attr("src","");
+		$("#crowdfunding_iframe").attr("src", "");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -275,19 +207,20 @@ function listClick(value) {
 		$("#listClick6").attr("class", "");
 	}
 	if (value == 5) {
-		$("#crowdfunding_iframe").attr("src",
-				"head-portrait.html");
+		var headPortrait=$("#userHeadPortrait").val();
+		$("#mysnap").prop('src',headPortrait);
+		$("#crowdfunding_iframe").attr("src", "head-portrait.html");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
 		$("#listClick1").attr("class", "");
 		$("#listClick2").attr("class", "");
 		$("#listClick3").attr("class", "");
-		$("#listClick4").attr("class", "menu_list_on");
+		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
 	}
 	if (value == 6) {
-		$("#crowdfunding_iframe").attr("src","");
+		$("#crowdfunding_iframe").attr("src", "");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -297,15 +230,5 @@ function listClick(value) {
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "menu_list_on");
 	}
-	if (value == 5) {
-		$("#crowdfunding_iframe").attr("src",
-				"head-portrait.html");
-		$("#crowdfunding_iframe").attr("height", "520");
-		$("#vertical_navigation").css("height", "520px");
 
-		$("#listClick1").attr("class", "");
-		$("#listClick2").attr("class", "");
-		$("#listClick3").attr("class", "");
-		$("#listClick4").attr("class", "menu_list_on");
-	}
 }

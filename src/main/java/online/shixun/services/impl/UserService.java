@@ -52,8 +52,10 @@ public class UserService {
 			        HttpSession session=request.getSession();          
 			        session.setAttribute("userId", user.getUserId());
 			        session.setAttribute("nickName", user.getNickName());
+			        session.setAttribute("userName", user.getUserName());
 			        session.setAttribute("userEmail", user.getUserEmail());
 			        session.setAttribute("userBanlance", user.getUserBanlance());
+			        session.setAttribute("headPortrait", user.getHeadPortrait());
 
 					return 1;
 				}

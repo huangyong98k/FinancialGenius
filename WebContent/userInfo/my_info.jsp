@@ -17,9 +17,10 @@
 	<div id="user-register" class="user-register">
 		<form class="uesrMessage" id="userMessage"
 			action="userAction!modifyUserMessage.action" method="post">
-			<input type="hidden" name="user.userId" id="userID"> <input
-				type="hidden" name="user.userBanlance" id="userBanlanceHindden">
-			<input type="hidden" name="user.userPassword" id="userPassword">
+			<input type="hidden" name="user.userId" id="userID" value="${user.userId}"> <input
+				type="hidden" name="user.userBanlance" id="userBanlanceHindden" value="${user.userBanlance}">
+			<input type="hidden" name="user.userPassword" id="userPassword" value="${user.userPassword}">
+			<input type="hidden" name="user.nickName" id="niceName" value="${user.nickName}">
 			<span>用户名称：</span><input class="name" id="name" name="user.userName"
 				type="text" minlength="6" maxlength="20" value="${user.userName}">
 			<p id="userNameInfo" class="info"></p>
