@@ -10,42 +10,7 @@
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-        	var userPhone;
-        	
-        	$.ajax({
-    			cache : true,
-    			type : "POST",
-    			url : "userAction!queryUserID.action",
-    			data : "",// 数据控件ID 
-    			async : true,
-    			success : function(data) {
-    				if (data == "请登录") {
-    				} else {
-    					$("#userId").val(data);
-    					
-    				}
-    			},
-    			error : function(response) {
-    				console.log(response);
-    			}
-    		});
-        	alert($("#userId").val())
-        	$.ajax({
-    			cache : true,
-    			type : "POST",
-    			url : "userAction!queryUserPhone.action",
-    			data : "",// 数据控件ID
-    			dataType : "json",
-    			async : true,
-    			success : function(data) {
-    				userPhone = data;
-    				console.log(userPhone);
-    			},
-    			error : function(response) {
-    				console.log(response);
-    			}
-    		});
-        	alert(userPhone)
+        	var userPhone = $("#userPhone").val().trim();
         	
             //验证码
             var code;
@@ -155,16 +120,17 @@
         </h1>
     </div>
     <div class="container">
-        <form class="contact" action="#" method="post" id="form">
-        <input type="hidden" id="userId" name="userId" >
-        <input type="hidden" id="bankBalance" name="bankCard.bankBalance">
+        <form class="contact" action="bankCardAction!addBankCard" method="post" id="form">
+        <input type="hidden" id="userId" name="userId" value="${userId }">
+        <input type="hidden" id="userPhone" name="userPhone" value="${userPhone }">
+        <input type="hidden" id="bankBalance" name="bankCard.bankBalance" value="100000">
             <div class="row clearfix">
                 <div class="lbl">
                     <label for="bankCardName">
                         银行卡号：</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="bankCardName" name="bankCard.bankCardId"  placeholder="请输入您的银行卡号！">
+                    <input type="text" id="bankCardName" name="bankCard.bankCardId" maxlength="19" placeholder="请输入您的银行卡号！">
                 </div>
             </div>
             <div class="row clearfix">
@@ -173,7 +139,7 @@
                         手机号：</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="phone" name="phone"  placeholder="请输入您的手机号！">
+                    <input type="text" id="phone" name="phone" maxlength="11"  placeholder="请输入您的手机号！">
                 </div>
             </div>
             <div class="row clearfix">

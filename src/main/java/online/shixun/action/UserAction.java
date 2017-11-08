@@ -175,21 +175,18 @@ public class UserAction {
 		}
 		return "users";
 	}
-	
+	//查询已购产品
 	public String getInvestmentById() {
-		session.get("loginInfo");
-		String message;
-		message = (String) session.get("loginInfo");
-		if (message.equals("请登录")) {
-			// 不做改变
-		} else {
-			userId = userService.findByEmaiToID(message);
-			
-		}
-		investments = userService.findInvestmentsByUserId(userId);
+		investments = userService.findInvestmentsByUserId();
 		return "getSuccess";
 	}
 
+	//查询用户银行卡信息
+	public String findBankCard(){
+		userService.findBankCardsByUserId();
+		return "bankCard";
+	}
+	
 	// 修改个人信息
 	@ResponseBody
 	public String modifyUserMessage() {
@@ -358,7 +355,7 @@ public class UserAction {
 	}
 
 	public void setUserId(long userId) {
-		this.userId = userId;
+		this.userId =  userId;
 	}
 
 	public String getAdminName() {

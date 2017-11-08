@@ -128,8 +128,7 @@ public class InvestmentAction {
 
 	public String deleteInvestById() {
 		investmentService.deleteById(investment);
-		//findInvestment();
-		investments=userService.findInvestmentsByUserId(userId);
+		investments=userService.findInvestmentsByUserId();
 		return "deleteSuccess";
 	}
 
@@ -191,6 +190,14 @@ public class InvestmentAction {
 
 	public void setSpend(double spend) {
 		this.spend = spend;
+	}
+
+	public List<Investment> getInvestments() {
+		return investments;
+	}
+
+	public void setInvestments(List<Investment> investments) {
+		this.investments = investments;
 	}
 
 }

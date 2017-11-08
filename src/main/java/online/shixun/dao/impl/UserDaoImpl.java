@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import online.shixun.common.BaseDao;
 import online.shixun.dao.UserDao;
+import online.shixun.model.BankCard;
 import online.shixun.model.Investment;
 import online.shixun.model.User;
 
@@ -130,13 +131,23 @@ public class UserDaoImpl implements UserDao {
 		return (List<User>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, phone);
 	}
 
+	//根据用户id获取用户投资信息
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Investment> getInvestmentsByUserId(Long userId) {
 		String queryString = "select u.investments from User u where u.userId=:userId";
 		String paramNames = "userId";
-		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
+		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);	
 		return (List<Investment>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
+	}
+	//根据用户id获取用户银行卡信息
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<BankCard> getBankCardsByUserId(Long userId) {
+		String queryString = "select u.bankCards from User u where u.userId=:userId";
+		String paramNames = "userId";
+		baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
+		return (List<BankCard>) baseDao.getHibernateTemplate().findByNamedParam(queryString, paramNames, userId);
 	}
 	
    //用户前后端分页
@@ -170,4 +181,5 @@ public class UserDaoImpl implements UserDao {
 		list= (List<User>) baseDao.getHibernateTemplate().findByCriteria(criteria, firstResult, 5);
     	return list; 	
     }
+    
 }

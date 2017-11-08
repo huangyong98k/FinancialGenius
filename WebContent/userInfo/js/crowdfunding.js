@@ -171,6 +171,7 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 2) {
 
@@ -183,6 +184,7 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 3) {
 		$("#crowdfunding_iframe").attr("src", "bankCard.jsp");
@@ -194,9 +196,10 @@ function listClick(value) {
 		$("#listClick3").attr("class", "menu_list_on");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 4) {
-		$("#crowdfunding_iframe").attr("src", "");
+		$("#crowdfunding_iframe").attr("src","recharge.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -205,9 +208,10 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "menu_list_on");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 5) {
-		var headPortrait=$("#userHeadPortrait").val();
+		var headPortrait = $("#userHeadPortrait").val();
 		$("#mysnap").prop('src',headPortrait);
 		$("#crowdfunding_iframe").attr("src", "head-portrait.html");
 		$("#crowdfunding_iframe").attr("height", "520");
@@ -218,9 +222,11 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "");
 	}
 	if (value == 6) {
-		$("#crowdfunding_iframe").attr("src", "");
+
+		$("#crowdfunding_iframe").attr("src","withdraw.jsp");
 		$("#crowdfunding_iframe").attr("height", "520");
 		$("#vertical_navigation").css("height", "550px");
 
@@ -229,6 +235,20 @@ function listClick(value) {
 		$("#listClick3").attr("class", "");
 		$("#listClick4").attr("class", "");
 		$("#listClick6").attr("class", "menu_list_on");
+		$("#listClick7").attr("class", "");
+	}
+
+	if (value == 7) {
+		$("#crowdfunding_iframe").attr("src","rechargeAction!findAllRechargeRecode");
+		$("#crowdfunding_iframe").attr("height", "520");
+		$("#vertical_navigation").css("height", "550px");
+
+		$("#listClick1").attr("class", "");
+		$("#listClick2").attr("class", "");
+		$("#listClick3").attr("class", "");
+		$("#listClick4").attr("class", "");
+		$("#listClick6").attr("class", "");
+		$("#listClick7").attr("class", "menu_list_on");
 	}
 
 }

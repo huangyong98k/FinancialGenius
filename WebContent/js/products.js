@@ -12,8 +12,10 @@ function earn(){
         var rate = document.getElementById("rate").value;
         var earning=null;
         var spend=(principal*number);
+        var month=days/30;
         console.log(spend);
-        if((beginDate==""||undefined||null)||(overDate==""||null||undefined)){
+        console.log(days);
+        if((beginDate==""||undefined||null||NaN)||(overDate==""||null||undefined||NaN)||(days==NaN)){
         	document.getElementById("earning").value="";
         	document.getElementById("spend").value=spend;
         	return false
@@ -32,13 +34,12 @@ function earn(){
 			document.getElementById("earning").value="";
 			document.getElementById("spend").value=spend;
 			return false
-		}else if (days/30<1) {
+		}else if (month<1) {
 			alert("投资日期不足1个月！")
 			document.getElementById("earning").value=0;
 			document.getElementById("spend").value=spend;
 			return false
-		}
-		else{
+        }else{
 			earning=((principal*number*(days/30)*rate)/100).toFixed(2)
         	document.getElementById("earning").value=earning;
 			document.getElementById("spend").value=spend;

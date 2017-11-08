@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
        	        }
        	        });
        }
-
     });
 
     delete_photo_btn.addEventListener("click", function(e){

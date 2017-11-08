@@ -37,6 +37,10 @@
 			<div id="loginTabCon">
 				<div class="login-tab-con">
 					<form action="loginAction!login" method="post" id="pwdLoginForm">
+					<!-- cjj ###-->
+						<div id="demotao" style="line-height:30px;width: 350px;background-color: green;font-size: 19px;display: none;">
+							<span><h4 style="color: red">用户名或密码错误！</h4></span>
+						</div>
 						<div class="login-list">
 							<div id="pwdLoginTip" class="tip-error"></div>
 							<div class="item">
@@ -233,5 +237,15 @@
 				rel="nofollow"></a>
 		</div>
 	</div>
+	<script type="text/javascript">
+	 	$(function(){
+			if(<%=session.getAttribute("email")%>==2){
+				$("#demotao").css("display","inline");
+			}else {
+				$("#demotao").css("display","none");
+			}
+			<% session.setAttribute("email",1);%>
+		}); 
+	</script>
 </body>
 </html>

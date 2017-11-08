@@ -15,7 +15,7 @@
 	function checkDelete() {
 		if (confirm("你确定要退订吗？")) {
 			alert("退订成功！");
-			return true;
+			return true
 		} else {
 			return false;
 		}

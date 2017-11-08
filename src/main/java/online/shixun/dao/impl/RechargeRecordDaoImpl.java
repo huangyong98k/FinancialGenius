@@ -11,10 +11,12 @@ package online.shixun.dao.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import online.shixun.common.BaseDao;
 import online.shixun.dao.RechargeRecordDao;
 import online.shixun.model.RechargeRecord;
+import online.shixun.model.RechargeRecordDemo;
 
 /** 
 * @ClassName: RechargeRecordDaoImpl 
@@ -23,6 +25,7 @@ import online.shixun.model.RechargeRecord;
 * @date 2017年11月6日 下午2:20:19 
 *  
 */
+@Repository
 public class RechargeRecordDaoImpl implements RechargeRecordDao {
 	@Autowired
 	private BaseDao baseDao;
@@ -69,6 +72,12 @@ public class RechargeRecordDaoImpl implements RechargeRecordDao {
 	public int update(RechargeRecord rr) {
 		baseDao.getHibernateTemplate().update(rr);
 		return 1;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RechargeRecord> getRechargeRecordByUserId(String sql) {
+		return baseDao.getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(sql).addEntity(RechargeRecord.class).list();
 	}
 
 }

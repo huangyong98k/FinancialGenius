@@ -3,6 +3,10 @@
  */
 package online.shixun.services.impl;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +26,12 @@ public class BankCardService {
 	private UserDaoImpl userDaoImpl;
 
 	// 添加银行卡
-	public void addBankCardByUserId(BankCard bankCard, Long userId) {
+	public void addBankCardByUserId(BankCard bankCard) {
+		HttpServletRequest request=ServletActionContext.getRequest();//获得session
+        HttpSession session=request.getSession(); 
+        long userId = (long) session.getAttribute("userId");
 		bankCard.setUser(userDaoImpl.getById(userId));
 		bankCardDaoImpl.add(bankCard);
 	}
+
 }

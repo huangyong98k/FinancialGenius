@@ -43,6 +43,7 @@
 			<result name="add">/userManage/userList.jsp</result>
 			<result name="userByName">/userManage/userList.jsp</result>
 			<result name="getSuccess">/products/buyList.jsp</result>
+			<result name="bankCard">/userInfo/recharge.jsp</result>
 		</action>
 		<action name="productAction!*" class="online.shixun.action.ProductAction"
 			method="{1}">
@@ -88,6 +89,10 @@
 				<param name="root">result</param>
 			</result>
 			<result name="userInfo">my_info.jsp</result>
+		</action>
+		<action name="rechargeAction!*" class="online.shixun.action.RechargeAction" method="{1}">
+		<result name="success">/userInfo/addSuccess.jsp</result>
+		<result name="list">/userInfo/rechargeRecode.jsp</result>
 		</action>
 	</package>
 

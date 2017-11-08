@@ -21,11 +21,10 @@ public class BankCardAction {
 	private BankCardService bankCardService;
 	
 	private BankCard bankCard;
-	private Long userId;
 	
 	//绑定银行卡
 	public String addBankCard(){
-		bankCardService.addBankCardByUserId(bankCard, userId);
+		bankCardService.addBankCardByUserId(bankCard);
 		return "success";
 	}
 
@@ -33,15 +32,9 @@ public class BankCardAction {
 		return bankCard;
 	}
 
-	public Long getUserId() {
-		return userId;
-	}
 
 	public void setBankCard(BankCard bankCard) {
 		this.bankCard = bankCard;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
 }
