@@ -114,7 +114,7 @@ public class RegisterAction {
 	// 注册方法
 	public String register() {
 		System.out.println("userAction!register");
-		user.setNickName("贾博雅11o8");
+		user.setNickName(user.getUserName());
 		user.setUserBanlance(10d);
 		user.setHeadPortrait("mxtzr_4.png");
 		userService.addUser(user);

@@ -74,6 +74,24 @@ public class LoginAction{
 				}
 			}
 		}
+		
+		/**
+		 * 退出，清除Session
+		 */
+		public String quit(){
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.removeAttribute("userId");
+	        session.removeAttribute("nickName");
+	        session.removeAttribute("userName");
+	        session.removeAttribute("userEmail");
+	        session.removeAttribute("userBanlance");
+	        session.removeAttribute("headPortrait");
+
+	        session.removeAttribute("userPhone");
+	        session.removeAttribute("payPassword");
+			session.invalidate();
+			return "quit";
+		}
 		/**
 		 * @return the email
 		 */

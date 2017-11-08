@@ -29,7 +29,7 @@
                 <div class="for">
                     <a href="#" class="concerns" style="color:#a2acb3; margin-right:10px;">理财精灵俱乐部</a>
                     <a data-hm="navigation, nav_my_download" href="http://e.yooli.com/static/download/" style="color:#a2acb3;">关于我们<i class="icons app-yl"></i></a>
-                    <a data-hm="navigation, nav_register" href="register.html" style="color:#fc8936" rel="nofollow">免费注册</a>
+                    <a  data-hm="navigation, nav_register" href="loginAction!quit.action" style="color:#fc8936" rel="nofollow">退出</a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a data-hm="navigation, nav_login" href="userInfo/member_center.jsp" target="mainFrame" style="color:#349cd8">${nickName }</a></div>
                 <!-- <a data-hm="navigation, nav_login" href='/secure/login/' style="color:#349cd8;display: none;">个人中心</a></div> -->
             </div>

@@ -83,7 +83,7 @@ public class PortraitAction {
             System.out.println(second);
             StringBuilder sb = new StringBuilder();
             StringBuilder newName = new StringBuilder();
-            String imgFilePath = "G:\\桌面\\MyWebApp\\wtpwebapps\\FinancialGenius\\userInfo\\img\\investor_page\\";//新生成的图片  
+            String imgFilePath = "C:\\Users\\jiaboya\\Desktop\\mywebapps\\wtpwebapps\\FinancialGenius\\userInfo\\img\\investor_page\\";//新生成的图片  
             String imgFileName = userId.toString();
             sb.append(imgFilePath);
             sb.append(imgFileName);
