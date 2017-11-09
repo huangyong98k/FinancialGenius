@@ -39,7 +39,7 @@ $(function() {
 	<div class="headR">
 		<p class="p1">当前：</p>
 		<p class="p2">
-			<span class="resetPWD">帮助</span>&nbsp;&nbsp;<span class="goOut">退出</span>
+			<span class="resetPWD">帮助</span>&nbsp;&nbsp;<a href="login.jsp"><span class="goOut1">退出</span></a>
 		</p>
 	</div>
 	<!-- onclick="{if(confirm(&quot;确定退出吗&quot;)){return true;}return false;}" -->

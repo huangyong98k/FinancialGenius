@@ -86,8 +86,9 @@
 								.change(
 										function() {
 											var c = $(this);
-											var withdraw = $("#withdraw").val()
-													.trim();
+											var withdrawParas = $("#withdraw")
+													.val().trim();
+											var withdraw = parseFloat(withdrawParas)
 											var patternWithdraw = /^[1-9]\d*$/;
 											if (/[^\d]/.test(c.val())) {
 												var temp_amount = c.val()
@@ -109,7 +110,9 @@
 
 						$("#submit").click(
 								function() {
-									var withdraw = $("#withdraw").val().trim();
+									var withdrawParas = $("#withdraw").val()
+											.trim();
+									var withdraw = parseFloat(withdrawParas)
 									var payPassword = $("#payPassword").val()
 											.trim();
 									var check = $("#checkNumber").val()
@@ -166,7 +169,7 @@
 											+ day + " " + hour + ":" + minute
 											+ ":" + second
 									$("#rechargeTime").val(rechargeTime)
-							
+
 									//金额
 									$("#recharge").val(withdraw)
 								})
@@ -189,9 +192,9 @@
 					id="rechargeTime" name="rechargeRecord.rechargeTime"><input
 					type="hidden" id="type" name="rechargeRecord.rechargeType"
 					value="提现"> <input type="hidden" id="userBanlance"
-					name="userBanlance" value="${userBanlance }">
-					<input type="hidden" id="recharge" name="recharge">
-					<input type="hidden" id="flag" name="flag" value="1">
+					name="userBanlance" value="${userBanlance }"> <input
+					type="hidden" id="recharge" name="recharge"> <input
+					type="hidden" id="flag" name="flag" value="1">
 				<div class="row clearfix">
 					<div class="lbl">
 						<label for="withdraw"> 提现金额：</label>
@@ -207,7 +210,8 @@
 					</div>
 					<div class="ctrl">
 						<input type="password" id="payPassword" name="#" maxlength="6"
-							placeholder="请输入您的支付密码！" style="width: 99% ;height: 30px;border-radius: 4px">
+							placeholder="请输入您的支付密码！"
+							style="width: 99%; height: 30px; border-radius: 4px">
 					</div>
 				</div>
 				<div class="row clearfix">

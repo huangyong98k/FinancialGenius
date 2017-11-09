@@ -85,8 +85,9 @@
 								.change(
 										function() {
 											var c = $(this);
-											var recharge = $("#recharge").val()
-													.trim();
+											var rechargeParas = $("#recharge")
+													.val().trim();
+											var recharge = parseFloat(rechargeParas)
 											var patternRecharge = /^[1-9]\d*$/;
 											if (/[^\d]/.test(c.val())) {
 												var temp_amount = c.val()
@@ -100,7 +101,7 @@
 													.test(recharge)) {
 												alert("请输入合法的金额！")
 												return false
-											} else if (recharge > 100000) {
+											} else if (recharge > 1000000) {
 												alert("您的银行卡余额已不足！")
 												return false
 											}
@@ -108,7 +109,9 @@
 
 						$("#submit").click(
 								function() {
-									var recharge = $("#recharge").val().trim();
+									var rechargeParas = $("#recharge").val()
+											.trim();
+									var recharge = parseFloat(rechargeParas)
 									var payPassword = $("#payPassword").val()
 											.trim();
 									var check = $("#checkNumber").val()
@@ -117,7 +120,7 @@
 									if (recharge == "" || undefined || null) {
 										alert("请输入您要充值的金额！")
 										return false;
-									} else if (recharge > 100000) {
+									} else if (recharge > 1000000) {
 										alert("您的银行卡余额已不足！")
 										return false
 									} else if (payPassword == "" || undefined
@@ -164,7 +167,7 @@
 											+ day + " " + hour + ":" + minute
 											+ ":" + second
 									$("#rechargeTime").val(rechargeTime)
-									
+
 									//金额
 									$("#recharges").val(recharge)
 								})
@@ -186,9 +189,9 @@
 					value="${payPassword }"> <input type="hidden"
 					id="rechargeTime" name="rechargeRecord.rechargeTime"> <input
 					type="hidden" id="type" name="rechargeRecord.rechargeType"
-					value="充值">
-					<input type="hidden" id="recharges" name="recharge">
-					<input type="hidden" id="flag" name="flag" value="0">
+					value="充值"> <input type="hidden" id="recharges"
+					name="recharge"> <input type="hidden" id="flag" name="flag"
+					value="0">
 				<div class="row clearfix">
 					<div class="lbl">
 						<label for="recharge"> 充值金额：</label>
@@ -204,7 +207,8 @@
 					</div>
 					<div class="ctrl">
 						<input type="password" id="payPassword" name="payPassword"
-							maxlength="6" placeholder="请输入您的支付密码！" style="width: 99% ;height: 30px;border-radius: 4px">
+							maxlength="6" placeholder="请输入您的支付密码！"
+							style="width: 99%; height: 30px; border-radius: 4px">
 					</div>
 				</div>
 				<div class="row clearfix">

@@ -23,7 +23,7 @@
 <body>
 	<div class="main-header wrap-base wrap-clear">
 		<div class="logo wrap-left">
-			<a href="/zhigou"> <img src="image/logoko.png">
+			<a href="index.html"> <img src="image/logoko.png">
 			</a>
 		</div>
 		<p class="tit border-1-e5 wrap-left">登录</p>

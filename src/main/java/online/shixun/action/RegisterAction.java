@@ -115,6 +115,8 @@ public class RegisterAction {
 	public String register() {
 		System.out.println("userAction!register");
 		user.setNickName(user.getUserName());
+		user.setHouseholdRegister("贵州");
+		user.setPayPassword(user.getUserCard().substring(user.getUserCard().length()-6, user.getUserCard().length()));
 		user.setUserBanlance(10d);
 		user.setHeadPortrait("mxtzr_4.png");
 		userService.addUser(user);

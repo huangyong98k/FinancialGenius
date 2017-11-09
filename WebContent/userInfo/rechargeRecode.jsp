@@ -15,7 +15,9 @@
 <body>
 	<div id="content">
 		<h2>交易记录</h2>
+		<br>
 		<hr />
+		
 		<table class="table" id="table">
 			<thead>
 				<tr id="trHead">
